@@ -1,0 +1,84 @@
+{
+  "blademaster:Combo": {
+    "NAME": "Combo",
+    "DESCRIPTIONS": [
+      "Resource used for playing #bFinishers. Combo is reset to 0 at the end of your turn. NL You currently have #b",
+      " Combo. Gain more by playing cards!"
+    ]
+  },
+  "blademaster:Fury": {
+    "NAME": "Fury",
+    "DESCRIPTIONS": [
+      "Resource used for playing #bFinishers. Fury is reset to 0 at the end of your turn. NL You currently have #b",
+      " Fury. Gain more by dealing damage!"
+    ]
+  },
+  "blademaster:Tired": {
+    "NAME": "Tired",
+    "DESCRIPTIONS": [
+      "You've played a #bCombo #bFinisher this turn. You can't gain any more #bCombo!"
+    ]
+  },
+  "blademaster:Calmness": {
+    "NAME": "Calmness",
+    "DESCRIPTIONS": [
+      "You've played a #bFury #bFinisher this turn. You can't gain any more #bFury!"
+    ]
+  },
+  "SharpBlades": {
+    "NAME": "Sharp Blades",
+    "DESCRIPTIONS": [
+      "Your #yBlades apply #yBleeding on hit."
+    ]
+  },
+  "Meditate": {
+    "NAME": "Meditate",
+    "DESCRIPTIONS": [
+      "Whenever you channel a #yBlade, heal #b",
+      " #yHP."
+    ]
+  },
+  "Recklessness": {
+    "NAME": "Recklessness",
+    "DESCRIPTIONS": [
+      "At the start of your turn, gain #b",
+      " #yVulnerable and channel #b",
+      " #yBlade",
+      " #yBlades"
+    ]
+  },
+  "LightningCharge": {
+    "NAME": "Lightning Charge",
+    "DESCRIPTIONS": [
+      "A #yCharge used for #rFinishers in #yLightning #yStance. You currently have ",
+      " #yLightning #yCharges."
+    ]
+  },
+  "WindCharge": {
+    "NAME": "Wind Charge",
+    "DESCRIPTIONS": [
+      "A #yCharge used for #rFinishers in #yWind #yStance. You currently have ",
+      " #yWind #yCharges."
+    ]
+  },
+  "LightningStance": {
+    "NAME": "Lightning Stance",
+    "DESCRIPTIONS": [
+      "A #yStance that allows the generation of #yLightning #yCharges. NL At the end of your turn, deal damage equal to 2 times the amount of #yLightning #yCharges to all enemies."
+    ]
+  },
+  "WindStance": {
+    "NAME": "Wind Stance",
+    "DESCRIPTIONS": [
+      "A #yStance that allows the generation of #yWind #yCharges. NL At the end of your turn, gain block equal to 2 times the amount of #yWind #yCharges."
+    ]
+  },
+  "EyeOfTheStorm": {
+    "NAME": "Eye of the Storm",
+    "DESCRIPTIONS": [
+      "Whenever you're attacked, reduce the damage by ",
+      " and gain ",
+      " #rLightning #yCharge."
+    ]
+  }
+}

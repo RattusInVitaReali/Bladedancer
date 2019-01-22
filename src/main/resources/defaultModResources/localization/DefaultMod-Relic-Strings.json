@@ -1,0 +1,16 @@
+{
+	"blademaster:RingOfFury": {
+		"NAME": "Ring of Fury",
+		"FLAVOR": "You feel getting angrier by the minute.",
+		"DESCRIPTIONS": [
+			"At the start of each combat, gain #bFury."
+		]
+	},
+	"blademaster:RingOfSpeed": {
+		"NAME": "Ring of Speed",
+		"FLAVOR": "How would this even work..?",
+		"DESCRIPTIONS": [
+			"At the start of each combat, gain #bCombo."
+		]
+	}
+}
