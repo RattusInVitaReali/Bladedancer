@@ -9,7 +9,6 @@ import blademaster.variables.LightningSpirit;
 import blademaster.variables.WindSpirit;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.utils.compression.lzma.Base;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -263,9 +262,10 @@ public class Blademaster
         logger.info("Add Cards");
         // Add the cards
         BaseMod.addCard(new AwakeningStrike());
+        BaseMod.addCard(new BasicAttack());
         BaseMod.addCard(new BladeMastery());
-        BaseMod.addCard(new CloudOfSteel());
         BaseMod.addCard(new Breeze());
+        BaseMod.addCard(new CloudOfSteel());
         BaseMod.addCard(new Defend());
         BaseMod.addCard(new DefiantStance());
         BaseMod.addCard(new EyeOfTheStorm());
@@ -277,6 +277,7 @@ public class Blademaster
         BaseMod.addCard(new Lacerate());
         BaseMod.addCard(new LightningCrash());
         BaseMod.addCard(new LightningDash());
+        BaseMod.addCard(new LightningDraw());
         BaseMod.addCard(new Meditate());
         BaseMod.addCard(new Parry());
         BaseMod.addCard(new ParryingStrike());
@@ -284,11 +285,14 @@ public class Blademaster
         BaseMod.addCard(new Recklessness());
         BaseMod.addCard(new Retreat());
         BaseMod.addCard(new RollingTyphoon());
-        BaseMod.addCard(new SharpBlades());
         BaseMod.addCard(new SecondWind());
+        BaseMod.addCard(new SharpBlades());
+        BaseMod.addCard(new Stormstrike());
         BaseMod.addCard(new Strike());
         BaseMod.addCard(new Sunder());
+        BaseMod.addCard(new Surge());
         BaseMod.addCard(new WindSlash());
+        BaseMod.addCard(new Windwall());
         BaseMod.addCard(new Zephyr());
         
         //Wind
@@ -317,8 +321,9 @@ public class Blademaster
         // Unlock the cards
         UnlockTracker.unlockCard(AwakeningStrike.ID);
         UnlockTracker.unlockCard(BladeMastery.ID);
-        UnlockTracker.unlockCard(CloudOfSteel.ID);
+        UnlockTracker.unlockCard(BasicAttack.ID);
         UnlockTracker.unlockCard(Breeze.ID);
+        UnlockTracker.unlockCard(CloudOfSteel.ID);
         UnlockTracker.unlockCard(Defend.ID);
         UnlockTracker.unlockCard(DefiantStance.ID);
         UnlockTracker.unlockCard(EyeOfTheStorm.ID);
@@ -330,6 +335,7 @@ public class Blademaster
         UnlockTracker.unlockCard(Lacerate.ID);
         UnlockTracker.unlockCard(LightningCrash.ID);
         UnlockTracker.unlockCard(LightningDash.ID);
+        UnlockTracker.unlockCard(LightningDraw.ID);
         UnlockTracker.unlockCard(Meditate.ID);
         UnlockTracker.unlockCard(Parry.ID);
         UnlockTracker.unlockCard(ParryingStrike.ID);
@@ -337,11 +343,13 @@ public class Blademaster
         UnlockTracker.unlockCard(Recklessness.ID);
         UnlockTracker.unlockCard(Retreat.ID);
         UnlockTracker.unlockCard(RollingTyphoon.ID);
-        UnlockTracker.unlockCard(SharpBlades.ID);
         UnlockTracker.unlockCard(SecondWind.ID);
+        UnlockTracker.unlockCard(SharpBlades.ID);
         UnlockTracker.unlockCard(Strike.ID);
         UnlockTracker.unlockCard(Sunder.ID);
+        UnlockTracker.unlockCard(Surge.ID);
         UnlockTracker.unlockCard(WindSlash.ID);
+        UnlockTracker.unlockCard(Windwall.ID);
         UnlockTracker.unlockCard(Zephyr.ID);
         
         //Wind

@@ -1,12 +1,11 @@
 package blademaster.cards;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import blademaster.actions.BasicStanceAction;
+import blademaster.actions.RemoveStancesAction;
+import blademaster.powers.BasicStance;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.vfx.combat.DaggerSprayEffect;
-import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -37,13 +36,17 @@ public class Retreat extends CustomCard {
 
     public Retreat() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.baseMagicNumber = this.magicNumber = BLOCK;
+        this.baseBlock = this.block = BLOCK;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.magicNumber));
-
+        if (!p.hasPower(BasicStance.POWER_ID)) {
+            AbstractDungeon.actionManager.addToBottom(new RemoveStancesAction());
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new BasicStance(p)));
+            AbstractDungeon.actionManager.addToBottom(new BasicStanceAction());
+        }
     }
 
     @Override

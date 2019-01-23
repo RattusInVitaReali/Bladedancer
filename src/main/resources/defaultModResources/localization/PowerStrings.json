@@ -80,5 +80,11 @@
       " and gain ",
       " #rLightning #yCharge."
     ]
+  },
+  "BasicStance": {
+    "NAME": "Basic Stance",
+    "DESCRIPTIONS": [
+      "A #yStance that doesn't really do much."
+    ]
   }
 }

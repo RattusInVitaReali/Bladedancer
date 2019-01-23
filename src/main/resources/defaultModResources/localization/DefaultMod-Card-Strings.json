@@ -117,7 +117,7 @@
 	},
 	"blademaster:LightningRollingTyphoon": {
 		"NAME": "Lightning Rolling Typhoon",
-		"DESCRIPTION": "Finisher. Requires 30 Fury to activate. NL Deal !M! damage. Deal !D! damage to all enemies. Gain !L! Metalicize."
+		"DESCRIPTION": "Finisher. Requires 30 Fury to activate. NL Deal !M! damage. Deal !D! damage to all enemies. Gain !L! Metallicize."
 	},
 	"blademaster:EyeOfTheStorm": {
 		"NAME": "Eye of the Storm",
@@ -134,5 +134,21 @@
 	"blademaster:FallBack": {
 		"NAME": "Fall Back",
 		"DESCRIPTION": "Evoke ALL of your Orbs. Gain !B! block for each Orb evoked."
+	},
+	"blademaster:Windwall": {
+		"NAME": "Windwall",
+		"DESCRIPTION": "Finisher. Requires 5 Combo. NL Only playable in Wind Stance. NL Gain !M! Metallicize."
+	},
+	"blademaster:LightningDraw": {
+		"NAME": "Lightning Draw",
+		"DESCRIPTION": "Finisher. Requires 4 Combo. NL Deal !D! damage and apply !M! Bleeding to ALL enemies. NL Change your Stance to Lightning Stance."
+	},
+	"blademaster:Surge": {
+		"NAME": "Surge",
+		"DESCRIPTION": "Consume up to 3 Charges and gain Artifact equal to the amount consumed. NL Only usable while in Lightning or Wind Stance."
+	},
+	"blademaster:Stormstrike": {
+		"NAME": "Stormstrike",
+		"DESCRIPTION": "Only playable in Lightning Stance. NL Deal !D! damage. NL Deal damage equal to !M! times the amount of Lightning Charges. NL (You currently have !L! Lightning Charges.)"
 	}
 }

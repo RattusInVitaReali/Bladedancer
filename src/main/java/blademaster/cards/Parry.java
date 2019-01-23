@@ -32,6 +32,7 @@ public class Parry extends CustomCard {
 
     public Parry() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        this.exhaust = true;
     }
 
     @Override

@@ -22,9 +22,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.powers.MalleablePower;
 import com.megacrit.cardcrawl.powers.ThornsPower;
-import com.megacrit.cardcrawl.vfx.combat.DarkOrbActivateEffect;
-import com.megacrit.cardcrawl.vfx.combat.DarkOrbPassiveEffect;
-import com.megacrit.cardcrawl.vfx.combat.OrbFlareEffect;
+import com.megacrit.cardcrawl.vfx.combat.*;
 import blademaster.interfaces.onUseCardOrb;
 import ratmod.powers.BleedingPower;
 
@@ -88,7 +86,7 @@ public class ParryOrb
         this.vfxTimer -= Gdx.graphics.getDeltaTime();
         if (this.vfxTimer < 0.0F)
         {
-            AbstractDungeon.effectList.add(new DarkOrbPassiveEffect(this.cX, this.cY));
+            AbstractDungeon.effectList.add(new PlasmaOrbPassiveEffect(this.cX, this.cY));
             this.vfxTimer = 0.25F;
         }
     }
@@ -111,7 +109,7 @@ public class ParryOrb
     public void triggerEvokeAnimation()
     {
         CardCrawlGame.sound.play("CARD_BURN", 0.1F);
-        AbstractDungeon.effectsQueue.add(new DarkOrbActivateEffect(this.cX, this.cY));
+        AbstractDungeon.effectsQueue.add(new PlasmaOrbActivateEffect(this.cX, this.cY));
     }
 
     public void playChannelSFX()

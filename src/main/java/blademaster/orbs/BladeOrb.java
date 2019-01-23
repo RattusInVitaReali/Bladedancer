@@ -49,7 +49,7 @@ public class BladeOrb
         this.name = "Blade";
         this.baseEvokeAmount = 5;
         this.evokeAmount = this.baseEvokeAmount;
-        this.basePassiveAmount = 3;
+        this.basePassiveAmount = 2;
         this.passiveAmount = this.basePassiveAmount;
         updateDescription();
         this.angle = MathUtils.random(360.0F);

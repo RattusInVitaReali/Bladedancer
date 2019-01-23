@@ -47,9 +47,9 @@ public class AwakenedBladeOrb
         this.ID = "AwakenedBlade";
         this.img = ORB_BLADE;
         this.name = "Awakened Blade";
-        this.baseEvokeAmount = 5;
+        this.baseEvokeAmount = 7;
         this.evokeAmount = this.baseEvokeAmount;
-        this.basePassiveAmount = 3;
+        this.basePassiveAmount = 2;
         this.passiveAmount = this.basePassiveAmount;
         updateDescription();
         this.angle = MathUtils.random(360.0F);
