@@ -1,7 +1,7 @@
 {
 	"blademaster:RingOfFury": {
 		"NAME": "Ring of Fury",
-		"FLAVOR": "You feel getting angrier by the minute.",
+		"FLAVOR": "You feel yourself getting angrier by the minute.",
 		"DESCRIPTIONS": [
 			"At the start of each combat, gain #bFury."
 		]
