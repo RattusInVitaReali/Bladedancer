@@ -34,32 +34,28 @@ public class LightningStanceAction
     public void update() {
         for (String[] key : cardsMapLightning.keySet()) {
             for (String s : key) {
-                for (AbstractCard c : AbstractDungeon.player.hand.group) {
+                for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
                     if (c.cardID.equals(s)) {
-                        AbstractDungeon.actionManager.addToBottom(new PurgeSpecificCardAction(c, AbstractDungeon.player.hand));
+                        AbstractCard card = cardsMapLightning.get(key);
                         if (c.upgraded) {
-                            AbstractCard card = cardsMapLightning.get(key);
                             card.upgrade();
-                            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(card, 1));
-                        } else {
-                            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(cardsMapLightning.get(key).makeStatEquivalentCopy(), 1));
                         }
+                        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(card, 1, true, false, false));
+                        AbstractDungeon.actionManager.addToBottom(new PurgeSpecificCardAction(c, AbstractDungeon.player.drawPile));
                     }
                 }
             }
         }
         for (String[] key : cardsMapLightning.keySet()) {
             for (String s : key) {
-                for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
+                for (AbstractCard c : AbstractDungeon.player.hand.group) {
                     if (c.cardID.equals(s)) {
-                        AbstractDungeon.actionManager.addToBottom(new PurgeSpecificCardAction(c, AbstractDungeon.player.drawPile));
+                        AbstractCard card = cardsMapLightning.get(key);
                         if (c.upgraded) {
-                            AbstractCard card = cardsMapLightning.get(key);
                             card.upgrade();
-                            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(card, 1, true, false, false));
-                        } else {
-                            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(cardsMapLightning.get(key).makeStatEquivalentCopy(), 1, true, false, false));
                         }
+                        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(card, 1));
+                        AbstractDungeon.actionManager.addToBottom(new PurgeSpecificCardAction(c, AbstractDungeon.player.hand));
                     }
                 }
             }
@@ -68,14 +64,12 @@ public class LightningStanceAction
             for (String s : key) {
                 for (AbstractCard c : AbstractDungeon.player.discardPile.group) {
                     if (c.cardID.equals(s)) {
-                        AbstractDungeon.actionManager.addToBottom(new PurgeSpecificCardAction(c, AbstractDungeon.player.discardPile));
+                        AbstractCard card = cardsMapLightning.get(key);
                         if (c.upgraded) {
-                            AbstractCard card = cardsMapLightning.get(key);
                             card.upgrade();
-                            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(card, 1));
-                        } else {
-                            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(cardsMapLightning.get(key).makeStatEquivalentCopy(), 1));
                         }
+                        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(card, 1));
+                        AbstractDungeon.actionManager.addToBottom(new PurgeSpecificCardAction(c, AbstractDungeon.player.discardPile));
                     }
                 }
             }

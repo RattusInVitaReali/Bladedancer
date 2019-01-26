@@ -1,6 +1,7 @@
 package blademaster.cards.wind;
 
 import blademaster.actions.AwakenBladeOrbAction;
+import blademaster.patches.BlademasterTags;
 import blademaster.powers.WindCharge;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -43,6 +44,7 @@ public class WindAwakeningStrike extends CustomCard {
         this.damage = this.baseDamage;
         this.baseMagicNumber = NUM;
         this.magicNumber = this.baseMagicNumber;
+        this.tags.add(BlademasterTags.WIND_STANCE);
 
     }
 

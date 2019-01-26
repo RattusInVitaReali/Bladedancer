@@ -1,5 +1,6 @@
 package blademaster.cards.wind;
 
+import blademaster.patches.BlademasterTags;
 import blademaster.powers.CalmnessPower;
 import blademaster.powers.FuryPower;
 import blademaster.powers.WindCharge;
@@ -48,6 +49,8 @@ public class WindRollingTyphoon extends CustomCard {
         this.baseMagicNumber = DAMAGE;
         this.magicNumber = this.baseMagicNumber;
         this.damage = this.baseDamage;
+        this.tags.add(BlademasterTags.FURY_FINISHER);
+        this.tags.add(BlademasterTags.WIND_STANCE);
     }
 
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {

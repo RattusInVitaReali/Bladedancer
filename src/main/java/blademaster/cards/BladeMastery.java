@@ -28,7 +28,7 @@ public class BladeMastery extends CustomCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
 
-    private static final int COST = 0;
+    private static final int COST = 1;
     private static final int ORB = 1;
 
 
@@ -37,6 +37,7 @@ public class BladeMastery extends CustomCard {
         this.baseMagicNumber = ORB;
         this.magicNumber = this.baseMagicNumber;
         this.exhaust = true;
+        this.isInnate = true;
     }
 
     @Override
@@ -54,7 +55,6 @@ public class BladeMastery extends CustomCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.isInnate = true;
             this.initializeDescription();
         }
     }

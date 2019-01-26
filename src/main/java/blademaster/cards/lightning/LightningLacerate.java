@@ -3,6 +3,7 @@ package blademaster.cards.lightning;
 import basemod.abstracts.CustomCard;
 import blademaster.Blademaster;
 import blademaster.patches.AbstractCardEnum;
+import blademaster.patches.BlademasterTags;
 import blademaster.powers.LightningCharge;
 import blademaster.powers.WindCharge;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -39,6 +40,7 @@ public class LightningLacerate extends CustomCard {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = DAMAGE;
         this.damage = this.baseDamage;
+        this.tags.add(BlademasterTags.LIGHTNING_STANCE);
     }
 
     @Override

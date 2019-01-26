@@ -2,6 +2,7 @@ package blademaster.cards;
 
 import blademaster.actions.LightningStanceAction;
 import blademaster.actions.RemoveStancesAction;
+import blademaster.patches.BlademasterTags;
 import blademaster.powers.ComboPower;
 import blademaster.powers.LightningStance;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -45,7 +46,9 @@ public class LightningDraw extends CustomCard {
     private static final int BLEED = 3;
 
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        return p.getPower(ComboPower.POWER_ID).amount >= 4;
+        if (p.hasPower(ComboPower.POWER_ID)){
+            return p.getPower(ComboPower.POWER_ID).amount >= 4;
+        } else return false;
     }
 
 
@@ -53,6 +56,8 @@ public class LightningDraw extends CustomCard {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = this.damage = DAMAGE;
         this.baseMagicNumber = this.magicNumber = BLEED;
+        this.tags.add(BlademasterTags.COMBO_FINISHER);
+        this.tags.add(BlademasterTags.LIGHTNING_STANCE);
     }
 
     @Override

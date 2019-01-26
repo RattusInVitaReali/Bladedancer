@@ -1,6 +1,7 @@
 package blademaster.cards.wind;
 
 import blademaster.cards.Gale;
+import blademaster.patches.BlademasterTags;
 import blademaster.powers.WindCharge;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -47,6 +48,7 @@ public class WindBreeze extends CustomCard {
         this.baseMagicNumber = DAMAGE;
         this.magicNumber = this.baseMagicNumber;
         this.isMultiDamage = true;
+        this.tags.add(BlademasterTags.WIND_STANCE);
     }
 
     @Override

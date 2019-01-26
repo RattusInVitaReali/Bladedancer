@@ -2,6 +2,7 @@ package blademaster.cards;
 
 import blademaster.actions.RemoveStancesAction;
 import blademaster.actions.WindStanceAction;
+import blademaster.patches.BlademasterTags;
 import blademaster.powers.ComboPower;
 import blademaster.powers.TiredPower;
 import blademaster.powers.WindCharge;
@@ -48,6 +49,7 @@ public class SecondWind extends CustomCard {
         this.block = this.baseBlock;
         this.baseMagicNumber = AMT;
         this.magicNumber = this.baseMagicNumber;
+        this.tags.add(BlademasterTags.COMBO_FINISHER);
     }
 
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {

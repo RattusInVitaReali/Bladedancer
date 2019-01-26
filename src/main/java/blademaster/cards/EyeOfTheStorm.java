@@ -1,5 +1,6 @@
 package blademaster.cards;
 
+import blademaster.patches.BlademasterTags;
 import blademaster.powers.EyeOfTheStormPower;
 import blademaster.powers.LightningStance;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -43,6 +44,7 @@ public class EyeOfTheStorm extends CustomCard {
 
     public EyeOfTheStorm() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        this.tags.add(BlademasterTags.LIGHTNING_STANCE);
     }
 
     @Override

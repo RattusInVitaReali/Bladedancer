@@ -3,6 +3,7 @@ package blademaster.cards.lightning;
 import basemod.abstracts.CustomCard;
 import blademaster.Blademaster;
 import blademaster.patches.AbstractCardEnum;
+import blademaster.patches.BlademasterTags;
 import blademaster.powers.CalmnessPower;
 import blademaster.powers.FuryPower;
 import blademaster.powers.LightningCharge;
@@ -52,6 +53,8 @@ public class LightningRollingTyphoon extends CustomCard {
         this.baseMagicNumber = DAMAGE;
         this.magicNumber = this.baseMagicNumber;
         this.damage = this.baseDamage;
+        this.tags.add(BlademasterTags.FURY_FINISHER);
+        this.tags.add(BlademasterTags.LIGHTNING_STANCE);
     }
 
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {

@@ -1,5 +1,6 @@
 package blademaster.cards.wind;
 
+import blademaster.patches.BlademasterTags;
 import blademaster.powers.CalmnessPower;
 import blademaster.powers.ComboPower;
 import blademaster.powers.FuryPower;
@@ -52,6 +53,9 @@ public class WindRagingBlow extends CustomCard {
         this.baseMagicNumber = AMT;
         this.damage = this.baseDamage;
         this.magicNumber = this.baseMagicNumber;
+        this.tags.add(BlademasterTags.FURY_FINISHER);
+        this.tags.add(BlademasterTags.WIND_STANCE);
+
 
     }
 
@@ -59,7 +63,7 @@ public class WindRagingBlow extends CustomCard {
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
         cantUseMessage = "I'm not furious enough!";
         if (AbstractDungeon.player.hasPower(FuryPower.POWER_ID)) {
-            return AbstractDungeon.player.getPower(FuryPower.POWER_ID).amount >= 17;
+            return AbstractDungeon.player.getPower(FuryPower.POWER_ID).amount >= 15;
         } else {
             return false;
         }

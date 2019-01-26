@@ -1,5 +1,6 @@
 package blademaster.cards;
 
+import blademaster.patches.BlademasterTags;
 import blademaster.powers.CalmnessPower;
 import blademaster.powers.FuryPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -46,6 +47,7 @@ public class RollingTyphoon extends CustomCard {
         this.baseMagicNumber = DAMAGE;
         this.magicNumber = this.baseMagicNumber;
         this.damage = this.baseDamage;
+        this.tags.add(BlademasterTags.FURY_FINISHER);
     }
 
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {

@@ -3,6 +3,7 @@ package blademaster.cards.lightning;
 import basemod.abstracts.CustomCard;
 import blademaster.Blademaster;
 import blademaster.patches.AbstractCardEnum;
+import blademaster.patches.BlademasterTags;
 import blademaster.powers.LightningCharge;
 import blademaster.powers.WindCharge;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -47,6 +48,7 @@ public class LightningGale extends CustomCard {
         this.magicNumber = this.baseMagicNumber;
         this.exhaust = true;
         this.isEthereal = true;
+        this.tags.add(BlademasterTags.LIGHTNING_STANCE);
     }
 
     @Override

@@ -1,5 +1,6 @@
 package blademaster.cards.wind;
 
+import blademaster.patches.BlademasterTags;
 import blademaster.powers.WindCharge;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -42,6 +43,7 @@ public class WindLacerate extends CustomCard {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = DAMAGE;
         this.damage = this.baseDamage;
+        this.tags.add(BlademasterTags.WIND_STANCE);
     }
 
     @Override

@@ -1,5 +1,6 @@
 package blademaster.cards;
 
+import blademaster.patches.BlademasterTags;
 import blademaster.powers.LightningCharge;
 import blademaster.powers.LightningStance;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -45,6 +46,7 @@ public class Stormstrike extends CustomCard {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = this.damage = DAMAGE;
         this.baseMagicNumber = this.magicNumber = MULT;
+        this.tags.add(BlademasterTags.LIGHTNING_STANCE);
     }
 
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {

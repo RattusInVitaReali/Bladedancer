@@ -36,14 +36,12 @@ public class BasicStanceAction
             for (String s : key) {
                 for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
                     if (c.cardID.equals(s)) {
-                        AbstractDungeon.actionManager.addToBottom(new PurgeSpecificCardAction(c, AbstractDungeon.player.drawPile));
+                        AbstractCard card = cardsMapBasic.get(key);
                         if (c.upgraded) {
-                            AbstractCard card = cardsMapBasic.get(key);
                             card.upgrade();
-                            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(card, 1, true, false, false));
-                        } else {
-                            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(cardsMapBasic.get(key).makeStatEquivalentCopy(), 1, true, false, false));
                         }
+                        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(card, 1, true, false, false));
+                        AbstractDungeon.actionManager.addToBottom(new PurgeSpecificCardAction(c, AbstractDungeon.player.drawPile));
                     }
                 }
             }
@@ -52,14 +50,12 @@ public class BasicStanceAction
             for (String s : key) {
                 for (AbstractCard c : AbstractDungeon.player.hand.group) {
                     if (c.cardID.equals(s)) {
-                        AbstractDungeon.actionManager.addToBottom(new PurgeSpecificCardAction(c, AbstractDungeon.player.hand));
+                        AbstractCard card = cardsMapBasic.get(key);
                         if (c.upgraded) {
-                            AbstractCard card = cardsMapBasic.get(key);
                             card.upgrade();
-                            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(card, 1));
-                        } else {
-                            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(cardsMapBasic.get(key).makeStatEquivalentCopy(), 1));
                         }
+                        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(card, 1));
+                        AbstractDungeon.actionManager.addToBottom(new PurgeSpecificCardAction(c, AbstractDungeon.player.hand));
                     }
                 }
             }
@@ -68,14 +64,12 @@ public class BasicStanceAction
             for (String s : key) {
                 for (AbstractCard c : AbstractDungeon.player.discardPile.group) {
                     if (c.cardID.equals(s)) {
-                        AbstractDungeon.actionManager.addToBottom(new PurgeSpecificCardAction(c, AbstractDungeon.player.discardPile));
+                        AbstractCard card = cardsMapBasic.get(key);
                         if (c.upgraded) {
-                            AbstractCard card = cardsMapBasic.get(key);
                             card.upgrade();
-                            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(card, 1));
-                        } else {
-                            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(cardsMapBasic.get(key).makeStatEquivalentCopy(), 1));
                         }
+                        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(card, 1));
+                        AbstractDungeon.actionManager.addToBottom(new PurgeSpecificCardAction(c, AbstractDungeon.player.discardPile));
                     }
                 }
             }

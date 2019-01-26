@@ -42,7 +42,15 @@ public class Windwall extends CustomCard {
 
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
         cantUseMessage = "I'm not in Wind Stance!";
-        return (p.hasPower(WindStance.POWER_ID) && p.getPower(ComboPower.POWER_ID).amount > 5);
+        if (p.hasPower(WindStance.POWER_ID)) {
+            if (p.hasPower(ComboPower.POWER_ID)) {
+                return p.getPower(ComboPower.POWER_ID).amount >= 5;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
     }
 
     @Override

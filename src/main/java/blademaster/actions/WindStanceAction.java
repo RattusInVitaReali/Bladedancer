@@ -37,14 +37,12 @@ public class WindStanceAction
             for (String s : key) {
                 for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
                     if (c.cardID.equals(s)) {
-                        AbstractDungeon.actionManager.addToBottom(new PurgeSpecificCardAction(c, AbstractDungeon.player.drawPile));
+                        AbstractCard card = cardsMapWind.get(key);
                         if (c.upgraded) {
-                            AbstractCard card = cardsMapWind.get(key);
                             card.upgrade();
-                            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(card, 1, true, false, false));
-                        } else {
-                            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(cardsMapWind.get(key).makeStatEquivalentCopy(), 1, true, false, false));
                         }
+                        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(card, 1, true, false, false));
+                        AbstractDungeon.actionManager.addToBottom(new PurgeSpecificCardAction(c, AbstractDungeon.player.drawPile));
                     }
                 }
             }
@@ -53,14 +51,12 @@ public class WindStanceAction
             for (String s : key) {
                 for (AbstractCard c : AbstractDungeon.player.hand.group) {
                     if (c.cardID.equals(s)) {
-                        AbstractDungeon.actionManager.addToBottom(new PurgeSpecificCardAction(c, AbstractDungeon.player.hand));
+                        AbstractCard card = cardsMapWind.get(key);
                         if (c.upgraded) {
-                            AbstractCard card = cardsMapWind.get(key);
                             card.upgrade();
-                            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(card, 1));
-                        } else {
-                            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(cardsMapWind.get(key).makeStatEquivalentCopy(), 1));
                         }
+                        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(card, 1));
+                        AbstractDungeon.actionManager.addToBottom(new PurgeSpecificCardAction(c, AbstractDungeon.player.hand));
                     }
                 }
             }
@@ -69,14 +65,12 @@ public class WindStanceAction
             for (String s : key) {
                 for (AbstractCard c : AbstractDungeon.player.discardPile.group) {
                     if (c.cardID.equals(s)) {
-                        AbstractDungeon.actionManager.addToBottom(new PurgeSpecificCardAction(c, AbstractDungeon.player.discardPile));
+                        AbstractCard card = cardsMapWind.get(key);
                         if (c.upgraded) {
-                            AbstractCard card = cardsMapWind.get(key);
                             card.upgrade();
-                            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(card, 1));
-                        } else {
-                            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(cardsMapWind.get(key).makeStatEquivalentCopy(), 1));
                         }
+                        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(card, 1));
+                        AbstractDungeon.actionManager.addToBottom(new PurgeSpecificCardAction(c, AbstractDungeon.player.discardPile));
                     }
                 }
             }

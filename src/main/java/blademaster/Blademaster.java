@@ -1,5 +1,6 @@
 package blademaster;
 
+import basemod.abstracts.CustomCard;
 import blademaster.cards.*;
 import blademaster.cards.wind.*;
 import blademaster.cards.lightning.*;
@@ -9,8 +10,11 @@ import blademaster.variables.LightningSpirit;
 import blademaster.variables.WindSpirit;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.utils.compression.lzma.Base;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.helpers.CardHelper;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
@@ -265,6 +269,7 @@ public class Blademaster
         BaseMod.addCard(new BasicAttack());
         BaseMod.addCard(new BladeMastery());
         BaseMod.addCard(new Breeze());
+        BaseMod.addCard(new ChargingUp());
         BaseMod.addCard(new CloudOfSteel());
         BaseMod.addCard(new Defend());
         BaseMod.addCard(new DefiantStance());
@@ -285,13 +290,16 @@ public class Blademaster
         BaseMod.addCard(new Recklessness());
         BaseMod.addCard(new Retreat());
         BaseMod.addCard(new RollingTyphoon());
+        BaseMod.addCard(new Safeguard());
         BaseMod.addCard(new SecondWind());
         BaseMod.addCard(new SharpBlades());
+        BaseMod.addCard(new StanceMastery());
         BaseMod.addCard(new Stormstrike());
         BaseMod.addCard(new Strike());
         BaseMod.addCard(new Sunder());
         BaseMod.addCard(new Surge());
         BaseMod.addCard(new WindSlash());
+        BaseMod.addCard(new Windstorm());
         BaseMod.addCard(new Windwall());
         BaseMod.addCard(new Zephyr());
         
@@ -323,6 +331,7 @@ public class Blademaster
         UnlockTracker.unlockCard(BladeMastery.ID);
         UnlockTracker.unlockCard(BasicAttack.ID);
         UnlockTracker.unlockCard(Breeze.ID);
+        UnlockTracker.unlockCard(ChargingUp.ID);
         UnlockTracker.unlockCard(CloudOfSteel.ID);
         UnlockTracker.unlockCard(Defend.ID);
         UnlockTracker.unlockCard(DefiantStance.ID);
@@ -343,12 +352,16 @@ public class Blademaster
         UnlockTracker.unlockCard(Recklessness.ID);
         UnlockTracker.unlockCard(Retreat.ID);
         UnlockTracker.unlockCard(RollingTyphoon.ID);
+        UnlockTracker.unlockCard(Safeguard.ID);
         UnlockTracker.unlockCard(SecondWind.ID);
         UnlockTracker.unlockCard(SharpBlades.ID);
+        UnlockTracker.unlockCard(StanceMastery.ID);
+        UnlockTracker.unlockCard(Stormstrike.ID);
         UnlockTracker.unlockCard(Strike.ID);
         UnlockTracker.unlockCard(Sunder.ID);
         UnlockTracker.unlockCard(Surge.ID);
         UnlockTracker.unlockCard(WindSlash.ID);
+        UnlockTracker.unlockCard(Windstorm.ID);
         UnlockTracker.unlockCard(Windwall.ID);
         UnlockTracker.unlockCard(Zephyr.ID);
         
@@ -381,6 +394,50 @@ public class Blademaster
 
     // ================ /ADD CARDS/ ===================
 
+    public static boolean ComboFinisher(AbstractCard card) {
+        boolean retVal = false;
+        if (card.hasTag(BlademasterTags.COMBO_FINISHER)) {
+            retVal = true;
+        }
+        return retVal;
+    }
+
+    public static boolean FuryFinisher(AbstractCard card) {
+        boolean retVal = false;
+        if (card.hasTag(BlademasterTags.FURY_FINISHER)) {
+            retVal = true;
+        }
+        return retVal;
+    }
+
+    public static boolean WindCard(AbstractCard card) {
+        boolean retVal = false;
+        if (card.hasTag(BlademasterTags.WIND_STANCE)) {
+            retVal = true;
+        }
+        return retVal;
+    }
+
+    public static boolean LightningCard(AbstractCard card) {
+        boolean retVal = false;
+        if (card.hasTag(BlademasterTags.LIGHTNING_STANCE)) {
+            retVal = true;
+        }
+        return retVal;
+    }
+
+
+    public static Texture loadBgAddonTexture(String imgPath) {
+        Texture extraTexture;
+        if (CustomCard.imgMap.containsKey(imgPath)) {
+            extraTexture = CustomCard.imgMap.get(imgPath);
+        } else {
+            extraTexture = ImageMaster.loadImage(imgPath);
+            CustomCard.imgMap.put(imgPath, extraTexture);
+        }
+        extraTexture.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
+        return extraTexture;
+    }
     
     
     // ================ LOAD THE TEXT ===================
@@ -408,7 +465,7 @@ public class Blademaster
         logger.info("Done edittting strings");
     }
 
-    // ================ /LOAD THE TEXT/ ===================
+    // ================ /LOAD THE TEXT/ =====================
 
     // ================ LOAD THE KEYWORDS ===================
 
@@ -432,7 +489,7 @@ public class Blademaster
         final String[] parry = {"parry"};
         BaseMod.addKeyword(parry, "A #yBlade that gives you block whenever you're struck. Doesn't stack (Not a bug, a feature (Not really, it's actually a bug and idk how to fix it)).");
 
-        final String[] lacerate = {"lacerate", "laceration"};
+        final String[] lacerate = {"lacerate", "laceration", "lacerates"};
         BaseMod.addKeyword(lacerate, "A 0-cost attack that deals 2 damage.");
 
         final String[] awaken = {"awaken", "awakened"};
@@ -449,6 +506,9 @@ public class Blademaster
 
         final String[] lightning = {"lightning"};
         BaseMod.addKeyword(lightning, "A #yCharge that deals damage to all enemies at the end of your turn. NL Can be used as a resource for #rLightning cards.");
+
+        final String[] bloodied = {"bloodied"};
+        BaseMod.addKeyword(bloodied, "An effect that's applied if the target has less than #b50% #yHP remaining.");
 
 
 

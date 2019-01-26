@@ -5,19 +5,19 @@
 	},
 	"blademaster:Defend": {
 		"NAME": "Defend",
-		"DESCRIPTION": "Gain !B! block."
+		"DESCRIPTION": "Gain !B! Block."
 	},
 	"blademaster:RagingBlow": {
 		"NAME": "Raging Blow",
-		"DESCRIPTION": "Finisher. Costs 18 Fury. NL Deal !D! damage. Deals double damage if the target has less than 50% of their HP remaining. If this kills the target, become Enraged."
+		"DESCRIPTION": "Finisher. Costs 18 Fury. NL Deal !D! damage. Bloodied: Deal double damage. If this kills the target, become Enraged."
 	},
 	"blademaster:SecondWind": {
 		"NAME": "Second Wind",
-		"DESCRIPTION": "Finisher. Costs 3 Combo. NL Gain !B! block. NL Change your Stance to Wind Stance."
+		"DESCRIPTION": "Finisher. Costs 3 Combo. NL Gain !B! Block. NL Change your Stance to Wind Stance."
 	},
 	"blademaster:BladeMastery": {
 		"NAME": "Blade Mastery",
-		"DESCRIPTION": "Gain 1 Havoc Blade. NL Innate when upgraded. NL Exhaust."
+		"DESCRIPTION": "Gain 1 Havoc Blade. NL Innate. NL Exhaust."
 	},
 	"blademaster:GreaterBladeMastery": {
 		"NAME": "Greater Blade Mastery",
@@ -45,7 +45,7 @@
 	},
 	"blademaster:DefiantStance": {
 		"NAME": "Defiant Stance",
-		"DESCRIPTION": "Gain !B! block per Blade channeled"
+		"DESCRIPTION": "Gain !B! Block per Blade channeled"
 	},
 	"blademaster:Flurry": {
 		"NAME": "Flurry",
@@ -53,7 +53,7 @@
 	},
 	"blademaster:Frontflip": {
 		"NAME": "Frontflip",
-		"DESCRIPTION": "Gain !B! block. Draw !M! cards."
+		"DESCRIPTION": "Gain !B! Block. Draw !M! cards."
 	},
 	"blademaster:Lacerate": {
 		"NAME": "Lacerate",
@@ -97,7 +97,7 @@
 	},
 	"blademaster:WindRagingBlow": {
 		"NAME": "Wind Raging Blow",
-		"DESCRIPTION": "Finisher. Costs 18 Fury. NL Deal !D! damage. Deals double damage if the target has less than 50% of their HP remaining. If this kills the target, become Enraged. NL Get !W! Blur."
+		"DESCRIPTION": "Finisher. Costs 18 Fury. NL Deal !D! damage. Bloodied: deals double damage. If this kills the target, become Enraged. NL Get !W! Blur."
 	},
 	"blademaster:WindRollingTyphoon": {
 		"NAME": "Wind Rolling Typhoon",
@@ -105,11 +105,11 @@
 	},
 	"blademaster:LightningRagingBlow": {
 		"NAME": "Lightning Raging Blow",
-		"DESCRIPTION": "Finisher. Costs 18 Fury. NL Deal !D! damage. Deals double damage if the target has less than 50% of their HP remaining. If this kills the target, become Enraged. NL Deal damage equal to !M! times the amount of Lightning Charges. NL (You currently have !L! Lightning Charges.)"
+		"DESCRIPTION": "Finisher. Costs 18 Fury. NL Deal !D! damage. Bloodied: deals double damage. If this kills the target, become Enraged. NL Deal damage equal to !M! times the amount of Lightning Charges. NL (You currently have !L! Lightning Charges.)"
 	},
 	"blademaster:LightningDash": {
 		"NAME": "Lightning Dash",
-		"DESCRIPTION": "Gain !B! block. NL Change your Stance to Lightning Stance."
+		"DESCRIPTION": "Gain !B! Block. NL Change your Stance to Lightning Stance."
 	},
 	"blademaster:LightningCrash": {
 		"NAME": "Lightning Crash",
@@ -125,7 +125,7 @@
 	},
 	"blademaster:Retreat": {
 		"NAME": "Retreat",
-		"DESCRIPTION": "Gain !B! block. NL Change your Stance to Basic Stance."
+		"DESCRIPTION": "Gain !B! Block. NL Change your Stance to Basic Stance."
 	},
 	"blademaster:BasicAttack": {
 		"NAME": "Basic Attack",
@@ -133,7 +133,7 @@
 	},
 	"blademaster:FallBack": {
 		"NAME": "Fall Back",
-		"DESCRIPTION": "Evoke ALL of your Orbs. Gain !B! block for each Orb evoked."
+		"DESCRIPTION": "Evoke ALL of your Blades. Gain !B! Block for each Blade evoked."
 	},
 	"blademaster:Windwall": {
 		"NAME": "Windwall",
@@ -145,10 +145,26 @@
 	},
 	"blademaster:Surge": {
 		"NAME": "Surge",
-		"DESCRIPTION": "Consume up to 3 Charges and gain Artifact equal to the amount consumed. NL Only usable while in Lightning or Wind Stance."
+		"DESCRIPTION": "Only usable while in Lightning or Wind Stance. NL Consume up to 3 Charges and gain Artifact equal to the amount consumed."
 	},
 	"blademaster:Stormstrike": {
 		"NAME": "Stormstrike",
 		"DESCRIPTION": "Only playable in Lightning Stance. NL Deal !D! damage. NL Deal damage equal to !M! times the amount of Lightning Charges. NL (You currently have !L! Lightning Charges.)"
+	},
+	"blademaster:ChargingUp": {
+		"NAME": "Charging Up",
+		"DESCRIPTION": "Gain !B! Block. NL If you're in a Stance, gain !M! Charges."
+	},
+	"blademaster:Safeguard": {
+		"NAME": "Safeguard",
+		"DESCRIPTION": "Gain !B! Block. NL Channel 1 Havoc Blade."
+	},
+	"blademaster:Windstorm": {
+		"NAME": "Windstorm",
+		"DESCRIPTION": "Only playable in Wind Stance. NL At the start of your turn, add 2 Wind Lacerates to your hand."
+	},
+	"blademaster:StanceMastery": {
+		"NAME": "Stance Mastery",
+		"DESCRIPTION": "Whenever you gain a Charge, gain an additional Charge."
 	}
 }

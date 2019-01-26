@@ -2,6 +2,7 @@ package blademaster.cards;
 
 import blademaster.actions.LightningStanceAction;
 import blademaster.actions.RemoveStancesAction;
+import blademaster.patches.BlademasterTags;
 import blademaster.powers.LightningStance;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -44,6 +45,7 @@ public class LightningCrash extends CustomCard {
     public LightningCrash() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = this.damage = DAMAGE;
+        this.tags.add(BlademasterTags.LIGHTNING_STANCE);
     }
 
     @Override

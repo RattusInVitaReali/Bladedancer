@@ -3,6 +3,7 @@ package blademaster.cards.lightning;
 import basemod.abstracts.CustomCard;
 import blademaster.Blademaster;
 import blademaster.patches.AbstractCardEnum;
+import blademaster.patches.BlademasterTags;
 import blademaster.powers.CalmnessPower;
 import blademaster.powers.FuryPower;
 import blademaster.powers.LightningCharge;
@@ -50,7 +51,9 @@ public class LightningRagingBlow extends CustomCard {
         this.baseDamage = DAMAGE;
         this.baseMagicNumber = AMT;
         this.damage = this.baseDamage;
-        this.magicNumber = this.baseMagicNumber;
+        this.tags.add(BlademasterTags.FURY_FINISHER);
+        this.tags.add(BlademasterTags.LIGHTNING_STANCE);
+
 
     }
 
@@ -58,7 +61,7 @@ public class LightningRagingBlow extends CustomCard {
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
         cantUseMessage = "I'm not furious enough!";
         if (AbstractDungeon.player.hasPower(FuryPower.POWER_ID)) {
-            return AbstractDungeon.player.getPower(FuryPower.POWER_ID).amount >= 17;
+            return AbstractDungeon.player.getPower(FuryPower.POWER_ID).amount >= 15;
         } else {
             return false;
         }

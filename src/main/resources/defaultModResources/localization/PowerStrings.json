@@ -86,5 +86,19 @@
     "DESCRIPTIONS": [
       "A #yStance that doesn't really do much."
     ]
+  },
+  "StanceMastery": {
+     "NAME": "Stance Mastery",
+    "DESCRIPTIONS": [
+     "Whenever you gain a #yCharge, gain ",
+      " more."
+   ]
+  },
+  "Windstorm": {
+    "NAME": "Windstorm",
+    "DESCRIPTIONS": [
+      "At the start of your turn, add ",
+      " #rWind #yLacerates to your hand."
+    ]
   }
 }

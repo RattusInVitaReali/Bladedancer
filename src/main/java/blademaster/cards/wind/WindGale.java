@@ -1,6 +1,7 @@
 package blademaster.cards.wind;
 
 import blademaster.cards.Zephyr;
+import blademaster.patches.BlademasterTags;
 import blademaster.powers.WindCharge;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -49,6 +50,8 @@ public class WindGale extends CustomCard {
         this.magicNumber = this.baseMagicNumber;
         this.exhaust = true;
         this.isEthereal = true;
+        this.tags.add(BlademasterTags.WIND_STANCE);
+
     }
 
     @Override
