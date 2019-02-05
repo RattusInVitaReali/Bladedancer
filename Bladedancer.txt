@@ -1,0 +1,14 @@
+Combo: Start with 0 at the start of each combat. Reset to 0 at the end of your turn. + 1 for each card played.
+Fury: Start with 0 at the start of each combat. Reset to 0 at the end of turn. + 1 for each point of unblocked damage dealt.
+Finisher: A card that costs 0 Energy and either Combo or Fury. You can play up to 1 Combo and up to 1 Fury finisher per turn.
+Stance: A power that determines the 'stance' of the Bladedancer. There are 5 total: Basic, 2 Offensive (Wind / Lightning) and 2 Defensive (Ice/Stone). Start
+	in Basic Stance. You can have 1 Offensive and 1 Defensive stance active at a time. Cards that switch stances swap out every card that has a said Stance variant to the respective variant (e.g. Upon changing your offensive
+	Stance to Wind stance, Strike changes to Wind Strike).
+Charge: A power that is obtained through playing Stance variants of cards (E.g Wind Strike gives you 1 Wind Charge, 2 if upgraded). If a stance that you have charges for is active, it does something at the end of turn (E.g. if you
+	have 3 Wind Charges and are in Wind Stance, you deal 3 damage to ALL enemies at the end of turn). Some cards have effects based on the number of specific Charges.
+Bloodied (WIP): If the target is below 50% HP, does something.
+Blade: A spectral Blade that orbits around the Bladedancer and has special effects. (Coded like an orb)
+Havoc: A Blade that deals damage to enemies you attack with single-target cards.
+Parry: A Blade that gives you Block each time you take damage in combat.
+Awaken: Awaken one of your blades, making it more potent.
+Lacerate: Honestly? A shitty Shiv.
