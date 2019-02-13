@@ -5,33 +5,25 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.defect.DecreaseMaxOrbAction;
-import com.megacrit.cardcrawl.actions.defect.LightningOrbEvokeAction;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
-import com.megacrit.cardcrawl.powers.MalleablePower;
 import com.megacrit.cardcrawl.powers.ThornsPower;
 import com.megacrit.cardcrawl.vfx.combat.*;
-import blademaster.interfaces.onUseCardOrb;
-import ratmod.powers.BleedingPower;
+import blademaster.interfaces.onLoseHpOrb;
+import org.lwjgl.Sys;
 
 public class ParryOrb
-        extends AbstractOrb
+        extends AbstractOrb implements onLoseHpOrb
 {
     public static final String ORB_ID = "Blade";
     public static final String[] DESC = { "#yPassive: gain #b",
-            " #yMalleable at the start of your turn. NL #yEvoke: Gain #b ",
+            " #yBlock whenever you're attacked. NL #yEvoke: Gain #b ",
             " #yThrons." };
     private static final float ORB_BORDER_SCALE = 1.2F;
     private float vfxTimer;
@@ -69,14 +61,10 @@ public class ParryOrb
         AbstractDungeon.actionManager.addToBottom(new DecreaseMaxOrbAction(1));
     }
 
-    public void onStartOfTurn()
-    {
-        if (COUNTER <1)
-        {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new MalleablePower(AbstractDungeon.player, this.passiveAmount), this.passiveAmount));
-            COUNTER += 1;
-        }
+    public void onLoseHpForOrbs(DamageInfo info, int damageAmount) {
 
+        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, this.passiveAmount));
+        System.out.println("Defense gained.");
     }
 
     public void updateAnimation()

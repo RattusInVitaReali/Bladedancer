@@ -20,6 +20,7 @@ public class ComboPower extends AbstractPower
     {
         this.name = NAME;
         this.ID = POWER_ID;
+        this.priority = 2;
         this.owner = owner;
         this.amount = amount;
         this.type = AbstractPower.PowerType.DEBUFF;

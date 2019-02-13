@@ -14,6 +14,7 @@ public class BasicStance extends AbstractPower {
 
     public BasicStance(AbstractCreature owner) {
         this.name = NAME;
+        this.priority = 5;
         this.ID = POWER_ID;
         this.owner = owner;
         this.type = PowerType.BUFF;

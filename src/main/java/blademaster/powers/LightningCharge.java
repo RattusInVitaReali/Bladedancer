@@ -16,6 +16,7 @@ public class LightningCharge extends AbstractPower {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
+        this.priority = 12;
         this.amount = amount;
         this.type = PowerType.BUFF;
         this.isTurnBased = true;

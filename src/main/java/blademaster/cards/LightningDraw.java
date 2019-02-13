@@ -4,17 +4,16 @@ import blademaster.actions.LightningStanceAction;
 import blademaster.actions.RemoveStancesAction;
 import blademaster.patches.BlademasterTags;
 import blademaster.powers.ComboPower;
+import blademaster.powers.FuryPower;
 import blademaster.powers.LightningStance;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.status.Burn;
 import com.megacrit.cardcrawl.vfx.combat.DaggerSprayEffect;
-import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -46,8 +45,8 @@ public class LightningDraw extends CustomCard {
     private static final int BLEED = 3;
 
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        if (p.hasPower(ComboPower.POWER_ID)){
-            return p.getPower(ComboPower.POWER_ID).amount >= 4;
+        if (p.hasPower(FuryPower.POWER_ID)){
+            return p.getPower(FuryPower.POWER_ID).amount >= 20;
         } else return false;
     }
 
@@ -71,9 +70,10 @@ public class LightningDraw extends CustomCard {
         if (!p.hasPower(LightningStance.POWER_ID)) {
             AbstractDungeon.actionManager.addToBottom(new RemoveStancesAction());
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LightningStance(p)));
-            AbstractDungeon.actionManager.addToBottom(new LightningStanceAction());
+        } else if (p.hasPower(LightningStance.POWER_ID)){
+            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Burn(), 1));
         }
-
+        AbstractDungeon.actionManager.addToBottom(new LightningStanceAction());
     }
 
     @Override

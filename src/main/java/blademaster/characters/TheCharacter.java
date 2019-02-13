@@ -1,14 +1,19 @@
 package blademaster.characters;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import blademaster.Blademaster;
 import blademaster.cards.Defend;
 import blademaster.cards.RagingBlow;
 import blademaster.cards.SecondWind;
 import blademaster.cards.Strike;
+import blademaster.powers.*;
 import blademaster.relics.RingOfFury;
 import blademaster.relics.RingOfSpeed;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpireOverride;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -45,6 +50,7 @@ public class TheCharacter extends CustomPlayer {
     public static final int STARTING_GOLD = 99;
     public static final int CARD_DRAW = 5;
     public static final int ORB_SLOTS = 0;
+    private Color hbTextColor = new Color(1.0F, 1.0F, 1.0F, 0.0F);
 
     // =============== /BASE STATS/ =================
 
@@ -228,6 +234,48 @@ public class TheCharacter extends CustomPlayer {
     public Color getSlashAttackColor() {
         return Blademaster.DEFAULT_GRAY;
     }
+
+
+    @SpireOverride
+    public void renderPowerIcons(SpriteBatch sb, float x, float y)
+    {
+        float yoffset = 0;
+        float offset = 10.0F;
+        float doffset = 10.0F;
+        for (AbstractPower p : this.powers)
+        {
+            if ((p.ID.equals(LightningStance.POWER_ID)) || (p.ID.equals(WindStance.POWER_ID)) || (p.ID.equals(FuryPower.POWER_ID)) || (p.ID.equals(ComboPower.POWER_ID)) || (p.ID.equals(CalmnessPower.POWER_ID))
+                    || (p.ID.equals(TiredPower.POWER_ID)) || (p.ID.equals(WindCharge.POWER_ID))  || (p.ID.equals(LightningCharge.POWER_ID)) || (p.ID.equals(IceStance.POWER_ID))  || (p.ID.equals(StoneStance.POWER_ID))
+                    || (p.ID.equals(IceCharge.POWER_ID))  || (p.ID.equals(StoneCharge.POWER_ID)))
+            {
+                yoffset = - 40.0F;
+                p.renderIcons(sb, x + (doffset * Settings.scale), y + ((-48.0F + yoffset) * Settings.scale), Color.WHITE);
+                doffset += 48.0F;
+            } else {
+                yoffset = 0F;
+                p.renderIcons(sb, x + (offset* Settings.scale), y + ((-48.0F + yoffset) * Settings.scale), Color.WHITE);
+                offset += 48.0F;
+            }
+        }
+        offset = 0.0F;
+        doffset = 0.0F;
+        for (AbstractPower p : this.powers)
+        {
+            if ((p.ID.equals(LightningStance.POWER_ID)) || (p.ID.equals(WindStance.POWER_ID)) || (p.ID.equals(FuryPower.POWER_ID)) || (p.ID.equals(ComboPower.POWER_ID)) || (p.ID.equals(CalmnessPower.POWER_ID))
+                    || (p.ID.equals(TiredPower.POWER_ID)) || (p.ID.equals(WindCharge.POWER_ID))  || (p.ID.equals(LightningCharge.POWER_ID)) || (p.ID.equals(IceStance.POWER_ID))  || (p.ID.equals(StoneStance.POWER_ID))
+                    || (p.ID.equals(IceCharge.POWER_ID))  || (p.ID.equals(StoneCharge.POWER_ID)))
+            {
+                yoffset = - 40.0F;
+                p.renderAmount(sb, x + ((doffset + 32.0F) * Settings.scale), y + ((-66.0F + yoffset) * Settings.scale), Color.WHITE);
+                doffset += 48.0F;
+            } else {
+                yoffset = 0F;
+                p.renderAmount(sb, x + ((offset + 32.0F) * Settings.scale), y + ((-66.0F + yoffset) * Settings.scale), Color.WHITE);
+                offset += 48.0F;
+            }
+        }
+    }
+
 
     // Should return an AttackEffect array of any size greater than 0. These effects
     // will be played in sequence as your character's finishing combo on the heart.

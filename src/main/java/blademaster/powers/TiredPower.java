@@ -18,6 +18,7 @@ public class TiredPower extends AbstractPower {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
+        this.priority = 2;
         this.amount = amount;
         this.type = PowerType.DEBUFF;
         this.isTurnBased = true;

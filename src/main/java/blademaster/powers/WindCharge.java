@@ -16,6 +16,7 @@ public class WindCharge extends AbstractPower {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
+        this.priority = 11;
         this.amount = amount;
         this.type = PowerType.BUFF;
         this.isTurnBased = false;

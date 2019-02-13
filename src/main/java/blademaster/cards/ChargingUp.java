@@ -1,9 +1,7 @@
 package blademaster.cards;
 
-import blademaster.powers.LightningCharge;
-import blademaster.powers.LightningStance;
-import blademaster.powers.WindCharge;
-import blademaster.powers.WindStance;
+import blademaster.actions.LoadCardImageAction;
+import blademaster.powers.*;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -28,6 +26,8 @@ public class ChargingUp extends CustomCard {
     public static final String ID = Blademaster.makeID("ChargingUp");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String IMG = Blademaster.makePath(Blademaster.DEFAULT_COMMON_SKILL);
+    public static final String IIMG = Blademaster.makePath(Blademaster.ICE_SKILL);
+    public static final String SIMG = Blademaster.makePath(Blademaster.STONE_SKILL);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 
@@ -57,8 +57,16 @@ public class ChargingUp extends CustomCard {
         if (p.hasPower(LightningStance.POWER_ID)) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LightningCharge(p, this.magicNumber), this.magicNumber));
         }
+        if (p.hasPower(IceStance.POWER_ID)) {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new IceCharge(p, this.magicNumber), this.magicNumber));
+        }
+        if (p.hasPower(StoneStance.POWER_ID)) {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StoneCharge(p, this.magicNumber), this.magicNumber));
+        }
 
     }
+
+
 
     @Override
     public AbstractCard makeCopy() {

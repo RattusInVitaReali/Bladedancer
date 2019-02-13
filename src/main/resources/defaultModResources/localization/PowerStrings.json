@@ -1,34 +1,42 @@
 {
-  "blademaster:Combo": {
-    "NAME": "Combo",
+  "BasicStance": {
+    "NAME": "Basic Stance",
     "DESCRIPTIONS": [
-      "Resource used for playing #bFinishers. Combo is reset to 0 at the end of your turn. NL You currently have #b",
-      " Combo. Gain more by playing cards!"
+      "A #yStance that doesn't really do much."
     ]
   },
-  "blademaster:Fury": {
-    "NAME": "Fury",
+  "EyeOfTheStormPower": {
+    "NAME": "Eye of the Storm",
     "DESCRIPTIONS": [
-      "Resource used for playing #bFinishers. Fury is reset to 0 at the end of your turn. NL You currently have #b",
-      " Fury. Gain more by dealing damage!"
+      "Whenever you're attacked, reduce the damage by ",
+      " and gain ",
+      " #rLightning #yCharge."
     ]
   },
-  "blademaster:Tired": {
-    "NAME": "Tired",
+  "IceCharge": {
+    "NAME": "Ice Charge",
     "DESCRIPTIONS": [
-      "You've played a #bCombo #bFinisher this turn. You can't gain any more #bCombo!"
+      "A #yCharge used for #yIce #yStance cards. You currently have ",
+      " #yIce #yCharges."
     ]
   },
-  "blademaster:Calmness": {
-    "NAME": "Calmness",
+  "IceStance": {
+    "NAME": "Ice Stance",
     "DESCRIPTIONS": [
-      "You've played a #bFury #bFinisher this turn. You can't gain any more #bFury!"
+      "A #yStance that allows the generation of #yIce #yCharges."
     ]
   },
-  "SharpBlades": {
-    "NAME": "Sharp Blades",
+  "LightningCharge": {
+    "NAME": "Lightning Charge",
     "DESCRIPTIONS": [
-      "Your #yBlades apply #yBleeding on hit."
+      "A #yCharge used for #yLighting #yStance cards. You currently have ",
+      " #yLightning #yCharges."
+    ]
+  },
+  "LightningStance": {
+    "NAME": "Lightning Stance",
+    "DESCRIPTIONS": [
+      "A #yStance that allows the generation of #yLightning #yCharges."
     ]
   },
   "Meditate": {
@@ -47,58 +55,76 @@
       " #yBlades"
     ]
   },
-  "LightningCharge": {
-    "NAME": "Lightning Charge",
+  "SharpBlades": {
+    "NAME": "Sharp Blades",
     "DESCRIPTIONS": [
-      "A #yCharge used for #rFinishers in #yLightning #yStance. You currently have ",
-      " #yLightning #yCharges."
+      "Your #yBlades apply #yBleeding on hit."
+    ]
+  },
+  "StanceMastery": {
+    "NAME": "Stance Mastery",
+    "DESCRIPTIONS": [
+      "Whenever you gain a #yCharge, gain ",
+      " more."
+    ]
+  },
+  "StoneCharge": {
+    "NAME": "Stone Charge",
+    "DESCRIPTIONS": [
+      "A #yCharge used for #yStone #yStance cards. You currently have ",
+      " #yStone #yCharges."
+    ]
+  },
+  "StoneStance": {
+    "NAME": "Stone Stance",
+    "DESCRIPTIONS": [
+      "A #yStance that allows the generation of #yStone #yCharges."
     ]
   },
   "WindCharge": {
     "NAME": "Wind Charge",
     "DESCRIPTIONS": [
-      "A #yCharge used for #rFinishers in #yWind #yStance. You currently have ",
+      "A #yCharge used for #yWind #yStance cards. You currently have ",
       " #yWind #yCharges."
-    ]
-  },
-  "LightningStance": {
-    "NAME": "Lightning Stance",
-    "DESCRIPTIONS": [
-      "A #yStance that allows the generation of #yLightning #yCharges. NL At the end of your turn, deal damage equal to 2 times the amount of #yLightning #yCharges to all enemies."
     ]
   },
   "WindStance": {
     "NAME": "Wind Stance",
     "DESCRIPTIONS": [
-      "A #yStance that allows the generation of #yWind #yCharges. NL At the end of your turn, gain block equal to 2 times the amount of #yWind #yCharges."
+      "A #yStance that allows the generation of #yWind #yCharges."
     ]
-  },
-  "EyeOfTheStorm": {
-    "NAME": "Eye of the Storm",
-    "DESCRIPTIONS": [
-      "Whenever you're attacked, reduce the damage by ",
-      " and gain ",
-      " #rLightning #yCharge."
-    ]
-  },
-  "BasicStance": {
-    "NAME": "Basic Stance",
-    "DESCRIPTIONS": [
-      "A #yStance that doesn't really do much."
-    ]
-  },
-  "StanceMastery": {
-     "NAME": "Stance Mastery",
-    "DESCRIPTIONS": [
-     "Whenever you gain a #yCharge, gain ",
-      " more."
-   ]
   },
   "Windstorm": {
     "NAME": "Windstorm",
     "DESCRIPTIONS": [
       "At the start of your turn, add ",
       " #rWind #yLacerates to your hand."
+    ]
+  },
+  "blademaster:Calmness": {
+    "NAME": "Calmness",
+    "DESCRIPTIONS": [
+      "You've played a #bFury #bFinisher this turn. You can't gain any more #bFury!"
+    ]
+  },
+  "blademaster:Combo": {
+    "NAME": "Combo",
+    "DESCRIPTIONS": [
+      "Resource used for playing #bFinishers. Combo is reset to 0 at the end of your turn. NL You currently have #b",
+      " Combo. Gain more by playing cards!"
+    ]
+  },
+  "blademaster:Fury": {
+    "NAME": "Fury",
+    "DESCRIPTIONS": [
+      "Resource used for playing #bFinishers. Fury is reset to 0 at the end of your turn. NL You currently have #b",
+      " Fury. Gain more by dealing damage!"
+    ]
+  },
+  "blademaster:Tired": {
+    "NAME": "Tired",
+    "DESCRIPTIONS": [
+      "You've played a #bCombo #bFinisher this turn. You can't gain any more #bCombo!"
     ]
   }
 }

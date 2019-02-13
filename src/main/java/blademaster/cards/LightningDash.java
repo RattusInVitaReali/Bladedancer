@@ -6,7 +6,9 @@ import blademaster.patches.BlademasterTags;
 import blademaster.powers.LightningStance;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.status.Burn;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -48,9 +50,10 @@ public class LightningDash extends CustomCard {
         if (!p.hasPower(LightningStance.POWER_ID)) {
             AbstractDungeon.actionManager.addToBottom(new RemoveStancesAction());
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LightningStance(p)));
+        } else if (p.hasPower(LightningStance.POWER_ID)) {
+            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Burn(), 1));
         }
         AbstractDungeon.actionManager.addToBottom(new LightningStanceAction());
-
     }
 
     @Override

@@ -19,6 +19,7 @@ public class CalmnessPower extends AbstractPower
     {
         this.name = NAME;
         this.ID = POWER_ID;
+        this.priority = 1;
         this.owner = owner;
         this.amount = amount;
         this.type = AbstractPower.PowerType.DEBUFF;

@@ -46,7 +46,7 @@ public class BladeOrb
         this.vfxTimer = 0.5F;
         this.ID = "Blade";
         this.img = ORB_BLADE;
-        this.name = "Blade";
+        this.name = "Havoc";
         this.baseEvokeAmount = 5;
         this.evokeAmount = this.baseEvokeAmount;
         this.basePassiveAmount = 2;

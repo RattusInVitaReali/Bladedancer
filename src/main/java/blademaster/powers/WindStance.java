@@ -16,6 +16,7 @@ public class WindStance extends AbstractPower {
 
     public WindStance(AbstractCreature owner) {
         this.name = NAME;
+        this.priority = 6;
         this.ID = POWER_ID;
         this.owner = owner;
         this.type = PowerType.BUFF;
@@ -24,13 +25,6 @@ public class WindStance extends AbstractPower {
         updateDescription();
     }
 
-    public void atEndOfTurn(boolean isPlayer)
-    {
-        this.flash();
-        if (AbstractDungeon.player.hasPower(WindCharge.POWER_ID)){
-        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, AbstractDungeon.player.getPower(WindCharge.POWER_ID).amount * 2));
-        }
-    }
 
     public void updateDescription() {
         this.description = DESCRIPTIONS[0];

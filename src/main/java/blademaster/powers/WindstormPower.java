@@ -1,7 +1,7 @@
 package blademaster.powers;
 
 import blademaster.Blademaster;
-import blademaster.cards.wind.WindLacerate;
+import blademaster.cards.Lacerate;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -27,7 +27,7 @@ public class WindstormPower extends AbstractPower {
     }
 
     public void atStartOfTurnPostDraw() {
-        AbstractCard card = new WindLacerate();
+        AbstractCard card = new Lacerate();
         AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(card, this.amount));
     }
 

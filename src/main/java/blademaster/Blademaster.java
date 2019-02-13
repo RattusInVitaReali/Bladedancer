@@ -2,15 +2,12 @@ package blademaster;
 
 import basemod.abstracts.CustomCard;
 import blademaster.cards.*;
-import blademaster.cards.wind.*;
-import blademaster.cards.lightning.*;
 import blademaster.relics.RingOfFury;
 import blademaster.relics.RingOfSpeed;
 import blademaster.variables.LightningSpirit;
 import blademaster.variables.WindSpirit;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.utils.compression.lzma.Base;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.helpers.CardHelper;
@@ -87,12 +84,21 @@ public class Blademaster
 
     public static final String WIND_ATTACK = "cards/WindAttack.png";
     public static final String WIND_SKILL = "cards/WindSkill.png";
+
     public static final String LIGHTNING_ATTACK = "cards/LightningAttack.png";
     public static final String LIGHTNING_SKILL = "cards/LightningSkill.png";
 
+    public static final String ICE_ATTACK = "cards/IceAttack.png";
+    public static final String ICE_SKILL = "cards/IceSkill.png";
+
+    public static final String STONE_ATTACK = "cards/StoneAttack.png";
+    public static final String STONE_SKILL = "cards/StoneSkill.png";
+
     // Power images
     public static final String RARE_POWER = "powers/placeholder_power.png";
+    public static final String IceStancePNG = "powers/IceStance.pnd";
     public static final String CalmnessPNG = "powers/Calmness.png";
+    public static final String StoneStancePNG = "powers/StoneStance.png";
     public static final String LightningChargePNG = "powers/LightningCharge.png";
     public static final String LightningStancePNG = "powers/LightningStance.png";
     public static final String MeditatePNG = "powers/Meditate.png";
@@ -122,6 +128,8 @@ public class Blademaster
 
 
     public static Texture getDefaultPowerTexture() { return new Texture(makePath(RARE_POWER)); }
+    public static Texture IceStancePNG() { return new Texture(makePath(IceStancePNG)); }
+    public static Texture StoneStancePNG() {return new Texture(makePath(StoneStancePNG)); }
     public static Texture CalmnessPNG() { return new Texture(makePath(CalmnessPNG)); }
     public static Texture LightningChargePNG() { return new Texture(makePath(LightningChargePNG)); }
     public static Texture LightningStancePNG() { return new Texture(makePath(LightningStancePNG)); }
@@ -265,20 +273,26 @@ public class Blademaster
 
         logger.info("Add Cards");
         // Add the cards
+        BaseMod.addCard(new AwakeningDefend());
         BaseMod.addCard(new AwakeningStrike());
         BaseMod.addCard(new BasicAttack());
         BaseMod.addCard(new BladeMastery());
         BaseMod.addCard(new Breeze());
+        BaseMod.addCard(new Burnout());
         BaseMod.addCard(new ChargingUp());
         BaseMod.addCard(new CloudOfSteel());
         BaseMod.addCard(new Defend());
         BaseMod.addCard(new DefiantStance());
+        BaseMod.addCard(new ElementalDestruction());
+        BaseMod.addCard(new Empower());
         BaseMod.addCard(new EyeOfTheStorm());
         BaseMod.addCard(new FallBack());
         BaseMod.addCard(new Flurry());
+        BaseMod.addCard(new Focus());
         BaseMod.addCard(new Frontflip());
         BaseMod.addCard(new Gale());
         BaseMod.addCard(new GreaterBladeMastery());
+        BaseMod.addCard(new Hailwind());
         BaseMod.addCard(new Lacerate());
         BaseMod.addCard(new LightningCrash());
         BaseMod.addCard(new LightningDash());
@@ -303,30 +317,11 @@ public class Blademaster
         BaseMod.addCard(new Windwall());
         BaseMod.addCard(new Zephyr());
         
-        //Wind
-        BaseMod.addCard(new WindAwakeningStrike());
-        BaseMod.addCard(new WindBreeze());
-        BaseMod.addCard(new WindGale());
-        BaseMod.addCard(new WindLacerate());
-        BaseMod.addCard(new WindParryingStrike());
-        BaseMod.addCard(new WindRagingBlow());
-        BaseMod.addCard(new WindRollingTyphoon());
-        BaseMod.addCard(new WindStrike());
-        BaseMod.addCard(new WindZephyr());
-        
-        //Lightning
-        BaseMod.addCard(new LightningAwakeningStrike());
-        BaseMod.addCard(new LightningBreeze());
-        BaseMod.addCard(new LightningGale());
-        BaseMod.addCard(new LightningLacerate());
-        BaseMod.addCard(new LightningParryingStrike());
-        BaseMod.addCard(new LightningRagingBlow());
-        BaseMod.addCard(new LightningRollingTyphoon());
-        BaseMod.addCard(new LightningStrike());
-        BaseMod.addCard(new LightningZephyr());
+
         
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
+        UnlockTracker.unlockCard(AwakeningDefend.ID);
         UnlockTracker.unlockCard(AwakeningStrike.ID);
         UnlockTracker.unlockCard(BladeMastery.ID);
         UnlockTracker.unlockCard(BasicAttack.ID);
@@ -335,12 +330,14 @@ public class Blademaster
         UnlockTracker.unlockCard(CloudOfSteel.ID);
         UnlockTracker.unlockCard(Defend.ID);
         UnlockTracker.unlockCard(DefiantStance.ID);
+        UnlockTracker.unlockCard(Empower.ID);
         UnlockTracker.unlockCard(EyeOfTheStorm.ID);
         UnlockTracker.unlockCard(FallBack.ID);
         UnlockTracker.unlockCard(Flurry.ID);
         UnlockTracker.unlockCard(Frontflip.ID);
         UnlockTracker.unlockCard(Gale.ID);
         UnlockTracker.unlockCard(GreaterBladeMastery.ID);
+        UnlockTracker.unlockCard(Hailwind.ID);
         UnlockTracker.unlockCard(Lacerate.ID);
         UnlockTracker.unlockCard(LightningCrash.ID);
         UnlockTracker.unlockCard(LightningDash.ID);
@@ -364,28 +361,7 @@ public class Blademaster
         UnlockTracker.unlockCard(Windstorm.ID);
         UnlockTracker.unlockCard(Windwall.ID);
         UnlockTracker.unlockCard(Zephyr.ID);
-        
-        //Wind
-        UnlockTracker.unlockCard(WindAwakeningStrike.ID);
-        UnlockTracker.unlockCard(WindBreeze.ID);
-        UnlockTracker.unlockCard(WindGale.ID);
-        UnlockTracker.unlockCard(WindLacerate.ID);
-        UnlockTracker.unlockCard(WindParryingStrike.ID);
-        UnlockTracker.unlockCard(WindRagingBlow.ID);
-        UnlockTracker.unlockCard(WindRollingTyphoon.ID);
-        UnlockTracker.unlockCard(WindStrike.ID);
-        UnlockTracker.unlockCard(WindZephyr.ID);
-        
-        //Lightning
-        UnlockTracker.unlockCard(LightningAwakeningStrike.ID);
-        UnlockTracker.unlockCard(LightningBreeze.ID);
-        UnlockTracker.unlockCard(LightningGale.ID);
-        UnlockTracker.unlockCard(LightningLacerate.ID);
-        UnlockTracker.unlockCard(LightningParryingStrike.ID);
-        UnlockTracker.unlockCard(LightningRagingBlow.ID);
-        UnlockTracker.unlockCard(LightningRollingTyphoon.ID);
-        UnlockTracker.unlockCard(LightningStrike.ID);
-        UnlockTracker.unlockCard(LightningZephyr.ID);
+
 
 
 

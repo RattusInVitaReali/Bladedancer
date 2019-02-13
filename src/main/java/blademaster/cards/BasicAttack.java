@@ -1,17 +1,12 @@
 package blademaster.cards;
 
-import blademaster.actions.BasicStanceAction;
 import blademaster.actions.RemoveStancesAction;
 import blademaster.powers.BasicStance;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.vfx.combat.DaggerSprayEffect;
-import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -52,7 +47,6 @@ public class BasicAttack extends CustomCard {
             AbstractDungeon.actionManager.addToBottom(new RemoveStancesAction());
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new BasicStance(p)));
         }
-        AbstractDungeon.actionManager.addToBottom(new BasicStanceAction());
     }
 
     @Override

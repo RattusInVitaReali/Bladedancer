@@ -21,19 +21,20 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.powers.MalleablePower;
+import com.megacrit.cardcrawl.powers.PlatedArmorPower;
 import com.megacrit.cardcrawl.powers.ThornsPower;
 import com.megacrit.cardcrawl.vfx.combat.DarkOrbActivateEffect;
 import com.megacrit.cardcrawl.vfx.combat.DarkOrbPassiveEffect;
 import com.megacrit.cardcrawl.vfx.combat.OrbFlareEffect;
-import blademaster.interfaces.onUseCardOrb;
+import blademaster.interfaces.onLoseHpOrb;
 import ratmod.powers.BleedingPower;
 
 public class AwakenedParryOrb
-        extends AbstractOrb
+        extends AbstractOrb implements onLoseHpOrb
 {
     public static final String ORB_ID = "Blade";
     public static final String[] DESC = { "#yPassive: gain #b",
-            " #yMalleable at the start of your turn. NL #yEvoke: Gain #b ",
+            " #Plataed #yArmor Whenever you're attacked. NL #yEvoke: Gain #b ",
             " #yThrons." };
     private static final float ORB_BORDER_SCALE = 1.2F;
     private float vfxTimer;
@@ -49,9 +50,9 @@ public class AwakenedParryOrb
         this.ID = "AwakenedParry";
         this.img = ORB_BLADE;
         this.name = "AwakenedParry";
-        this.baseEvokeAmount = 3;
+        this.baseEvokeAmount = 4;
         this.evokeAmount = this.baseEvokeAmount;
-        this.basePassiveAmount = 4;
+        this.basePassiveAmount = 2;
         this.passiveAmount = this.basePassiveAmount;
         updateDescription();
         this.angle = MathUtils.random(360.0F);
@@ -71,14 +72,8 @@ public class AwakenedParryOrb
         AbstractDungeon.actionManager.addToBottom(new DecreaseMaxOrbAction(1));
     }
 
-    public void onStartOfTurn()
-    {
-        if (COUNTER <1)
-        {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new MalleablePower(AbstractDungeon.player, this.passiveAmount), this.passiveAmount));
-            COUNTER += 1;
-        }
-
+    public void onLoseHpForOrbs(DamageInfo info, int damage) {
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new PlatedArmorPower(AbstractDungeon.player, this.passiveAmount), this.passiveAmount));
     }
 
     public void updateAnimation()

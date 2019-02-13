@@ -1,6 +1,5 @@
 package blademaster.cards;
 
-import blademaster.actions.BasicStanceAction;
 import blademaster.actions.RemoveStancesAction;
 import blademaster.powers.BasicStance;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -45,7 +44,6 @@ public class Retreat extends CustomCard {
         if (!p.hasPower(BasicStance.POWER_ID)) {
             AbstractDungeon.actionManager.addToBottom(new RemoveStancesAction());
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new BasicStance(p)));
-            AbstractDungeon.actionManager.addToBottom(new BasicStanceAction());
         }
     }
 
