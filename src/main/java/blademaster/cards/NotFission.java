@@ -1,9 +1,7 @@
 package blademaster.cards;
 
-import blademaster.powers.*;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.actions.defect.FissionAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
@@ -18,15 +16,14 @@ import basemod.abstracts.CustomCard;
 import blademaster.Blademaster;
 import blademaster.patches.AbstractCardEnum;
 
-public class Empower extends CustomCard {
+public class NotFission extends CustomCard {
 
 
-    public static final String ID = Blademaster.makeID("Empower");
+    public static final String ID = Blademaster.makeID("NotFission");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String IMG = Blademaster.makePath(Blademaster.DEFAULT_COMMON_SKILL);
     public static final String NAME = cardStrings.NAME;
-    public static String DESCRIPTION = cardStrings.DESCRIPTION;
-    public static String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+    public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 
 
     private static final CardRarity RARITY = CardRarity.RARE;
@@ -35,47 +32,27 @@ public class Empower extends CustomCard {
     public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
 
     private static final int COST = 0;
-    private static int ENERGY = 1;
-    private static final int CHARGES = 3;
 
 
-    public Empower() {
+    public NotFission() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.exhaust = true;
-        this.baseMagicNumber = this.magicNumber = CHARGES;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, ENERGY));
-        if (p.hasPower(LightningStance.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LightningCharge(p, this.magicNumber, false)));
-        }
-        if (p.hasPower(WindStance.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WindCharge(p, this.magicNumber, false)));
-        }
-        if (p.hasPower(StoneStance.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StoneCharge(p, this.magicNumber, false)));
-        }
-        if (p.hasPower(IceStance.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new IceCharge(p, this.magicNumber, false)));
-        }
-        AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(ENERGY));
-
+        AbstractDungeon.actionManager.addToBottom(new FissionAction(this.upgraded));
     }
 
     @Override
     public AbstractCard makeCopy() {
-        return new Empower();
+        return new NotFission();
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            ENERGY = 2;
-            this.DESCRIPTION = this.UPGRADE_DESCRIPTION;
-            this.upgradeMagicNumber(2);
             this.initializeDescription();
         }
     }

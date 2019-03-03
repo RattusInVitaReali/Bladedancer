@@ -19,58 +19,62 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import basemod.abstracts.CustomCard;
 import blademaster.Blademaster;
 import blademaster.patches.AbstractCardEnum;
+import ratmod.powers.BleedingPower;
 
-public class Lacerate extends CustomCard {
+public class BloodyBlow extends CustomCard {
 
 
-    public static final String ID = Blademaster.makeID("Lacerate");
+    public static final String ID = Blademaster.makeID("BloodyBlow");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String IMG = Blademaster.makePath(Blademaster.DEFAULT_COMMON_ATTACK);
-    public static final String LIMG = Blademaster.makePath(Blademaster.LIGHTNING_ATTACK);
-    public static final String WIMG = Blademaster.makePath(Blademaster.WIND_ATTACK);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    public static final String WDES = cardStrings.EXTENDED_DESCRIPTION[0];
-    public static final String LDES = cardStrings.EXTENDED_DESCRIPTION[1];
 
-    private static final CardRarity RARITY = CardRarity.BASIC;
+
+    private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
 
-    private static final int COST = 0;
-    private static final int DAMAGE = 2;
     private boolean WindArt = false;
     private boolean LightningArt = false;
     private boolean BaseArt = false;
+    public static final String LIMG = Blademaster.makePath(Blademaster.LIGHTNING_ATTACK);
+    public static final String WIMG = Blademaster.makePath(Blademaster.WIND_ATTACK);
+
+    private static final int COST = 1;
+    private static final int DAMAGE = 5;
+    private static final int BLEEDING = 4;
 
 
-    public Lacerate() {
+    public BloodyBlow() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.baseDamage = DAMAGE;
-        this.damage = this.baseDamage;
-        this.exhaust = true;
+        this.baseDamage = this.damage = DAMAGE;
+        this.baseMagicNumber = this.magicNumber = BLEEDING;
     }
 
     @Override
-    public void use(AbstractPlayer p, AbstractMonster m)
-    {
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+    public void use(AbstractPlayer p, AbstractMonster m) {
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+        if (2 * m.currentHealth <= m.maxHealth) {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new BleedingPower(m, p, this.magicNumber), this.magicNumber));
+        }
         if (p.hasPower(WindStance.POWER_ID)) {
             if (this.upgraded) {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WindCharge(p, 1, false), 1));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WindCharge(p, 2, false), 2));
             } else {
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WindCharge(p, 1, false), 1));
             }
         }
         if (p.hasPower(LightningStance.POWER_ID)) {
             if (this.upgraded) {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LightningCharge(p, 1, false), 1));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LightningCharge(p, 2, false), 2));
             } else {
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LightningCharge(p, 1, false), 1));
             }
         }
     }
+
 
     public void applyPowers() {
         super.applyPowers();
@@ -104,17 +108,17 @@ public class Lacerate extends CustomCard {
         }
     }
 
-
     @Override
     public AbstractCard makeCopy() {
-        return new Lacerate();
+        return new BloodyBlow();
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeDamage(1);
+            this.upgradeMagicNumber(1);
+            this.upgradeDamage(2);
             this.initializeDescription();
         }
     }

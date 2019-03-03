@@ -42,6 +42,9 @@ public class RollingTyphoon extends CustomCard {
     private static final int COST = 0;
     private static final int DAMAGE = 30;
     private static final int AOE = 15;
+    private boolean WindArt = false;
+    private boolean LightningArt = false;
+    private boolean BaseArt = false;
 
 
     public RollingTyphoon() {
@@ -86,11 +89,32 @@ public class RollingTyphoon extends CustomCard {
     public void applyPowers() {
         super.applyPowers();
         if (AbstractDungeon.player.hasPower(WindStance.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, WIMG, false));
+            if (!WindArt) {
+                AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, WIMG, false));
+                this.rawDescription = (DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0]);
+                this.initializeDescription();
+                WindArt = true;
+                LightningArt = false;
+                BaseArt = false;
+            }
         } else if (AbstractDungeon.player.hasPower(LightningStance.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, LIMG, false));
-        } else {
-            AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG, false));
+            if (!LightningArt) {
+                AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, LIMG, false));
+                this.rawDescription = (DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[1]);
+                this.initializeDescription();
+                WindArt = false;
+                LightningArt = true;
+                BaseArt = false;
+            }
+        } else if (AbstractDungeon.player.hasPower(BasicStance.POWER_ID)) {
+            if (!BaseArt) {
+                AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG, false));
+                this.rawDescription = DESCRIPTION;
+                this.initializeDescription();
+                WindArt = false;
+                LightningArt = false;
+                BaseArt = true;
+            }
         }
     }
 

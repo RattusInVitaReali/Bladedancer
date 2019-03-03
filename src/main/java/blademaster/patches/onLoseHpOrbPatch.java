@@ -34,7 +34,9 @@ public class onLoseHpOrbPatch {
         @Override
         public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
             Matcher finalMatcher = new Matcher.MethodCallMatcher(AbstractRelic.class, "onLoseHp");
-            return LineFinder.findInOrder(ctMethodToPatch, new ArrayList(), finalMatcher);
+            int[] found = LineFinder.findInOrder(ctMethodToPatch, new ArrayList(), finalMatcher);
+            --found[0];
+            return found;
         }
     }
 }

@@ -61,16 +61,16 @@ public class AwakeningDefend extends CustomCard {
         }
         if (p.hasPower(IceStance.POWER_ID)) {
             if (this.upgraded) {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new IceCharge(p, 2), 2));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new IceCharge(p, 2, false), 2));
             } else {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new IceCharge(p, 1), 1));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new IceCharge(p, 1, false), 1));
             }
         }
         if (p.hasPower(StoneStance.POWER_ID)) {
             if (this.upgraded) {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StoneCharge(p, 2), 2));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StoneCharge(p, 2, false), 2));
             } else {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StoneCharge(p, 1), 1));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StoneCharge(p, 1, false), 1));
             }
         }
     }

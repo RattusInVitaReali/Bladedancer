@@ -12,7 +12,7 @@ public class IceCharge extends AbstractPower {
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public IceCharge(AbstractCreature owner, int amount) {
+    public IceCharge(AbstractCreature owner, int amount, boolean isAdditional) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.priority = 13;

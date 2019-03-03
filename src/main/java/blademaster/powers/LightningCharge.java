@@ -12,7 +12,7 @@ public class LightningCharge extends AbstractPower {
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public LightningCharge(AbstractCreature owner, int amount) {
+    public LightningCharge(AbstractCreature owner, int amount, boolean isAdditional) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;

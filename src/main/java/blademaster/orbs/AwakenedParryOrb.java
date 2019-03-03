@@ -1,5 +1,6 @@
 package blademaster.orbs;
 
+import blademaster.powers.BladeDancePower;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -20,6 +21,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.MalleablePower;
 import com.megacrit.cardcrawl.powers.PlatedArmorPower;
 import com.megacrit.cardcrawl.powers.ThornsPower;
@@ -64,6 +66,30 @@ public class AwakenedParryOrb
         applyFocus();
         this.description = (DESC[0] + this.passiveAmount + DESC[1] + this.evokeAmount + DESC[2]);
 
+    }
+
+    public void applyFocus() {
+        AbstractPower power = AbstractDungeon.player.getPower("Focus");
+        if ((power != null) && (!this.ID.equals("Plasma")))
+        {
+            if (AbstractDungeon.player.hasPower(BladeDancePower.POWER_ID)) {
+                this.passiveAmount = 2 * Math.max(0, this.basePassiveAmount + power.amount);
+                this.evokeAmount = 2 *Math.max(0, this.baseEvokeAmount + power.amount);
+            } else {
+                this.passiveAmount = Math.max(0, this.basePassiveAmount + power.amount);
+                this.evokeAmount = Math.max(0, this.baseEvokeAmount + power.amount);
+            }
+        }
+        else
+        {
+            if (AbstractDungeon.player.hasPower(BladeDancePower.POWER_ID)) {
+                this.passiveAmount = 2 * this.basePassiveAmount;
+                this.evokeAmount = 2 * this.baseEvokeAmount;
+            } else {
+                this.passiveAmount = this.basePassiveAmount;
+                this.evokeAmount = this.baseEvokeAmount;
+            }
+        }
     }
 
     public void onEvoke()

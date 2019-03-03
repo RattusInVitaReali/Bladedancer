@@ -1,5 +1,7 @@
 package blademaster.orbs;
 
+import blademaster.powers.BladeDancePower;
+import blademaster.powers.LifestealPower;
 import blademaster.powers.SharpBladesPower;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -10,6 +12,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.defect.DecreaseMaxOrbAction;
 import com.megacrit.cardcrawl.actions.defect.LightningOrbEvokeAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
@@ -20,6 +23,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.combat.DarkOrbActivateEffect;
 import com.megacrit.cardcrawl.vfx.combat.DarkOrbPassiveEffect;
 import com.megacrit.cardcrawl.vfx.combat.OrbFlareEffect;
@@ -62,6 +66,31 @@ public class AwakenedBladeOrb
         this.description = (DESC[0] + this.passiveAmount + DESC[1] + this.evokeAmount + DESC[2]);
     }
 
+    public void applyFocus() {
+        AbstractPower power = AbstractDungeon.player.getPower("Focus");
+        if ((power != null) && (!this.ID.equals("Plasma")))
+        {
+            if (AbstractDungeon.player.hasPower(BladeDancePower.POWER_ID)) {
+                this.passiveAmount = 2 * Math.max(0, this.basePassiveAmount + power.amount);
+                this.evokeAmount = 2 *Math.max(0, this.baseEvokeAmount + power.amount);
+            } else {
+                this.passiveAmount = Math.max(0, this.basePassiveAmount + power.amount);
+                this.evokeAmount = Math.max(0, this.baseEvokeAmount + power.amount);
+            }
+        }
+        else
+        {
+            if (AbstractDungeon.player.hasPower(BladeDancePower.POWER_ID)) {
+                this.passiveAmount = 2 * this.basePassiveAmount;
+                this.evokeAmount = 2 * this.baseEvokeAmount;
+            } else {
+                this.passiveAmount = this.basePassiveAmount;
+                this.evokeAmount = this.baseEvokeAmount;
+            }
+        }
+    }
+
+
     public void onEvoke()
     {
         AbstractDungeon.actionManager.addToTop(new LightningOrbEvokeAction(new DamageInfo(AbstractDungeon.player, this.evokeAmount, DamageInfo.DamageType.THORNS), true));
@@ -79,13 +108,18 @@ public class AwakenedBladeOrb
             {
                 Samt = AbstractDungeon.player.getPower(SharpBladesPower.POWER_ID).amount;
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, AbstractDungeon.player, new BleedingPower(m, AbstractDungeon.player, Samt), Samt));
-
+            }
+            if (AbstractDungeon.player.hasPower(LifestealPower.POWER_ID)) {
+                AbstractDungeon.actionManager.addToBottom(new HealAction(AbstractDungeon.player, AbstractDungeon.player, AbstractDungeon.player.getPower(LifestealPower.POWER_ID).amount));
             }
             AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(AbstractDungeon.player, this.passiveAmount), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
             if (AbstractDungeon.player.hasPower(SharpBladesPower.POWER_ID))
             {
                 Samt = AbstractDungeon.player.getPower(SharpBladesPower.POWER_ID).amount;
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, AbstractDungeon.player, new BleedingPower(m, AbstractDungeon.player, Samt), Samt));
+            }
+            if (AbstractDungeon.player.hasPower(LifestealPower.POWER_ID)) {
+                AbstractDungeon.actionManager.addToBottom(new HealAction(AbstractDungeon.player, AbstractDungeon.player, AbstractDungeon.player.getPower(LifestealPower.POWER_ID).amount));
             }
         }
     }

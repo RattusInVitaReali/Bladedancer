@@ -2,10 +2,7 @@ package blademaster.cards;
 
 import blademaster.actions.LoadCardImageAction;
 import blademaster.patches.BlademasterTags;
-import blademaster.powers.LightningCharge;
-import blademaster.powers.LightningStance;
-import blademaster.powers.WindCharge;
-import blademaster.powers.WindStance;
+import blademaster.powers.*;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -78,16 +75,16 @@ public class Gale extends CustomCard {
         AbstractDungeon.player.hand.addToHand(c);
         if (p.hasPower(WindStance.POWER_ID)) {
             if (this.upgraded) {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WindCharge(p, 1), 1));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WindCharge(p, 1, false), 1));
             } else {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WindCharge(p, 1), 1));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WindCharge(p, 1, false), 1));
             }
         }
         if (p.hasPower(LightningStance.POWER_ID)) {
             if (this.upgraded) {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LightningCharge(p, 1), 1));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LightningCharge(p, 1, false), 1));
             } else {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LightningCharge(p, 1), 1));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LightningCharge(p, 1, false), 1));
             }
         }
     }
@@ -95,27 +92,33 @@ public class Gale extends CustomCard {
 
     public void applyPowers() {
         super.applyPowers();
-        if (AbstractDungeon.player.hasPower(WindStance.POWER_ID) && (!WindArt)) {
-            AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, WIMG, false));
-            this.rawDescription = (DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0]);
-            this.initializeDescription();
-            WindArt = true;
-            LightningArt = false;
-            BaseArt = false;
-        } else if (AbstractDungeon.player.hasPower(LightningStance.POWER_ID) && (!LightningArt)) {
-            AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, LIMG, false));
-            this.rawDescription = (DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[1]);
-            this.initializeDescription();
-            WindArt = false;
-            LightningArt = true;
-            BaseArt = false;
-        } else if (!BaseArt) {
-            AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG, false));
-            this.rawDescription = DESCRIPTION;
-            this.initializeDescription();
-            WindArt = false;
-            LightningArt = false;
-            BaseArt = true;
+        if (AbstractDungeon.player.hasPower(WindStance.POWER_ID)) {
+            if (!WindArt) {
+                AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, WIMG, false));
+                this.rawDescription = (DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0]);
+                this.initializeDescription();
+                WindArt = true;
+                LightningArt = false;
+                BaseArt = false;
+            }
+        } else if (AbstractDungeon.player.hasPower(LightningStance.POWER_ID)) {
+            if (!LightningArt) {
+                AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, LIMG, false));
+                this.rawDescription = (DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[1]);
+                this.initializeDescription();
+                WindArt = false;
+                LightningArt = true;
+                BaseArt = false;
+            }
+        } else if (AbstractDungeon.player.hasPower(BasicStance.POWER_ID)) {
+            if (!BaseArt) {
+                AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG, false));
+                this.rawDescription = DESCRIPTION;
+                this.initializeDescription();
+                WindArt = false;
+                LightningArt = false;
+                BaseArt = true;
+            }
         }
     }
 

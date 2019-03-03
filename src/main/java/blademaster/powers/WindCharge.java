@@ -12,7 +12,7 @@ public class WindCharge extends AbstractPower {
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public WindCharge(AbstractCreature owner, int amount) {
+    public WindCharge(AbstractCreature owner, int amount, boolean isAdditional) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;

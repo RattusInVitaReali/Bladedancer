@@ -314,7 +314,7 @@ public class Blademaster
         BaseMod.addCard(new Surge());
         BaseMod.addCard(new WindSlash());
         BaseMod.addCard(new Windstorm());
-        BaseMod.addCard(new Windwall());
+        BaseMod.addCard(new Wall());
         BaseMod.addCard(new Zephyr());
         
 
@@ -359,7 +359,7 @@ public class Blademaster
         UnlockTracker.unlockCard(Surge.ID);
         UnlockTracker.unlockCard(WindSlash.ID);
         UnlockTracker.unlockCard(Windstorm.ID);
-        UnlockTracker.unlockCard(Windwall.ID);
+        UnlockTracker.unlockCard(Wall.ID);
         UnlockTracker.unlockCard(Zephyr.ID);
 
 

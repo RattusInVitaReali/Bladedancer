@@ -12,7 +12,7 @@ public class StoneCharge extends AbstractPower {
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public StoneCharge(AbstractCreature owner, int amount) {
+    public StoneCharge(AbstractCreature owner, int amount, boolean isAdditional) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
