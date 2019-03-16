@@ -1,5 +1,6 @@
 package blademaster.cards;
 
+import blademaster.powers.StoneCharge;
 import blademaster.powers.StoneStance;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -36,7 +37,7 @@ public class MagmaStrike extends CustomCard {
     public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
 
     private static final int COST = 1;
-    private static final int DAMAGE = 13;
+    private static final int DAMAGE = 9;
     private static final int BURNS = 2;
 
     public MagmaStrike() {
@@ -45,15 +46,13 @@ public class MagmaStrike extends CustomCard {
         this.baseMagicNumber = this.magicNumber = BURNS;
     }
 
-    public boolean canUse() {
-        this.cantUseMessage = "I'm not in Stone Stance!";
-        return (AbstractDungeon.player.hasPower(StoneStance.POWER_ID));
-    }
-
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HEAVY));
+        if (p.hasPower(StoneCharge.POWER_ID)) {
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, p.getPower(StoneCharge.POWER_ID).amount, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
+        }
         AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Burn(), this.magicNumber));
     }
 
@@ -66,7 +65,7 @@ public class MagmaStrike extends CustomCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeDamage(3);
+            this.upgradeDamage(4);
             this.initializeDescription();
         }
     }

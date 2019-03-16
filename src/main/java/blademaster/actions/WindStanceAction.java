@@ -17,7 +17,7 @@ public class WindStanceAction
     public void update() {
         for (AbstractCard card : AbstractDungeon.player.hand.group) {
             if (card.hasTag(BlademasterTags.WIND_STANCE)) {
-                card.flash(Color.GREEN);
+                card.flash(Color.GREEN.cpy());
             }
         }
         this.isDone = true;

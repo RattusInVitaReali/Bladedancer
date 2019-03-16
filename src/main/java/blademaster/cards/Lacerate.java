@@ -1,6 +1,7 @@
 package blademaster.cards;
 
 import blademaster.actions.LoadCardImageAction;
+import blademaster.patches.BlademasterTags;
 import blademaster.powers.*;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -30,8 +31,6 @@ public class Lacerate extends CustomCard {
     public static final String WIMG = Blademaster.makePath(Blademaster.WIND_ATTACK);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    public static final String WDES = cardStrings.EXTENDED_DESCRIPTION[0];
-    public static final String LDES = cardStrings.EXTENDED_DESCRIPTION[1];
 
     private static final CardRarity RARITY = CardRarity.BASIC;
     private static final CardTarget TARGET = CardTarget.ENEMY;
@@ -50,6 +49,8 @@ public class Lacerate extends CustomCard {
         this.baseDamage = DAMAGE;
         this.damage = this.baseDamage;
         this.exhaust = true;
+        this.tags.add(BlademasterTags.WIND_STANCE);
+        this.tags.add(BlademasterTags.LIGHTNING_STANCE);
     }
 
     @Override

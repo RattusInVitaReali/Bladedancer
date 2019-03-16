@@ -31,10 +31,7 @@ public class FrozenPower extends AbstractPower {
 
     public void updateDescription()
     {
-        this.description = (DESCRIPTIONS[0] + FontHelper.colorString(this.owner.name, "y") + DESCRIPTIONS[1]);
-        if (this.amount != 0) {
-            this.description = (this.description + DESCRIPTIONS[2] + this.amount * 10 + DESCRIPTIONS[3]);
-        }
+        this.description = (DESCRIPTIONS[0] + this.amount * 5 + DESCRIPTIONS[1]);
     }
 
     public float atDamageReceive(float damage, DamageInfo.DamageType type)

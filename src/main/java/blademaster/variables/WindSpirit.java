@@ -1,8 +1,11 @@
 package blademaster.variables;
 
 import basemod.abstracts.DynamicVariable;
+import blademaster.powers.LightningCharge;
 import blademaster.powers.WindCharge;
+import blademaster.powers.WindStance;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class WindSpirit extends DynamicVariable
@@ -30,8 +33,12 @@ public class WindSpirit extends DynamicVariable
     @Override
     public int value(AbstractCard card)
     {
-        if (AbstractDungeon.player.hasPower(WindCharge.POWER_ID)) {
-            return AbstractDungeon.player.getPower(WindCharge.POWER_ID).amount;
+        if (CardCrawlGame.isInARun()) {
+            if (AbstractDungeon.player.hasPower(WindCharge.POWER_ID)) {
+                return AbstractDungeon.player.getPower(WindCharge.POWER_ID).amount;
+            } else {
+                return 0;
+            }
         } else {
             return 0;
         }
@@ -42,8 +49,12 @@ public class WindSpirit extends DynamicVariable
     @Override
     public int baseValue(AbstractCard card)
     {
-        if (AbstractDungeon.player.hasPower(WindCharge.POWER_ID)) {
-            return AbstractDungeon.player.getPower(WindCharge.POWER_ID).amount;
+        if (CardCrawlGame.isInARun()) {
+            if (AbstractDungeon.player.hasPower(WindCharge.POWER_ID)) {
+                return AbstractDungeon.player.getPower(WindCharge.POWER_ID).amount;
+            } else {
+                return 0;
+            }
         } else {
             return 0;
         }

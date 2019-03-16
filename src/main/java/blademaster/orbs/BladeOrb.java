@@ -1,6 +1,6 @@
 package blademaster.orbs;
 
-import blademaster.cards.BladeDance;
+import blademaster.interfaces.onUseCardOrb;
 import blademaster.powers.BladeDancePower;
 import blademaster.powers.BlockadePower;
 import blademaster.powers.LifestealPower;
@@ -30,13 +30,12 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.combat.DarkOrbActivateEffect;
 import com.megacrit.cardcrawl.vfx.combat.DarkOrbPassiveEffect;
 import com.megacrit.cardcrawl.vfx.combat.OrbFlareEffect;
-import blademaster.interfaces.onUseCardOrb;
 import ratmod.powers.BleedingPower;
 
 public class BladeOrb
         extends AbstractOrb implements onUseCardOrb
 {
-    public static final String ORB_ID = "Blade";
+    public static final String ORB_ID = "HavocBlade";
     public static final String[] DESC = { "#yPassive: whenever you play a single-target attack, deal #b ",
             " additional damage. NL #yEvoke: Deal #b ",
             " damage to all enemies." };
@@ -51,9 +50,9 @@ public class BladeOrb
     public BladeOrb()
     {
         this.vfxTimer = 0.3F;
-        this.ID = "Blade";
+        this.ID = ORB_ID;
         this.img = ORB_BLADE;
-        this.name = "Havoc";
+        this.name = "Havoc Blade";
         this.baseEvokeAmount = 5;
         this.evokeAmount = this.baseEvokeAmount;
         this.basePassiveAmount = 2;

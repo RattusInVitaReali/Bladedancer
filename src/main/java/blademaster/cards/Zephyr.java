@@ -1,6 +1,7 @@
 package blademaster.cards;
 
 import blademaster.actions.LoadCardImageAction;
+import blademaster.patches.BlademasterTags;
 import blademaster.powers.*;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -54,6 +55,8 @@ public class Zephyr extends CustomCard {
         this.isMultiDamage = true;
         this.baseMagicNumber = DAMAGE;
         this.magicNumber = this.baseMagicNumber;
+        this.tags.add(BlademasterTags.WIND_STANCE);
+        this.tags.add(BlademasterTags.LIGHTNING_STANCE);
     }
 
     @Override

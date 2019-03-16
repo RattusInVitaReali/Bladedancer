@@ -29,7 +29,7 @@ public class EyeOfTheStormPower extends AbstractPower {
         this.flash();
         if ((damageAmount > 0) && (info.owner != null) && (info.type == DamageInfo.DamageType.NORMAL) && (info.type != DamageInfo.DamageType.HP_LOSS))
         {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new LightningCharge(AbstractDungeon.player, this.amount), this.amount));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new LightningCharge(AbstractDungeon.player, this.amount, false), this.amount));
         }
         if (damageAmount < this.amount){
             return 0;

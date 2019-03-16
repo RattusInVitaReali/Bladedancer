@@ -1,6 +1,7 @@
 package blademaster.cards;
 
 import blademaster.actions.LoadCardImageAction;
+import blademaster.patches.BlademasterTags;
 import blademaster.powers.*;
 import com.badlogic.gdx.utils.compression.lzma.Base;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -44,6 +45,8 @@ public class Frontflip extends CustomCard {
         this.baseMagicNumber = DRAW;
         this.block = this.baseBlock;
         this.magicNumber = this.baseMagicNumber;
+        this.tags.add(BlademasterTags.ICE_STANCE);
+        this.tags.add(BlademasterTags.STONE_STANCE);
     }
 
     @Override

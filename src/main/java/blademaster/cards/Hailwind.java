@@ -30,18 +30,13 @@ public class Hailwind extends CustomCard {
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 
 
-    private static final CardRarity RARITY = CardRarity.RARE;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
 
     private static final int COST = 1;
     private static final int DAMAGE = 4;
-
-    public boolean canUse(AbstractPlayer p) {
-        return (p.hasPower(WindStance.POWER_ID));
-    }
-
 
     public Hailwind() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);

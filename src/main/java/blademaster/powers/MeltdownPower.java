@@ -40,7 +40,7 @@ public class MeltdownPower extends AbstractPower {
     }
 
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0];
+        this.description = DESCRIPTIONS[0] + DESCRIPTIONS[1];
     }
 
 

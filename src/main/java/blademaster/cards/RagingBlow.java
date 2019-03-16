@@ -1,13 +1,13 @@
 package blademaster.cards;
 
 import blademaster.actions.LoadCardImageAction;
+import blademaster.actions.RemoveOffensiveStancesAction;
 import blademaster.patches.BlademasterTags;
 import blademaster.powers.*;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -19,12 +19,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import basemod.abstracts.CustomCard;
 import blademaster.patches.AbstractCardEnum;
 import blademaster.Blademaster;
-import com.megacrit.cardcrawl.powers.RagePower;
 import com.megacrit.cardcrawl.vfx.combat.ClashEffect;
 import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
-import ratmod.actions.ExecuteAction;
-import ratmod.powers.BleedingPower;
-import ratmod.powers.VenomousWoundsPower;
 
 public class RagingBlow extends CustomCard {
 
@@ -43,8 +39,8 @@ public class RagingBlow extends CustomCard {
     public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
 
     private static final int COST = 0;
-    private static final int DAMAGE = 10;
-    private static final int BLEED = 4;
+    private static final int DAMAGE = 8;
+    private static final int BLEED = 3;
     private boolean WindArt = false;
     private boolean LightningArt = false;
     private boolean BaseArt = false;
@@ -68,7 +64,7 @@ public class RagingBlow extends CustomCard {
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
         cantUseMessage = "I'm not furious enough!";
         if (AbstractDungeon.player.hasPower(FuryPower.POWER_ID)) {
-            return AbstractDungeon.player.getPower(FuryPower.POWER_ID).amount >= 15;
+            return AbstractDungeon.player.getPower(FuryPower.POWER_ID).amount >= 10;
         } else {
             return false;
         }
@@ -77,14 +73,15 @@ public class RagingBlow extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new FuryPower(p, -12), -12));
         AbstractDungeon.actionManager.addToBottom(new VFXAction(new ClashEffect(m.hb.cX, m.hb.cY), 0.15F));
         if (2 * m.currentHealth <= m.maxHealth) {
             AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, (2 * this.damage), this.damageTypeForTurn)));
         } else {
             AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn)));
         }
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new CalmnessPower(p, 1), 1));
-        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, FuryPower.POWER_ID));
+        AbstractDungeon.actionManager.addToBottom(new RemoveOffensiveStancesAction());
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WindStance(p)));
         if (p.hasPower(WindStance.POWER_ID) && p.hasPower(WindCharge.POWER_ID)) {
             for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
                 AbstractDungeon.actionManager.addToTop(new SFXAction("ORB_LIGHTNING_EVOKE"));

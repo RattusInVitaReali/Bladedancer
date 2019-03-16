@@ -1,16 +1,79 @@
 {
-	"blademaster:RingOfFury": {
-		"NAME": "Ring of Fury",
-		"FLAVOR": "You feel getting angrier by the minute.",
-		"DESCRIPTIONS": [
-			"At the start of each combat, gain #bFury."
-		]
-	},
-	"blademaster:RingOfSpeed": {
-		"NAME": "Ring of Speed",
-		"FLAVOR": "How would this even work..?",
-		"DESCRIPTIONS": [
-			"At the start of each combat, gain #bCombo."
-		]
-	}
+    "blademaster:DancersAmulet": {
+        "NAME": "Dancer's Amulet",
+        "FLAVOR": "The amulet given to every successful Bladedancer upon graduation.",
+        "DESCRIPTIONS": [
+            "At the start of each combat, gain #bCombo, #bFury and switch your Stance to #bBasic Stance. Whenever you defeat an #rElite, choose to obtain one of 3 #gPerks."
+        ]
+    },
+    "blademaster:BonusComboPerk": {
+        "NAME": "Perk: Combatant",
+        "FLAVOR": "",
+        "DESCRIPTIONS": [
+            "Start each combat with #b2 #yCombo."
+        ]
+    },
+    "blademaster:BonusFuryPerk": {
+        "NAME": "Perk: Furious",
+        "FLAVOR": "",
+        "DESCRIPTIONS": [
+            "Start each combat with #b10 #yFury."
+        ]
+    },
+    "blademaster:DextrousPerk": {
+        "NAME": "Perk: Dexterous",
+        "FLAVOR": "",
+        "DESCRIPTIONS": [
+            "Start each combat with #b1 #yDexterity."
+        ]
+    },
+    "blademaster:FocusedPerk": {
+        "NAME": "Perk: Focused",
+        "FLAVOR": "",
+        "DESCRIPTIONS": [
+            "Start each combat with #b1 #yFocus."
+        ]
+    },
+    "blademaster:RandomBladePerk": {
+        "NAME": "Perk: Blades",
+        "FLAVOR": "",
+        "DESCRIPTIONS": [
+            "At the start of each combat, channel #b1 random #yBlade."
+        ]
+    },
+    "blademaster:RandomDefensiveStancePerk": {
+        "NAME": "Perk: Defensive Stance Mastery",
+        "FLAVOR": "",
+        "DESCRIPTIONS": [
+            "At the start of combat, switch your #yDefensive #yStance to a random #yStance."
+        ]
+    },
+    "blademaster:RandomOffensiveStancePerk": {
+        "NAME": "Perk: Offensive Stance Mastery",
+        "FLAVOR": "",
+        "DESCRIPTIONS": [
+            "At the start of combat, switch your #yOffensive #yStance to a random #yStance."
+        ]
+    },
+    "blademaster:StrongPerk": {
+        "NAME": "Perk: Strong",
+        "FLAVOR": "",
+        "DESCRIPTIONS": [
+            "Start each combat with #b1 #yStrength."
+        ]
+    },
+    "blademaster:FinisherDrawCardPerk": {
+        "NAME": "Perk: Finisher Mastery",
+        "FLAVOR": "",
+        "DESCRIPTIONS": [
+            "Whenever you play a #rFinisher, draw 1 card."
+        ]
+    },
+    "blademaster:StanceHealPerk": {
+        "NAME": "Perk: Healthy Stances",
+        "FLAVOR": "",
+        "DESCRIPTIONS": [
+            "At the end of combat, heal #b4 HP per #yStance you're in."
+        ]
+    }
 }

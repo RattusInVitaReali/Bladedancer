@@ -2,6 +2,7 @@ package blademaster.cards;
 
 import blademaster.actions.LoadCardImageAction;
 import blademaster.orbs.BladeOrb;
+import blademaster.patches.BlademasterTags;
 import blademaster.powers.*;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -49,6 +50,8 @@ public class Safeguard extends CustomCard {
     public Safeguard() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseBlock = this.block = BLOCK;
+        this.tags.add(BlademasterTags.ICE_STANCE);
+        this.tags.add(BlademasterTags.STONE_STANCE);
     }
 
     @Override

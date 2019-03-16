@@ -31,12 +31,11 @@ import blademaster.interfaces.onUseCardOrb;
 import ratmod.powers.BleedingPower;
 
 public class AwakenedBladeOrb
-        extends AbstractOrb implements onUseCardOrb
-{
-    public static final String ORB_ID = "Blade";
-    public static final String[] DESC = { "#yPassive: whenever you play a single-target attack, deal #b ",
+        extends AbstractOrb implements onUseCardOrb {
+    public static final String ORB_ID = "AwakenedHavocBlade";
+    public static final String[] DESC = {"#yPassive: whenever you play a single-target attack, deal #b ",
             " additional damage twice. NL #yEvoke: Deal #b ",
-            " damage to all enemies." };
+            " damage to all enemies."};
     private static final float ORB_BORDER_SCALE = 1.2F;
     private float vfxTimer;
     private static final float VFX_INTERVAL_TIME = 0.25F;
@@ -45,12 +44,11 @@ public class AwakenedBladeOrb
     public static Texture ORB_BLADE = blademaster.Blademaster.getBladeOrbTexture();
     private static int Samt;
 
-    public AwakenedBladeOrb()
-    {
+    public AwakenedBladeOrb() {
         this.vfxTimer = 0.5F;
-        this.ID = "AwakenedBlade";
+        this.ID = ORB_ID;
         this.img = ORB_BLADE;
-        this.name = "Awakened Blade";
+        this.name = "Awakened Havoc Blade";
         this.baseEvokeAmount = 7;
         this.evokeAmount = this.baseEvokeAmount;
         this.basePassiveAmount = 2;
@@ -60,26 +58,22 @@ public class AwakenedBladeOrb
         this.channelAnimTimer = 0.5F;
     }
 
-    public void updateDescription()
-    {
+    public void updateDescription() {
         applyFocus();
         this.description = (DESC[0] + this.passiveAmount + DESC[1] + this.evokeAmount + DESC[2]);
     }
 
     public void applyFocus() {
         AbstractPower power = AbstractDungeon.player.getPower("Focus");
-        if ((power != null) && (!this.ID.equals("Plasma")))
-        {
+        if ((power != null) && (! this.ID.equals("Plasma"))) {
             if (AbstractDungeon.player.hasPower(BladeDancePower.POWER_ID)) {
                 this.passiveAmount = 2 * Math.max(0, this.basePassiveAmount + power.amount);
-                this.evokeAmount = 2 *Math.max(0, this.baseEvokeAmount + power.amount);
+                this.evokeAmount = 2 * Math.max(0, this.baseEvokeAmount + power.amount);
             } else {
                 this.passiveAmount = Math.max(0, this.basePassiveAmount + power.amount);
                 this.evokeAmount = Math.max(0, this.baseEvokeAmount + power.amount);
             }
-        }
-        else
-        {
+        } else {
             if (AbstractDungeon.player.hasPower(BladeDancePower.POWER_ID)) {
                 this.passiveAmount = 2 * this.basePassiveAmount;
                 this.evokeAmount = 2 * this.baseEvokeAmount;
@@ -91,21 +85,17 @@ public class AwakenedBladeOrb
     }
 
 
-    public void onEvoke()
-    {
+    public void onEvoke() {
         AbstractDungeon.actionManager.addToTop(new LightningOrbEvokeAction(new DamageInfo(AbstractDungeon.player, this.evokeAmount, DamageInfo.DamageType.THORNS), true));
         AbstractDungeon.actionManager.addToBottom(new DecreaseMaxOrbAction(1));
     }
 
-    public void onUseCard(AbstractCard card, UseCardAction action)
-    {
-        if ((card.type == AbstractCard.CardType.ATTACK) && (card.target == AbstractCard.CardTarget.ENEMY))
-        {
+    public void onUseCard(AbstractCard card, UseCardAction action) {
+        if ((card.type == AbstractCard.CardType.ATTACK) && (card.target == AbstractCard.CardTarget.ENEMY)) {
             AbstractDungeon.actionManager.addToBottom(new VFXAction(new OrbFlareEffect(this, OrbFlareEffect.OrbFlareColor.DARK), 0.1F));
             AbstractCreature m = action.target;
             AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(AbstractDungeon.player, this.passiveAmount), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-            if (AbstractDungeon.player.hasPower(SharpBladesPower.POWER_ID))
-            {
+            if (AbstractDungeon.player.hasPower(SharpBladesPower.POWER_ID)) {
                 Samt = AbstractDungeon.player.getPower(SharpBladesPower.POWER_ID).amount;
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, AbstractDungeon.player, new BleedingPower(m, AbstractDungeon.player, Samt), Samt));
             }
@@ -113,8 +103,7 @@ public class AwakenedBladeOrb
                 AbstractDungeon.actionManager.addToBottom(new HealAction(AbstractDungeon.player, AbstractDungeon.player, AbstractDungeon.player.getPower(LifestealPower.POWER_ID).amount));
             }
             AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(AbstractDungeon.player, this.passiveAmount), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-            if (AbstractDungeon.player.hasPower(SharpBladesPower.POWER_ID))
-            {
+            if (AbstractDungeon.player.hasPower(SharpBladesPower.POWER_ID)) {
                 Samt = AbstractDungeon.player.getPower(SharpBladesPower.POWER_ID).amount;
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, AbstractDungeon.player, new BleedingPower(m, AbstractDungeon.player, Samt), Samt));
             }
@@ -124,43 +113,37 @@ public class AwakenedBladeOrb
         }
     }
 
-    public void updateAnimation()
-    {
+    public void updateAnimation() {
         super.updateAnimation();
         this.angle += Gdx.graphics.getDeltaTime() * 120.0F;
         this.vfxTimer -= Gdx.graphics.getDeltaTime();
-        if (this.vfxTimer < 0.0F)
-        {
+        if (this.vfxTimer < 0.0F) {
             AbstractDungeon.effectList.add(new DarkOrbPassiveEffect(this.cX, this.cY));
             this.vfxTimer = 0.25F;
         }
     }
 
-    public void render(SpriteBatch sb)
-    {
+    public void render(SpriteBatch sb) {
         sb.setColor(new Color(1.0F, 1.0F, 1.0F, this.c.a / 2.0F));
         sb.draw(this.img, this.cX - 48.0F, this.cY - 48.0F + this.bobEffect.y, 48.0F, 48.0F, 96.0F, 96.0F, this.scale + MathUtils.sin(this.angle / 12.566371F) * 0.04F * Settings.scale, this.scale, this.angle, 0, 0, 96, 96, false, false);
         sb.setColor(new Color(1.0F, 1.0F, 1.0F, this.c.a / 2.0F));
         sb.setBlendFunction(770, 1);
-        sb.draw(this.img, this.cX - 48.0F, this.cY - 48.0F + this.bobEffect.y, 48.0F, 48.0F, 96.0F, 96.0F, this.scale, this.scale + MathUtils.sin(this.angle / 12.566371F) * 0.04F * Settings.scale, -this.angle, 0, 0, 96, 96, false, false);
+        sb.draw(this.img, this.cX - 48.0F, this.cY - 48.0F + this.bobEffect.y, 48.0F, 48.0F, 96.0F, 96.0F, this.scale, this.scale + MathUtils.sin(this.angle / 12.566371F) * 0.04F * Settings.scale, - this.angle, 0, 0, 96, 96, false, false);
         sb.setBlendFunction(770, 771);
         renderText(sb);
         this.hb.render(sb);
     }
 
-    public AbstractOrb makeCopy()
-    {
+    public AbstractOrb makeCopy() {
         return new BladeOrb();
     }
 
-    public void triggerEvokeAnimation()
-    {
+    public void triggerEvokeAnimation() {
         CardCrawlGame.sound.play("CARD_BURN", 0.1F);
         AbstractDungeon.effectsQueue.add(new DarkOrbActivateEffect(this.cX, this.cY));
     }
 
-    public void playChannelSFX()
-    {
+    public void playChannelSFX() {
         CardCrawlGame.sound.play("ATTACK_FIRE", 0.1F);
     }
 }

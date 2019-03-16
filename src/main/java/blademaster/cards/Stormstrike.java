@@ -32,13 +32,13 @@ public class Stormstrike extends CustomCard {
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 
 
-    private static final CardRarity RARITY = CardRarity.RARE;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
 
     private static final int COST = 1;
-    private static final int DAMAGE = 8;
+    private static final int DAMAGE = 5;
     private static final int MULT = 3;
 
 
@@ -47,11 +47,6 @@ public class Stormstrike extends CustomCard {
         this.baseDamage = this.damage = DAMAGE;
         this.baseMagicNumber = this.magicNumber = MULT;
         this.tags.add(BlademasterTags.LIGHTNING_STANCE);
-    }
-
-    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        cantUseMessage = "I'm not in Lightning Stance!";
-        return p.hasPower(LightningStance.POWER_ID);
     }
 
 

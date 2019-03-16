@@ -24,6 +24,7 @@ public class StanceMasteryPower extends AbstractPower implements BetterOnApplyPo
         this.type = PowerType.BUFF;
         this.isTurnBased = true;
         this.img = Blademaster.getDefaultPowerTexture();
+        updateDescription();
     }
 
 

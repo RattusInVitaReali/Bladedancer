@@ -19,8 +19,6 @@ public class ChargingUp extends CustomCard {
     public static final String ID = Blademaster.makeID("ChargingUp");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String IMG = Blademaster.makePath(Blademaster.DEFAULT_COMMON_SKILL);
-    public static final String IIMG = Blademaster.makePath(Blademaster.ICE_SKILL);
-    public static final String SIMG = Blademaster.makePath(Blademaster.STONE_SKILL);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 

@@ -4,6 +4,7 @@ import blademaster.orbs.BladeOrb;
 import blademaster.powers.ComboPower;
 import blademaster.powers.FuryPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.actions.defect.IncreaseMaxOrbAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -54,7 +55,9 @@ public class FlockOfBlades extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new IncreaseMaxOrbAction(5));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new FuryPower(p, -30), -30));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ComboPower(p, -6), -6));
+        AbstractDungeon.actionManager.addToBottom(new IncreaseMaxOrbAction(this.magicNumber));
         AbstractDungeon.actionManager.addToBottom(new ChannelAction(new BladeOrb(), false));
         AbstractDungeon.actionManager.addToBottom(new ChannelAction(new BladeOrb(), false));
         AbstractDungeon.actionManager.addToBottom(new ChannelAction(new BladeOrb(), false));

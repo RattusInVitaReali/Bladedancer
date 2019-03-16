@@ -2,6 +2,7 @@ package blademaster.cards;
 
 import blademaster.actions.AwakenOrbAction;
 import blademaster.actions.LoadCardImageAction;
+import blademaster.patches.BlademasterTags;
 import blademaster.powers.*;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -50,6 +51,8 @@ public class AwakeningDefend extends CustomCard {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseMagicNumber = this.magicNumber = AMT;
         this.baseBlock = this.block = BLOCK;
+        this.tags.add(BlademasterTags.ICE_STANCE);
+        this.tags.add(BlademasterTags.STONE_STANCE);
     }
 
     @Override

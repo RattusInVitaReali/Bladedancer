@@ -22,7 +22,7 @@ public class onLoseHpOrbPatch {
             localvars = "damageAmount"
     )
 
-    public static void Insert(AbstractPlayer __obj_instance, DamageInfo info, int damageAmount) {
+    public static void Insert(AbstractPlayer __obj_instance, DamageInfo info,int damageAmount) {
         for(AbstractOrb orb : __obj_instance.orbs) {
             if(orb instanceof onLoseHpOrb) {
                 ((onLoseHpOrb)orb).onLoseHpForOrbs(info, damageAmount);
@@ -40,3 +40,4 @@ public class onLoseHpOrbPatch {
         }
     }
 }
+

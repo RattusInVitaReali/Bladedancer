@@ -1,5 +1,6 @@
 package blademaster.orbs;
 
+import blademaster.interfaces.onAttackedOrb;
 import blademaster.powers.BladeDancePower;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -7,7 +8,6 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.defect.DecreaseMaxOrbAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -16,17 +16,16 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.ThornsPower;
-import com.megacrit.cardcrawl.vfx.combat.*;
-import blademaster.interfaces.onLoseHpOrb;
-import org.lwjgl.Sys;
+import com.megacrit.cardcrawl.vfx.combat.PlasmaOrbActivateEffect;
+import com.megacrit.cardcrawl.vfx.combat.PlasmaOrbPassiveEffect;
 
 public class ParryOrb
-        extends AbstractOrb implements onLoseHpOrb
+        extends AbstractOrb implements onAttackedOrb
 {
-    public static final String ORB_ID = "Blade";
-    public static final String[] DESC = { "#yPassive: gain #b",
-            " #yBlock whenever you're attacked. NL #yEvoke: Gain #b ",
-            " #yThrons." };
+    public static final String ORB_ID = "ParryBlade";
+    public static final String[] DESC = { "#yPassive: Whenever you're attacked, reduce the damage by #b",
+            ". NL #yEvoke: Gain #b",
+            " #yThorns." };
     private static final float ORB_BORDER_SCALE = 1.2F;
     private float vfxTimer;
     private static final float VFX_INTERVAL_TIME = 0.25F;
@@ -38,12 +37,12 @@ public class ParryOrb
     public ParryOrb()
     {
         this.vfxTimer = 0.5F;
-        this.ID = "Parry";
+        this.ID = ORB_ID;
         this.img = ORB_BLADE;
-        this.name = "Parry";
+        this.name = "Parry Blade";
         this.baseEvokeAmount = 3;
         this.evokeAmount = this.baseEvokeAmount;
-        this.basePassiveAmount = 3;
+        this.basePassiveAmount = 2;
         this.passiveAmount = this.basePassiveAmount;
         updateDescription();
         this.angle = MathUtils.random(360.0F);
@@ -87,10 +86,13 @@ public class ParryOrb
         AbstractDungeon.actionManager.addToBottom(new DecreaseMaxOrbAction(1));
     }
 
-    public void onLoseHpForOrbs(DamageInfo info, int damageAmount) {
-
-        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, this.passiveAmount));
-        System.out.println("Defense gained.");
+    @Override
+    public int onAttackedForOrbs(DamageInfo info, int damageAmount) {
+        if (damageAmount < this.passiveAmount) {
+            return 0;
+        } else {
+            return damageAmount - this.passiveAmount;
+        }
     }
 
     public void updateAnimation()
@@ -107,9 +109,9 @@ public class ParryOrb
 
     public void render(SpriteBatch sb)
     {
-        sb.setColor(new Color(1.0F, 1.0F, 1.0F, this.c.a / 2.0F));
+        sb.setColor(new Color(1.0F, 1.0F, 1.0F, this.c.a / 2.0F).cpy());
         sb.draw(this.img, this.cX - 48.0F, this.cY - 48.0F + this.bobEffect.y, 48.0F, 48.0F, 96.0F, 96.0F, this.scale + MathUtils.sin(this.angle / 12.566371F) * 0.04F * Settings.scale, this.scale, this.angle, 0, 0, 96, 96, false, false);
-        sb.setColor(new Color(1.0F, 1.0F, 1.0F, this.c.a / 2.0F));
+        sb.setColor(new Color(1.0F, 1.0F, 1.0F, this.c.a / 2.0F).cpy());
         sb.setBlendFunction(770, 1);
         renderText(sb);
         this.hb.render(sb);

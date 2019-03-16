@@ -17,7 +17,7 @@ public class LightningStanceAction
     public void update() {
         for (AbstractCard card : AbstractDungeon.player.hand.group) {
             if (card.hasTag(BlademasterTags.LIGHTNING_STANCE)) {
-                card.flash(Color.BLUE);
+                card.flash(Color.BLUE.cpy());
             }
         }
         this.isDone = true;

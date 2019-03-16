@@ -3,6 +3,7 @@ package blademaster.cards;
 import blademaster.powers.*;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
@@ -35,10 +36,13 @@ public class AncestralHealing extends CustomCard {
     public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
 
     private static final int COST = 1;
+    private static final int AMT = 2;
 
 
     public AncestralHealing() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        this.baseMagicNumber = this.magicNumber = AMT;
+        this.exhaust = true;
     }
 
     @Override
@@ -46,15 +50,19 @@ public class AncestralHealing extends CustomCard {
         this.magicNumber = 0;
         if (p.hasPower(WindCharge.POWER_ID)) {
             this.magicNumber += p.getPower(WindCharge.POWER_ID).amount;
+            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, WindCharge.POWER_ID));
         }
         if (p.hasPower(LightningCharge.POWER_ID)) {
             this.magicNumber += p.getPower(LightningCharge.POWER_ID).amount;
+            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, LightningCharge.POWER_ID));
         }
         if (p.hasPower(StoneCharge.POWER_ID)) {
             this.magicNumber += p.getPower(StoneCharge.POWER_ID).amount;
+            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, StoneCharge.POWER_ID));
         }
         if (p.hasPower(IceCharge.POWER_ID)) {
             this.magicNumber += p.getPower(IceCharge.POWER_ID).amount;
+            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, IceCharge.POWER_ID));
         }
         if (this.upgraded) {
             AbstractDungeon.actionManager.addToBottom(new HealAction(p, p, 3 * this.magicNumber));
@@ -72,6 +80,7 @@ public class AncestralHealing extends CustomCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
+            this.upgradeMagicNumber(1);
             this.initializeDescription();
         }
     }

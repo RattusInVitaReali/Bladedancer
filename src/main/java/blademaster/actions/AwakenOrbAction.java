@@ -23,14 +23,14 @@ public class AwakenOrbAction
     {
         logger.info("Action begins.");
         if (this.duration == Settings.ACTION_DUR_FAST) {
-            for (AbstractOrb orb : AbstractDungeon.player.orbs) {
-                if (AbstractDungeon.player.filledOrbCount() > 0) {
-                    String fma = AbstractDungeon.player.orbs.get(0).ID;
-                    if (fma.equals("Blade")) {
-                        AbstractDungeon.player.removeNextOrb();
+            if (AbstractDungeon.player.filledOrbCount() > 0) {
+                for (AbstractOrb orb : AbstractDungeon.player.orbs) {
+                    String fma = orb.ID;
+                    if (fma.equals(BladeOrb.ORB_ID)) {
+                        AbstractDungeon.player.orbs.remove(orb);
                         AbstractDungeon.actionManager.addToBottom(new ChannelAction(new AwakenedBladeOrb()));
                         break;
-                    } else if (fma.equals("Parry")) {
+                    } else if (fma.equals(ParryOrb.ORB_ID)) {
                         AbstractDungeon.player.removeNextOrb();
                         AbstractDungeon.actionManager.addToBottom(new ChannelAction(new AwakenedParryOrb()));
                         break;

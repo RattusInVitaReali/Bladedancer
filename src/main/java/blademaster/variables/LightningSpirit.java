@@ -1,8 +1,10 @@
 package blademaster.variables;
 
 import basemod.abstracts.DynamicVariable;
+import blademaster.powers.IceCharge;
 import blademaster.powers.LightningCharge;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class LightningSpirit extends DynamicVariable
@@ -30,8 +32,12 @@ public class LightningSpirit extends DynamicVariable
     @Override
     public int value(AbstractCard card)
     {
-        if (AbstractDungeon.player.hasPower(LightningCharge.POWER_ID)) {
-            return AbstractDungeon.player.getPower(LightningCharge.POWER_ID).amount;
+        if (CardCrawlGame.isInARun()) {
+            if (AbstractDungeon.player.hasPower(LightningCharge.POWER_ID)) {
+                return AbstractDungeon.player.getPower(LightningCharge.POWER_ID).amount;
+            } else {
+                return 0;
+            }
         } else {
             return 0;
         }
@@ -42,8 +48,12 @@ public class LightningSpirit extends DynamicVariable
     @Override
     public int baseValue(AbstractCard card)
     {
-        if (AbstractDungeon.player.hasPower(LightningCharge.POWER_ID)) {
-            return AbstractDungeon.player.getPower(LightningCharge.POWER_ID).amount;
+        if (CardCrawlGame.isInARun()) {
+            if (AbstractDungeon.player.hasPower(LightningCharge.POWER_ID)) {
+                return AbstractDungeon.player.getPower(LightningCharge.POWER_ID).amount;
+            } else {
+                return 0;
+            }
         } else {
             return 0;
         }

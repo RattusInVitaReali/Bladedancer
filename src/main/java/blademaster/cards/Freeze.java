@@ -38,10 +38,12 @@ public class Freeze extends CustomCard {
     public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
 
     private static final int COST = 2;
+    private static final int FREEZE = 4;
 
 
     public Freeze() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        this.magicNumber = this.baseMagicNumber = FREEZE;
     }
 
     @Override
@@ -49,7 +51,7 @@ public class Freeze extends CustomCard {
         AbstractDungeon.actionManager.addToBottom(new VFXAction(new BlizzardEffect(p.getPower(IceCharge.POWER_ID).amount, AbstractDungeon.getMonsters().shouldFlipVfx()), 0.5F));
         for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
             if (p.hasPower(IceCharge.POWER_ID)) {
-                AbstractDungeon.actionManager.addToBottom(new DamageAction(monster, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(monster, new DamageInfo(p, p.getPower(IceCharge.POWER_ID).amount, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
             }
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(monster, p, new FrozenPower(monster, 4), 4));
         }

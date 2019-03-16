@@ -17,7 +17,7 @@ public class StoneStanceAction
     public void update() {
         for (AbstractCard card : AbstractDungeon.player.hand.group) {
             if (card.hasTag(BlademasterTags.STONE_STANCE)) {
-                card.flash(Color.DARK_GRAY);
+                card.flash(Color.BROWN.cpy());
             }
         }
         this.isDone = true;

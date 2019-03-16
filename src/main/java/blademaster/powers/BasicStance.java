@@ -1,5 +1,6 @@
 package blademaster.powers;
 
+import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.MultiwordKeywords;
 import blademaster.Blademaster;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -18,8 +19,9 @@ public class BasicStance extends AbstractPower {
         this.ID = POWER_ID;
         this.owner = owner;
         this.type = PowerType.BUFF;
-        this.isTurnBased = true;
+        this.isTurnBased = false;
         this.img = Blademaster.getDefaultPowerTexture();
+        updateDescription();
     }
 
     public void updateDescription() {

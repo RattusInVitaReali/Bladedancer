@@ -1,11 +1,13 @@
 package blademaster.cards;
 
-import blademaster.powers.ComboPower;
-import blademaster.powers.TiredPower;
-import blademaster.powers.WindStance;
+import blademaster.actions.IceStanceAction;
+import blademaster.actions.LoadCardImageAction;
+import blademaster.powers.*;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.powers.ArtifactPower;
 import com.megacrit.cardcrawl.powers.MetallicizePower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -24,7 +26,8 @@ public class Wall extends CustomCard {
     public static final String IMG = Blademaster.makePath(Blademaster.DEFAULT_COMMON_SKILL);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-
+    public static final String IIMG = Blademaster.makePath(Blademaster.ICE_SKILL);
+    public static final String SIMG = Blademaster.makePath(Blademaster.STONE_SKILL);
 
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -33,7 +36,10 @@ public class Wall extends CustomCard {
 
     private static final int COST = 0;
     private static final int AMT = 8;
-
+    private boolean IceArt = false;
+    private boolean StoneArt = false;
+    private boolean BaseArt = false;
+    private static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
 
     public Wall() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
@@ -53,8 +59,49 @@ public class Wall extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new MetallicizePower(p, this.magicNumber), this.magicNumber));
         if (p.hasPower(ComboPower.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, ComboPower.POWER_ID));
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TiredPower(p, 1), 1));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ComboPower(p, -5), -5));
+        }
+        if (p.hasPower(IceStance.POWER_ID)) {
+            if (p.hasPower(IceCharge.POWER_ID)) {
+                AbstractDungeon.actionManager.addToBottom(new HealAction(p, p, p.getPower(IceCharge.POWER_ID).amount));
+            }
+        }
+        if (p.hasPower(StoneStance.POWER_ID)) {
+            if (p.hasPower(StoneCharge.POWER_ID)) {
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ArtifactPower(p, p.getPower(StoneCharge.POWER_ID).amount / 3), p.getPower(StoneCharge.POWER_ID).amount / 3));
+            }
+        }
+    }
+
+    public void applyPowers() {
+        super.applyPowers();
+        if (AbstractDungeon.player.hasPower(StoneStance.POWER_ID)) {
+            if (!StoneArt) {
+                AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, SIMG, false));
+                this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[1];
+                initializeDescription();
+                StoneArt = true;
+                IceArt = false;
+                BaseArt = false;
+            }
+        } else if (AbstractDungeon.player.hasPower(IceStance.POWER_ID)) {
+            if (!IceArt) {
+                AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IIMG, false));
+                this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0];
+                initializeDescription();
+                StoneArt = false;
+                IceArt = true;
+                BaseArt = false;
+            }
+        } else if (AbstractDungeon.player.hasPower(BasicStance.POWER_ID)) {
+            if (!BaseArt) {
+                AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG, false));
+                this.rawDescription = DESCRIPTION;
+                initializeDescription();
+                StoneArt = false;
+                IceArt = false;
+                BaseArt = true;
+            }
         }
     }
 

@@ -1,5 +1,6 @@
 package blademaster.orbs;
 
+import blademaster.interfaces.onAttackedOrb;
 import blademaster.powers.BladeDancePower;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -7,36 +8,26 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.defect.DecreaseMaxOrbAction;
-import com.megacrit.cardcrawl.actions.defect.LightningOrbEvokeAction;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.MalleablePower;
-import com.megacrit.cardcrawl.powers.PlatedArmorPower;
 import com.megacrit.cardcrawl.powers.ThornsPower;
 import com.megacrit.cardcrawl.vfx.combat.DarkOrbActivateEffect;
 import com.megacrit.cardcrawl.vfx.combat.DarkOrbPassiveEffect;
-import com.megacrit.cardcrawl.vfx.combat.OrbFlareEffect;
-import blademaster.interfaces.onLoseHpOrb;
-import ratmod.powers.BleedingPower;
 
 public class AwakenedParryOrb
-        extends AbstractOrb implements onLoseHpOrb
+        extends AbstractOrb implements onAttackedOrb
 {
-    public static final String ORB_ID = "Blade";
-    public static final String[] DESC = { "#yPassive: gain #b",
-            " #Plataed #yArmor Whenever you're attacked. NL #yEvoke: Gain #b ",
+    public static final String ORB_ID = "AwakenedParryBlade";
+    public static final String[] DESC = { "#yPassive: Whenever you're attacked, reduce the damage by #b",
+            " and deal #b",
+            " damage to the attacker. NL #yEvoke: Gain #b",
             " #yThrons." };
     private static final float ORB_BORDER_SCALE = 1.2F;
     private float vfxTimer;
@@ -49,10 +40,10 @@ public class AwakenedParryOrb
     public AwakenedParryOrb()
     {
         this.vfxTimer = 0.5F;
-        this.ID = "AwakenedParry";
+        this.ID = ORB_ID;
         this.img = ORB_BLADE;
-        this.name = "AwakenedParry";
-        this.baseEvokeAmount = 4;
+        this.name = "Awakened Parry Blade";
+        this.baseEvokeAmount = 5;
         this.evokeAmount = this.baseEvokeAmount;
         this.basePassiveAmount = 2;
         this.passiveAmount = this.basePassiveAmount;
@@ -64,7 +55,7 @@ public class AwakenedParryOrb
     public void updateDescription()
     {
         applyFocus();
-        this.description = (DESC[0] + this.passiveAmount + DESC[1] + this.evokeAmount + DESC[2]);
+        this.description = (DESC[0] + this.passiveAmount + DESC[1] + this.evokeAmount + DESC[2] + this.evokeAmount + DESC[3]);
 
     }
 
@@ -98,8 +89,13 @@ public class AwakenedParryOrb
         AbstractDungeon.actionManager.addToBottom(new DecreaseMaxOrbAction(1));
     }
 
-    public void onLoseHpForOrbs(DamageInfo info, int damage) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new PlatedArmorPower(AbstractDungeon.player, this.passiveAmount), this.passiveAmount));
+    public int onAttackedForOrbs(DamageInfo info, int damage) {
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(info.owner, new DamageInfo(AbstractDungeon.player, this.evokeAmount), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+        if (damage < this.passiveAmount) {
+            return 0;
+        } else {
+            return damage - this.passiveAmount;
+        }
     }
 
     public void updateAnimation()

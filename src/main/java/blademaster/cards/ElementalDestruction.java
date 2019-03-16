@@ -58,6 +58,7 @@ public class ElementalDestruction extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new FuryPower(p, -this.magicNumber), -this.magicNumber));
         if (p.hasPower(WindCharge.POWER_ID)) {
             this.damage += p.getPower(WindCharge.POWER_ID).amount;
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WindCharge(p, p.getPower(WindCharge.POWER_ID).amount, false)));

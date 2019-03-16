@@ -1,9 +1,8 @@
 package blademaster.cards;
 
 import blademaster.actions.LightningStanceAction;
-import blademaster.actions.RemoveStancesAction;
+import blademaster.actions.RemoveOffensiveStancesAction;
 import blademaster.patches.BlademasterTags;
-import blademaster.powers.ComboPower;
 import blademaster.powers.FuryPower;
 import blademaster.powers.LightningStance;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -13,7 +12,6 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.status.Burn;
-import com.megacrit.cardcrawl.vfx.combat.DaggerSprayEffect;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -61,6 +59,7 @@ public class LightningDraw extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new FuryPower(p, -20), -20));
         for (AbstractMonster mo : AbstractDungeon.getMonsters().monsters) {
             AbstractDungeon.actionManager.addToTop(new SFXAction("ORB_LIGHTNING_EVOKE"));
             AbstractDungeon.actionManager.addToTop(new VFXAction(new LightningEffect(mo.drawX, mo.drawY), 0.2F));
@@ -68,7 +67,7 @@ public class LightningDraw extends CustomCard {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, p, new BleedingPower(mo, p, this.magicNumber), this.magicNumber));
         }
         if (!p.hasPower(LightningStance.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new RemoveStancesAction());
+            AbstractDungeon.actionManager.addToBottom(new RemoveOffensiveStancesAction());
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LightningStance(p)));
         } else if (p.hasPower(LightningStance.POWER_ID)){
             AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Burn(), 1));

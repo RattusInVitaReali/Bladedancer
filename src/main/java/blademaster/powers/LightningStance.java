@@ -1,8 +1,9 @@
 package blademaster.powers;
 
 import blademaster.Blademaster;
-import com.megacrit.cardcrawl.actions.defect.LightningOrbEvokeAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
+import blademaster.effects.BetterFireBurstParticleEffect;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -14,6 +15,8 @@ public class LightningStance extends AbstractPower {
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+    private float particleTimer = 0.0F;
+    private float particleTimer2 = 0.03F;
 
     public LightningStance(AbstractCreature owner) {
         this.name = NAME;
@@ -26,6 +29,21 @@ public class LightningStance extends AbstractPower {
         updateDescription();
     }
 
+    @Override
+    public void updateParticles() {
+        this.particleTimer -= Gdx.graphics.getDeltaTime();
+        this.particleTimer2 -= Gdx.graphics.getDeltaTime();
+        if (this.particleTimer < 0.0F) {
+            int xOff = MathUtils.random(- 70, 70);
+            AbstractDungeon.effectList.add(new BetterFireBurstParticleEffect(this.owner.drawX + xOff - 130, this.owner.drawY + 190, 0.3F, 1.0F, 1.0F));
+            this.particleTimer = 0.06F;
+        }
+        if (this.particleTimer2 < 0.0F) {
+            int xOff = MathUtils.random(- 70, 70);
+            AbstractDungeon.effectList.add(new BetterFireBurstParticleEffect(this.owner.drawX + xOff - 130, this.owner.drawY + 190, 0.3F, 0.7F, 1.0F));
+            this.particleTimer2 = 0.06F;
+        }
+    }
 
 
     public void updateDescription() {

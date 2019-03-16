@@ -32,7 +32,7 @@ public class IntellectualSupremacy extends CustomCard {
     public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
 
     private static final int COST = 1;
-    private static final int AMT = 3;
+    private static final int AMT = 2;
 
 
     public IntellectualSupremacy() {

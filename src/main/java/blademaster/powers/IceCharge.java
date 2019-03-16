@@ -20,7 +20,7 @@ public class IceCharge extends AbstractPower {
         this.amount = amount;
         this.type = PowerType.BUFF;
         this.isTurnBased = false;
-        this.img = Blademaster.getDefaultPowerTexture();
+        this.img = Blademaster.IceChargePNG();
     }
 
 

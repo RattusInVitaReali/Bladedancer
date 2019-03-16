@@ -1,10 +1,20 @@
 package blademaster;
 
+import basemod.BaseMod;
+import basemod.ModLabel;
+import basemod.ModPanel;
 import basemod.abstracts.CustomCard;
+import basemod.interfaces.*;
 import blademaster.cards.*;
-import blademaster.relics.RingOfFury;
-import blademaster.relics.RingOfSpeed;
+import blademaster.characters.TheCharacter;
+import blademaster.patches.AbstractCardEnum;
+import blademaster.patches.BlademasterTags;
+import blademaster.patches.TheDefaultEnum;
+import blademaster.perks.*;
+import blademaster.relics.DancersAmulet;
+import blademaster.variables.IceSpirit;
 import blademaster.variables.LightningSpirit;
+import blademaster.variables.StoneSpirit;
 import blademaster.variables.WindSpirit;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -12,24 +22,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
-import com.megacrit.cardcrawl.localization.CardStrings;
-import com.megacrit.cardcrawl.localization.PotionStrings;
-import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.localization.RelicStrings;
-
-import basemod.BaseMod;
-import basemod.ModLabel;
-import basemod.ModPanel;
-import basemod.interfaces.EditCardsSubscriber;
-import basemod.interfaces.EditCharactersSubscriber;
-import basemod.interfaces.EditKeywordsSubscriber;
-import basemod.interfaces.EditRelicsSubscriber;
-import basemod.interfaces.EditStringsSubscriber;
-import basemod.interfaces.PostInitializeSubscriber;
-
-import blademaster.patches.*;
-import blademaster.characters.*;
-
+import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -96,7 +89,7 @@ public class Blademaster
 
     // Power images
     public static final String RARE_POWER = "powers/placeholder_power.png";
-    public static final String IceStancePNG = "powers/IceStance.pnd";
+    public static final String IceStancePNG = "powers/IceStance.png";
     public static final String CalmnessPNG = "powers/Calmness.png";
     public static final String StoneStancePNG = "powers/StoneStance.png";
     public static final String LightningChargePNG = "powers/LightningCharge.png";
@@ -108,6 +101,8 @@ public class Blademaster
     public static final String TiredPNG = "powers/Tired.png";
     public static final String WindChargePNG = "powers/WindCharge.png";
     public static final String WindStancePNG = "powers/WindStance.png";
+    public static final String StoneChargePNG = "powers/StoneCharge.png";
+    public static final String IceChargePNG = "powers/IceCharge.png";
 
     //Orb images
     public static final String BLADE_ORB = "orbs/BladeOrb.png";
@@ -115,6 +110,8 @@ public class Blademaster
     // Relic images  
     public static final String PLACEHOLDER_RELIC = "relics/placeholder_relic.png";
     public static final String PLACEHOLDER_RELIC_OUTLINE = "relics/outline/placeholder_relic.png";
+    public static final String DancersAmulet = "relics/DancersAmulet.png";
+    public static final String DancersAmuletOutline = "relics/outline/DancersAmulet.png";
     
     // Character assets
     private static final String THE_BLADEMASTER_BUTTON = "charSelect/DefaultCharacterButton.png";
@@ -140,6 +137,8 @@ public class Blademaster
     public static Texture TiredPNG() { return new Texture(makePath(TiredPNG)); }
     public static Texture WindChargePNG() { return new Texture(makePath(WindChargePNG)); }
     public static Texture WindStancePNG() { return new Texture(makePath(WindStancePNG)); }
+    public static Texture IceChargePNG() { return new Texture(makePath(IceChargePNG)); }
+    public static Texture StoneChargePNG() { return new Texture(makePath(StoneChargePNG)); }
 
 
     public static Texture getBladeOrbTexture() {
@@ -251,8 +250,15 @@ public class Blademaster
         logger.info("Add relics");
 
         // This adds a character specific relic. Only when you play with the mentioned color, will you get this relic.
-        BaseMod.addRelicToCustomPool(new RingOfFury(), AbstractCardEnum.DEFAULT_GRAY);
-        BaseMod.addRelicToCustomPool(new RingOfSpeed(), AbstractCardEnum.DEFAULT_GRAY);
+        BaseMod.addRelicToCustomPool(new DancersAmulet(), AbstractCardEnum.DEFAULT_GRAY);
+        BaseMod.addRelicToCustomPool(new BonusComboPerk(), AbstractCardEnum.DEFAULT_GRAY);
+        BaseMod.addRelicToCustomPool(new BonusFuryPerk(), AbstractCardEnum.DEFAULT_GRAY);
+        BaseMod.addRelicToCustomPool(new DextrousPerk(), AbstractCardEnum.DEFAULT_GRAY);
+        BaseMod.addRelicToCustomPool(new FocusedPerk(), AbstractCardEnum.DEFAULT_GRAY);
+        BaseMod.addRelicToCustomPool(new RandomBladePerk(), AbstractCardEnum.DEFAULT_GRAY);
+        BaseMod.addRelicToCustomPool(new RandomDefensiveStancePerk(), AbstractCardEnum.DEFAULT_GRAY);
+        BaseMod.addRelicToCustomPool(new RandomOffensiveStancePerk(), AbstractCardEnum.DEFAULT_GRAY);
+        BaseMod.addRelicToCustomPool(new StrongPerk(), AbstractCardEnum.DEFAULT_GRAY);
 
         // This adds a relic to the Shared pool. Every character can find this relic.
 
@@ -270,98 +276,131 @@ public class Blademaster
 
         BaseMod.addDynamicVariable(new WindSpirit());
         BaseMod.addDynamicVariable(new LightningSpirit());
+        BaseMod.addDynamicVariable(new StoneSpirit());
+        BaseMod.addDynamicVariable(new IceSpirit());
 
         logger.info("Add Cards");
         // Add the cards
+        BaseMod.addCard(new AncestralHealing());
         BaseMod.addCard(new AwakeningDefend());
         BaseMod.addCard(new AwakeningStrike());
-        BaseMod.addCard(new BasicAttack());
+        BaseMod.addCard(new BladeDance());
         BaseMod.addCard(new BladeMastery());
         BaseMod.addCard(new Breeze());
+        BaseMod.addCard(new Blockade());
+        BaseMod.addCard(new BloodyBlow());
+        BaseMod.addCard(new BrainBloom());
         BaseMod.addCard(new Burnout());
         BaseMod.addCard(new ChargingUp());
         BaseMod.addCard(new CloudOfSteel());
         BaseMod.addCard(new Defend());
-        BaseMod.addCard(new DefiantStance());
         BaseMod.addCard(new ElementalDestruction());
         BaseMod.addCard(new Empower());
-        BaseMod.addCard(new EyeOfTheStorm());
-        BaseMod.addCard(new FallBack());
+        BaseMod.addCard(new FinishHim());
+        BaseMod.addCard(new FlockOfBlades());
         BaseMod.addCard(new Flurry());
         BaseMod.addCard(new Focus());
+        BaseMod.addCard(new Freeze());
         BaseMod.addCard(new Frontflip());
         BaseMod.addCard(new Gale());
-        BaseMod.addCard(new GreaterBladeMastery());
+        BaseMod.addCard(new Glacier());
+        BaseMod.addCard(new BladeMastery());
         BaseMod.addCard(new Hailwind());
+        BaseMod.addCard(new Inferno());
+        BaseMod.addCard(new Insult());
+        BaseMod.addCard(new IntellectualSupremacy());
         BaseMod.addCard(new Lacerate());
         BaseMod.addCard(new LightningCrash());
-        BaseMod.addCard(new LightningDash());
         BaseMod.addCard(new LightningDraw());
+        BaseMod.addCard(new MagmaStrike());
         BaseMod.addCard(new Meditate());
-        BaseMod.addCard(new Parry());
+        BaseMod.addCard(new Meltdown());
+        BaseMod.addCard(new NotBarrage());
+        BaseMod.addCard(new NotFission());
         BaseMod.addCard(new ParryingStrike());
+        BaseMod.addCard(new Quickness());
         BaseMod.addCard(new RagingBlow());
         BaseMod.addCard(new Recklessness());
-        BaseMod.addCard(new Retreat());
         BaseMod.addCard(new RollingTyphoon());
         BaseMod.addCard(new Safeguard());
-        BaseMod.addCard(new SecondWind());
+        BaseMod.addCard(new Stonework());
         BaseMod.addCard(new SharpBlades());
+        BaseMod.addCard(new SlyStabs());
         BaseMod.addCard(new StanceMastery());
         BaseMod.addCard(new Stormstrike());
         BaseMod.addCard(new Strike());
         BaseMod.addCard(new Sunder());
-        BaseMod.addCard(new Surge());
+        BaseMod.addCard(new Thrust());
         BaseMod.addCard(new WindSlash());
         BaseMod.addCard(new Windstorm());
         BaseMod.addCard(new Wall());
         BaseMod.addCard(new Zephyr());
+
+        BaseMod.addCard(new Overcharge());
+        BaseMod.addCard(new Momentum());
+        BaseMod.addCard(new LeechingStrike());
         
 
         
         logger.info("Making sure the cards are unlocked.");
-        // Unlock the cards
+        UnlockTracker.unlockCard(AncestralHealing.ID);
         UnlockTracker.unlockCard(AwakeningDefend.ID);
         UnlockTracker.unlockCard(AwakeningStrike.ID);
         UnlockTracker.unlockCard(BladeMastery.ID);
-        UnlockTracker.unlockCard(BasicAttack.ID);
+        UnlockTracker.unlockCard(BladeDance.ID);
+        UnlockTracker.unlockCard(Blockade.ID);
+        UnlockTracker.unlockCard(BloodyBlow.ID);
         UnlockTracker.unlockCard(Breeze.ID);
+        UnlockTracker.unlockCard(BrainBloom.ID);
+        UnlockTracker.unlockCard(Burnout.ID);
         UnlockTracker.unlockCard(ChargingUp.ID);
         UnlockTracker.unlockCard(CloudOfSteel.ID);
         UnlockTracker.unlockCard(Defend.ID);
-        UnlockTracker.unlockCard(DefiantStance.ID);
         UnlockTracker.unlockCard(Empower.ID);
         UnlockTracker.unlockCard(EyeOfTheStorm.ID);
-        UnlockTracker.unlockCard(FallBack.ID);
+        UnlockTracker.unlockCard(FinishHim.ID);
+        UnlockTracker.unlockCard(FlockOfBlades.ID);
         UnlockTracker.unlockCard(Flurry.ID);
+        UnlockTracker.unlockCard(Focus.ID);
+        UnlockTracker.unlockCard(Freeze.ID);
         UnlockTracker.unlockCard(Frontflip.ID);
         UnlockTracker.unlockCard(Gale.ID);
-        UnlockTracker.unlockCard(GreaterBladeMastery.ID);
+        UnlockTracker.unlockCard(Glacier.ID);
+        UnlockTracker.unlockCard(BladeMastery.ID);
         UnlockTracker.unlockCard(Hailwind.ID);
+        UnlockTracker.unlockCard(Inferno.ID);
+        UnlockTracker.unlockCard(Insult.ID);
+        UnlockTracker.unlockCard(IntellectualSupremacy.ID);
         UnlockTracker.unlockCard(Lacerate.ID);
         UnlockTracker.unlockCard(LightningCrash.ID);
-        UnlockTracker.unlockCard(LightningDash.ID);
         UnlockTracker.unlockCard(LightningDraw.ID);
+        UnlockTracker.unlockCard(MagmaStrike.ID);
         UnlockTracker.unlockCard(Meditate.ID);
-        UnlockTracker.unlockCard(Parry.ID);
+        UnlockTracker.unlockCard(Meltdown.ID);
+        UnlockTracker.unlockCard(NotBarrage.ID);
+        UnlockTracker.unlockCard(NotFission.ID);
         UnlockTracker.unlockCard(ParryingStrike.ID);
+        UnlockTracker.unlockCard(Quickness.ID);
         UnlockTracker.unlockCard(RagingBlow.ID);
         UnlockTracker.unlockCard(Recklessness.ID);
-        UnlockTracker.unlockCard(Retreat.ID);
         UnlockTracker.unlockCard(RollingTyphoon.ID);
         UnlockTracker.unlockCard(Safeguard.ID);
-        UnlockTracker.unlockCard(SecondWind.ID);
+        UnlockTracker.unlockCard(Stonework.ID);
         UnlockTracker.unlockCard(SharpBlades.ID);
+        UnlockTracker.unlockCard(SlyStabs.ID);
         UnlockTracker.unlockCard(StanceMastery.ID);
         UnlockTracker.unlockCard(Stormstrike.ID);
         UnlockTracker.unlockCard(Strike.ID);
         UnlockTracker.unlockCard(Sunder.ID);
-        UnlockTracker.unlockCard(Surge.ID);
+        UnlockTracker.unlockCard(Thrust.ID);
         UnlockTracker.unlockCard(WindSlash.ID);
         UnlockTracker.unlockCard(Windstorm.ID);
         UnlockTracker.unlockCard(Wall.ID);
         UnlockTracker.unlockCard(Zephyr.ID);
 
+        UnlockTracker.unlockCard(Overcharge.ID);
+        UnlockTracker.unlockCard(Momentum.ID);
+        UnlockTracker.unlockCard(LeechingStrike.ID);
 
 
 
@@ -438,6 +477,10 @@ public class Blademaster
         BaseMod.loadCustomStringsFile(PotionStrings.class,
                 "defaultModResources/localization/DefaultMod-Potion-Strings.json");
 
+        // BlightStrings
+        BaseMod.loadCustomStringsFile(BlightStrings.class,
+                "defaultModResources/localization/BlightStrings.json");
+
         logger.info("Done edittting strings");
     }
 
@@ -447,47 +490,29 @@ public class Blademaster
 
     @Override
     public void receiveEditKeywords() {
-        final String[] fury = {"fury", "furious"};
-        BaseMod.addKeyword(fury, "Resource used for #rFinishers. Gain #yFury on dealing damage.");
-
-        final String[] combo = {"combo"};
-        BaseMod.addKeyword(combo, "Resource used for #rFinishers. Gain #yCombo on playing cards.");
-
         final String[] finisher = {"finisher", "finishers"};
         BaseMod.addKeyword(finisher, "A powerful card that uses #yFury or #yCombo as a resource, and prevents the further generation of said resource until the next turn.");
 
-        final String[] blade = {"blade", "blades"};
-        BaseMod.addKeyword(blade, "A spectral blade that orbits around the Bladedancer and has special effects.");
+        final String[] havoc = {"havoc blade"};
+        BaseMod.addKeyword(havoc, "A spectral blade that deals damage to enemies you attack.");
 
-        final String[] havoc = {"havoc"};
-        BaseMod.addKeyword(havoc, "A #yBlade that deals damage to enemies you attack.");
-
-        final String[] parry = {"parry"};
-        BaseMod.addKeyword(parry, "A #yBlade that gives you block whenever you're struck. Doesn't stack (Not a bug, a feature (Not really, it's actually a bug and idk how to fix it)).");
+        final String[] parry = {"parry blade"};
+        BaseMod.addKeyword(parry, "A spectral blade that gives you block whenever you're struck.");
 
         final String[] lacerate = {"lacerate", "laceration", "lacerates"};
-        BaseMod.addKeyword(lacerate, "A 0-cost attack that deals 2 damage.");
+        BaseMod.addKeyword(lacerate, "A 0-cost attack that deals 2 damage and exhausts.");
 
         final String[] awaken = {"awaken", "awakened"};
-        BaseMod.addKeyword(awaken, "#yAwaken one of your #yBlades, making them more potent.");
+        BaseMod.addKeyword(awaken, "#yAwaken one of your spectral blades, making them more potent.");
 
         final String[] stance = {"stance", "stances"};
-        BaseMod.addKeyword(stance, "A battle Stance which determines the type of #yCharges you get.");
+        BaseMod.addKeyword(stance, "A battle #yStance which determines the type of #yCharges you get. You can have up to 2 #yStances active at a time, 1 #rOffensive (Wind/Lightning) and 1 #bDefensive (Ice/Stone).");
 
         final String[] charge = {"charge", "charges"};
-        BaseMod.addKeyword(charge, "A special #yCharge that does something at the end of turn. Can be used as a resource for special cards.");
-
-        final String[] wind = {"wind"};
-        BaseMod.addKeyword(wind, "A #yCharge that gives you block at the end of your turn. NL Can be used as a resource for #rWind cards.");
-
-        final String[] lightning = {"lightning"};
-        BaseMod.addKeyword(lightning, "A #yCharge that deals damage to all enemies at the end of your turn. NL Can be used as a resource for #rLightning cards.");
+        BaseMod.addKeyword(charge, "A resource for stance-oriented cards.");
 
         final String[] bloodied = {"bloodied"};
         BaseMod.addKeyword(bloodied, "An effect that's applied if the target has less than #b50% #yHP remaining.");
-
-
-
     }
 
     // ================ /LOAD THE KEYWORDS/ ===================    

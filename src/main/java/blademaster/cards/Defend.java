@@ -1,6 +1,7 @@
 package blademaster.cards;
 
 import blademaster.actions.LoadCardImageAction;
+import blademaster.patches.BlademasterTags;
 import blademaster.powers.*;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -47,6 +48,8 @@ public class Defend extends CustomCard {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseBlock = BLOCK;
         this.block = this.baseBlock;
+        this.tags.add(BlademasterTags.ICE_STANCE);
+        this.tags.add(BlademasterTags.STONE_STANCE);
     }
 
     @Override

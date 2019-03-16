@@ -1,5 +1,6 @@
 package blademaster.cards;
 
+import blademaster.orbs.BladeOrb;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.actions.defect.IncreaseMaxOrbAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -11,7 +12,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import basemod.abstracts.CustomCard;
 import blademaster.Blademaster;
 import blademaster.patches.AbstractCardEnum;
-import blademaster.orbs.BladeOrb;
 
 public class BladeMastery extends CustomCard {
 
@@ -23,27 +23,32 @@ public class BladeMastery extends CustomCard {
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 
 
-    private static final CardRarity RARITY = CardRarity.COMMON;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
 
-    private static final int COST = 1;
-    private static final int ORB = 1;
+    private static final int COST = 2;
+    private static final int ORBS = 2;
 
 
     public BladeMastery() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.baseMagicNumber = ORB;
+        this.baseMagicNumber = ORBS;
         this.magicNumber = this.baseMagicNumber;
         this.exhaust = true;
-        this.isInnate = true;
     }
 
     @Override
-    public void use(AbstractPlayer p, AbstractMonster m) {
+    public void use(AbstractPlayer p, AbstractMonster m)
+    {
         AbstractDungeon.actionManager.addToBottom(new IncreaseMaxOrbAction(this.magicNumber));
         AbstractDungeon.actionManager.addToBottom(new ChannelAction(new BladeOrb(), false));
+        AbstractDungeon.actionManager.addToBottom(new ChannelAction(new BladeOrb(), false));
+        if (this.upgraded)
+        {
+            AbstractDungeon.actionManager.addToBottom(new ChannelAction(new BladeOrb(), false));
+        }
     }
 
     @Override
@@ -55,8 +60,8 @@ public class BladeMastery extends CustomCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
+            this.upgradeMagicNumber(1);
             this.initializeDescription();
         }
     }
 }
-

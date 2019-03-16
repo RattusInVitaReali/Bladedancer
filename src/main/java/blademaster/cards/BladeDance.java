@@ -23,7 +23,7 @@ import blademaster.patches.AbstractCardEnum;
 public class BladeDance extends CustomCard {
 
 
-    public static final String ID = Blademaster.makeID("BladeDancePower");
+    public static final String ID = Blademaster.makeID("BladeDance");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String IMG = Blademaster.makePath(Blademaster.DEFAULT_COMMON_POWER);
     public static final String NAME = cardStrings.NAME;
@@ -53,6 +53,8 @@ public class BladeDance extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new FuryPower(p, -30), -30));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ComboPower(p, -6), -6));
         if (!p.hasPower(BladeDancePower.POWER_ID)) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new BladeDancePower(p)));
         }

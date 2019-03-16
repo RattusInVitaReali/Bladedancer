@@ -1,6 +1,6 @@
 package blademaster.cards;
 
-import blademaster.actions.RemoveStancesAction;
+import blademaster.actions.RemoveOffensiveStancesAction;
 import blademaster.actions.WindStanceAction;
 import blademaster.powers.WindStance;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -10,7 +10,6 @@ import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.status.Burn;
 import com.megacrit.cardcrawl.vfx.combat.CleaveEffect;
-import com.megacrit.cardcrawl.vfx.combat.DaggerSprayEffect;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -56,7 +55,7 @@ public class WindSlash extends CustomCard {
         AbstractDungeon.actionManager.addToBottom(new VFXAction(new CleaveEffect()));
         AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE, false));
         if (!p.hasPower(WindStance.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new RemoveStancesAction());
+            AbstractDungeon.actionManager.addToBottom(new RemoveOffensiveStancesAction());
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WindStance(p)));
         } else if (p.hasPower(WindStance.POWER_ID)) {
             AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Burn(), 1));

@@ -5,12 +5,32 @@
       "A #yStance that doesn't really do much."
     ]
   },
+  "BladeDancePower": {
+    "NAME": "Blade Dance",
+    "DESCRIPTIONS": [
+      "Your #yHavoc #yBlades deal double damage."
+    ]
+  },
+  "BlockadePower": {
+    "NAME": "Blockade",
+    "DESCRIPTIONS": [
+      "Whenever your #yHavoc #yBlades attack, gain #b",
+      " #yBlock."
+    ]
+  },
   "EyeOfTheStormPower": {
     "NAME": "Eye of the Storm",
     "DESCRIPTIONS": [
       "Whenever you're attacked, reduce the damage by ",
       " and gain ",
       " #rLightning #yCharge."
+    ]
+  },
+  "FrozenPower": {
+    "NAME": "Frozen",
+    "DESCRIPTIONS": [
+      "This creature takes #b",
+      "% more damage."
     ]
   },
   "IceCharge": {
@@ -26,6 +46,21 @@
       "A #yStance that allows the generation of #yIce #yCharges."
     ]
   },
+  "InfernoPower": {
+    "NAME": "Inferno",
+    "DESCRIPTIONS": [
+      "Whenever you draw a #rBurn, take #b",
+      " damage, and deal #b",
+      " damage to ALL enemies."
+    ]
+  },
+  "LifestealPower": {
+    "NAME": "Lifesteal",
+    "DESCRIPTIONS": [
+      "Whenever your #yHavoc #yBlades attack, heal for #b",
+      " HP."
+    ]
+  },
   "LightningCharge": {
     "NAME": "Lightning Charge",
     "DESCRIPTIONS": [
@@ -39,11 +74,33 @@
       "A #yStance that allows the generation of #yLightning #yCharges."
     ]
   },
+  "LoseFocusPower": {
+    "NAME": "Lose Focus",
+    "DESCRIPTIONS": [
+      "At the end of your turn, lose #b",
+      " #yFocus."
+    ]
+  },
   "Meditate": {
     "NAME": "Meditate",
     "DESCRIPTIONS": [
       "Whenever you channel a #yBlade, heal #b",
       " #yHP."
+    ]
+  },
+  "Meltdown": {
+    "NAME": "Meltdown",
+    "DESCRIPTIONS": [
+      "At the start of your turn, exhaust a #rBurn from your draw pile and deal #b",
+      " damage to ALL enemies."
+    ]
+  },
+  "Quickness": {
+    "NAME": "Quickness",
+    "DESCRIPTIONS": [
+      "Whenever you switch Stances, draw #b",
+      " card.",
+      " cards."
     ]
   },
   "Recklessness": {

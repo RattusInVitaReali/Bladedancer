@@ -17,7 +17,7 @@ public class IceStanceAction
     public void update() {
         for (AbstractCard card : AbstractDungeon.player.hand.group) {
             if (card.hasTag(BlademasterTags.ICE_STANCE)) {
-                card.flash(Color.WHITE);
+                card.flash(Color.WHITE.cpy());
             }
         }
         this.isDone = true;

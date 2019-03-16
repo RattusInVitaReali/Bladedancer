@@ -1,0 +1,42 @@
+{
+  "blademaster:BonusComboPerkBlight": {
+    "NAME": "Perk: Combatant",
+    "DESCRIPTION": ["Start each combat with #b2 #yCombo."]
+  },
+  "blademaster:StrongPerkBlight": {
+    "NAME": "Perk: Strong",
+    "DESCRIPTION": ["Start each combat with #b1 #yStrength."]
+  },
+  "blademaster:BonusFuryPerkBlight": {
+    "NAME": "Perk: Furious",
+    "DESCRIPTION": ["Start each combat with #b10 #yFury."]
+  },
+  "blademaster:DextrousPerkBlight": {
+    "NAME": "Perk: Dexterous",
+    "DESCRIPTION": ["Start each combat with #b1 #yDexterity."]
+  },
+  "blademaster:FocusedPerkBlight": {
+    "NAME": "Perk: Focused",
+    "DESCRIPTION":[ "Start each combat with #b1 #yFocus."]
+  },
+  "blademaster:RandomBladePerkBlight": {
+    "NAME": "Perk: Blades",
+    "DESCRIPTION": ["At the start of each combat, channel #b1 random #yBlade."]
+  },
+  "blademaster:RandomDefensiveStancePerkBlight": {
+    "NAME": "Perk: Defensive Stance Mastery",
+    "DESCRIPTION": ["At the start of combat, switch your #yDefensive #yStance to a random #yStance."]
+  },
+  "blademaster:RandomOffensiveStancePerkBlight": {
+    "NAME": "Perk: Offensive Stance Mastery",
+    "DESCRIPTION": ["At the start of combat, switch your #yOffensive #yStance to a random #yStance."]
+  },
+  "blademaster:FinisherDrawCardPerkBlight": {
+    "NAME": "Perk: Finisher Mastery",
+    "DESCRIPTION": ["Whenever you play a #rFinisher, draw 1 card."]
+  },
+  "blademaster:StanceHealPerkBlight": {
+    "NAME": "Perk: Healthy Stances",
+    "DESCRIPTION": ["At the end of combat, heal #b4 HP per #yStance you're in."]
+  }
+}

@@ -1,26 +1,19 @@
 package blademaster.characters;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-
+import basemod.abstracts.CustomPlayer;
+import basemod.animations.SpriterAnimation;
 import blademaster.Blademaster;
 import blademaster.cards.Defend;
 import blademaster.cards.RagingBlow;
-import blademaster.cards.SecondWind;
+import blademaster.cards.Stonework;
 import blademaster.cards.Strike;
+import blademaster.patches.AbstractCardEnum;
 import blademaster.powers.*;
-import blademaster.relics.RingOfFury;
-import blademaster.relics.RingOfSpeed;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.evacipated.cardcrawl.modthespire.lib.SpireOverride;
-import com.megacrit.cardcrawl.powers.AbstractPower;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
+import blademaster.relics.DancersAmulet;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.math.MathUtils;
-import com.esotericsoftware.spine.AnimationState;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpireOverride;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -29,12 +22,13 @@ import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-import basemod.abstracts.CustomPlayer;
-import basemod.animations.SpriterAnimation;
-import blademaster.patches.*;
+import java.util.ArrayList;
 
 //Wiki-page https://github.com/daviscook477/BaseMod/wiki/Custom-Characters
 //and https://github.com/daviscook477/BaseMod/wiki/Migrating-to-5.0
@@ -54,7 +48,7 @@ public class TheCharacter extends CustomPlayer {
 
     // =============== /BASE STATS/ =================
 
-    
+
     // =============== TEXTURES OF BIG ENERGY ORB ===============
 
     public static final String[] orbTextures = {
@@ -68,11 +62,11 @@ public class TheCharacter extends CustomPlayer {
             "defaultModResources/images/char/defaultCharacter/orb/layer2d.png",
             "defaultModResources/images/char/defaultCharacter/orb/layer3d.png",
             "defaultModResources/images/char/defaultCharacter/orb/layer4d.png",
-            "defaultModResources/images/char/defaultCharacter/orb/layer5d.png", };
-    
+            "defaultModResources/images/char/defaultCharacter/orb/layer5d.png",};
+
     // =============== /TEXTURES OF BIG ENERGY ORB/ ===============
 
-    
+
     // =============== CHARACTER CLASS START =================
 
     public TheCharacter(String name, PlayerClass setClass) {
@@ -81,25 +75,24 @@ public class TheCharacter extends CustomPlayer {
                 new SpriterAnimation(
                         "defaultModResources/images/char/defaultCharacter/Spriter/theDefaultAnimation.scml"));
 
-        
-        // =============== TEXTURES, ENERGY, LOADOUT =================  
+
+        // =============== TEXTURES, ENERGY, LOADOUT =================
 
         initializeClass(Blademaster.makePath("char/defaultCharacter/main.png"), // required call to load textures and setup energy/loadout
                 Blademaster.makePath(Blademaster.THE_DEFAULT_SHOULDER_1), // campfire pose
                 Blademaster.makePath(Blademaster.THE_DEFAULT_SHOULDER_2), // another campfire pose
                 Blademaster.makePath(Blademaster.THE_DEFAULT_CORPSE), // dead corpse
-                getLoadout(), 20.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN)); // energy manager
+                getLoadout(), 20.0F, - 10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN)); // energy manager
 
         // =============== /TEXTURES, ENERGY, LOADOUT/ =================
 
-        
-        // =============== ANIMATIONS =================  
 
+        // =============== ANIMATIONS =================
 
 
         // =============== /ANIMATIONS/ =================
 
-        
+
         // =============== TEXT BUBBLE LOCATION =================
 
         this.dialogX = (this.drawX + 0.0F * Settings.scale); // set location for text bubbles
@@ -111,7 +104,7 @@ public class TheCharacter extends CustomPlayer {
 
     // =============== /CHARACTER CLASS END/ =================
 
-    
+
     // Starting description and loadout
     @Override
     public CharSelectInfo getLoadout() {
@@ -123,8 +116,8 @@ public class TheCharacter extends CustomPlayer {
 
     // Starting Deck
     @Override
-    public ArrayList<String> getStartingDeck() {
-        ArrayList<String> retVal = new ArrayList<>();
+    public ArrayList <String> getStartingDeck() {
+        ArrayList <String> retVal = new ArrayList <>();
 
         logger.info("Begind loading started Deck strings");
 
@@ -139,21 +132,19 @@ public class TheCharacter extends CustomPlayer {
         retVal.add(Defend.ID);
 
         retVal.add(RagingBlow.ID);
-        retVal.add(SecondWind.ID);
+        retVal.add(Stonework.ID);
 
 
         return retVal;
     }
 
-    // Starting Relics	
-    public ArrayList<String> getStartingRelics() {
-        ArrayList<String> retVal = new ArrayList<>();
+    // Starting Relics
+    public ArrayList <String> getStartingRelics() {
+        ArrayList <String> retVal = new ArrayList <>();
 
-        retVal.add(RingOfFury.ID);
-        retVal.add(RingOfSpeed.ID);
+        retVal.add(DancersAmulet.ID);
 
-        UnlockTracker.markRelicAsSeen(RingOfFury.ID);
-        UnlockTracker.markRelicAsSeen(RingOfSpeed.ID);
+        UnlockTracker.markRelicAsSeen(DancersAmulet.ID);
 
         return retVal;
     }
@@ -210,7 +201,7 @@ public class TheCharacter extends CustomPlayer {
         return new Strike();
     }
 
-    // The class name as it appears next to your player name in game	
+    // The class name as it appears next to your player name in game
     @Override
     public String getTitle(AbstractPlayer.PlayerClass playerClass) {
         return "the Bladedancer";
@@ -235,42 +226,36 @@ public class TheCharacter extends CustomPlayer {
         return Blademaster.DEFAULT_GRAY;
     }
 
-
     @SpireOverride
-    public void renderPowerIcons(SpriteBatch sb, float x, float y)
-    {
-        float yoffset = 0;
+    public void renderPowerIcons(SpriteBatch sb, float x, float y) {
+        float yoffset = 0.0F;
         float offset = 10.0F;
         float doffset = 10.0F;
-        for (AbstractPower p : this.powers)
-        {
+        for (AbstractPower p : this.powers) {
             if ((p.ID.equals(LightningStance.POWER_ID)) || (p.ID.equals(WindStance.POWER_ID)) || (p.ID.equals(FuryPower.POWER_ID)) || (p.ID.equals(ComboPower.POWER_ID)) || (p.ID.equals(CalmnessPower.POWER_ID))
-                    || (p.ID.equals(TiredPower.POWER_ID)) || (p.ID.equals(WindCharge.POWER_ID))  || (p.ID.equals(LightningCharge.POWER_ID)) || (p.ID.equals(IceStance.POWER_ID))  || (p.ID.equals(StoneStance.POWER_ID))
-                    || (p.ID.equals(IceCharge.POWER_ID))  || (p.ID.equals(StoneCharge.POWER_ID)))
-            {
+                    || (p.ID.equals(TiredPower.POWER_ID)) || (p.ID.equals(WindCharge.POWER_ID)) || (p.ID.equals(LightningCharge.POWER_ID)) || (p.ID.equals(IceStance.POWER_ID)) || (p.ID.equals(StoneStance.POWER_ID))
+                    || (p.ID.equals(IceCharge.POWER_ID)) || (p.ID.equals(StoneCharge.POWER_ID)) || (p.ID.equals(BasicStance.POWER_ID))) {
                 yoffset = - 40.0F;
-                p.renderIcons(sb, x + (doffset * Settings.scale), y + ((-48.0F + yoffset) * Settings.scale), Color.WHITE);
+                p.renderIcons(sb, x + (doffset * Settings.scale), y + ((- 48.0F + yoffset) * Settings.scale), Color.WHITE);
                 doffset += 48.0F;
             } else {
                 yoffset = 0F;
-                p.renderIcons(sb, x + (offset* Settings.scale), y + ((-48.0F + yoffset) * Settings.scale), Color.WHITE);
+                p.renderIcons(sb, x + (offset * Settings.scale), y + ((- 48.0F + yoffset) * Settings.scale), Color.WHITE);
                 offset += 48.0F;
             }
         }
         offset = 0.0F;
         doffset = 0.0F;
-        for (AbstractPower p : this.powers)
-        {
+        for (AbstractPower p : this.powers) {
             if ((p.ID.equals(LightningStance.POWER_ID)) || (p.ID.equals(WindStance.POWER_ID)) || (p.ID.equals(FuryPower.POWER_ID)) || (p.ID.equals(ComboPower.POWER_ID)) || (p.ID.equals(CalmnessPower.POWER_ID))
-                    || (p.ID.equals(TiredPower.POWER_ID)) || (p.ID.equals(WindCharge.POWER_ID))  || (p.ID.equals(LightningCharge.POWER_ID)) || (p.ID.equals(IceStance.POWER_ID))  || (p.ID.equals(StoneStance.POWER_ID))
-                    || (p.ID.equals(IceCharge.POWER_ID))  || (p.ID.equals(StoneCharge.POWER_ID)))
-            {
+                    || (p.ID.equals(TiredPower.POWER_ID)) || (p.ID.equals(WindCharge.POWER_ID)) || (p.ID.equals(LightningCharge.POWER_ID)) || (p.ID.equals(IceStance.POWER_ID)) || (p.ID.equals(StoneStance.POWER_ID))
+                    || (p.ID.equals(IceCharge.POWER_ID)) || (p.ID.equals(StoneCharge.POWER_ID))) {
                 yoffset = - 40.0F;
-                p.renderAmount(sb, x + ((doffset + 32.0F) * Settings.scale), y + ((-66.0F + yoffset) * Settings.scale), Color.WHITE);
+                p.renderAmount(sb, x + ((doffset + 32.0F) * Settings.scale), y + ((- 66.0F + yoffset) * Settings.scale), Color.WHITE);
                 doffset += 48.0F;
             } else {
-                yoffset = 0F;
-                p.renderAmount(sb, x + ((offset + 32.0F) * Settings.scale), y + ((-66.0F + yoffset) * Settings.scale), Color.WHITE);
+                yoffset = 0.0F;
+                p.renderAmount(sb, x + ((offset + 32.0F) * Settings.scale), y + ((- 66.0F + yoffset) * Settings.scale), Color.WHITE);
                 offset += 48.0F;
             }
         }
@@ -282,8 +267,8 @@ public class TheCharacter extends CustomPlayer {
     // Attack effects are the same as used in damage action and the like.
     @Override
     public AbstractGameAction.AttackEffect[] getSpireHeartSlashEffect() {
-        return new AbstractGameAction.AttackEffect[] {
-                AbstractGameAction.AttackEffect.BLUNT_HEAVY };
+        return new AbstractGameAction.AttackEffect[]{
+                AbstractGameAction.AttackEffect.BLUNT_HEAVY};
     }
 
     // Should return a string containing what text is shown when your character is
