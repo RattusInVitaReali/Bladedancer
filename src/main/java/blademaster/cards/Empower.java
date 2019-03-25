@@ -1,42 +1,35 @@
 package blademaster.cards;
 
+import basemod.abstracts.CustomCard;
+import blademaster.Blademaster;
+import blademaster.patches.AbstractCardEnum;
 import blademaster.powers.*;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.vfx.combat.DaggerSprayEffect;
-import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import basemod.abstracts.CustomCard;
-import blademaster.Blademaster;
-import blademaster.patches.AbstractCardEnum;
 
 public class Empower extends CustomCard {
 
 
     public static final String ID = Blademaster.makeID("Empower");
+    public static final String IMG = Blademaster.makePath(Blademaster.DEFAULT_SKILL);
+    public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String IMG = Blademaster.makePath(Blademaster.DEFAULT_COMMON_SKILL);
     public static final String NAME = cardStrings.NAME;
-    public static String DESCRIPTION = cardStrings.DESCRIPTION;
-    public static String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
-
-
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
-
     private static final int COST = 0;
-    private static int ENERGY = 1;
     private static final int CHARGES = 3;
+    public static String DESCRIPTION = cardStrings.DESCRIPTION;
+    public static String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+    private static int ENERGY = 1;
 
 
     public Empower() {
@@ -71,10 +64,10 @@ public class Empower extends CustomCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
+        if (! this.upgraded) {
             this.upgradeName();
             ENERGY = 2;
-            this.DESCRIPTION = this.UPGRADE_DESCRIPTION;
+            DESCRIPTION = UPGRADE_DESCRIPTION;
             this.upgradeMagicNumber(2);
             this.initializeDescription();
         }

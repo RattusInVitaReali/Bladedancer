@@ -17,14 +17,15 @@ public class StrongPerkBlight extends AbstractBlight implements PerkBlight {
     public static final String[] DESCRIPTION = blightStrings.DESCRIPTION;
 
     public StrongPerkBlight() {
-        super(ID, NAME, DESCRIPTION[0], "defaultModResources/images/relics/perks/StrongPerk.png", true);
-        this.img = ImageMaster.loadImage("defaultModResources/images/relics/perks/StrongPerk.png");
-        this.outlineImg = ImageMaster.loadImage("defaultModResources/images/relics/outline/Perk.png");
+        super(ID, NAME, DESCRIPTION[0], "blademasterResources/images/relics/perks/StrongPerk.png", true);
+        this.img = ImageMaster.loadImage("blademasterResources/images/relics/perks/StrongPerk.png");
+        this.outlineImg = ImageMaster.loadImage("blademasterResources/images/relics/outline/Perk.png");
     }
 
     @Override
     public void atBattleStart() {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new StrengthPower(AbstractDungeon.player,  1), 1));
+        this.flash();
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new StrengthPower(AbstractDungeon.player, 1), 1));
     }
 
 }

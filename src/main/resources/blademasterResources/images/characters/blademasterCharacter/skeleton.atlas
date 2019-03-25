@@ -1,0 +1,146 @@
+
+skeleton.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+main2/Sword_Back_Middle
+  rotate: false
+  xy: 187, 1
+  size: 148, 151
+  orig: 148, 151
+  offset: 0, 0
+  index: -1
+main2/Sword_Back_Bottom
+  rotate: false
+  xy: 1, 275
+  size: 185, 106
+  orig: 185, 106
+  offset: 0, 0
+  index: -1
+main2/Sword_Back_Top
+  rotate: false
+  xy: 1, 1
+  size: 184, 143
+  orig: 184, 143
+  offset: 0, 0
+  index: -1
+main2/Pants
+  rotate: false
+  xy: 170, 154
+  size: 138, 87
+  orig: 138, 87
+  offset: 0, 0
+  index: -1
+main2/Leg_Right
+  rotate: false
+  xy: 108, 432
+  size: 56, 72
+  orig: 56, 72
+  offset: 0, 0
+  index: -1
+main2/Leg_Left
+  rotate: false
+  xy: 204, 346
+  size: 75, 95
+  orig: 75, 95
+  offset: 0, 0
+  index: -1
+main2/Neck
+  rotate: false
+  xy: 343, 489
+  size: 27, 18
+  orig: 27, 18
+  offset: 0, 0
+  index: -1
+main2/Arm_Right
+  rotate: false
+  xy: 313, 443
+  size: 28, 54
+  orig: 28, 54
+  offset: 0, 0
+  index: -1
+main2/Chest_copy
+  rotate: false
+  xy: 188, 243
+  size: 94, 101
+  orig: 94, 101
+  offset: 0, 0
+  index: -1
+main2/Arm_Left
+  rotate: false
+  xy: 220, 443
+  size: 42, 47
+  orig: 42, 47
+  offset: 0, 0
+  index: -1
+main2/Forearm_Right
+  rotate: false
+  xy: 264, 479
+  size: 46, 28
+  orig: 46, 28
+  offset: 0, 0
+  index: -1
+main2/Sword_Right
+  rotate: false
+  xy: 1, 146
+  size: 167, 127
+  orig: 167, 127
+  offset: 0, 0
+  index: -1
+main2/Sword_Left
+  rotate: false
+  xy: 1, 383
+  size: 201, 47
+  orig: 201, 47
+  offset: 0, 0
+  index: -1
+main2/Forearm_Left
+  rotate: false
+  xy: 376, 443
+  size: 28, 48
+  orig: 28, 48
+  offset: 0, 0
+  index: -1
+main2/Shoulder_Right
+  rotate: false
+  xy: 1, 432
+  size: 105, 44
+  orig: 105, 44
+  offset: 0, 0
+  index: -1
+main2/Hand_Left
+  rotate: false
+  xy: 166, 489
+  size: 20, 20
+  orig: 20, 20
+  offset: 0, 0
+  index: -1
+main2/Shoulder_Left
+  rotate: false
+  xy: 264, 443
+  size: 47, 34
+  orig: 47, 34
+  offset: 0, 0
+  index: -1
+main2/Hair
+  rotate: false
+  xy: 343, 443
+  size: 31, 44
+  orig: 31, 44
+  offset: 0, 0
+  index: -1
+main2/Hand_Right
+  rotate: false
+  xy: 170, 243
+  size: 16, 22
+  orig: 16, 22
+  offset: 0, 0
+  index: -1
+main2/Helmet
+  rotate: false
+  xy: 166, 443
+  size: 52, 44
+  orig: 52, 44
+  offset: 0, 0
+  index: -1

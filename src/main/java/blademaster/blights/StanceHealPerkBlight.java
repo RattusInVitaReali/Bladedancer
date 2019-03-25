@@ -1,5 +1,6 @@
 package blademaster.blights;
 
+import blademaster.interfaces.PerkBlight;
 import blademaster.powers.IceStance;
 import blademaster.powers.LightningStance;
 import blademaster.powers.StoneStance;
@@ -11,7 +12,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.BlightStrings;
 
-public class StanceHealPerkBlight extends AbstractBlight {
+public class StanceHealPerkBlight extends AbstractBlight implements PerkBlight {
 
     public static final String ID = "blademaster:StanceHealPerkBlight";
     private static final BlightStrings blightStrings = CardCrawlGame.languagePack.getBlightString(ID);
@@ -20,12 +21,13 @@ public class StanceHealPerkBlight extends AbstractBlight {
     private int counter = 0;
 
     public StanceHealPerkBlight() {
-        super(ID, NAME, DESCRIPTION[0], "defaultModResources/images/relics/perks/HealthyStancesPerk.png", true);
-        this.img = ImageMaster.loadImage("defaultModResources/images/relics/perks/HealthyStancesPerk.png");
-        this.outlineImg = ImageMaster.loadImage("defaultModResources/images/relics/outline/Perk.png");
+        super(ID, NAME, DESCRIPTION[0], "blademasterResources/images/relics/perks/HealthyStancesPerk.png", true);
+        this.img = ImageMaster.loadImage("blademasterResources/images/relics/perks/HealthyStancesPerk.png");
+        this.outlineImg = ImageMaster.loadImage("blademasterResources/images/relics/outline/Perk.png");
     }
 
     public void onVictory() {
+        this.flash();
         if (AbstractDungeon.player.hasPower(WindStance.POWER_ID)) {
             counter += 1;
         }

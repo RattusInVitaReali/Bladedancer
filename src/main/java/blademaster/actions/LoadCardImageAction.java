@@ -1,4 +1,3 @@
-
 package blademaster.actions;
 
 import basemod.abstracts.CustomCard;

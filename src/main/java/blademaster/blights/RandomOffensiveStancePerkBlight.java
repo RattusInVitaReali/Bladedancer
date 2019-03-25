@@ -18,12 +18,13 @@ public class RandomOffensiveStancePerkBlight extends AbstractBlight implements P
     public static final String[] DESCRIPTION = blightStrings.DESCRIPTION;
 
     public RandomOffensiveStancePerkBlight() {
-        super(ID, NAME, DESCRIPTION[0], "defaultModResources/images/relics/perks/OffensiveStanceMasteryPerk.png", true);
-        this.img = ImageMaster.loadImage("defaultModResources/images/relics/perks/OffensiveStanceMasteryPerk.png");
-        this.outlineImg = ImageMaster.loadImage("defaultModResources/images/relics/outline/Perk.png");
+        super(ID, NAME, DESCRIPTION[0], "blademasterResources/images/relics/perks/OffensiveStanceMasteryPerk.png", true);
+        this.img = ImageMaster.loadImage("blademasterResources/images/relics/perks/OffensiveStanceMasteryPerk.png");
+        this.outlineImg = ImageMaster.loadImage("blademasterResources/images/relics/outline/Perk.png");
     }
 
     public void atBattleStart() {
+        this.flash();
         int wtf = AbstractDungeon.cardRandomRng.random(0, 1);
         if (wtf == 0) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new WindStance(AbstractDungeon.player)));

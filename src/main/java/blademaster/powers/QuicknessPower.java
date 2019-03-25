@@ -1,11 +1,12 @@
 package blademaster.powers;
 
-import blademaster.Blademaster;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.BetterOnApplyPowerPower;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
@@ -22,7 +23,9 @@ public class QuicknessPower extends AbstractPower implements BetterOnApplyPowerP
         this.amount = amount;
         this.type = PowerType.BUFF;
         this.isTurnBased = false;
-        this.img = Blademaster.getDefaultPowerTexture();
+        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/Quickness.png"), 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/QuicknessSmall.png"), 0, 0, 32, 32);
+        updateDescription();
     }
 
     public boolean betterOnApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {

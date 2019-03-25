@@ -2,17 +2,17 @@ package blademaster.perks;
 
 import basemod.abstracts.CustomRelic;
 import blademaster.Blademaster;
+import blademaster.blights.RandomDefensiveStancePerkBlight;
 import blademaster.interfaces.PerkRelic;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-import blademaster.blights.RandomDefensiveStancePerkBlight;
 
 public class RandomDefensiveStancePerk extends CustomRelic implements PerkRelic {
 
     public static final String ID = Blademaster.makeID("RandomDefensiveStancePerk");
-    public static final String IMG = "defaultModResources/images/relics/perks/DefensiveStanceMasteryPerk.png";
-    public static final String OUTLINE = "defaultModResources/images/relics/outline/Perk.png";
+    public static final String IMG = "blademasterResources/images/relics/perks/DefensiveStanceMasteryPerk.png";
+    public static final String OUTLINE = "blademasterResources/images/relics/outline/Perk.png";
 
     public RandomDefensiveStancePerk() {
         super(ID, new Texture(IMG), new Texture(OUTLINE), RelicTier.SPECIAL, LandingSound.MAGICAL);

@@ -1,15 +1,19 @@
 package blademaster.powers;
 
-import blademaster.Blademaster;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnCardDrawPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.*;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.status.Burn;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
@@ -26,7 +30,9 @@ public class InfernoPower extends AbstractPower implements OnCardDrawPower {
         this.amount = amount;
         this.type = PowerType.BUFF;
         this.isTurnBased = false;
-        this.img = Blademaster.getDefaultPowerTexture();
+        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/Inferno.png"), 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/InfernoSmall.png"), 0, 0, 32, 32);
+        updateDescription();
     }
 
     public void onCardDraw(AbstractCard card) {
@@ -34,7 +40,7 @@ public class InfernoPower extends AbstractPower implements OnCardDrawPower {
             flash();
             AbstractDungeon.actionManager.addToBottom(new DiscardSpecificCardAction(card, AbstractDungeon.player.hand));
             AbstractDungeon.actionManager.addToBottom(new LoseHPAction(this.owner, this.owner, this.amount, AbstractGameAction.AttackEffect.FIRE));
-            AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(2 *this.amount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE));
+            AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(2 * this.amount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE));
             AbstractDungeon.actionManager.addToBottom(new DrawCardAction(this.owner, 1));
         }
     }

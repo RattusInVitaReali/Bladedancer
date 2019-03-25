@@ -1,9 +1,9 @@
 package blademaster.cards;
 
-import blademaster.actions.RemoveDefensiveStancesAction;
-import blademaster.actions.RemoveOffensiveStancesAction;
+import basemod.abstracts.CustomCard;
+import blademaster.Blademaster;
 import blademaster.actions.StoneStanceAction;
-import blademaster.actions.WindStanceAction;
+import blademaster.patches.AbstractCardEnum;
 import blademaster.patches.BlademasterTags;
 import blademaster.powers.ComboPower;
 import blademaster.powers.StoneStance;
@@ -17,33 +17,26 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import basemod.abstracts.CustomCard;
-import blademaster.Blademaster;
-import blademaster.patches.AbstractCardEnum;
 
 
 public class Stonework extends CustomCard {
 
 
     public static final String ID = Blademaster.makeID("Stonework");
+    public static final String IMG = Blademaster.makePath(Blademaster.DEFAULT_SKILL);
+    public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String IMG = Blademaster.makePath(Blademaster.DEFAULT_COMMON_SKILL);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-
-
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
-
     private static final int COST = 0;
     private static final int BLOCK = 11;
     private static final int AMT = 1;
 
 
-    public Stonework()
-    {
+    public Stonework() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseBlock = BLOCK;
         this.block = this.baseBlock;
@@ -55,23 +48,17 @@ public class Stonework extends CustomCard {
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
         cantUseMessage = "I haven't played enough cards this turn!";
         if (AbstractDungeon.player.hasPower(ComboPower.POWER_ID)) {
-            if (AbstractDungeon.player.getPower(ComboPower.POWER_ID).amount >= 3) {
-                return true;
-            } else {
-                return false;
-            }
+            return AbstractDungeon.player.getPower(ComboPower.POWER_ID).amount >= 3;
         } else {
             return false;
         }
     }
 
     @Override
-    public void use(AbstractPlayer p, AbstractMonster m)
-    {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ComboPower(p, -3), -3));
+    public void use(AbstractPlayer p, AbstractMonster m) {
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ComboPower(p, - 3), - 3));
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
-        if (!p.hasPower(StoneStance.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new RemoveDefensiveStancesAction());
+        if (! p.hasPower(StoneStance.POWER_ID)) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StoneStance(p)));
         } else if (p.hasPower(StoneStance.POWER_ID)) {
             AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Burn(), 1));
@@ -86,7 +73,7 @@ public class Stonework extends CustomCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
+        if (! this.upgraded) {
             this.upgradeName();
             this.upgradeBlock(4);
             this.initializeDescription();

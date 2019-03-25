@@ -1,8 +1,9 @@
 package blademaster.powers;
 
-import blademaster.Blademaster;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
@@ -18,7 +19,8 @@ public class BladeDancePower extends AbstractPower {
         this.owner = owner;
         this.type = PowerType.BUFF;
         this.isTurnBased = false;
-        this.img = Blademaster.getDefaultPowerTexture();
+        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/BladeDance.png"), 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/BladeDanceSmall.png"), 0, 0, 32, 32);
     }
 
 

@@ -11,8 +11,8 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 public class FocusedPerk extends CustomRelic implements PerkRelic {
 
     public static final String ID = Blademaster.makeID("FocusedPerk");
-    public static final String IMG = "defaultModResources/images/relics/perks/FocusedPerk.png";
-    public static final String OUTLINE = "defaultModResources/images/relics/outline/Perk.png";
+    public static final String IMG = "blademasterResources/images/relics/perks/FocusedPerk.png";
+    public static final String OUTLINE = "blademasterResources/images/relics/outline/Perk.png";
 
     public FocusedPerk() {
         super(ID, new Texture(IMG), new Texture(OUTLINE), RelicTier.SPECIAL, LandingSound.MAGICAL);

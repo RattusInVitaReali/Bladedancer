@@ -1,12 +1,15 @@
 package blademaster.powers;
 
-import blademaster.Blademaster;
-import blademaster.effects.BetterFireBurstParticleEffect;
+import blademaster.actions.WindStanceAction;
+import blademaster.effects.particles.BetterFireBurstParticleEffect;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.MathUtils;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
@@ -25,7 +28,8 @@ public class WindStance extends AbstractPower {
         this.owner = owner;
         this.type = PowerType.BUFF;
         this.isTurnBased = true;
-        this.img = Blademaster.WindStancePNG();
+        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/WindStance.png"), 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/WindStanceSmall.png"), 0, 0, 32, 32);
         updateDescription();
     }
 
@@ -42,6 +46,16 @@ public class WindStance extends AbstractPower {
             int xOff = MathUtils.random(- 70, 70);
             AbstractDungeon.effectList.add(new BetterFireBurstParticleEffect(this.owner.drawX + xOff - 130, this.owner.drawY + 190, 0.1F, 1.0F, 0.5F));
             this.particleTimer2 = 0.06F;
+        }
+    }
+
+    public void onInitialApplication() {
+        AbstractDungeon.actionManager.addToBottom(new WindStanceAction());
+    }
+
+    public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
+        if (power.ID.equals(LightningStance.POWER_ID)) {
+            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this));
         }
     }
 

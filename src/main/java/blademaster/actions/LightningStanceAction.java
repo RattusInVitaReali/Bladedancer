@@ -7,10 +7,8 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class LightningStanceAction
-        extends AbstractGameAction
-{
-    public LightningStanceAction()
-    {
+        extends AbstractGameAction {
+    public LightningStanceAction() {
         this.actionType = ActionType.SPECIAL;
     }
 

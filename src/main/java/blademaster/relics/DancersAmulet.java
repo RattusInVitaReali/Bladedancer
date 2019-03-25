@@ -71,6 +71,8 @@ public class DancersAmulet extends CustomRelic {
         perksList.add(new StrongPerk());
         perksList.add(new StanceHealPerk());
         perksList.add(new FinisherDrawCardPerk());
+        perksList.add(new ComboEveryTurnPerk());
+        perksList.add(new FuryEveryTurnPerk());
 
         blightMap.put(BonusComboPerkBlight.ID, BonusComboPerk.ID);
         blightMap.put(BonusFuryPerkBlight.ID, BonusFuryPerk.ID);
@@ -82,6 +84,8 @@ public class DancersAmulet extends CustomRelic {
         blightMap.put(StrongPerkBlight.ID, StrongPerk.ID);
         blightMap.put(FinisherDrawCardPerkBlight.ID, FinisherDrawCardPerk.ID);
         blightMap.put(StanceHealPerkBlight.ID, StanceHealPerk.ID);
+        blightMap.put(ComboEveryTurnPerkBlight.ID, ComboEveryTurnPerk.ID);
+        blightMap.put(FuryEveryTurnPerkBlight.ID, FuryEveryTurnPerk.ID);
 
         System.out.println("Published onTrigger.");
 

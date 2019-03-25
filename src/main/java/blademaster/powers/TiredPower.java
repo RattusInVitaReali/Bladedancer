@@ -14,7 +14,7 @@ public class TiredPower extends AbstractPower {
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public TiredPower (AbstractCreature owner, int amount) {
+    public TiredPower(AbstractCreature owner, int amount) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
@@ -25,9 +25,11 @@ public class TiredPower extends AbstractPower {
         this.img = Blademaster.TiredPNG();
         updateDescription();
     }
-    public void atStartOfTurn(){
-            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, TiredPower.POWER_ID));
+
+    public void atStartOfTurn() {
+        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, TiredPower.POWER_ID));
     }
+
     public void updateDescription() {
         this.description = DESCRIPTIONS[0];
     }

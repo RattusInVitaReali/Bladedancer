@@ -22,25 +22,21 @@ public class Thrust extends CustomCard {
 
 
     public static final String ID = Blademaster.makeID("Thrust");
+    public static final String IMG = Blademaster.makePath(Blademaster.DEFAULT_ATTACK);
+    public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
+    public static final String LIMG = Blademaster.makePath(Blademaster.LIGHTNING_ATTACK);
+    public static final String WIMG = Blademaster.makePath(Blademaster.WIND_ATTACK);
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String IMG = Blademaster.makePath(Blademaster.DEFAULT_COMMON_ATTACK);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-
-
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
-    public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
-
     private static final int COST = 1;
     private static final int DAMAGE = 8;
-
     private boolean WindArt = false;
     private boolean LightningArt = false;
     private boolean BaseArt = false;
-    public static final String LIMG = Blademaster.makePath(Blademaster.LIGHTNING_ATTACK);
-    public static final String WIMG = Blademaster.makePath(Blademaster.WIND_ATTACK);
 
 
     public Thrust() {
@@ -66,7 +62,7 @@ public class Thrust extends CustomCard {
     public void applyPowers() {
         super.applyPowers();
         if (AbstractDungeon.player.hasPower(WindStance.POWER_ID)) {
-            if (!WindArt) {
+            if (! WindArt) {
                 AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, WIMG, false));
                 this.rawDescription = (DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0]);
                 this.initializeDescription();
@@ -75,7 +71,7 @@ public class Thrust extends CustomCard {
                 BaseArt = false;
             }
         } else if (AbstractDungeon.player.hasPower(LightningStance.POWER_ID)) {
-            if (!LightningArt) {
+            if (! LightningArt) {
                 AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, LIMG, false));
                 this.rawDescription = (DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[1]);
                 this.initializeDescription();
@@ -84,7 +80,7 @@ public class Thrust extends CustomCard {
                 BaseArt = false;
             }
         } else if (AbstractDungeon.player.hasPower(BasicStance.POWER_ID)) {
-            if (!BaseArt) {
+            if (! BaseArt) {
                 AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG, false));
                 this.rawDescription = DESCRIPTION;
                 this.initializeDescription();
@@ -104,6 +100,7 @@ public class Thrust extends CustomCard {
     public void upgrade() {
         if (! this.upgraded) {
             this.upgradeName();
+            this.upgradeDamage(2);
             this.initializeDescription();
         }
     }

@@ -1,12 +1,15 @@
 package blademaster.powers;
 
-import blademaster.Blademaster;
-import blademaster.effects.BetterFireBurstParticleEffect;
+import blademaster.actions.LightningStanceAction;
+import blademaster.effects.particles.BetterFireBurstParticleEffect;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.MathUtils;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
@@ -25,7 +28,8 @@ public class LightningStance extends AbstractPower {
         this.priority = 6;
         this.type = PowerType.BUFF;
         this.isTurnBased = true;
-        this.img = Blademaster.LightningStancePNG();
+        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/LightningStance.png"), 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/LightningStanceSmall.png"), 0, 0, 32, 32);
         updateDescription();
     }
 
@@ -43,6 +47,16 @@ public class LightningStance extends AbstractPower {
             AbstractDungeon.effectList.add(new BetterFireBurstParticleEffect(this.owner.drawX + xOff - 130, this.owner.drawY + 190, 0.3F, 0.7F, 1.0F));
             this.particleTimer2 = 0.06F;
         }
+    }
+
+    public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
+        if (power.ID.equals(WindStance.POWER_ID)) {
+            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this));
+        }
+    }
+
+    public void onInitialApplication() {
+        AbstractDungeon.actionManager.addToBottom(new LightningStanceAction());
     }
 
 

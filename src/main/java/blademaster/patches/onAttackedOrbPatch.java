@@ -10,21 +10,21 @@ import javassist.CtBehavior;
 
 import java.util.ArrayList;
 
-@SpirePatch(
+@SpirePatch (
         clz = AbstractPlayer.class,
         method = "damage",
         paramtypez = DamageInfo.class
 )
 
 public class onAttackedOrbPatch {
-    @SpireInsertPatch(
+    @SpireInsertPatch (
             locator = Locator.class,
             localvars = {"damageAmount"}
     )
 
-    public static void Insert(AbstractPlayer __obj_instance, DamageInfo info,@ByRef int[] damageAmount) {
-        for(AbstractOrb orb : __obj_instance.orbs) {
-            if(orb instanceof onAttackedOrb) {
+    public static void Insert(AbstractPlayer __obj_instance, DamageInfo info, @ByRef int[] damageAmount) {
+        for (AbstractOrb orb : __obj_instance.orbs) {
+            if (orb instanceof onAttackedOrb) {
                 damageAmount[0] = ((onAttackedOrb) orb).onAttackedForOrbs(info, damageAmount[0]);
             }
         }

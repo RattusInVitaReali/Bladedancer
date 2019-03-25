@@ -7,10 +7,8 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class WindStanceAction
-        extends AbstractGameAction
-{
-    public WindStanceAction()
-    {
+        extends AbstractGameAction {
+    public WindStanceAction() {
         this.actionType = ActionType.SPECIAL;
     }
 

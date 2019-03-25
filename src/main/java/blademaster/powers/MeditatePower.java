@@ -27,8 +27,7 @@ public class MeditatePower extends AbstractPower implements onOrbChanneledPower 
         updateDescription();
     }
 
-    public void onOrbChanneled(AbstractOrb orb)
-    {
+    public void onOrbChanneled(AbstractOrb orb) {
         this.flash();
         AbstractDungeon.actionManager.addToBottom(new HealAction(AbstractDungeon.player, AbstractDungeon.player, this.amount));
     }

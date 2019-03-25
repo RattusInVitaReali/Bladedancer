@@ -1,6 +1,6 @@
 package blademaster.powers;
 
-import blademaster.Blademaster;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.cards.status.Burn;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
@@ -26,7 +27,9 @@ public class MeltdownPower extends AbstractPower {
         this.amount = amount;
         this.type = PowerType.BUFF;
         this.isTurnBased = false;
-        this.img = Blademaster.getDefaultPowerTexture();
+        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/Meltdown.png"), 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/MeltdownSmall.png"), 0, 0, 32, 32);
+        updateDescription();
     }
 
     public void atStartOfTurn() {

@@ -17,13 +17,14 @@ public class BonusComboPerkBlight extends AbstractBlight implements PerkBlight {
     public static final String[] DESCRIPTION = blightStrings.DESCRIPTION;
 
     public BonusComboPerkBlight() {
-        super(ID, NAME, DESCRIPTION[0], "defaultModResources/images/relics/perks/CombatantPerk.png", true);
-        this.img = ImageMaster.loadImage("defaultModResources/images/relics/perks/CombatantPerk.png");
-        this.outlineImg = ImageMaster.loadImage("defaultModResources/images/relics/outline/Perk.png");
+        super(ID, NAME, DESCRIPTION[0], "blademasterResources/images/relics/perks/CombatantPerk.png", true);
+        this.img = ImageMaster.loadImage("blademasterResources/images/relics/perks/CombatantPerk.png");
+        this.outlineImg = ImageMaster.loadImage("blademasterResources/images/relics/outline/Perk.png");
     }
 
     @Override
     public void atBattleStart() {
+        this.flash();
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ComboPower(AbstractDungeon.player, 2), 2));
     }
 

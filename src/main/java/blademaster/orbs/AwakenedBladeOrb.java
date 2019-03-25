@@ -1,6 +1,8 @@
 package blademaster.orbs;
 
+import blademaster.interfaces.onUseCardOrb;
 import blademaster.powers.BladeDancePower;
+import blademaster.powers.BleedingPower;
 import blademaster.powers.LifestealPower;
 import blademaster.powers.SharpBladesPower;
 import com.badlogic.gdx.Gdx;
@@ -13,7 +15,6 @@ import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
-import com.megacrit.cardcrawl.actions.defect.DecreaseMaxOrbAction;
 import com.megacrit.cardcrawl.actions.defect.LightningOrbEvokeAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -27,8 +28,6 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.combat.DarkOrbActivateEffect;
 import com.megacrit.cardcrawl.vfx.combat.DarkOrbPassiveEffect;
 import com.megacrit.cardcrawl.vfx.combat.OrbFlareEffect;
-import blademaster.interfaces.onUseCardOrb;
-import ratmod.powers.BleedingPower;
 
 public class AwakenedBladeOrb
         extends AbstractOrb implements onUseCardOrb {
@@ -37,12 +36,12 @@ public class AwakenedBladeOrb
             " additional damage twice. NL #yEvoke: Deal #b ",
             " damage to all enemies."};
     private static final float ORB_BORDER_SCALE = 1.2F;
-    private float vfxTimer;
     private static final float VFX_INTERVAL_TIME = 0.25F;
     private static final float ORB_WAVY_DIST = 0.04F;
     private static final float PI_4 = 12.566371F;
     public static Texture ORB_BLADE = blademaster.Blademaster.getBladeOrbTexture();
     private static int Samt;
+    private float vfxTimer;
 
     public AwakenedBladeOrb() {
         this.vfxTimer = 0.5F;
@@ -87,7 +86,6 @@ public class AwakenedBladeOrb
 
     public void onEvoke() {
         AbstractDungeon.actionManager.addToTop(new LightningOrbEvokeAction(new DamageInfo(AbstractDungeon.player, this.evokeAmount, DamageInfo.DamageType.THORNS), true));
-        AbstractDungeon.actionManager.addToBottom(new DecreaseMaxOrbAction(1));
     }
 
     public void onUseCard(AbstractCard card, UseCardAction action) {

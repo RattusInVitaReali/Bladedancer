@@ -1,6 +1,5 @@
 package blademaster.powers;
 
-import blademaster.Blademaster;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -9,7 +8,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.FocusPower;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 
 public class LoseFocusPower extends AbstractPower {
     public static final String POWER_ID = "LoseFocusPower";
@@ -24,13 +22,12 @@ public class LoseFocusPower extends AbstractPower {
         this.amount = amount;
         this.type = PowerType.DEBUFF;
         this.isTurnBased = false;
-        this.img = Blademaster.getDefaultPowerTexture();
+        this.loadRegion("flex");
     }
 
-    public void atEndOfTurn(boolean isPlayer)
-    {
+    public void atEndOfTurn(boolean isPlayer) {
         flash();
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new FocusPower(this.owner, -this.amount), -this.amount));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new FocusPower(this.owner, - this.amount), - this.amount));
         AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this));
     }
 

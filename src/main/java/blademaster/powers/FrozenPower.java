@@ -1,14 +1,10 @@
 package blademaster.powers;
 
-import blademaster.Blademaster;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
@@ -25,17 +21,17 @@ public class FrozenPower extends AbstractPower {
         this.amount = amount;
         this.type = PowerType.BUFF;
         this.isTurnBased = true;
-        this.img = Blademaster.getDefaultPowerTexture();
+        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/Frozen.png"), 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/FrozenSmall.png"), 0, 0, 32, 32);
+        updateDescription();
     }
 
 
-    public void updateDescription()
-    {
+    public void updateDescription() {
         this.description = (DESCRIPTIONS[0] + this.amount * 5 + DESCRIPTIONS[1]);
     }
 
-    public float atDamageReceive(float damage, DamageInfo.DamageType type)
-    {
+    public float atDamageReceive(float damage, DamageInfo.DamageType type) {
         if (type == DamageInfo.DamageType.NORMAL) {
             return damage * (1.0F + this.amount * 0.05F);
         }

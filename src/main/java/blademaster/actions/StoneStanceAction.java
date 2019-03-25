@@ -7,10 +7,8 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class StoneStanceAction
-        extends AbstractGameAction
-{
-    public StoneStanceAction()
-    {
+        extends AbstractGameAction {
+    public StoneStanceAction() {
         this.actionType = ActionType.SPECIAL;
     }
 

@@ -1,8 +1,9 @@
 package blademaster.powers;
 
-import blademaster.Blademaster;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
@@ -20,7 +21,9 @@ public class StoneCharge extends AbstractPower {
         this.amount = amount;
         this.type = PowerType.BUFF;
         this.isTurnBased = false;
-        this.img = Blademaster.StoneChargePNG();
+        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/StoneCharge.png"), 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/StoneChargeSmall.png"), 0, 0, 32, 32);
+        updateDescription();
     }
 
     public void updateDescription() {

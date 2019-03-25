@@ -20,25 +20,23 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 public class Strike extends CustomCard {
 
     public static final String ID = Blademaster.makeID("Strike");
+    public static final String IMG = Blademaster.makePath(Blademaster.DEFAULT_ATTACK);
+    public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
+    public static final String LIMG = Blademaster.makePath(Blademaster.LIGHTNING_ATTACK);
+    public static final String WIMG = Blademaster.makePath(Blademaster.WIND_ATTACK);
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String IMG = Blademaster.makePath(Blademaster.DEFAULT_COMMON_ATTACK);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     private static final CardRarity RARITY = CardRarity.BASIC;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
-    public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
+    private static final int COST = 1;
+    private static int DAMAGE = 6;
     private boolean WindArt = false;
     private boolean LightningArt = false;
     private boolean BaseArt = false;
-    public static final String LIMG = Blademaster.makePath(Blademaster.LIGHTNING_ATTACK);
-    public static final String WIMG = Blademaster.makePath(Blademaster.WIND_ATTACK);
 
-    private static final int COST = 1;
-    private static int DAMAGE = 6;
-
-    public Strike()
-    {
+    public Strike() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = DAMAGE;
         this.damage = this.baseDamage;
@@ -47,8 +45,7 @@ public class Strike extends CustomCard {
     }
 
     @Override
-    public void use(AbstractPlayer p, AbstractMonster m)
-    {
+    public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         if (p.hasPower(WindStance.POWER_ID)) {
             if (this.upgraded) {
@@ -69,7 +66,7 @@ public class Strike extends CustomCard {
     public void applyPowers() {
         super.applyPowers();
         if (AbstractDungeon.player.hasPower(WindStance.POWER_ID)) {
-            if (!WindArt) {
+            if (! WindArt) {
                 AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, WIMG, false));
                 this.rawDescription = (DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0]);
                 this.initializeDescription();
@@ -78,7 +75,7 @@ public class Strike extends CustomCard {
                 BaseArt = false;
             }
         } else if (AbstractDungeon.player.hasPower(LightningStance.POWER_ID)) {
-            if (!LightningArt) {
+            if (! LightningArt) {
                 AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, LIMG, false));
                 this.rawDescription = (DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[1]);
                 this.initializeDescription();
@@ -87,7 +84,7 @@ public class Strike extends CustomCard {
                 BaseArt = false;
             }
         } else if (AbstractDungeon.player.hasPower(BasicStance.POWER_ID)) {
-            if (!BaseArt) {
+            if (! BaseArt) {
                 AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG, false));
                 this.rawDescription = DESCRIPTION;
                 this.initializeDescription();
@@ -106,7 +103,7 @@ public class Strike extends CustomCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
+        if (! this.upgraded) {
             this.upgradeName();
             this.upgradeDamage(3);
             this.initializeDescription();
