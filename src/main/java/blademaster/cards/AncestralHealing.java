@@ -3,9 +3,7 @@ package blademaster.cards;
 import basemod.abstracts.CustomCard;
 import blademaster.Blademaster;
 import blademaster.patches.AbstractCardEnum;
-import blademaster.powers.IceCharge;
 import blademaster.powers.LightningCharge;
-import blademaster.powers.StoneCharge;
 import blademaster.powers.WindCharge;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
@@ -48,14 +46,6 @@ public class AncestralHealing extends CustomCard {
         if (p.hasPower(LightningCharge.POWER_ID)) {
             this.magicNumber += p.getPower(LightningCharge.POWER_ID).amount;
             AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, LightningCharge.POWER_ID));
-        }
-        if (p.hasPower(StoneCharge.POWER_ID)) {
-            this.magicNumber += p.getPower(StoneCharge.POWER_ID).amount;
-            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, StoneCharge.POWER_ID));
-        }
-        if (p.hasPower(IceCharge.POWER_ID)) {
-            this.magicNumber += p.getPower(IceCharge.POWER_ID).amount;
-            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, IceCharge.POWER_ID));
         }
         if (this.upgraded) {
             AbstractDungeon.actionManager.addToBottom(new HealAction(p, p, 3 * this.magicNumber));

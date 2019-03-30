@@ -4,6 +4,7 @@ import basemod.abstracts.CustomCard;
 import blademaster.Blademaster;
 import blademaster.actions.LoadCardImageAction;
 import blademaster.patches.AbstractCardEnum;
+import blademaster.patches.BlademasterTags;
 import blademaster.powers.*;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
@@ -42,6 +43,8 @@ public class Thrust extends CustomCard {
     public Thrust() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = this.damage = DAMAGE;
+        this.tags.add(BlademasterTags.WIND_STANCE);
+        this.tags.add(BlademasterTags.LIGHTNING_STANCE);
     }
 
     @Override

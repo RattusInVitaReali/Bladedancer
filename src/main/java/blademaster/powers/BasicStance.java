@@ -33,7 +33,7 @@ public class BasicStance extends AbstractPower {
     }
 
     public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-        if (power.ID.equals(WindStance.POWER_ID) || power.ID.equals(LightningStance.POWER_ID) || power.ID.equals(StoneStance.POWER_ID) || power.ID.equals(IceStance.POWER_ID)) {
+        if (power.ID.equals(WindStance.POWER_ID) || power.ID.equals(LightningStance.POWER_ID)) {
             AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this));
         }
     }

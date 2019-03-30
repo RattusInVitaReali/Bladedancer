@@ -4,6 +4,7 @@ import basemod.abstracts.CustomCard;
 import blademaster.Blademaster;
 import blademaster.actions.LoadCardImageAction;
 import blademaster.patches.AbstractCardEnum;
+import blademaster.patches.BlademasterTags;
 import blademaster.powers.*;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -44,6 +45,8 @@ public class DirtyTrick extends CustomCard {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.damage = this.baseDamage = DAMAGE;
         this.magicNumber = this.baseMagicNumber = AMT;
+        this.tags.add(BlademasterTags.LIGHTNING_STANCE);
+        this.tags.add(BlademasterTags.WIND_STANCE);
     }
 
     @Override

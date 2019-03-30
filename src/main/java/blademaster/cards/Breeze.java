@@ -31,8 +31,6 @@ public class Breeze extends CustomCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    public static final String WDES = cardStrings.EXTENDED_DESCRIPTION[0];
-    public static final String LDES = cardStrings.EXTENDED_DESCRIPTION[1];
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;

@@ -21,8 +21,8 @@ public class AwakeningDefend extends CustomCard {
 
     public static final String ID = Blademaster.makeID("AwakeningDefend");
     public static final String IMG = Blademaster.makePath(Blademaster.DEFAULT_SKILL);
-    public static final String IIMG = Blademaster.makePath(Blademaster.ICE_SKILL);
-    public static final String SIMG = Blademaster.makePath(Blademaster.STONE_SKILL);
+    public static final String WIMG = Blademaster.makePath(Blademaster.WIND_SKILL);
+    public static final String LIMG = Blademaster.makePath(Blademaster.LIGHTNING_SKILL);
     public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
@@ -34,8 +34,8 @@ public class AwakeningDefend extends CustomCard {
     private static final int AMT = 1;
     private static final int BLOCK = 5;
     private static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
-    private boolean IceArt = false;
-    private boolean StoneArt = false;
+    private boolean WindArt = false;
+    private boolean LightningArt = false;
     private boolean BaseArt = false;
 
 
@@ -43,8 +43,8 @@ public class AwakeningDefend extends CustomCard {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseMagicNumber = this.magicNumber = AMT;
         this.baseBlock = this.block = BLOCK;
-        this.tags.add(BlademasterTags.ICE_STANCE);
-        this.tags.add(BlademasterTags.STONE_STANCE);
+        this.tags.add(BlademasterTags.WIND_STANCE);
+        this.tags.add(BlademasterTags.LIGHTNING_STANCE);
     }
 
     @Override
@@ -54,40 +54,40 @@ public class AwakeningDefend extends CustomCard {
         if (this.upgraded) {
             AbstractDungeon.actionManager.addToBottom(new AwakenOrbAction());
         }
-        if (p.hasPower(IceStance.POWER_ID)) {
+        if (p.hasPower(WindStance.POWER_ID)) {
             if (this.upgraded) {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new IceCharge(p, 2, false), 2));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WindCharge(p, 2, false), 2));
             } else {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new IceCharge(p, 1, false), 1));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WindCharge(p, 1, false), 1));
             }
         }
-        if (p.hasPower(StoneStance.POWER_ID)) {
+        if (p.hasPower(LightningStance.POWER_ID)) {
             if (this.upgraded) {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StoneCharge(p, 2, false), 2));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LightningCharge(p, 2, false), 2));
             } else {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StoneCharge(p, 1, false), 1));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LightningCharge(p, 1, false), 1));
             }
         }
     }
 
     public void applyPowers() {
         super.applyPowers();
-        if (AbstractDungeon.player.hasPower(StoneStance.POWER_ID)) {
-            if (! StoneArt) {
-                AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, SIMG, false));
+        if (AbstractDungeon.player.hasPower(WindStance.POWER_ID)) {
+            if (! WindArt) {
+                AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, WIMG, false));
                 this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[1];
                 initializeDescription();
-                StoneArt = true;
-                IceArt = false;
+                WindArt = true;
+                LightningArt = false;
                 BaseArt = false;
             }
-        } else if (AbstractDungeon.player.hasPower(IceStance.POWER_ID)) {
-            if (! IceArt) {
-                AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IIMG, false));
+        } else if (AbstractDungeon.player.hasPower(LightningStance.POWER_ID)) {
+            if (! LightningArt) {
+                AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, LIMG, false));
                 this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0];
                 initializeDescription();
-                StoneArt = false;
-                IceArt = true;
+                WindArt = false;
+                LightningArt = true;
                 BaseArt = false;
             }
         } else if (AbstractDungeon.player.hasPower(BasicStance.POWER_ID)) {
@@ -95,8 +95,8 @@ public class AwakeningDefend extends CustomCard {
                 AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG, false));
                 this.rawDescription = DESCRIPTION;
                 initializeDescription();
-                StoneArt = false;
-                IceArt = false;
+                WindArt = false;
+                LightningArt = false;
                 BaseArt = true;
             }
         }

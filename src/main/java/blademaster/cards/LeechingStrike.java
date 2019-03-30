@@ -9,6 +9,7 @@ import blademaster.powers.LightningStance;
 import blademaster.powers.WindStance;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -18,6 +19,8 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.vfx.combat.BloodShotEffect;
 
 public class LeechingStrike extends CustomCard {
@@ -54,6 +57,12 @@ public class LeechingStrike extends CustomCard {
             AbstractDungeon.actionManager.addToBottom(new VFXAction(new BloodShotEffect(m.drawX, m.drawY, p.drawX, p.drawY, this.magicNumber)));
             AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.magicNumber, this.damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
             AbstractDungeon.actionManager.addToBottom(new HealAction(p, p, this.magicNumber));
+        }
+        if (p.hasPower(WindStance.POWER_ID)) {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new WeakPower(m, 1, false), 1));
+        }
+        if (p.hasPower(LightningStance.POWER_ID)) {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new VulnerablePower(m, 1, false), 1));
         }
     }
 

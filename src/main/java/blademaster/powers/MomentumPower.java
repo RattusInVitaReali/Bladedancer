@@ -31,7 +31,7 @@ public class MomentumPower extends AbstractPower implements BetterOnApplyPowerPo
     }
 
     public boolean betterOnApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-        if (power.ID.equals(WindStance.POWER_ID) || power.ID.equals(LightningStance.POWER_ID) || power.ID.equals(StoneStance.POWER_ID) || power.ID.equals(IceStance.POWER_ID) || power.ID.equals(BasicStance.POWER_ID)) {
+        if (power.ID.equals(WindStance.POWER_ID) || power.ID.equals(LightningStance.POWER_ID) || power.ID.equals(BasicStance.POWER_ID)) {
             this.flash();
             AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(this.owner, DamageInfo.createDamageMatrix(this.amount, false), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE, true));
         }

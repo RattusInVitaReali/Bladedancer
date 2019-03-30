@@ -2,11 +2,9 @@ package blademaster.cards;
 
 import basemod.abstracts.CustomCard;
 import blademaster.Blademaster;
-import blademaster.effects.BetterLightningEffect;
 import blademaster.patches.AbstractCardEnum;
-import blademaster.patches.BlademasterTags;
-import blademaster.powers.LightningStance;
-import com.badlogic.gdx.graphics.Color;
+import blademaster.powers.FrozenPower;
+import blademaster.powers.WindCharge;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -18,47 +16,50 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.combat.BlizzardEffect;
 
-public class ThunderingOpener extends CustomCard {
+public class IcyWind extends CustomCard {
 
 
-    public static final String ID = Blademaster.makeID("ThunderingOpener");
-    public static final String IMG = Blademaster.makePath(Blademaster.LIGHTNING_ATTACK);
+    public static final String ID = Blademaster.makeID("IcyWind");
+    public static final String IMG = Blademaster.makePath(Blademaster.WIND_ATTACK);
     public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
-    private static final CardTarget TARGET = CardTarget.SELF;
-    private static final CardType TYPE = CardType.POWER;
-    private static final int COST = 0;
-    private static final int DAMAGE = 5;
+    private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
+    private static final CardType TYPE = CardType.ATTACK;
+    private static final int COST = 2;
+    private static final int FREEZE = 4;
 
 
-    public ThunderingOpener() {
+    public IcyWind() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = DAMAGE;
-        this.isInnate = true;
-        this.exhaust = true;
-        this.tags.add(BlademasterTags.LIGHTNING_STANCE);
+        this.magicNumber = this.baseMagicNumber = FREEZE;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LightningStance(p)));
-        AbstractDungeon.actionManager.addToBottom(new VFXAction(new BetterLightningEffect(m.drawX, m.drawY, 0.2F, Color.WHITE.cpy())));
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
+        if (p.hasPower(WindCharge.POWER_ID)) {
+            AbstractDungeon.actionManager.addToBottom(new VFXAction(new BlizzardEffect(p.getPower(WindCharge.POWER_ID).amount, AbstractDungeon.getMonsters().shouldFlipVfx()), 0.5F));
+            for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
+                if (p.hasPower(WindCharge.POWER_ID)) {
+                    AbstractDungeon.actionManager.addToBottom(new DamageAction(monster, new DamageInfo(p, p.getPower(WindCharge.POWER_ID).amount, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+                }
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(monster, p, new FrozenPower(monster, 4), 4));
+            }
+        }
     }
 
     @Override
     public AbstractCard makeCopy() {
-        return new Flash();
+        return new IcyWind();
     }
 
     @Override
     public void upgrade() {
         if (! this.upgraded) {
-            this.upgradeDamage(2);
             this.upgradeName();
             this.initializeDescription();
         }

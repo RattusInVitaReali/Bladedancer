@@ -5,6 +5,7 @@ import blademaster.Blademaster;
 import blademaster.actions.LoadCardImageAction;
 import blademaster.effects.BetterLightningEffect;
 import blademaster.patches.AbstractCardEnum;
+import blademaster.patches.BlademasterTags;
 import blademaster.powers.*;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
@@ -46,6 +47,9 @@ public class Flash extends CustomCard {
         this.damage = this.baseDamage = DAMAGE;
         this.magicNumber = this.baseMagicNumber = AMT;
         this.exhaust = true;
+        this.tags.add(BlademasterTags.FURY_FINISHER);
+        this.tags.add(BlademasterTags.WIND_STANCE);
+        this.tags.add(BlademasterTags.LIGHTNING_STANCE);
     }
 
     @Override
@@ -60,7 +64,8 @@ public class Flash extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new VFXAction(new BetterLightningEffect(m.drawX, m.drawY, 0.15F, Blademaster.OffensiveStanceColor())));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new FuryPower(p, - 12), - 12));
+        AbstractDungeon.actionManager.addToBottom(new VFXAction(new BetterLightningEffect(m.drawX, m.drawY, 0.4F, Blademaster.GetStanceColor())));
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new BleedingPower(m, p, 3), 3));
         if (p.hasPower(WindStance.POWER_ID)) {

@@ -1,9 +1,7 @@
 package blademaster.blights;
 
 import blademaster.interfaces.PerkBlight;
-import blademaster.powers.IceStance;
 import blademaster.powers.LightningStance;
-import blademaster.powers.StoneStance;
 import blademaster.powers.WindStance;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.blights.AbstractBlight;
@@ -32,12 +30,6 @@ public class StanceHealPerkBlight extends AbstractBlight implements PerkBlight {
             counter += 1;
         }
         if (AbstractDungeon.player.hasPower(LightningStance.POWER_ID)) {
-            counter += 1;
-        }
-        if (AbstractDungeon.player.hasPower(StoneStance.POWER_ID)) {
-            counter += 1;
-        }
-        if (AbstractDungeon.player.hasPower(IceStance.POWER_ID)) {
             counter += 1;
         }
         if (AbstractDungeon.player.currentHealth > 0) {

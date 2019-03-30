@@ -3,7 +3,9 @@ package blademaster.cards;
 import basemod.abstracts.CustomCard;
 import blademaster.Blademaster;
 import blademaster.patches.AbstractCardEnum;
-import blademaster.powers.*;
+import blademaster.powers.FuryPower;
+import blademaster.powers.LightningCharge;
+import blademaster.powers.WindCharge;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.defect.LightningOrbEvokeAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -56,14 +58,6 @@ public class ElementalDestruction extends CustomCard {
         if (p.hasPower(LightningCharge.POWER_ID)) {
             this.damage += p.getPower(LightningCharge.POWER_ID).amount;
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LightningCharge(p, p.getPower(LightningCharge.POWER_ID).amount, false)));
-        }
-        if (p.hasPower(StoneCharge.POWER_ID)) {
-            this.damage += p.getPower(StoneCharge.POWER_ID).amount;
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StoneCharge(p, p.getPower(StoneCharge.POWER_ID).amount, false)));
-        }
-        if (p.hasPower(IceCharge.POWER_ID)) {
-            this.damage += p.getPower(IceCharge.POWER_ID).amount;
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new IceCharge(p, p.getPower(IceCharge.POWER_ID).amount, false)));
         }
         AbstractDungeon.actionManager.addToBottom(new LightningOrbEvokeAction(new DamageInfo(p, this.damage, this.damageTypeForTurn), true));
 

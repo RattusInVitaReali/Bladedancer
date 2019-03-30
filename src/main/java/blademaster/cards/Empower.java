@@ -3,7 +3,10 @@ package blademaster.cards;
 import basemod.abstracts.CustomCard;
 import blademaster.Blademaster;
 import blademaster.patches.AbstractCardEnum;
-import blademaster.powers.*;
+import blademaster.powers.LightningCharge;
+import blademaster.powers.LightningStance;
+import blademaster.powers.WindCharge;
+import blademaster.powers.WindStance;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
@@ -46,12 +49,6 @@ public class Empower extends CustomCard {
         }
         if (p.hasPower(WindStance.POWER_ID)) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WindCharge(p, this.magicNumber, false)));
-        }
-        if (p.hasPower(StoneStance.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StoneCharge(p, this.magicNumber, false)));
-        }
-        if (p.hasPower(IceStance.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new IceCharge(p, this.magicNumber, false)));
         }
         AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(ENERGY));
 

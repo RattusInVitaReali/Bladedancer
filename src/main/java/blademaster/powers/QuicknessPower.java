@@ -29,7 +29,7 @@ public class QuicknessPower extends AbstractPower implements BetterOnApplyPowerP
     }
 
     public boolean betterOnApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-        if (power.ID.equals(WindStance.POWER_ID) || power.ID.equals(LightningStance.POWER_ID) || power.ID.equals(StoneStance.POWER_ID) || power.ID.equals(IceStance.POWER_ID) || power.ID.equals(BasicStance.POWER_ID)) {
+        if (power.ID.equals(WindStance.POWER_ID) || power.ID.equals(LightningStance.POWER_ID) || power.ID.equals(BasicStance.POWER_ID)) {
             this.flash();
             AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, this.amount));
         }

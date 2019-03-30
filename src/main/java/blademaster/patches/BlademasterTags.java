@@ -12,8 +12,4 @@ public class BlademasterTags {
     public static AbstractCard.CardTags COMBO_FINISHER;
     @SpireEnum
     public static AbstractCard.CardTags FURY_FINISHER;
-    @SpireEnum
-    public static AbstractCard.CardTags ICE_STANCE;
-    @SpireEnum
-    public static AbstractCard.CardTags STONE_STANCE;
 }

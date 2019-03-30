@@ -38,8 +38,8 @@ public class BladeOrb
     private static final float VFX_INTERVAL_TIME = 0.25F;
     private static final float ORB_WAVY_DIST = 0.04F;
     private static final float PI_4 = 12.566371F;
-    public static Texture ORB_BLADE = blademaster.Blademaster.getBladeOrbTexture();
     private static int Samt;
+    private Texture ORB_BLADE = new Texture("blademasterResources/images/orbs/HavocBlade.png");
     private float vfxTimer;
 
     public BladeOrb() {

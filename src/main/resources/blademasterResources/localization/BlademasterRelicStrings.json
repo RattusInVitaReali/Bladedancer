@@ -1,9 +1,9 @@
 {
     "blademaster:DancersAmulet": {
         "NAME": "Dancer's Amulet",
-        "FLAVOR": "The amulet given to every successful Bladedancer upon graduation.",
+        "FLAVOR": "A mildly special amulet, I suppose.",
         "DESCRIPTIONS": [
-            "At the start of each combat, gain #bCombo, #bFury and switch your Stance to #bBasic Stance. Whenever you defeat an #rElite, choose to obtain one of 3 #gPerks."
+            "At the start of each combat, gain #bCombo and #bFury. Whenever you defeat an #rElite, choose to obtain one of 3 #gPerks."
         ]
     },
     "blademaster:BonusComboPerk": {
@@ -48,7 +48,7 @@
             "At the start of combat, switch your #yDefensive #yStance to a random #yStance."
         ]
     },
-    "blademaster:RandomOffensiveStancePerk": {
+    "blademaster:RandomStancePerk": {
         "NAME": "Perk: Offensive Stance Mastery",
         "FLAVOR": "",
         "DESCRIPTIONS": [

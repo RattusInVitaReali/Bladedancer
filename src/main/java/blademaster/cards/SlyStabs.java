@@ -3,9 +3,7 @@ package blademaster.cards;
 import basemod.abstracts.CustomCard;
 import blademaster.Blademaster;
 import blademaster.patches.AbstractCardEnum;
-import blademaster.powers.IceCharge;
 import blademaster.powers.LightningCharge;
-import blademaster.powers.StoneCharge;
 import blademaster.powers.WindCharge;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -36,17 +34,11 @@ public class SlyStabs extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (p.hasPower(StoneCharge.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Lacerate()));
-        }
         if (p.hasPower(LightningCharge.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Lacerate()));
+            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Lacerate(), 2));
         }
         if (p.hasPower(WindCharge.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Lacerate()));
-        }
-        if (p.hasPower(IceCharge.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Lacerate()));
+            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Lacerate(), 2));
         }
     }
 

@@ -66,8 +66,7 @@ public class DancersAmulet extends CustomRelic {
         perksList.add(new DextrousPerk());
         perksList.add(new FocusedPerk());
         perksList.add(new RandomBladePerk());
-        perksList.add(new RandomDefensiveStancePerk());
-        perksList.add(new RandomOffensiveStancePerk());
+        perksList.add(new RandomStancePerk());
         perksList.add(new StrongPerk());
         perksList.add(new StanceHealPerk());
         perksList.add(new FinisherDrawCardPerk());
@@ -79,8 +78,7 @@ public class DancersAmulet extends CustomRelic {
         blightMap.put(DextrousPerk.ID, DextrousPerk.ID);
         blightMap.put(FocusedPerkBlight.ID, FocusedPerk.ID);
         blightMap.put(RandomBladePerkBlight.ID, RandomBladePerk.ID);
-        blightMap.put(RandomDefensiveStancePerkBlight.ID, RandomDefensiveStancePerk.ID);
-        blightMap.put(RandomOffensiveStancePerkBlight.ID, RandomOffensiveStancePerk.ID);
+        blightMap.put(RandomStancePerkBlight.ID, RandomStancePerk.ID);
         blightMap.put(StrongPerkBlight.ID, StrongPerk.ID);
         blightMap.put(FinisherDrawCardPerkBlight.ID, FinisherDrawCardPerk.ID);
         blightMap.put(StanceHealPerkBlight.ID, StanceHealPerk.ID);

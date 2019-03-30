@@ -18,7 +18,7 @@ import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.ThornsPower;
 import com.megacrit.cardcrawl.vfx.combat.DarkOrbActivateEffect;
-import com.megacrit.cardcrawl.vfx.combat.DarkOrbPassiveEffect;
+import com.megacrit.cardcrawl.vfx.combat.FrostOrbPassiveEffect;
 
 public class AwakenedParryOrb
         extends AbstractOrb implements onAttackedOrb {
@@ -31,8 +31,8 @@ public class AwakenedParryOrb
     private static final float VFX_INTERVAL_TIME = 0.25F;
     private static final float ORB_WAVY_DIST = 0.04F;
     private static final float PI_4 = 12.566371F;
-    public static Texture ORB_BLADE = blademaster.Blademaster.getBladeOrbTexture();
     private static int COUNTER = 0;
+    private Texture ORB_BLADE = new Texture("blademasterResources/images/orbs/ParryBlade.png");
     private float vfxTimer;
 
     public AwakenedParryOrb() {
@@ -94,8 +94,8 @@ public class AwakenedParryOrb
         this.angle += Gdx.graphics.getDeltaTime() * 120.0F;
         this.vfxTimer -= Gdx.graphics.getDeltaTime();
         if (this.vfxTimer < 0.0F) {
-            AbstractDungeon.effectList.add(new DarkOrbPassiveEffect(this.cX, this.cY));
-            this.vfxTimer = 0.25F;
+            AbstractDungeon.effectList.add(new FrostOrbPassiveEffect(this.cX, this.cY));
+            this.vfxTimer = 0.15F;
         }
     }
 

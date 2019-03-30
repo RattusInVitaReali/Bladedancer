@@ -190,5 +190,13 @@
             "Whenever you switch #yStances, deal #b",
             " damage to ALL enemies."
         ]
+    },
+    "Bleeding": {
+        "NAME": "Bleeding",
+        "DESCRIPTIONS": [
+            "At the start of your turn, lose #b",
+            " HP.",
+            "At the start of its turn, loses #b"
+        ]
     }
 }

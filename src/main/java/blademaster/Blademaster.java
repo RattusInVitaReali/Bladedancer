@@ -14,9 +14,7 @@ import blademaster.perks.*;
 import blademaster.powers.LightningStance;
 import blademaster.powers.WindStance;
 import blademaster.relics.DancersAmulet;
-import blademaster.variables.IceSpirit;
 import blademaster.variables.LightningSpirit;
-import blademaster.variables.StoneSpirit;
 import blademaster.variables.WindSpirit;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -36,7 +34,7 @@ public class Blademaster
     public static final Logger logger = LogManager.getLogger(Blademaster.class.getName());
     // Colors (RGB)
     // Character Color
-    public static final Color DEFAULT_GRAY = CardHelper.getColor(128.0f, 128.0f, 128.0f);
+    public static final Color DEFAULT_GRAY = CardHelper.getColor(0.0f, 102.0f, 102.0f);
     // Card images
     public static final String DEFAULT_ATTACK = "cards/Attack.png";
     public static final String DEFAULT_SKILL = "cards/Skill.png";
@@ -47,11 +45,7 @@ public class Blademaster
     public static final String WIND_SKILL = "cards/WindSkill.png";
     public static final String LIGHTNING_ATTACK = "cards/LightningAttack.png";
     public static final String LIGHTNING_SKILL = "cards/LightningSkill.png";
-    public static final String ICE_ATTACK = "cards/IceAttack.png";
-    public static final String ICE_SKILL = "cards/IceSkill.png";
-    public static final String STONE_ATTACK = "cards/StoneAttack.png";
-    public static final String STONE_SKILL = "cards/StoneSkill.png";
-    // Power images
+
     public static final String RARE_POWER = "powers/placeholder_power.png";
     public static final String IceStancePNG = "powers/IceStance.png";
     public static final String CalmnessPNG = "powers/Calmness.png";
@@ -70,8 +64,6 @@ public class Blademaster
     //Orb images
     public static final String BLADE_ORB = "orbs/BladeOrb.png";
     // Relic images
-    public static final String PLACEHOLDER_RELIC = "relics/placeholder_relic.png";
-    public static final String PLACEHOLDER_RELIC_OUTLINE = "relics/outline/placeholder_relic.png";
     public static final String DancersAmulet = "relics/DancersAmulet.png";
     public static final String DancersAmuletOutline = "relics/outline/DancersAmulet.png";
     public static final String THE_DEFAULT_SHOULDER_1 = "characters/blademasterCharacter/shoulder.png";
@@ -79,6 +71,7 @@ public class Blademaster
     public static final String THE_DEFAULT_CORPSE = "characters/blademasterCharacter/corpse.png";
     //Mod Badge
     public static final String BADGE_IMAGE = "Badge.png";
+    //Character Skeleton
     public static final String THE_DEFAULT_SKELETON_ATLAS = "blademasterResources/images/characters/blademasterCharacter/skeleton.atlas";
     public static final String THE_DEFAULT_SKELETON_JSON = "blademasterResources/images/characters/blademasterCharacter/skeleton.json";
     //This is for the in-game mod settings pannel.
@@ -210,41 +203,16 @@ public class Blademaster
 
 
     // =============== LOAD THE CHARACTER =================
-    public static Color OffensiveStanceColor() {
+    public static Color GetStanceColor() {
         if (AbstractDungeon.player.hasPower(WindStance.POWER_ID)) {
-            return Color.GREEN;
+            return Color.WHITE;
         } else if (AbstractDungeon.player.hasPower(LightningStance.POWER_ID)) {
-            return Color.BLUE;
+            return Color.WHITE;
         } else {
             return Color.WHITE;
         }
     }
 
-    public static boolean ComboFinisher(AbstractCard card) {
-        boolean retVal = false;
-        if (card.hasTag(BlademasterTags.COMBO_FINISHER)) {
-            retVal = true;
-        }
-        return retVal;
-    }
-
-    // =============== /LOAD THE CHARACTER/ =================
-
-
-    // =============== POST-INITIALIZE =================
-
-    public static boolean FuryFinisher(AbstractCard card) {
-        boolean retVal = false;
-        if (card.hasTag(BlademasterTags.FURY_FINISHER)) {
-            retVal = true;
-        }
-        return retVal;
-    }
-
-    // =============== / POST-INITIALIZE/ =================
-
-
-    // ================ ADD POTIONS ===================
 
     public static boolean WindCard(AbstractCard card) {
         boolean retVal = false;
@@ -254,10 +222,7 @@ public class Blademaster
         return retVal;
     }
 
-    // ================ /ADD POTIONS/ ===================
 
-
-    // ================ ADD RELICS ===================
 
     public static boolean LightningCard(AbstractCard card) {
         boolean retVal = false;
@@ -267,10 +232,25 @@ public class Blademaster
         return retVal;
     }
 
-    // ================ /ADD RELICS/ ===================
+
+    public static boolean ComboCard(AbstractCard card) {
+        boolean retVal = false;
+        if (card.hasTag(BlademasterTags.COMBO_FINISHER)) {
+            retVal = true;
+        }
+        return retVal;
+    }
 
 
-    // ================ ADD CARDS ===================
+
+    public static boolean FuryCard(AbstractCard card) {
+        boolean retVal = false;
+        if (card.hasTag(BlademasterTags.FURY_FINISHER)) {
+            retVal = true;
+        }
+        return retVal;
+    }
+
 
     public static Texture loadBgAddonTexture(String imgPath) {
         Texture extraTexture;
@@ -340,8 +320,7 @@ public class Blademaster
         BaseMod.addRelicToCustomPool(new DextrousPerk(), AbstractCardEnum.DEFAULT_GRAY);
         BaseMod.addRelicToCustomPool(new FocusedPerk(), AbstractCardEnum.DEFAULT_GRAY);
         BaseMod.addRelicToCustomPool(new RandomBladePerk(), AbstractCardEnum.DEFAULT_GRAY);
-        BaseMod.addRelicToCustomPool(new RandomDefensiveStancePerk(), AbstractCardEnum.DEFAULT_GRAY);
-        BaseMod.addRelicToCustomPool(new RandomOffensiveStancePerk(), AbstractCardEnum.DEFAULT_GRAY);
+        BaseMod.addRelicToCustomPool(new RandomStancePerk(), AbstractCardEnum.DEFAULT_GRAY);
         BaseMod.addRelicToCustomPool(new StrongPerk(), AbstractCardEnum.DEFAULT_GRAY);
         BaseMod.addRelicToCustomPool(new ComboEveryTurnPerk(), AbstractCardEnum.DEFAULT_GRAY);
         BaseMod.addRelicToCustomPool(new FuryEveryTurnPerk(), AbstractCardEnum.DEFAULT_GRAY);
@@ -360,8 +339,6 @@ public class Blademaster
 
         BaseMod.addDynamicVariable(new WindSpirit());
         BaseMod.addDynamicVariable(new LightningSpirit());
-        BaseMod.addDynamicVariable(new StoneSpirit());
-        BaseMod.addDynamicVariable(new IceSpirit());
 
         logger.info("Add Cards");
         // Add the cards
@@ -386,10 +363,9 @@ public class Blademaster
         BaseMod.addCard(new FlockOfBlades());
         BaseMod.addCard(new Flurry());
         BaseMod.addCard(new Focus());
-        BaseMod.addCard(new Freeze());
+        BaseMod.addCard(new IcyWind());
         BaseMod.addCard(new Frontflip());
         BaseMod.addCard(new Gale());
-        BaseMod.addCard(new Glacier());
         BaseMod.addCard(new BladeMastery());
         BaseMod.addCard(new Hailwind());
         BaseMod.addCard(new Inferno());
@@ -398,7 +374,6 @@ public class Blademaster
         BaseMod.addCard(new Lacerate());
         BaseMod.addCard(new LightningCrash());
         BaseMod.addCard(new LightningDraw());
-        BaseMod.addCard(new MagmaStrike());
         BaseMod.addCard(new Meditate());
         BaseMod.addCard(new Meltdown());
         BaseMod.addCard(new NotBarrage());
@@ -409,7 +384,7 @@ public class Blademaster
         BaseMod.addCard(new Recklessness());
         BaseMod.addCard(new RollingTyphoon());
         BaseMod.addCard(new Safeguard());
-        BaseMod.addCard(new Stonework());
+        BaseMod.addCard(new HighVoltage());
         BaseMod.addCard(new SharpBlades());
         BaseMod.addCard(new SlyStabs());
         BaseMod.addCard(new StanceMastery());
@@ -450,10 +425,9 @@ public class Blademaster
         UnlockTracker.unlockCard(FlockOfBlades.ID);
         UnlockTracker.unlockCard(Flurry.ID);
         UnlockTracker.unlockCard(Focus.ID);
-        UnlockTracker.unlockCard(Freeze.ID);
+        UnlockTracker.unlockCard(IcyWind.ID);
         UnlockTracker.unlockCard(Frontflip.ID);
         UnlockTracker.unlockCard(Gale.ID);
-        UnlockTracker.unlockCard(Glacier.ID);
         UnlockTracker.unlockCard(BladeMastery.ID);
         UnlockTracker.unlockCard(Hailwind.ID);
         UnlockTracker.unlockCard(Inferno.ID);
@@ -462,7 +436,6 @@ public class Blademaster
         UnlockTracker.unlockCard(Lacerate.ID);
         UnlockTracker.unlockCard(LightningCrash.ID);
         UnlockTracker.unlockCard(LightningDraw.ID);
-        UnlockTracker.unlockCard(MagmaStrike.ID);
         UnlockTracker.unlockCard(Meditate.ID);
         UnlockTracker.unlockCard(Meltdown.ID);
         UnlockTracker.unlockCard(NotBarrage.ID);
@@ -473,7 +446,7 @@ public class Blademaster
         UnlockTracker.unlockCard(Recklessness.ID);
         UnlockTracker.unlockCard(RollingTyphoon.ID);
         UnlockTracker.unlockCard(Safeguard.ID);
-        UnlockTracker.unlockCard(Stonework.ID);
+        UnlockTracker.unlockCard(HighVoltage.ID);
         UnlockTracker.unlockCard(SharpBlades.ID);
         UnlockTracker.unlockCard(SlyStabs.ID);
         UnlockTracker.unlockCard(StanceMastery.ID);
@@ -488,10 +461,10 @@ public class Blademaster
         UnlockTracker.unlockCard(Overcharge.ID);
         UnlockTracker.unlockCard(Momentum.ID);
         UnlockTracker.unlockCard(LeechingStrike.ID);
-        UnlockTracker.unlockCard(Vortex.ID);
+        UnlockTracker.unlockCard(Flash.ID);
         UnlockTracker.unlockCard(DirtyTrick.ID);
         UnlockTracker.unlockCard(ThunderingOpener.ID);
-        UnlockTracker.unlockCard(Flash.ID);
+        UnlockTracker.unlockCard(Vortex.ID);
 
         logger.info("Cards - added!");
     }
@@ -532,7 +505,7 @@ public class Blademaster
     @Override
     public void receiveEditKeywords() {
         final String[] finisher = {"finisher", "finishers"};
-        BaseMod.addKeyword(finisher, "A powerful card that uses #yFury or #yCombo as a resource.");
+        BaseMod.addKeyword(finisher, "A powerful card that uses #rFury or #rCombo as a resource.");
 
         final String[] havoc = {"havoc blade"};
         BaseMod.addKeyword(havoc, "A spectral blade that deals damage to enemies you attack.");
@@ -547,13 +520,16 @@ public class Blademaster
         BaseMod.addKeyword(awaken, "#yAwaken one of your spectral blades, making them more potent.");
 
         final String[] stance = {"stance", "stances"};
-        BaseMod.addKeyword(stance, "A battle #yStance which determines the type of #yCharges you get. You can have up to 2 #yStances active at a time, 1 #rOffensive (Wind/Lightning) and 1 #bDefensive (Ice/Stone).");
+        BaseMod.addKeyword(stance, "A battle #yStance which determines the type of #yCharges you get. There are 2 #yStances: #gWind and #bLightning.");
 
         final String[] charge = {"charge", "charges"};
         BaseMod.addKeyword(charge, "A resource for stance-oriented cards.");
 
         final String[] bloodied = {"bloodied"};
         BaseMod.addKeyword(bloodied, "An effect that's applied if the target has less than #b50% #yHP remaining.");
+
+        final String[] bleeding = {"bleeding", "bleed", "bleeds"};
+        BaseMod.addKeyword(bleeding, "Bleeding enemies take damage at the end of the round.");
     }
 
 }

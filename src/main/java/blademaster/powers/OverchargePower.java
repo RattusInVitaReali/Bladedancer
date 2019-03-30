@@ -29,14 +29,8 @@ public class OverchargePower extends AbstractPower {
         if (this.owner.hasPower(WindCharge.POWER_ID)) {
             AbstractDungeon.actionManager.addToBottom(new LightningOrbEvokeAction(new DamageInfo(AbstractDungeon.player, this.owner.getPower(WindCharge.POWER_ID).amount, DamageInfo.DamageType.THORNS), false));
         }
-        if (this.owner.hasPower(IceCharge.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new LightningOrbEvokeAction(new DamageInfo(AbstractDungeon.player, this.owner.getPower(IceCharge.POWER_ID).amount, DamageInfo.DamageType.THORNS), false));
-        }
         if (this.owner.hasPower(LightningCharge.POWER_ID)) {
             AbstractDungeon.actionManager.addToBottom(new LightningOrbEvokeAction(new DamageInfo(AbstractDungeon.player, this.owner.getPower(LightningCharge.POWER_ID).amount, DamageInfo.DamageType.THORNS), false));
-        }
-        if (this.owner.hasPower(StoneCharge.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new LightningOrbEvokeAction(new DamageInfo(AbstractDungeon.player, this.owner.getPower(StoneCharge.POWER_ID).amount, DamageInfo.DamageType.THORNS), false));
         }
     }
 

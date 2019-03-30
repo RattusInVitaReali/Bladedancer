@@ -2,8 +2,8 @@ package blademaster.characters;
 
 import basemod.abstracts.CustomPlayer;
 import blademaster.cards.Defend;
+import blademaster.cards.HighVoltage;
 import blademaster.cards.RagingBlow;
-import blademaster.cards.Stonework;
 import blademaster.cards.Strike;
 import blademaster.patches.AbstractCardEnum;
 import blademaster.powers.*;
@@ -137,7 +137,7 @@ public class BlademasterCharacter extends CustomPlayer {
         retVal.add(Defend.ID);
 
         retVal.add(RagingBlow.ID);
-        retVal.add(Stonework.ID);
+        retVal.add(HighVoltage.ID);
 
 
         return retVal;
@@ -238,8 +238,7 @@ public class BlademasterCharacter extends CustomPlayer {
         float doffset = 10.0F;
         for (AbstractPower p : this.powers) {
             if ((p.ID.equals(LightningStance.POWER_ID)) || (p.ID.equals(WindStance.POWER_ID)) || (p.ID.equals(FuryPower.POWER_ID)) || (p.ID.equals(ComboPower.POWER_ID)) || (p.ID.equals(CalmnessPower.POWER_ID))
-                    || (p.ID.equals(TiredPower.POWER_ID)) || (p.ID.equals(WindCharge.POWER_ID)) || (p.ID.equals(LightningCharge.POWER_ID)) || (p.ID.equals(IceStance.POWER_ID)) || (p.ID.equals(StoneStance.POWER_ID))
-                    || (p.ID.equals(IceCharge.POWER_ID)) || (p.ID.equals(StoneCharge.POWER_ID)) || (p.ID.equals(BasicStance.POWER_ID))) {
+                    || (p.ID.equals(TiredPower.POWER_ID)) || (p.ID.equals(WindCharge.POWER_ID)) || (p.ID.equals(LightningCharge.POWER_ID)) || (p.ID.equals(BasicStance.POWER_ID))) {
                 yoffset = - 40.0F;
                 p.renderIcons(sb, x + (doffset * Settings.scale), y + ((- 48.0F + yoffset) * Settings.scale), Color.WHITE);
                 doffset += 48.0F;
@@ -253,8 +252,7 @@ public class BlademasterCharacter extends CustomPlayer {
         doffset = 0.0F;
         for (AbstractPower p : this.powers) {
             if ((p.ID.equals(LightningStance.POWER_ID)) || (p.ID.equals(WindStance.POWER_ID)) || (p.ID.equals(FuryPower.POWER_ID)) || (p.ID.equals(ComboPower.POWER_ID)) || (p.ID.equals(CalmnessPower.POWER_ID))
-                    || (p.ID.equals(TiredPower.POWER_ID)) || (p.ID.equals(WindCharge.POWER_ID)) || (p.ID.equals(LightningCharge.POWER_ID)) || (p.ID.equals(IceStance.POWER_ID)) || (p.ID.equals(StoneStance.POWER_ID))
-                    || (p.ID.equals(IceCharge.POWER_ID)) || (p.ID.equals(StoneCharge.POWER_ID))) {
+                    || (p.ID.equals(TiredPower.POWER_ID)) || (p.ID.equals(WindCharge.POWER_ID)) || (p.ID.equals(LightningCharge.POWER_ID)) || (p.ID.equals(BasicStance.POWER_ID))) {
                 yoffset = - 40.0F;
                 p.renderAmount(sb, x + ((doffset + 32.0F) * Settings.scale), y + ((- 66.0F + yoffset) * Settings.scale), Color.WHITE);
                 doffset += 48.0F;

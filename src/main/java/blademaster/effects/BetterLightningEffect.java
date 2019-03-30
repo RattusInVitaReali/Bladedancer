@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.ScreenShake.ShakeDur;
 import com.megacrit.cardcrawl.helpers.ScreenShake.ShakeIntensity;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
+import com.megacrit.cardcrawl.vfx.combat.AdditiveSlashImpactEffect;
 import com.megacrit.cardcrawl.vfx.combat.ImpactSparkEffect;
 
 public class BetterLightningEffect extends AbstractGameEffect {
@@ -38,6 +39,9 @@ public class BetterLightningEffect extends AbstractGameEffect {
 
             for (int i = 0; i < 15; ++ i) {
                 AbstractDungeon.topLevelEffectsQueue.add(new ImpactSparkEffect(this.x + MathUtils.random(- 20.0F, 20.0F) * Settings.scale + 150.0F * Settings.scale, this.y + MathUtils.random(- 20.0F, 20.0F) * Settings.scale));
+                if (i % 5 == 0) {
+                    AbstractDungeon.effectsQueue.add(new AdditiveSlashImpactEffect(this.x, this.y, this.color.cpy()));
+                }
             }
         }
 

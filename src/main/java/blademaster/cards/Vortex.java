@@ -5,6 +5,7 @@ import blademaster.Blademaster;
 import blademaster.actions.LoadCardImageAction;
 import blademaster.effects.BetterLightningEffect;
 import blademaster.patches.AbstractCardEnum;
+import blademaster.patches.BlademasterTags;
 import blademaster.powers.BasicStance;
 import blademaster.powers.BleedingPower;
 import blademaster.powers.LightningStance;
@@ -33,11 +34,11 @@ public class Vortex extends CustomCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    private static final CardRarity RARITY = CardRarity.RARE;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
-    private static final int COST = 0;
-    private static final int AMT = 6;
+    private static final int COST = 1;
+    private static final int AMT = 5;
     private boolean WindArt = false;
     private boolean LightningArt = false;
     private boolean BaseArt = false;
@@ -46,6 +47,8 @@ public class Vortex extends CustomCard {
     public Vortex() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = AMT;
+        this.tags.add(BlademasterTags.WIND_STANCE);
+        this.tags.add(BlademasterTags.LIGHTNING_STANCE);
     }
 
     @Override
@@ -53,7 +56,7 @@ public class Vortex extends CustomCard {
         AbstractDungeon.actionManager.addToBottom(new SFXAction("ATTACK_HEAVY"));
         AbstractDungeon.actionManager.addToBottom(new VFXAction(p, new CleaveEffect(), 0.1F));
         for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
-            AbstractDungeon.actionManager.addToBottom(new VFXAction(new BetterLightningEffect(monster.drawX, monster.drawY, 0.15F, Blademaster.OffensiveStanceColor())));
+            AbstractDungeon.actionManager.addToBottom(new VFXAction(new BetterLightningEffect(monster.drawX, monster.drawY, 0.5F, Blademaster.GetStanceColor())));
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(monster, p, new BleedingPower(monster, p, this.magicNumber), this.magicNumber));
             if (p.hasPower(LightningStance.POWER_ID)) {
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(monster, p, new VulnerablePower(monster, 1, false), 1));
@@ -98,7 +101,7 @@ public class Vortex extends CustomCard {
 
     @Override
     public AbstractCard makeCopy() {
-        return new Flash();
+        return new Vortex();
     }
 
     @Override

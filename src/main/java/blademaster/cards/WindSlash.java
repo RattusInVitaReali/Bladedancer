@@ -4,6 +4,7 @@ import basemod.abstracts.CustomCard;
 import blademaster.Blademaster;
 import blademaster.actions.WindStanceAction;
 import blademaster.patches.AbstractCardEnum;
+import blademaster.patches.BlademasterTags;
 import blademaster.powers.WindStance;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
@@ -44,7 +45,7 @@ public class WindSlash extends CustomCard {
         this.baseMagicNumber = DAMAGE;
         this.isMultiDamage = true;
         this.magicNumber = this.baseMagicNumber;
-
+        this.tags.add(BlademasterTags.WIND_STANCE);
     }
 
     @Override

@@ -6,8 +6,8 @@
     "blademaster:AwakeningDefend": {
         "DESCRIPTION": "Gain !B! Block. NL Awaken !M! of your Blades.",
         "EXTENDED_DESCRIPTION": [
-            " NL Gain Ice Charges.",
-            " NL Gain Stone Charges."
+            " NL Gain Wind Charges.",
+            " NL Gain Lightning Charges."
         ],
         "NAME": "Awakening Defend"
     },
@@ -70,16 +70,16 @@
     "blademaster:Defend": {
         "DESCRIPTION": "Gain !B! Block.",
         "EXTENDED_DESCRIPTION": [
-            " NL Gain Ice Charges.",
-            " NL Gain Stone Charges."
+            " NL Gain Wind Charges.",
+            " NL Gain Lightning Charges."
         ],
         "NAME": "Defend"
     },
     "blademaster:DefiantStance": {
         "DESCRIPTION": "Gain !B! Block per Blade channeled.",
         "EXTENDED_DESCRIPTION": [
-            " NL Gain Ice Charges.",
-            " NL Gain Stone Charges."
+            " NL Gain Wind Charges.",
+            " NL Gain Lightning Charges."
         ],
         "NAME": "Defiant Stance"
     },
@@ -99,8 +99,8 @@
     "blademaster:FallBack": {
         "DESCRIPTION": "Evoke ALL of your Blades. Gain !B! Block for each Blade evoked.",
         "EXTENDED_DESCRIPTION": [
-            " NL Gain Ice Charges.",
-            " NL Gain Stone Charges."
+            " NL Gain Wind Charges.",
+            " NL Gain Lightning Charges."
         ],
         "NAME": "Fall Back"
     },
@@ -121,15 +121,15 @@
         "DESCRIPTION": "Gain 1 Focus.",
         "NAME": "Focus"
     },
-    "blademaster:Freeze": {
-        "DESCRIPTION": "Deal damage equal to the number of Ice Charges and apply !M! Frozen to ALL enemies.",
-        "NAME": "Freeze"
+    "blademaster:IcyWind": {
+        "DESCRIPTION": "Deal damage equal to the number of Wind Charges and apply !M! Frozen to ALL enemies. NL (Deals !W! damage.)",
+        "NAME": "Icy Wind"
     },
     "blademaster:Frontflip": {
         "DESCRIPTION": "Gain !B! Block. NL Draw !M! cards.",
         "EXTENDED_DESCRIPTION": [
-            " NL Gain Ice Charges.",
-            " NL Gain Stone Charges."
+            " NL Gain Wind Charges.",
+            " NL Gain Lightning Charges."
         ],
         "NAME": "Frontflip"
     },
@@ -143,7 +143,7 @@
     },
     "blademaster:Glacier": {
         "NAME": "Glacier",
-        "DESCRIPTION": "Gain !B! Block. NL Channel 1 Parry. Switch your defensive Stance to Ice Stance."
+        "DESCRIPTION": "Gain !B! Block. NL Channel 1 Parry. Switch your Stance to Ice Stance."
     },
     "blademaster:BladeMastery": {
         "DESCRIPTION": "Channel !M! Havoc Blades. NL Exhaust.",
@@ -185,10 +185,6 @@
     "blademaster:LightningDraw": {
         "DESCRIPTION": "Finisher. Requires 20 Fury. NL Deal !D! damage and apply !M! Bleeding to ALL enemies. NL Change your offensive Stance to Lightning Stance.",
         "NAME": "Lightning Draw"
-    },
-    "blademaster:MagmaStrike": {
-        "DESCRIPTION": "Deal !D! damage. NL Deal damage equal to the number of Stone Charges you have (Currently !S!). Add !M! Burns to your hand.",
-        "NAME": "Magma Strike"
     },
     "blademaster:Meditate": {
         "DESCRIPTION": "Whenever you channel a Blade, heal !M! HP.",
@@ -250,14 +246,14 @@
     "blademaster:Safeguard": {
         "DESCRIPTION": "Gain !B! Block. NL Channel 1 Havoc Blade.",
         "EXTENDED_DESCRIPTION": [
-            " NL Gain Ice Charges.",
-            " NL Gain Stone Charges."
+            " NL Gain Wind Charges.",
+            " NL Gain Lightning Charges."
         ],
         "NAME": "Safeguard"
     },
-    "blademaster:Stonework": {
-        "DESCRIPTION": "Finisher. Costs 3 Combo. NL Gain !B! Block. NL Change your defensive Stance to Stone Stance.",
-        "NAME": "Stonework"
+    "blademaster:HighVoltage": {
+        "DESCRIPTION": "Finisher. Costs 3 Combo. NL Gain !B! Block. NL Change your Stance to Lightning Stance.",
+        "NAME": "High Voltage"
     },
     "blademaster:SharpBlades": {
         "DESCRIPTION": "Your Havoc Blades apply 1 Bleeding on hit.",
@@ -288,14 +284,14 @@
         "NAME": "Sunder"
     },
     "blademaster:Surge": {
-        "DESCRIPTION": "Only usable while in Lightning or Wind Stance. NL Consume up to 3 Charges and gain Artifact equal to the amount consumed.",
+        "DESCRIPTION": "Only usable while in a Stance. NL Consume up to 3 Charges and gain Artifact equal to the amount consumed.",
         "NAME": "Surge"
     },
     "blademaster:Wall": {
         "DESCRIPTION": "Finisher. Requires 5 Combo. NL Gain !M! Metallicize.",
         "EXTENDED_DESCRIPTION": [
-            "NL Heal !S! HP.",
-            "NL Gain !I! / 3 Artifact."
+            "NL Heal !W! HP.",
+            "NL Gain !L! / 3 Artifact."
         ],
         "NAME": "Wall"
     },

@@ -1,5 +1,5 @@
 {
-    "modid": "defaultmod",
+    "modid": "Blademaster",
     "name": "The Bladedancer",
     "author_list": [
         "Rattus"
@@ -10,7 +10,6 @@
     "mts_version": "3.5.0",
     "dependencies": [
         "basemod",
-        "stslib",
-        "ratmod"
+        "stslib"
     ]
 }
