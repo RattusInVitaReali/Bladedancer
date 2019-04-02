@@ -1,8 +1,10 @@
 package blademaster.blights;
 
 import blademaster.interfaces.PerkBlight;
+import blademaster.perks.FuryEveryTurnPerk;
 import blademaster.powers.FuryPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.blights.AbstractBlight;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -24,6 +26,7 @@ public class FuryEveryTurnPerkBlight extends AbstractBlight implements PerkBligh
 
     public void atTurnStart() {
         this.flash();
+        AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, new FuryEveryTurnPerk()));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new FuryPower(AbstractDungeon.player, 5), 5));
     }
 }

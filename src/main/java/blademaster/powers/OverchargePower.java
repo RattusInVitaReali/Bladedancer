@@ -23,6 +23,7 @@ public class OverchargePower extends AbstractPower {
         this.type = PowerType.BUFF;
         this.isTurnBased = false;
         this.img = Blademaster.getDefaultPowerTexture();
+        updateDescription();
     }
 
     public void atEndOfTurn(boolean isPlayer) {
@@ -35,7 +36,7 @@ public class OverchargePower extends AbstractPower {
     }
 
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0];
+        this.description = DESCRIPTIONS[0] + this.owner.getPower(WindCharge.POWER_ID).amount + DESCRIPTIONS[1] + this.owner.getPower(LightningCharge.POWER_ID).amount + DESCRIPTIONS[2];
     }
 
 

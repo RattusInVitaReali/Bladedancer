@@ -2,6 +2,7 @@ package blademaster.cards;
 
 import basemod.abstracts.CustomCard;
 import blademaster.Blademaster;
+import blademaster.actions.AddFlashToHandAction;
 import blademaster.actions.LoadCardImageAction;
 import blademaster.effects.BetterLightningEffect;
 import blademaster.patches.AbstractCardEnum;
@@ -11,7 +12,6 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -40,6 +40,7 @@ public class Flash extends CustomCard {
     private boolean WindArt = false;
     private boolean LightningArt = false;
     private boolean BaseArt = false;
+    public int counter = 0;
 
 
     public Flash() {
@@ -56,7 +57,7 @@ public class Flash extends CustomCard {
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
         cantUseMessage = "I'm not furious enough!";
         if (AbstractDungeon.player.hasPower(FuryPower.POWER_ID)) {
-            return AbstractDungeon.player.getPower(FuryPower.POWER_ID).amount >= 12;
+            return AbstractDungeon.player.getPower(FuryPower.POWER_ID).amount >= this.counter + 12;
         } else {
             return false;
         }
@@ -64,9 +65,9 @@ public class Flash extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new FuryPower(p, - 12), - 12));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new FuryPower(p, - 12 - this.counter), - 12 - this.counter));
         AbstractDungeon.actionManager.addToBottom(new VFXAction(new BetterLightningEffect(m.drawX, m.drawY, 0.4F, Blademaster.GetStanceColor())));
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new BleedingPower(m, p, 3), 3));
         if (p.hasPower(WindStance.POWER_ID)) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WindCharge(p, this.magicNumber, false), this.magicNumber));
@@ -74,11 +75,7 @@ public class Flash extends CustomCard {
         if (p.hasPower(LightningStance.POWER_ID)) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LightningCharge(p, this.magicNumber, false), this.magicNumber));
         }
-        AbstractCard card = new Flash();
-        if (this.upgraded) {
-            card.upgrade();
-        }
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(card));
+        AbstractDungeon.actionManager.addToBottom(new AddFlashToHandAction(this.upgraded, this.counter + 6));
     }
 
     public void applyPowers() {
@@ -86,7 +83,7 @@ public class Flash extends CustomCard {
         if (AbstractDungeon.player.hasPower(WindStance.POWER_ID)) {
             if (! WindArt) {
                 AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, WIMG, false));
-                this.rawDescription = (DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0]);
+                this.rawDescription = (cardStrings.EXTENDED_DESCRIPTION[3] + (this.counter + 12) + cardStrings.EXTENDED_DESCRIPTION[2] + cardStrings.EXTENDED_DESCRIPTION[0]);
                 this.initializeDescription();
                 WindArt = true;
                 LightningArt = false;
@@ -95,7 +92,7 @@ public class Flash extends CustomCard {
         } else if (AbstractDungeon.player.hasPower(LightningStance.POWER_ID)) {
             if (! LightningArt) {
                 AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, LIMG, false));
-                this.rawDescription = (DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[1]);
+                this.rawDescription = (cardStrings.EXTENDED_DESCRIPTION[3] + (this.counter + 12) + cardStrings.EXTENDED_DESCRIPTION[2] + cardStrings.EXTENDED_DESCRIPTION[1]);
                 this.initializeDescription();
                 WindArt = false;
                 LightningArt = true;
@@ -104,13 +101,18 @@ public class Flash extends CustomCard {
         } else if (AbstractDungeon.player.hasPower(BasicStance.POWER_ID)) {
             if (! BaseArt) {
                 AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG, false));
-                this.rawDescription = DESCRIPTION;
+                this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[3] + (this.counter + 12) + cardStrings.EXTENDED_DESCRIPTION[2];
                 this.initializeDescription();
                 WindArt = false;
                 LightningArt = false;
                 BaseArt = true;
             }
         }
+    }
+
+    @Override
+    public void triggerOnEndOfPlayerTurn() {
+        this.counter = 0;
     }
 
     @Override

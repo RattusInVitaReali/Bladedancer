@@ -52,8 +52,6 @@ public class RagingBlow extends CustomCard {
         this.tags.add(BlademasterTags.FURY_FINISHER);
         this.tags.add(BlademasterTags.WIND_STANCE);
         this.tags.add(BlademasterTags.LIGHTNING_STANCE);
-
-
     }
 
     @Override
@@ -68,7 +66,7 @@ public class RagingBlow extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new FuryPower(p, - 12), - 12));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new FuryPower(p, - 10), - 10));
         AbstractDungeon.actionManager.addToBottom(new VFXAction(new ClashEffect(m.hb.cX, m.hb.cY), 0.15F));
         if (2 * m.currentHealth <= m.maxHealth) {
             AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, (2 * this.damage), this.damageTypeForTurn)));

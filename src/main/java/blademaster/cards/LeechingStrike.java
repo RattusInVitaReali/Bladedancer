@@ -48,6 +48,7 @@ public class LeechingStrike extends CustomCard {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseMagicNumber = this.magicNumber = HEAL;
         this.baseDamage = this.damage = DAMAGE;
+        this.tags.add(CardTags.STRIKE);
     }
 
     @Override

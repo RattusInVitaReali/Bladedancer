@@ -1,12 +1,12 @@
 package blademaster.orbs;
 
+import blademaster.effects.particles.BetterFireBurstParticleEffect;
 import blademaster.interfaces.onUseCardOrb;
 import blademaster.powers.BladeDancePower;
 import blademaster.powers.BleedingPower;
 import blademaster.powers.LifestealPower;
 import blademaster.powers.SharpBladesPower;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
@@ -21,13 +21,14 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.vfx.BobEffect;
 import com.megacrit.cardcrawl.vfx.combat.DarkOrbActivateEffect;
-import com.megacrit.cardcrawl.vfx.combat.DarkOrbPassiveEffect;
 import com.megacrit.cardcrawl.vfx.combat.OrbFlareEffect;
+
+import static com.badlogic.gdx.graphics.Color.WHITE;
 
 public class AwakenedBladeOrb
         extends AbstractOrb implements onUseCardOrb {
@@ -54,6 +55,7 @@ public class AwakenedBladeOrb
         this.passiveAmount = this.basePassiveAmount;
         updateDescription();
         this.angle = MathUtils.random(360.0F);
+        this.bobEffect = new BobEffect(15.0F, 3.0F);
         this.channelAnimTimer = 0.5F;
     }
 
@@ -116,24 +118,26 @@ public class AwakenedBladeOrb
         this.angle += Gdx.graphics.getDeltaTime() * 120.0F;
         this.vfxTimer -= Gdx.graphics.getDeltaTime();
         if (this.vfxTimer < 0.0F) {
-            AbstractDungeon.effectList.add(new DarkOrbPassiveEffect(this.cX, this.cY));
-            this.vfxTimer = 0.25F;
+            AbstractDungeon.effectList.add(new BetterFireBurstParticleEffect(this.cX + 80F, this.cY + this.bobEffect.y + 40F, 1.0F, 0.0F, 0.0F));
+            this.vfxTimer = 0.07F;
         }
     }
 
     public void render(SpriteBatch sb) {
-        sb.setColor(new Color(1.0F, 1.0F, 1.0F, this.c.a / 2.0F));
-        sb.draw(this.img, this.cX - 48.0F, this.cY - 48.0F + this.bobEffect.y, 48.0F, 48.0F, 96.0F, 96.0F, this.scale + MathUtils.sin(this.angle / 12.566371F) * 0.04F * Settings.scale, this.scale, this.angle, 0, 0, 96, 96, false, false);
-        sb.setColor(new Color(1.0F, 1.0F, 1.0F, this.c.a / 2.0F));
+        sb.setColor(1.0f, 1.0f, 1.0f, 0.5f);
+        sb.draw(this.img, this.cX - 96.0F, this.cY - 96.0F + this.bobEffect.y, 96.0F, 96.0F, 192.0F, 192.0F, this.scale, this.scale, this.angle, 0, 0, 192, 192, false, false);
+        sb.setColor(1.0f, 1.0f, 1.0f, 0.5f);
+        sb.draw(this.img, this.cX - 96.0F, this.cY - 96.0F + this.bobEffect.y, 96.0F, 96.0F, 192.0F, 192.0F, this.scale, this.scale, -this.angle, 0, 0, 192, 192, false, false);
+        sb.setColor(WHITE);
+        sb.draw(this.img, this.cX - 96.0F, this.cY - 96.0F + this.bobEffect.y, 96.0F, 96.0F, 192.0F, 192.0F, this.scale, this.scale, 0F, 0, 0, 192, 192, false, false);
+        sb.setColor(WHITE.cpy());
         sb.setBlendFunction(770, 1);
-        sb.draw(this.img, this.cX - 48.0F, this.cY - 48.0F + this.bobEffect.y, 48.0F, 48.0F, 96.0F, 96.0F, this.scale, this.scale + MathUtils.sin(this.angle / 12.566371F) * 0.04F * Settings.scale, - this.angle, 0, 0, 96, 96, false, false);
-        sb.setBlendFunction(770, 771);
         renderText(sb);
         this.hb.render(sb);
     }
 
     public AbstractOrb makeCopy() {
-        return new BladeOrb();
+        return new AwakenedBladeOrb();
     }
 
     public void triggerEvokeAnimation() {

@@ -7,7 +7,7 @@
         "DESCRIPTION": "Gain !B! Block. NL Awaken !M! of your Blades.",
         "EXTENDED_DESCRIPTION": [
             " NL Gain Wind Charges.",
-            " NL Gain Lightning Charges."
+            " NL Gain πLightning Charges."
         ],
         "NAME": "Awakening Defend"
     },
@@ -15,7 +15,7 @@
         "DESCRIPTION": "Deal !D! damage. Awaken !M! of your Blades.",
         "EXTENDED_DESCRIPTION": [
             " NL Gain Wind Charges.",
-            " NL Gain Lightning Charges."
+            " NL Gain πLightning Charges."
         ],
         "NAME": "Awakening Strike"
     },
@@ -27,17 +27,21 @@
         "DESCRIPTION": "Finisher. Consumes 30 Fury and 6 Combo. NL Your Havoc Blades deal double damage.",
         "NAME": "Blade Dance"
     },
+    "blademaster:BladeMastery": {
+        "DESCRIPTION": "Channel !M! Havoc Blades. NL Exhaust.",
+        "NAME": "Blade Mastery"
+    },
     "blademaster:Blockade": {
         "DESCRIPTION": "Whenever your Havoc Blades attack, gain !M! Block.",
         "NAME": "Blockade"
     },
     "blademaster:BloodyBlow": {
         "DESCRIPTION": "Deal !D! damage. NL Bloodied: Apply !M! Bleeding.",
-        "NAME": "Bloody Blow",
         "EXTENDED_DESCRIPTION": [
             " NL Gain Wind Charges.",
-            " NL Gain Lightning Charges."
-        ]
+            " NL Gain πLightning Charges."
+        ],
+        "NAME": "Bloody Blow"
     },
     "blademaster:BrainBloom": {
         "DESCRIPTION": "Gain !M! Focus until the end of your turn.",
@@ -47,7 +51,7 @@
         "DESCRIPTION": "Deal !M! damage. NL Deal !D! damage to all enemies.",
         "EXTENDED_DESCRIPTION": [
             " NL Gain Wind Charges.",
-            " NL Gain Lightning Charges."
+            " NL Gain πLightning Charges."
         ],
         "NAME": "Breeze"
     },
@@ -55,7 +59,7 @@
         "DESCRIPTION": "Deal !D! damage. NL Exhaust up to 2 Burns in your hand, draw or discard pile.",
         "EXTENDED_DESCRIPTION": [
             " NL Gain Wind Charges.",
-            " NL Gain Lightning Charges."
+            " NL Gain πLightning Charges."
         ],
         "NAME": "Burnout"
     },
@@ -71,7 +75,7 @@
         "DESCRIPTION": "Gain !B! Block.",
         "EXTENDED_DESCRIPTION": [
             " NL Gain Wind Charges.",
-            " NL Gain Lightning Charges."
+            " NL Gain πLightning Charges."
         ],
         "NAME": "Defend"
     },
@@ -79,12 +83,21 @@
         "DESCRIPTION": "Gain !B! Block per Blade channeled.",
         "EXTENDED_DESCRIPTION": [
             " NL Gain Wind Charges.",
-            " NL Gain Lightning Charges."
+            " NL Gain πLightning Charges."
         ],
         "NAME": "Defiant Stance"
     },
+    "blademaster:DirtyTrick": {
+        "DESCRIPTION": "Deal !D! damage to ALL enemies.",
+        "EXTENDED_DESCRIPTION": [
+            " NL Apply !M! Vulnerable and !L! Bleeding to ALL enemies.",
+            " NL Apply !M! Weak and !W! Bleeding to ALL enemies.",
+            " NL Exhaust."
+        ],
+        "NAME": "Dirty Trick"
+    },
     "blademaster:ElementalDestruction": {
-        "DESCRIPTION": "Finisher. Requires !M! Fury. NL Deal damage equal the sum of ALL your Charges to ALL enemies. Double your Charges.",
+        "DESCRIPTION": "Finisher. Requires !M! Fury. NL Double the amount your Charges. Deal damage equal the sum of ALL your Charges to ALL enemies.",
         "NAME": "Elemental Destruction"
     },
     "blademaster:Empower": {
@@ -93,14 +106,14 @@
         "UPGRADE_DESCRIPTION": "Gain [E] [E] . Draw 2 cards. NL If you're in a stance, gain !M! Charges."
     },
     "blademaster:EyeOfTheStorm": {
-        "DESCRIPTION": "Only playable in Lightning Stance. NL Whenever you're attacked, reduce the damage by 1 and gain 1 Lightning Charge.",
+        "DESCRIPTION": "Only playable in πLightning Stance. NL Whenever you're attacked, reduce the damage by 1 and gain 1 πLightning Charge.",
         "NAME": "Eye of the Storm"
     },
     "blademaster:FallBack": {
         "DESCRIPTION": "Evoke ALL of your Blades. Gain !B! Block for each Blade evoked.",
         "EXTENDED_DESCRIPTION": [
             " NL Gain Wind Charges.",
-            " NL Gain Lightning Charges."
+            " NL Gain πLightning Charges."
         ],
         "NAME": "Fall Back"
     },
@@ -108,6 +121,16 @@
         "DESCRIPTION": "Add 1 random Finisher to your hand.",
         "NAME": "Finish Him!",
         "UPGRADE_DESCRIPTION": "Add 2 random Finishers to your hand."
+    },
+    "blademaster:Flash": {
+        "DESCRIPTION": "Finisher. Requires 12 Fury. NL Deal !D! damage. Apply 3 Bleeding. NL Add a copy of this card to your hand. It costs 12 Fury more. NL Exhaust.",
+        "EXTENDED_DESCRIPTION": [
+            " Fury. NL Deal !D! damage. Apply 3 Bleeding. NL Add a copy of this card to your hand. It costs 12 additional Fury. NL Exhaust.",
+            " NL Gain Wind Charges.",
+            " NL Gain πLightning Charges.",
+            "Finisher. Requires "
+        ],
+        "NAME": "Flash"
     },
     "blademaster:FlockOfBlades": {
         "DESCRIPTION": "Finisher. Consumes 30 Fury and 6 Combo. NL Channel !M! Havoc Blades.",
@@ -121,15 +144,11 @@
         "DESCRIPTION": "Gain 1 Focus.",
         "NAME": "Focus"
     },
-    "blademaster:IcyWind": {
-        "DESCRIPTION": "Deal damage equal to the number of Wind Charges and apply !M! Frozen to ALL enemies. NL (Deals !W! damage.)",
-        "NAME": "Icy Wind"
-    },
     "blademaster:Frontflip": {
         "DESCRIPTION": "Gain !B! Block. NL Draw !M! cards.",
         "EXTENDED_DESCRIPTION": [
             " NL Gain Wind Charges.",
-            " NL Gain Lightning Charges."
+            " NL Gain πLightning Charges."
         ],
         "NAME": "Frontflip"
     },
@@ -137,21 +156,25 @@
         "DESCRIPTION": "Deal !M! damage. NL Deal !D! damage to all enemies. NL Add a Zephyr to your hand. NL Exhaust. Ethereal.",
         "EXTENDED_DESCRIPTION": [
             " NL Gain Wind Charges.",
-            " NL Gain Lightning Charges."
+            " NL Gain πLightning Charges."
         ],
         "NAME": "Gale"
     },
-    "blademaster:Glacier": {
-        "NAME": "Glacier",
-        "DESCRIPTION": "Gain !B! Block. NL Channel 1 Parry. Switch your Stance to Ice Stance."
-    },
-    "blademaster:BladeMastery": {
-        "DESCRIPTION": "Channel !M! Havoc Blades. NL Exhaust.",
-        "NAME": "Blade Mastery"
+    "blademaster:Gust": {
+        "DESCRIPTION": "Innate. NL Gain !B! Block. Change your Stance to Wind Stance. NL Exhaust.",
+        "NAME": "Gust"
     },
     "blademaster:Hailwind": {
         "DESCRIPTION": "Deal !D! damage for every Wind Charge you have.",
         "NAME": "Hailwind"
+    },
+    "blademaster:HighVoltage": {
+        "DESCRIPTION": "Finisher. Costs 3 Combo. NL Gain !B! Block. NL Change your Stance to πLightning Stance.",
+        "NAME": "High Voltage"
+    },
+    "blademaster:IcyWind": {
+        "DESCRIPTION": "Deal damage equal to the number of Wind Charges and apply !M! Frozen to ALL enemies. NL (Deals !W! damage.)",
+        "NAME": "Icy Wind"
     },
     "blademaster:Inferno": {
         "DESCRIPTION": "Whenever you draw a Burn, take !M! damage, deal twice as much to ALL enemies, and discard it.",
@@ -170,21 +193,29 @@
         "DESCRIPTION": "Deal !D! damage. NL Exhaust.",
         "EXTENDED_DESCRIPTION": [
             " NL Gain Wind Charges.",
-            " NL Gain Lightning Charges."
+            " NL Gain πLightning Charges."
         ],
         "NAME": "Lacerate"
     },
+    "blademaster:LeechingStrike": {
+        "DESCRIPTION": "Deal !D! damage. NL Bloodied: Deal an additional !M! damage and heal !M! HP.",
+        "EXTENDED_DESCRIPTION": [
+            " NL Apply 1 Vulnerable.",
+            " NL Apply 1 Weak."
+        ],
+        "NAME": "Leeching Strike"
+    },
     "blademaster:LightningCrash": {
-        "DESCRIPTION": "Deal !D! damage. NL Change your offensive Stance to Lightning Stance.",
-        "NAME": "Lightning Crash"
+        "DESCRIPTION": "Deal !D! damage. NL Change your offensive Stance to πLightning Stance.",
+        "NAME": "πLightning Crash"
     },
     "blademaster:LightningDash": {
-        "DESCRIPTION": "Gain !B! Block. NL Change your offensive Stance to Lightning Stance.",
-        "NAME": "Lightning Dash"
+        "DESCRIPTION": "Gain !B! Block. NL Change your offensive Stance to πLightning Stance.",
+        "NAME": "πLightning Dash"
     },
     "blademaster:LightningDraw": {
-        "DESCRIPTION": "Finisher. Requires 20 Fury. NL Deal !D! damage and apply !M! Bleeding to ALL enemies. NL Change your offensive Stance to Lightning Stance.",
-        "NAME": "Lightning Draw"
+        "DESCRIPTION": "Finisher. Requires 20 Fury. NL Deal !D! damage and apply !M! Bleeding to ALL enemies. NL Change your offensive Stance to πLightning Stance.",
+        "NAME": "πLightning Draw"
     },
     "blademaster:Meditate": {
         "DESCRIPTION": "Whenever you channel a Blade, heal !M! HP.",
@@ -194,14 +225,23 @@
         "DESCRIPTION": "At the start of your turn, if there's a Burn in your draw pile, exhaust it and deal !M! damage to ALL enemies.",
         "NAME": "Meltdown"
     },
+    "blademaster:Momentum": {
+        "DESCRIPTION": "Whenever you change Stances, deal !M! damage to ALL enemies.",
+        "NAME": "Momentum"
+    },
     "blademaster:NotBarrage": {
         "DESCRIPTION": "Deal !D! damage for each Blade channeled.",
         "NAME": "Not Barrage"
     },
     "blademaster:NotFission": {
         "DESCRIPTION": "Remove all your Blades. For each Blade removed, gain [E] and draw 1 card.",
-        "UPGRADE_DESCRIPTION": "Evoke all your Blades. For each blade Evoked, gain [E] and draw 1 card.",
-        "NAME": "Not Fission"
+        "NAME": "Not Fission",
+        "UPGRADE_DESCRIPTION": "Evoke all your Blades. For each blade Evoked, gain [E] and draw 1 card."
+    },
+    "blademaster:Overcharge": {
+        "DESCRIPTION": "At the end of your turn, deal damage equal to the number of your Charges to random enemies.",
+        "NAME": "Overcharge",
+        "UPGRADE_DESCRIPTION": "Innate. NL At the end of your turn, deal damage equal to the number of your Charges to random enemies."
     },
     "blademaster:Parry": {
         "DESCRIPTION": "Gain 1 Parry Blade.",
@@ -211,19 +251,20 @@
         "DESCRIPTION": "Deal !D! damage. Channel 1 Parry Blade.",
         "EXTENDED_DESCRIPTION": [
             " NL Gain Wind Charges.",
-            " NL Gain Lightning Charges."
+            " NL Gain πLightning Charges."
         ],
         "NAME": "Parrying Strike"
     },
     "blademaster:Quickness": {
         "DESCRIPTION": "Whenever you change Stances, draw 1 card.",
-        "NAME": "Quickness"
+        "NAME": "Quickness",
+        "UPGRADE_DESCRIPTION": "Innate. NL Whenever you change Stances, draw 1 card."
     },
     "blademaster:RagingBlow": {
-        "DESCRIPTION": "Finisher. Requires 10 Fury. NL Deal !D! damage. Bloodied: Deals double damage.",
+        "DESCRIPTION": "Finisher. Requires 10 Fury. NL Deal !D! damage. Change your Stance to Wind Stance. Bloodied: Deals double damage.",
         "EXTENDED_DESCRIPTION": [
-            "NL Deal !W! damage to ALL enemies.",
-            "NL Deal !L! additional damage."
+            " NL Deal !W! damage to ALL enemies.",
+            " NL Deal 3 times !L! additional damage."
         ],
         "NAME": "Raging Blow"
     },
@@ -238,8 +279,8 @@
     "blademaster:RollingTyphoon": {
         "DESCRIPTION": "Finisher. Requires 30 Fury. NL Deal !M! damage. Deal !D! damage to all enemies.",
         "EXTENDED_DESCRIPTION": [
-            "NL Apply !W! Bleeding.",
-            "NL Gain !L! / 2 Blur."
+            " NL Apply !W! Bleeding.",
+            " NL Gain !L! / 2 Blur."
         ],
         "NAME": "Rolling Typhoon"
     },
@@ -247,31 +288,31 @@
         "DESCRIPTION": "Gain !B! Block. NL Channel 1 Havoc Blade.",
         "EXTENDED_DESCRIPTION": [
             " NL Gain Wind Charges.",
-            " NL Gain Lightning Charges."
+            " NL Gain πLightning Charges."
         ],
         "NAME": "Safeguard"
-    },
-    "blademaster:HighVoltage": {
-        "DESCRIPTION": "Finisher. Costs 3 Combo. NL Gain !B! Block. NL Change your Stance to Lightning Stance.",
-        "NAME": "High Voltage"
     },
     "blademaster:SharpBlades": {
         "DESCRIPTION": "Your Havoc Blades apply 1 Bleeding on hit.",
         "NAME": "Sharp Blades"
+    },
+    "blademaster:SlyStabs": {
+        "DESCRIPTION": "Add a Lacerate to your hand for each type of Charge you currently have.",
+        "NAME": "Sly Stabs"
     },
     "blademaster:StanceMastery": {
         "DESCRIPTION": "Whenever you gain a Charge, gain an additional Charge.",
         "NAME": "Stance Mastery"
     },
     "blademaster:Stormstrike": {
-        "DESCRIPTION": "Deal !D! damage. NL Deal damage equal to !M! times the amount of Lightning Charges.",
+        "DESCRIPTION": "Deal !D! damage. NL Deal damage equal to !M! times the amount of πLightning Charges.",
         "NAME": "Stormstrike"
     },
     "blademaster:Strike": {
         "DESCRIPTION": "Deal !D! damage.",
         "EXTENDED_DESCRIPTION": [
             " NL Gain Wind Charges.",
-            " NL Gain Lightning Charges."
+            " NL Gain πLightning Charges."
         ],
         "NAME": "Strike"
     },
@@ -279,7 +320,7 @@
         "DESCRIPTION": "Deal !D! damage. NL Gain 1 focus.",
         "EXTENDED_DESCRIPTION": [
             " NL Gain Wind Charges.",
-            " NL Gain Lightning Charges."
+            " NL Gain πLightning Charges."
         ],
         "NAME": "Sunder"
     },
@@ -287,11 +328,31 @@
         "DESCRIPTION": "Only usable while in a Stance. NL Consume up to 3 Charges and gain Artifact equal to the amount consumed.",
         "NAME": "Surge"
     },
+    "blademaster:Thrust": {
+        "DESCRIPTION": "Deal !D! damage.",
+        "EXTENDED_DESCRIPTION": [
+            " NL Deal !W! damage.",
+            " NL Deal !L! damage."
+        ],
+        "NAME": "Thrust"
+    },
+    "blademaster:ThunderingOpener": {
+        "DESCRIPTION": "Innate. NL Deal !D! damage. Change your Stance to πLightning Stance. NL Exhaust.",
+        "NAME": "Thundering Opener"
+    },
+    "blademaster:Vortex": {
+        "DESCRIPTION": "Apply !M! Bleeding to ALL enemies.",
+        "EXTENDED_DESCRIPTION": [
+            " NL Apply 1 Vulnerable.",
+            " NL Apply 1 Weak."
+        ],
+        "NAME": "Vortex"
+    },
     "blademaster:Wall": {
         "DESCRIPTION": "Finisher. Requires 5 Combo. NL Gain !M! Metallicize.",
         "EXTENDED_DESCRIPTION": [
-            "NL Heal !W! HP.",
-            "NL Gain !L! / 3 Artifact."
+            " NL Gain !L! / 3 Artifact.",
+            " NL Heal !W! HP."
         ],
         "NAME": "Wall"
     },
@@ -307,65 +368,20 @@
         "DESCRIPTION": "Deal !M! damage. NL Deal !D! damage to all enemies. NL Exhaust. Ethereal.",
         "EXTENDED_DESCRIPTION": [
             " NL Gain Wind Charges.",
-            " NL Gain Lightning Charges."
+            " NL Gain πLightning Charges."
         ],
         "NAME": "Zephyr"
     },
-    "blademaster:Momentum": {
-        "DESCRIPTION": "Whenever you switch Stances, deal !M! damage to ALL enemies.",
-        "NAME": "Momentum"
+    "blademaster:Stability": {
+        "DESCRIPTION": "You can no longer change Stances. Whenever you would've switched Stances, draw a card.",
+        "NAME": "Stability"
     },
-    "blademaster:Overcharge": {
-        "DESCRIPTION": "At the end of your turn, deal damage equal to the number of your Charges to random enemies.",
-        "UPGRADE_DESCRIPTION": "Innate. NL At the end of your turn, deal damage equal to the number of your Charges to random enemies.",
-        "NAME": "Overcharge"
-    },
-    "blademaster:Thrust": {
-        "DESCRIPTION": "Deal !D! damage.",
+    "blademaster:Slice": {
+        "DESCRIPTION": "Deal !D! damage. NL Draw 1 card.",
         "EXTENDED_DESCRIPTION": [
-            " NL Deal !W! damage.",
-            " NL Deal !L! damage."
+            " NL Gain Wind Charges.",
+            " NL Gain Lightning Charges."
         ],
-        "NAME": "Thrust"
-    },
-    "blademaster:SlyStabs": {
-        "DESCRIPTION": "Add a Lacerate to your hand for each type of Charge you currently have.",
-        "NAME": "Sly Stabs"
-    },
-    "blademaster:LeechingStrike": {
-        "DESCRIPTION": "Deal !D! damage. NL Bloodied: Deal an additional !M! damage and heal !M! HP.",
-        "NAME": "Leeching Strike",
-        "EXTENDED_DESCRIPTION": [
-            " NL Gain Wind Charges.",
-            " NL Gain Lightning Charges."
-        ]
-    },
-    "blademaster:Flash": {
-        "DESCRIPTION": "Finisher. Requires 12 Fury. NL Deal !D! damage. Apply 3 Bleeding. NL Add a copy of this card to your hand. NL Exhaust.",
-        "NAME": "Flash",
-        "EXTENDED_DESCRIPTION": [
-            " NL Gain Wind Charges.",
-            " NL Gain Lightning Charges."
-        ]
-    },
-    "blademaster:Vortex": {
-        "DESCRIPTION": "Apply !M! Bleeding to ALL enemies.",
-        "NAME": "Vortex",
-        "EXTENDED_DESCRIPTION": [
-            " NL Apply 1 Weak.",
-            " NL Apply 1 Vulnerable."
-        ]
-    },
-    "blademaster:DirtyTrick": {
-        "DESCRIPTION": "Deal !D! damage to ALL enemies.",
-        "NAME": "Dirty Trick",
-        "EXTENDED_DESCRIPTION": [
-            " NL Apply !M! Weak and !W! Bleeding to ALL enemies.",
-            " NL Apply !M! Vulnerable and !L! Bleeding to ALL enemies."
-        ]
-    },
-    "blademaster:ThunderingOpener": {
-        "DESCRIPTION": "Innate. NL Deal !D! damage. Change your offensive Stance to Lightning Stance. NL Exhaust.",
-        "NAME": "Thundering Opener"
+        "NAME": "Slice"
     }
 }

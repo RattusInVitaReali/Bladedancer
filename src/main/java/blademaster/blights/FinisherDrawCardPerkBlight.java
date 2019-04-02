@@ -2,7 +2,9 @@ package blademaster.blights;
 
 import blademaster.interfaces.PerkBlight;
 import blademaster.patches.BlademasterTags;
+import blademaster.perks.FinisherDrawCardPerk;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.blights.AbstractBlight;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -27,6 +29,7 @@ public class FinisherDrawCardPerkBlight extends AbstractBlight implements PerkBl
     public void onPlayCard(AbstractCard card, AbstractMonster m) {
         if (card.hasTag(BlademasterTags.FURY_FINISHER) || card.hasTag(BlademasterTags.COMBO_FINISHER)) {
             this.flash();
+            AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, new FinisherDrawCardPerk()));
             AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, 1));
         }
     }

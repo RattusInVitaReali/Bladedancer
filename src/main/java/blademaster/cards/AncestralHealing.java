@@ -61,7 +61,7 @@ public class AncestralHealing extends CustomCard {
 
     @Override
     public void upgrade() {
-        if (! this.upgraded) {
+        if (!this.upgraded) {
             this.upgradeName();
             this.upgradeMagicNumber(1);
             this.initializeDescription();

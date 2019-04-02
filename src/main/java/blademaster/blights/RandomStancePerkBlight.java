@@ -1,9 +1,11 @@
 package blademaster.blights;
 
 import blademaster.interfaces.PerkBlight;
+import blademaster.perks.RandomStancePerk;
 import blademaster.powers.LightningStance;
 import blademaster.powers.WindStance;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.blights.AbstractBlight;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -25,6 +27,7 @@ public class RandomStancePerkBlight extends AbstractBlight implements PerkBlight
 
     public void atBattleStart() {
         this.flash();
+        AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, new RandomStancePerk()));
         int wtf = AbstractDungeon.cardRandomRng.random(0, 1);
         if (wtf == 0) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new WindStance(AbstractDungeon.player)));

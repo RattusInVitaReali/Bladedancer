@@ -2,8 +2,6 @@ package blademaster.orbs;
 
 import blademaster.interfaces.onAttackedOrb;
 import blademaster.powers.BladeDancePower;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
@@ -15,8 +13,11 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.ThornsPower;
+import com.megacrit.cardcrawl.vfx.BobEffect;
 import com.megacrit.cardcrawl.vfx.combat.FrostOrbPassiveEffect;
 import com.megacrit.cardcrawl.vfx.combat.PlasmaOrbActivateEffect;
+
+import static com.badlogic.gdx.graphics.Color.WHITE;
 
 public class ParryOrb
         extends AbstractOrb implements onAttackedOrb {
@@ -24,11 +25,6 @@ public class ParryOrb
     public static final String[] DESC = {"#yPassive: Whenever you're attacked, reduce the damage by #b",
             ". NL #yEvoke: Gain #b",
             " #yThorns."};
-    private static final float ORB_BORDER_SCALE = 1.2F;
-    private static final float VFX_INTERVAL_TIME = 0.25F;
-    private static final float ORB_WAVY_DIST = 0.04F;
-    private static final float PI_4 = 12.566371F;
-    private static int COUNTER = 0;
     private Texture ORB_BLADE = new Texture("blademasterResources/images/orbs/ParryBlade.png");
     private float vfxTimer;
 
@@ -42,8 +38,9 @@ public class ParryOrb
         this.basePassiveAmount = 2;
         this.passiveAmount = this.basePassiveAmount;
         updateDescription();
-        this.angle = MathUtils.random(360.0F);
+        this.angle = 0.0F;
         this.channelAnimTimer = 0.5F;
+        this.bobEffect = new BobEffect(15.0F, 3.0F);
     }
 
     public void updateDescription() {
@@ -88,18 +85,16 @@ public class ParryOrb
 
     public void updateAnimation() {
         super.updateAnimation();
-        this.angle += Gdx.graphics.getDeltaTime() * 120.0F;
-        this.vfxTimer -= Gdx.graphics.getDeltaTime();
         if (this.vfxTimer < 0.0F) {
-            AbstractDungeon.effectList.add(new FrostOrbPassiveEffect(this.cX, this.cY));
+            AbstractDungeon.effectList.add(new FrostOrbPassiveEffect(this.cX, this.cY +this.bobEffect.y));
             this.vfxTimer = 0.25F;
         }
     }
 
     public void render(SpriteBatch sb) {
-        sb.setColor(new Color(1.0F, 1.0F, 1.0F, this.c.a / 2.0F).cpy());
-        sb.draw(this.img, this.cX - 48.0F, this.cY - 48.0F + this.bobEffect.y, 48.0F, 48.0F, 96.0F, 96.0F, this.scale + MathUtils.sin(this.angle / 12.566371F) * 0.04F * Settings.scale, this.scale, this.angle, 0, 0, 96, 96, false, false);
-        sb.setColor(new Color(1.0F, 1.0F, 1.0F, this.c.a / 2.0F).cpy());
+        sb.setColor(WHITE.cpy());
+        sb.draw(this.img, this.cX - 96.0F, this.cY - 96.0F + this.bobEffect.y, 96.0F, 96.0F, 192.0F, 192.0F, this.scale + MathUtils.sin(this.angle / 12.566371F) * 0.04F * Settings.scale, this.scale, this.angle, 0, 0, 192, 192, false, false);
+        sb.setColor(WHITE.cpy());
         sb.setBlendFunction(770, 1);
         renderText(sb);
         this.hb.render(sb);

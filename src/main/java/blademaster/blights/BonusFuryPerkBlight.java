@@ -1,8 +1,10 @@
 package blademaster.blights;
 
 import blademaster.interfaces.PerkBlight;
+import blademaster.perks.BonusFuryPerk;
 import blademaster.powers.FuryPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.blights.AbstractBlight;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -25,6 +27,7 @@ public class BonusFuryPerkBlight extends AbstractBlight implements PerkBlight {
     @Override
     public void atBattleStart() {
         this.flash();
+        AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, new BonusFuryPerk()));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new FuryPower(AbstractDungeon.player, 10), 10));
     }
 

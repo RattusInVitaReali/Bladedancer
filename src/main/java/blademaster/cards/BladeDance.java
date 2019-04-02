@@ -3,6 +3,7 @@ package blademaster.cards;
 import basemod.abstracts.CustomCard;
 import blademaster.Blademaster;
 import blademaster.patches.AbstractCardEnum;
+import blademaster.patches.BlademasterTags;
 import blademaster.powers.BladeDancePower;
 import blademaster.powers.ComboPower;
 import blademaster.powers.FuryPower;
@@ -32,6 +33,8 @@ public class BladeDance extends CustomCard {
 
     public BladeDance() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        this.tags.add(BlademasterTags.FURY_FINISHER);
+        this.tags.add(BlademasterTags.COMBO_FINISHER);
     }
 
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {

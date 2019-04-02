@@ -6,6 +6,7 @@ import blademaster.patches.AbstractCardEnum;
 import blademaster.powers.FuryPower;
 import blademaster.powers.LightningCharge;
 import blademaster.powers.WindCharge;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.defect.LightningOrbEvokeAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -15,6 +16,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.combat.GrandFinalEffect;
 
 public class ElementalDestruction extends CustomCard {
 
@@ -50,17 +52,17 @@ public class ElementalDestruction extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        AbstractDungeon.actionManager.addToBottom(new VFXAction(new GrandFinalEffect()));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new FuryPower(p, - this.magicNumber), - this.magicNumber));
         if (p.hasPower(WindCharge.POWER_ID)) {
-            this.damage += p.getPower(WindCharge.POWER_ID).amount;
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WindCharge(p, p.getPower(WindCharge.POWER_ID).amount, false)));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WindCharge(p, p.getPower(WindCharge.POWER_ID).amount, false), p.getPower(WindCharge.POWER_ID).amount));
+            this.damage += 2 * p.getPower(WindCharge.POWER_ID).amount;
         }
         if (p.hasPower(LightningCharge.POWER_ID)) {
-            this.damage += p.getPower(LightningCharge.POWER_ID).amount;
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LightningCharge(p, p.getPower(LightningCharge.POWER_ID).amount, false)));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LightningCharge(p, p.getPower(LightningCharge.POWER_ID).amount, false), p.getPower(LightningCharge.POWER_ID).amount));
+            this.damage += 2 * p.getPower(LightningCharge.POWER_ID).amount;
         }
         AbstractDungeon.actionManager.addToBottom(new LightningOrbEvokeAction(new DamageInfo(p, this.damage, this.damageTypeForTurn), true));
-
     }
 
     @Override

@@ -18,6 +18,7 @@ import blademaster.variables.LightningSpirit;
 import blademaster.variables.WindSpirit;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -31,6 +32,12 @@ import org.apache.logging.log4j.Logger;
 @SpireInitializer
 public class Blademaster
         implements EditCardsSubscriber, EditRelicsSubscriber, EditStringsSubscriber, EditKeywordsSubscriber, EditCharactersSubscriber, PostInitializeSubscriber {
+    public static boolean hasHubris;
+
+    static {
+        hasHubris = Loader.isModLoaded("Hubris");
+    }
+
     public static final Logger logger = LogManager.getLogger(Blademaster.class.getName());
     // Colors (RGB)
     // Character Color
@@ -223,7 +230,6 @@ public class Blademaster
     }
 
 
-
     public static boolean LightningCard(AbstractCard card) {
         boolean retVal = false;
         if (card.hasTag(BlademasterTags.LIGHTNING_STANCE)) {
@@ -291,7 +297,7 @@ public class Blademaster
 
         // Create the Mod Menu
         ModPanel settingsPanel = new ModPanel();
-        settingsPanel.addUIElement(new ModLabel("BlademasterCharacter doesn't have any settings!", 400.0f, 700.0f,
+        settingsPanel.addUIElement(new ModLabel("Blademaster doesn't have any settings!", 400.0f, 700.0f,
                 settingsPanel, (me) -> {
         }));
         BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
@@ -381,7 +387,6 @@ public class Blademaster
         BaseMod.addCard(new ParryingStrike());
         BaseMod.addCard(new Quickness());
         BaseMod.addCard(new RagingBlow());
-        BaseMod.addCard(new Recklessness());
         BaseMod.addCard(new RollingTyphoon());
         BaseMod.addCard(new Safeguard());
         BaseMod.addCard(new HighVoltage());
@@ -403,6 +408,9 @@ public class Blademaster
         BaseMod.addCard(new DirtyTrick());
         BaseMod.addCard(new ThunderingOpener());
         BaseMod.addCard(new Vortex());
+        BaseMod.addCard(new Gust());
+        BaseMod.addCard(new Slice());
+        BaseMod.addCard(new Stability());
 
 
         logger.info("Making sure the cards are unlocked.");
@@ -443,7 +451,6 @@ public class Blademaster
         UnlockTracker.unlockCard(ParryingStrike.ID);
         UnlockTracker.unlockCard(Quickness.ID);
         UnlockTracker.unlockCard(RagingBlow.ID);
-        UnlockTracker.unlockCard(Recklessness.ID);
         UnlockTracker.unlockCard(RollingTyphoon.ID);
         UnlockTracker.unlockCard(Safeguard.ID);
         UnlockTracker.unlockCard(HighVoltage.ID);
@@ -465,11 +472,12 @@ public class Blademaster
         UnlockTracker.unlockCard(DirtyTrick.ID);
         UnlockTracker.unlockCard(ThunderingOpener.ID);
         UnlockTracker.unlockCard(Vortex.ID);
+        UnlockTracker.unlockCard(Gust.ID);
+        UnlockTracker.unlockCard(Slice.ID);
+        UnlockTracker.unlockCard(Stability.ID);
 
         logger.info("Cards - added!");
     }
-
-    // ================ /LOAD THE TEXT/ =====================
 
     // ================ LOAD THE KEYWORDS ===================
 
@@ -531,5 +539,4 @@ public class Blademaster
         final String[] bleeding = {"bleeding", "bleed", "bleeds"};
         BaseMod.addKeyword(bleeding, "Bleeding enemies take damage at the end of the round.");
     }
-
 }

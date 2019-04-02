@@ -1,7 +1,9 @@
 package blademaster.blights;
 
 import blademaster.interfaces.PerkBlight;
+import blademaster.perks.FocusedPerk;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.blights.AbstractBlight;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -25,6 +27,7 @@ public class FocusedPerkBlight extends AbstractBlight implements PerkBlight {
     @Override
     public void atBattleStart() {
         this.flash();
+        AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, new FocusedPerk()));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new FocusPower(AbstractDungeon.player, 1), 1));
     }
 

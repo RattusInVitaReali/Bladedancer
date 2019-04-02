@@ -1,8 +1,10 @@
 package blademaster.blights;
 
 import blademaster.interfaces.PerkBlight;
+import blademaster.perks.BonusComboPerk;
 import blademaster.powers.ComboPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.blights.AbstractBlight;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -25,6 +27,7 @@ public class BonusComboPerkBlight extends AbstractBlight implements PerkBlight {
     @Override
     public void atBattleStart() {
         this.flash();
+        AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, new BonusComboPerk()));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ComboPower(AbstractDungeon.player, 2), 2));
     }
 

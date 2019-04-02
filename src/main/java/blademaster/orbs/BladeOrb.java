@@ -1,10 +1,8 @@
 package blademaster.orbs;
 
-import blademaster.effects.BetterBloodShotEffect;
 import blademaster.interfaces.onUseCardOrb;
 import blademaster.powers.*;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
@@ -24,9 +22,12 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.vfx.BobEffect;
 import com.megacrit.cardcrawl.vfx.combat.DarkOrbPassiveEffect;
 import com.megacrit.cardcrawl.vfx.combat.OrbFlareEffect;
 import com.megacrit.cardcrawl.vfx.combat.PlasmaOrbActivateEffect;
+
+import static com.badlogic.gdx.graphics.Color.WHITE;
 
 public class BladeOrb
         extends AbstractOrb implements onUseCardOrb {
@@ -52,8 +53,9 @@ public class BladeOrb
         this.basePassiveAmount = 2;
         this.passiveAmount = this.basePassiveAmount;
         updateDescription();
-        this.angle = MathUtils.random(360.0F);
+        this.angle = 0.0F;
         this.channelAnimTimer = 0.5F;
+        this.bobEffect = new BobEffect(15.0F, 3.0F);
     }
 
     public void updateDescription() {
@@ -70,7 +72,6 @@ public class BladeOrb
             AbstractDungeon.actionManager.addToBottom(new VFXAction(new OrbFlareEffect(this, OrbFlareEffect.OrbFlareColor.DARK), 0.07F));
             AbstractCreature m = action.target;
             AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(AbstractDungeon.player, this.passiveAmount), AbstractGameAction.AttackEffect.NONE));
-            AbstractDungeon.actionManager.addToBottom(new VFXAction(new BetterBloodShotEffect(this.cX, this.cY, m.drawX, m.drawY, this.passiveAmount)));
             if (AbstractDungeon.player.hasPower(SharpBladesPower.POWER_ID)) {
                 Samt = AbstractDungeon.player.getPower(SharpBladesPower.POWER_ID).amount;
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, AbstractDungeon.player, new BleedingPower(m, AbstractDungeon.player, Samt), Samt));
@@ -107,18 +108,17 @@ public class BladeOrb
 
     public void updateAnimation() {
         super.updateAnimation();
-        this.angle += Gdx.graphics.getDeltaTime() * 120.0F;
         this.vfxTimer -= Gdx.graphics.getDeltaTime();
         if (this.vfxTimer < 0.0F) {
-            AbstractDungeon.effectList.add(new DarkOrbPassiveEffect(this.cX, this.cY));
+            AbstractDungeon.effectList.add(new DarkOrbPassiveEffect(this.cX, this.cY +this.bobEffect.y));
             this.vfxTimer = 0.25F;
         }
     }
 
     public void render(SpriteBatch sb) {
-        sb.setColor(new Color(1.0F, 1.0F, 1.0F, this.c.a / 2.0F));
-        sb.draw(this.img, this.cX - 48.0F, this.cY - 48.0F + this.bobEffect.y, 48.0F, 48.0F, 96.0F, 96.0F, this.scale + MathUtils.sin(this.angle / 12.566371F) * 0.04F * Settings.scale, this.scale, this.angle, 0, 0, 96, 96, false, false);
-        sb.setColor(new Color(1.0F, 1.0F, 1.0F, this.c.a / 2.0F));
+        sb.setColor(WHITE.cpy());
+        sb.draw(this.img, this.cX - 96.0F, this.cY - 96.0F + this.bobEffect.y, 96.0F, 96.0F, 192.0F, 192.0F, this.scale + MathUtils.sin(this.angle / 12.566371F) * 0.04F * Settings.scale, this.scale, this.angle, 0, 0, 192, 192, false, false);
+        sb.setColor(WHITE.cpy());
         sb.setBlendFunction(770, 1);
         renderText(sb);
         this.hb.render(sb);

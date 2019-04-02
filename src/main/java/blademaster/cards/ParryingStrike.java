@@ -11,7 +11,6 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
-import com.megacrit.cardcrawl.actions.defect.IncreaseMaxOrbAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -31,8 +30,6 @@ public class ParryingStrike extends CustomCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    public static final String WDES = cardStrings.EXTENDED_DESCRIPTION[0];
-    public static final String LDES = cardStrings.EXTENDED_DESCRIPTION[1];
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
@@ -49,16 +46,13 @@ public class ParryingStrike extends CustomCard {
         this.damage = this.baseDamage;
         this.tags.add(BlademasterTags.WIND_STANCE);
         this.tags.add(BlademasterTags.LIGHTNING_STANCE);
+        this.tags.add(CardTags.STRIKE);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-        AbstractDungeon.actionManager.addToBottom(new IncreaseMaxOrbAction(1));
         AbstractDungeon.actionManager.addToBottom(new ChannelAction(new ParryOrb()));
-        if (this.upgraded) {
-            AbstractDungeon.actionManager.addToBottom(new ChannelAction(new ParryOrb()));
-        }
         if (p.hasPower(WindStance.POWER_ID)) {
             if (this.upgraded) {
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WindCharge(p, 2, false), 2));

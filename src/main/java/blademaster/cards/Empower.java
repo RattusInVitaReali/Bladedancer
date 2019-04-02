@@ -30,8 +30,8 @@ public class Empower extends CustomCard {
     private static final CardType TYPE = CardType.SKILL;
     private static final int COST = 0;
     private static final int CHARGES = 3;
-    public static String DESCRIPTION = cardStrings.DESCRIPTION;
-    public static String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+    public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     private static int ENERGY = 1;
 
 
@@ -64,7 +64,7 @@ public class Empower extends CustomCard {
         if (! this.upgraded) {
             this.upgradeName();
             ENERGY = 2;
-            DESCRIPTION = UPGRADE_DESCRIPTION;
+            this.rawDescription = UPGRADE_DESCRIPTION;
             this.upgradeMagicNumber(2);
             this.initializeDescription();
         }

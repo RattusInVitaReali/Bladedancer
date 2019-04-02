@@ -3,6 +3,8 @@ package blademaster.blights;
 import blademaster.interfaces.PerkBlight;
 import blademaster.orbs.BladeOrb;
 import blademaster.orbs.ParryOrb;
+import blademaster.perks.RandomBladePerk;
+import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.blights.AbstractBlight;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -26,6 +28,7 @@ public class RandomBladePerkBlight extends AbstractBlight implements PerkBlight 
     @Override
     public void atBattleStart() {
         this.flash();
+        AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, new RandomBladePerk()));
         int wtf = AbstractDungeon.cardRandomRng.random(0, 1);
         if (wtf == 0) {
             AbstractDungeon.actionManager.addToBottom(new ChannelAction(new BladeOrb()));

@@ -52,7 +52,7 @@
         "NAME": "Perk: Offensive Stance Mastery",
         "FLAVOR": "",
         "DESCRIPTIONS": [
-            "At the start of combat, switch your #yOffensive #yStance to a random #yStance."
+            "At the start of combat, switch your #yStance to a random #yStance."
         ]
     },
     "blademaster:StrongPerk": {

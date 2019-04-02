@@ -50,12 +50,12 @@ public class Thrust extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
-        if (p.hasPower(WindCharge.POWER_ID) || p.hasPower(WindStance.POWER_ID)) {
+        if (p.hasPower(WindCharge.POWER_ID) && p.hasPower(WindStance.POWER_ID)) {
             AbstractDungeon.actionManager.addToTop(new SFXAction("ORB_LIGHTNING_EVOKE"));
             AbstractDungeon.actionManager.addToTop(new VFXAction(new LightningEffect(m.drawX, m.drawY), 0.2F));
             AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, p.getPower(WindCharge.POWER_ID).amount, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
         }
-        if (p.hasPower(LightningCharge.POWER_ID) || p.hasPower(LightningStance.POWER_ID)) {
+        if (p.hasPower(LightningCharge.POWER_ID) && p.hasPower(LightningStance.POWER_ID)) {
             AbstractDungeon.actionManager.addToTop(new SFXAction("ORB_LIGHTNING_EVOKE"));
             AbstractDungeon.actionManager.addToTop(new VFXAction(new LightningEffect(m.drawX, m.drawY), 0.2F));
             AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, p.getPower(LightningCharge.POWER_ID).amount, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_VERTICAL));

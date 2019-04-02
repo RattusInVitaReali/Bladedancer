@@ -48,6 +48,7 @@ public class AwakeningStrike extends CustomCard {
         this.magicNumber = this.baseMagicNumber;
         this.tags.add(BlademasterTags.WIND_STANCE);
         this.tags.add(BlademasterTags.LIGHTNING_STANCE);
+        this.tags.add(CardTags.STRIKE);
 
     }
 

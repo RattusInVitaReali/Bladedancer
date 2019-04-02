@@ -41,10 +41,10 @@
             "At the start of combat, switch your #yDefensive #yStance to a random #yStance."
         ]
     },
-    "blademaster:RandomOffensiveStancePerkBlight": {
+    "blademaster:RandomStancePerkBlight": {
         "NAME": "Perk: Offensive Stance Mastery",
         "DESCRIPTION": [
-            "At the start of combat, switch your #yOffensive #yStance to a random #yStance."
+            "At the start of combat, switch your #yStance to a random #yStance."
         ]
     },
     "blademaster:FinisherDrawCardPerkBlight": {

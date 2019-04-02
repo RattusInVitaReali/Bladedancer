@@ -31,7 +31,7 @@ public class Stormstrike extends CustomCard {
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
     private static final int COST = 1;
-    private static final int DAMAGE = 5;
+    private static final int DAMAGE = 4;
     private static final int MULT = 3;
 
 
@@ -40,6 +40,7 @@ public class Stormstrike extends CustomCard {
         this.baseDamage = this.damage = DAMAGE;
         this.baseMagicNumber = this.magicNumber = MULT;
         this.tags.add(BlademasterTags.LIGHTNING_STANCE);
+        this.tags.add(CardTags.STRIKE);
     }
 
 
@@ -63,7 +64,7 @@ public class Stormstrike extends CustomCard {
     @Override
     public void upgrade() {
         if (! this.upgraded) {
-            this.upgradeDamage(3);
+            this.upgradeDamage(2);
             this.upgradeMagicNumber(1);
             this.upgradeName();
             this.initializeDescription();

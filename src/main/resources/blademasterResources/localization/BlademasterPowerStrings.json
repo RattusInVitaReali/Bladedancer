@@ -23,7 +23,7 @@
         "DESCRIPTIONS": [
             "Whenever you're attacked, reduce the damage by ",
             " and gain ",
-            " #rLightning #yCharge."
+            " #rπLightning #yCharge."
         ]
     },
     "FrozenPower": {
@@ -65,13 +65,13 @@
         "NAME": "Lightning Charge",
         "DESCRIPTIONS": [
             "A #yCharge used for #yLighting #yStance cards. You currently have ",
-            " #yLightning #yCharges."
+            " #yπLightning #yCharges."
         ]
     },
     "LightningStance": {
         "NAME": "Lightning Stance",
         "DESCRIPTIONS": [
-            "A #yStance that allows the generation of #yLightning #yCharges."
+            "A #yStance that allows the generation of #yπLightning #yCharges."
         ]
     },
     "LoseFocusPower": {
@@ -197,6 +197,22 @@
             "At the start of your turn, lose #b",
             " HP.",
             "At the start of its turn, loses #b"
+        ]
+    },
+    "OverchargePower": {
+        "NAME": "Overcharge",
+        "DESCRIPTIONS": [
+            "At the end of your turn, deal #b",
+            " damage to a random enemy, and then deal #b",
+            " damage to a random enemy."
+        ]
+    },
+    "StabilityPower": {
+        "NAME":"Stability",
+        "DESCRIPTIONS": [
+            "Whenever you would switch #yStances, draw #b",
+            " card instead.",
+            " cards instead."
         ]
     }
 }

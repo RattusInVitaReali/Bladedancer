@@ -47,11 +47,14 @@ public class DirtyTrick extends CustomCard {
         this.magicNumber = this.baseMagicNumber = AMT;
         this.tags.add(BlademasterTags.LIGHTNING_STANCE);
         this.tags.add(BlademasterTags.WIND_STANCE);
+        this.exhaust = true;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+        for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(monster, new DamageInfo(p, this.damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+        }
         if (p.hasPower(WindStance.POWER_ID)) {
             if (p.hasPower(WindCharge.POWER_ID)) {
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new BleedingPower(m, p, p.getPower(WindCharge.POWER_ID).amount), p.getPower(WindCharge.POWER_ID).amount));
@@ -71,7 +74,7 @@ public class DirtyTrick extends CustomCard {
         if (AbstractDungeon.player.hasPower(WindStance.POWER_ID)) {
             if (! WindArt) {
                 AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, WIMG, false));
-                this.rawDescription = (DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0]);
+                this.rawDescription = (DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0] + cardStrings.EXTENDED_DESCRIPTION[2]);
                 this.initializeDescription();
                 WindArt = true;
                 LightningArt = false;
@@ -80,7 +83,7 @@ public class DirtyTrick extends CustomCard {
         } else if (AbstractDungeon.player.hasPower(LightningStance.POWER_ID)) {
             if (! LightningArt) {
                 AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, LIMG, false));
-                this.rawDescription = (DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[1]);
+                this.rawDescription = (DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[1] + cardStrings.EXTENDED_DESCRIPTION[2]);
                 this.initializeDescription();
                 WindArt = false;
                 LightningArt = true;
@@ -89,7 +92,7 @@ public class DirtyTrick extends CustomCard {
         } else if (AbstractDungeon.player.hasPower(BasicStance.POWER_ID)) {
             if (! BaseArt) {
                 AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG, false));
-                this.rawDescription = DESCRIPTION;
+                this.rawDescription = DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[2];
                 this.initializeDescription();
                 WindArt = false;
                 LightningArt = false;
@@ -100,7 +103,7 @@ public class DirtyTrick extends CustomCard {
 
     @Override
     public AbstractCard makeCopy() {
-        return new Flash();
+        return new DirtyTrick();
     }
 
     @Override

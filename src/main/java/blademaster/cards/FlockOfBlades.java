@@ -4,6 +4,7 @@ import basemod.abstracts.CustomCard;
 import blademaster.Blademaster;
 import blademaster.orbs.BladeOrb;
 import blademaster.patches.AbstractCardEnum;
+import blademaster.patches.BlademasterTags;
 import blademaster.powers.ComboPower;
 import blademaster.powers.FuryPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -33,6 +34,8 @@ public class FlockOfBlades extends CustomCard {
     public FlockOfBlades() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = AMT;
+        this.tags.add(BlademasterTags.FURY_FINISHER);
+        this.tags.add(BlademasterTags.COMBO_FINISHER);
     }
 
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
@@ -48,16 +51,23 @@ public class FlockOfBlades extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new FuryPower(p, - 30), - 30));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ComboPower(p, - 6), - 6));
-        AbstractDungeon.actionManager.addToBottom(new ChannelAction(new BladeOrb(), false));
-        AbstractDungeon.actionManager.addToBottom(new ChannelAction(new BladeOrb(), false));
-        AbstractDungeon.actionManager.addToBottom(new ChannelAction(new BladeOrb(), false));
-        AbstractDungeon.actionManager.addToBottom(new ChannelAction(new BladeOrb(), false));
-        AbstractDungeon.actionManager.addToBottom(new ChannelAction(new BladeOrb(), false));
         if (this.upgraded) {
+            AbstractDungeon.actionManager.addToBottom(new ChannelAction(new BladeOrb(), false));
+            AbstractDungeon.actionManager.addToBottom(new ChannelAction(new BladeOrb(), false));
+            AbstractDungeon.actionManager.addToBottom(new ChannelAction(new BladeOrb(), false));
+            AbstractDungeon.actionManager.addToBottom(new ChannelAction(new BladeOrb(), false));
+            AbstractDungeon.actionManager.addToBottom(new ChannelAction(new BladeOrb(), false));
+            AbstractDungeon.actionManager.addToBottom(new ChannelAction(new BladeOrb(), false));
+            AbstractDungeon.actionManager.addToBottom(new ChannelAction(new BladeOrb(), false));
+        } else {
+            AbstractDungeon.actionManager.addToBottom(new ChannelAction(new BladeOrb(), false));
+            AbstractDungeon.actionManager.addToBottom(new ChannelAction(new BladeOrb(), false));
+            AbstractDungeon.actionManager.addToBottom(new ChannelAction(new BladeOrb(), false));
             AbstractDungeon.actionManager.addToBottom(new ChannelAction(new BladeOrb(), false));
             AbstractDungeon.actionManager.addToBottom(new ChannelAction(new BladeOrb(), false));
         }
     }
+
 
     @Override
     public AbstractCard makeCopy() {

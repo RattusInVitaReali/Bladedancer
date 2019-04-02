@@ -24,11 +24,11 @@ public class AwakenOrbAction
         if (this.duration == Settings.ACTION_DUR_FAST) {
             if (AbstractDungeon.player.hasOrb()) {
                 for (AbstractOrb orb : AbstractDungeon.player.orbs) {
-                    if (orb.ID.equals(BladeOrb.ORB_ID)) {
+                    if (orb instanceof BladeOrb) {
                         AbstractDungeon.actionManager.addToBottom(new RemoveSpecificOrbWithoutEvokingAction(orb));
                         AbstractDungeon.actionManager.addToBottom(new ChannelAction(new AwakenedBladeOrb()));
                         break;
-                    } else if (orb.ID.equals(ParryOrb.ORB_ID)) {
+                    } else if (orb instanceof ParryOrb) {
                         AbstractDungeon.actionManager.addToBottom(new RemoveSpecificOrbWithoutEvokingAction(orb));
                         AbstractDungeon.actionManager.addToBottom(new ChannelAction(new AwakenedParryOrb()));
                         break;

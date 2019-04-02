@@ -75,7 +75,7 @@ public class DancersAmulet extends CustomRelic {
 
         blightMap.put(BonusComboPerkBlight.ID, BonusComboPerk.ID);
         blightMap.put(BonusFuryPerkBlight.ID, BonusFuryPerk.ID);
-        blightMap.put(DextrousPerk.ID, DextrousPerk.ID);
+        blightMap.put(DextrousPerkBlight.ID, DextrousPerk.ID);
         blightMap.put(FocusedPerkBlight.ID, FocusedPerk.ID);
         blightMap.put(RandomBladePerkBlight.ID, RandomBladePerk.ID);
         blightMap.put(RandomStancePerkBlight.ID, RandomStancePerk.ID);
