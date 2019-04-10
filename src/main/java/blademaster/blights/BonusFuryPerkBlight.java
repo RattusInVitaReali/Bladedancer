@@ -28,7 +28,7 @@ public class BonusFuryPerkBlight extends AbstractBlight implements PerkBlight {
     public void atBattleStart() {
         this.flash();
         AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, new BonusFuryPerk()));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new FuryPower(AbstractDungeon.player, 10), 10));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new FuryPower(AbstractDungeon.player, 15), 15));
     }
 
 }

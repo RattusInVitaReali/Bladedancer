@@ -2,10 +2,8 @@ package blademaster.powers;
 
 import blademaster.Blademaster;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.BetterOnApplyPowerPower;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
@@ -28,19 +26,21 @@ public class StanceMasteryPower extends AbstractPower implements BetterOnApplyPo
     }
 
 
-    public boolean betterOnApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-        if (power.ID.equals(LightningCharge.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, source, new LightningCharge(source, 1, true), 1));
-        }
-        if (power.ID.equals(WindCharge.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, source, new WindCharge(source, 1, true), 1));
-        }
+    @Override
+    public boolean betterOnApplyPower(AbstractPower abstractPower, AbstractCreature abstractCreature, AbstractCreature abstractCreature1) {
         return true;
+    }
+
+    @Override
+    public int betterOnApplyPowerStacks(AbstractPower power, AbstractCreature target, AbstractCreature source, int stackAmount) {
+        if (power.ID.equals(LightningCharge.POWER_ID)) {
+            power.amount++;
+            return stackAmount + 1;
+        }
+        return stackAmount;
     }
 
     public void updateDescription() {
         this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
     }
-
-
 }

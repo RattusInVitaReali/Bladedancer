@@ -22,7 +22,7 @@ public class IcyWind extends CustomCard {
 
 
     public static final String ID = Blademaster.makeID("IcyWind");
-    public static final String IMG = Blademaster.makePath(Blademaster.WIND_ATTACK);
+    public static final String IMG = Blademaster.makePath("cards/IcyWind.png");
     public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

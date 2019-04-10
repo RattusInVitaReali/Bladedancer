@@ -20,9 +20,9 @@ public class Frontflip extends CustomCard {
 
 
     public static final String ID = Blademaster.makeID("Frontflip");
-    public static final String WIMG = Blademaster.makePath(Blademaster.WIND_SKILL);
-    public static final String LIMG = Blademaster.makePath(Blademaster.LIGHTNING_SKILL);
-    public static final String IMG = Blademaster.makePath(Blademaster.DEFAULT_SKILL);
+    public static final String IMG = Blademaster.makePath("cards/Frontflip.png");
+    public static final String WIMG = Blademaster.makePath("cards/WindFrontflip.png");
+    public static final String LIMG = Blademaster.makePath("cards/LightningFrontflip.png");
     public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

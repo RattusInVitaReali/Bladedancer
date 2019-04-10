@@ -22,9 +22,9 @@ public class Sunder extends CustomCard {
 
 
     public static final String ID = Blademaster.makeID("Sunder");
-    public static final String IMG = Blademaster.makePath(Blademaster.DEFAULT_ATTACK);
-    public static final String LIMG = Blademaster.makePath(Blademaster.LIGHTNING_ATTACK);
-    public static final String WIMG = Blademaster.makePath(Blademaster.WIND_ATTACK);
+    public static final String IMG = Blademaster.makePath("cards/Sunder.png");
+    public static final String LIMG = Blademaster.makePath("cards/LightningSunder.png");
+    public static final String WIMG = Blademaster.makePath("cards/WindSunder.png");
     public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

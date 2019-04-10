@@ -23,7 +23,7 @@ public class ThunderingOpener extends CustomCard {
 
 
     public static final String ID = Blademaster.makeID("ThunderingOpener");
-    public static final String IMG = Blademaster.makePath(Blademaster.LIGHTNING_ATTACK);
+    public static final String IMG = Blademaster.makePath("cards/ThunderingOpener.png");
     public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

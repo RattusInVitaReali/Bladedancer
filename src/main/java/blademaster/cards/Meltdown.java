@@ -25,7 +25,7 @@ public class Meltdown extends CustomCard {
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.POWER;
     private static final int COST = 1;
-    private static final int POWER = 5;
+    private static final int POWER = 10;
 
 
     public Meltdown() {

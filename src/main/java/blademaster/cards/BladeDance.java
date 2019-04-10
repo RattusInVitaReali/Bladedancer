@@ -20,7 +20,7 @@ public class BladeDance extends CustomCard {
 
 
     public static final String ID = Blademaster.makeID("BladeDance");
-    public static final String IMG = Blademaster.makePath(Blademaster.DEFAULT_COMMON_POWER);
+    public static final String IMG = Blademaster.makePath("cards/BladeDance.png");
     public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

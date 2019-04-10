@@ -10,14 +10,14 @@
         "NAME": "Perk: Combatant",
         "FLAVOR": "",
         "DESCRIPTIONS": [
-            "Start each combat with #b2 #yCombo."
+            "Start each combat with #b3 #yCombo."
         ]
     },
     "blademaster:BonusFuryPerk": {
         "NAME": "Perk: Furious",
         "FLAVOR": "",
         "DESCRIPTIONS": [
-            "Start each combat with #b10 #yFury."
+            "Start each combat with #b15 #yFury."
         ]
     },
     "blademaster:DextrousPerk": {

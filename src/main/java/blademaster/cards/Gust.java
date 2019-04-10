@@ -19,7 +19,7 @@ public class Gust extends CustomCard {
 
     public static final String ID = Blademaster.makeID("Gust");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String IMG = Blademaster.makePath(Blademaster.WIND_SKILL);
+    public static final String IMG = Blademaster.makePath("cards/Gust.png");
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 

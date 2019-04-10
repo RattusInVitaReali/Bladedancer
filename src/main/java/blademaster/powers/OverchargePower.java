@@ -14,6 +14,8 @@ public class OverchargePower extends AbstractPower {
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+    private int WINDAMT;
+    private int LIGHTNINGAMT;
 
     public OverchargePower(AbstractCreature owner, int amount) {
         this.name = NAME;
@@ -36,7 +38,17 @@ public class OverchargePower extends AbstractPower {
     }
 
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + this.owner.getPower(WindCharge.POWER_ID).amount + DESCRIPTIONS[1] + this.owner.getPower(LightningCharge.POWER_ID).amount + DESCRIPTIONS[2];
+        if (this.owner.hasPower(WindCharge.POWER_ID)) {
+            WINDAMT = this.owner.getPower(WindCharge.POWER_ID).amount;
+        } else {
+            WINDAMT = 0;
+        }
+        if (this.owner.hasPower(LightningCharge.POWER_ID)) {
+            LIGHTNINGAMT = this.owner.getPower(LightningCharge.POWER_ID).amount;
+        } else {
+            LIGHTNINGAMT = 0;
+        }
+        this.description = DESCRIPTIONS[0] + WINDAMT + DESCRIPTIONS[1] + LIGHTNINGAMT + DESCRIPTIONS[2];
     }
 
 

@@ -70,7 +70,7 @@ public class RollingTyphoon extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new FuryPower(p, - 30), - 30));
         AbstractDungeon.actionManager.addToBottom(new VFXAction(new GrandFinalEffect(), 0.8F));
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.magicNumber, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.magicNumber, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HEAVY));
         AbstractDungeon.actionManager.addToBottom(new VFXAction(new CleaveEffect(), 0.1F));
         AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE, false));
         if (p.hasPower(WindStance.POWER_ID) && p.hasPower(WindCharge.POWER_ID)) {

@@ -20,9 +20,9 @@ public class Defend extends CustomCard {
 
 
     public static final String ID = Blademaster.makeID("Defend");
-    public static final String IMG = Blademaster.makePath(Blademaster.DEFAULT_SKILL);
-    public static final String WIMG = Blademaster.makePath(Blademaster.WIND_SKILL);
-    public static final String LIMG = Blademaster.makePath(Blademaster.LIGHTNING_SKILL);
+    public static final String IMG = Blademaster.makePath("cards/Defend.png");
+    public static final String WIMG = Blademaster.makePath("cards/WindDefend.png");
+    public static final String LIMG = Blademaster.makePath("cards/LightningDefend.png");
     public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

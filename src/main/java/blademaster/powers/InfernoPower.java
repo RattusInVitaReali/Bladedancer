@@ -40,13 +40,13 @@ public class InfernoPower extends AbstractPower implements OnCardDrawPower {
             flash();
             AbstractDungeon.actionManager.addToBottom(new DiscardSpecificCardAction(card, AbstractDungeon.player.hand));
             AbstractDungeon.actionManager.addToBottom(new LoseHPAction(this.owner, this.owner, this.amount, AbstractGameAction.AttackEffect.FIRE));
-            AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(2 * this.amount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE));
+            AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(3 * this.amount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE));
             AbstractDungeon.actionManager.addToBottom(new DrawCardAction(this.owner, 1));
         }
     }
 
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1] + 2 * this.amount + DESCRIPTIONS[2];
+        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1] + 3 * this.amount + DESCRIPTIONS[2];
     }
 
 

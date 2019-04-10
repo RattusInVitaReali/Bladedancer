@@ -22,9 +22,9 @@ public class AwakeningStrike extends CustomCard {
 
 
     public static final String ID = Blademaster.makeID("AwakeningStrike");
-    public static final String IMG = Blademaster.makePath(Blademaster.DEFAULT_ATTACK);
-    public static final String LIMG = Blademaster.makePath(Blademaster.LIGHTNING_ATTACK);
-    public static final String WIMG = Blademaster.makePath(Blademaster.WIND_ATTACK);
+    public static final String IMG = Blademaster.makePath("cards/AwakeningStrike.png");
+    public static final String WIMG = Blademaster.makePath("cards/WindAwakeningStrike.png");
+    public static final String LIMG = Blademaster.makePath("cards/LightningAwakeningStrike.png");
     public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
@@ -56,9 +56,6 @@ public class AwakeningStrike extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         AbstractDungeon.actionManager.addToBottom(new AwakenOrbAction());
-        if (this.upgraded) {
-            AbstractDungeon.actionManager.addToBottom(new AwakenOrbAction());
-        }
         if (p.hasPower(WindStance.POWER_ID)) {
             if (this.upgraded) {
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WindCharge(p, 2, false), 2));
@@ -117,7 +114,6 @@ public class AwakeningStrike extends CustomCard {
         if (! this.upgraded) {
             this.upgradeName();
             this.upgradeDamage(3);
-            this.upgradeMagicNumber(1);
             this.initializeDescription();
         }
     }

@@ -39,7 +39,7 @@ public class WindStance extends AbstractPower {
         this.particleTimer2 -= Gdx.graphics.getDeltaTime();
         if (this.particleTimer < 0.0F) {
             int xOff = MathUtils.random(- 70, 70);
-            AbstractDungeon.effectList.add(new BetterFireBurstParticleEffect(this.owner.drawX + xOff, this.owner.drawY , 0.5F, 1.0F, 0.1F));
+            AbstractDungeon.effectList.add(new BetterFireBurstParticleEffect(this.owner.drawX + xOff, this.owner.drawY, 0.5F, 1.0F, 0.1F));
             this.particleTimer = 0.06F;
         }
         if (this.particleTimer2 < 0.0F) {
@@ -55,7 +55,9 @@ public class WindStance extends AbstractPower {
 
     public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
         if (power.ID.equals(LightningStance.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this));
+            if (! this.owner.hasPower(StabilityPower.POWER_ID)) {
+                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this));
+            }
         }
     }
 

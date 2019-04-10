@@ -133,7 +133,7 @@
         "NAME": "Flash"
     },
     "blademaster:FlockOfBlades": {
-        "DESCRIPTION": "Finisher. Consumes 30 Fury and 6 Combo. NL Channel !M! Havoc Blades.",
+        "DESCRIPTION": "Finisher. Requires 30 Fury and 6 Combo. NL Channel !M! Havoc Blades.",
         "NAME": "Flock Of Blades"
     },
     "blademaster:Flurry": {
@@ -177,7 +177,7 @@
         "NAME": "Icy Wind"
     },
     "blademaster:Inferno": {
-        "DESCRIPTION": "Whenever you draw a Burn, take !M! damage, deal twice as much to ALL enemies, and discard it.",
+        "DESCRIPTION": "Whenever you draw a Burn, take !M! damage, deal thrice as much to ALL enemies, and discard it.",
         "NAME": "Inferno"
     },
     "blademaster:Insult": {
@@ -297,7 +297,7 @@
         "NAME": "Sharp Blades"
     },
     "blademaster:SlyStabs": {
-        "DESCRIPTION": "Add a Lacerate to your hand for each type of Charge you currently have.",
+        "DESCRIPTION": "Add 2 Lacerates to your hand for each type of Charge you currently have.",
         "NAME": "Sly Stabs"
     },
     "blademaster:StanceMastery": {
@@ -343,8 +343,8 @@
     "blademaster:Vortex": {
         "DESCRIPTION": "Apply !M! Bleeding to ALL enemies.",
         "EXTENDED_DESCRIPTION": [
-            " NL Apply 1 Vulnerable.",
-            " NL Apply 1 Weak."
+            " NL Apply 1 Weak.",
+            " NL Apply 1 Vulnerable."
         ],
         "NAME": "Vortex"
     },
@@ -374,7 +374,7 @@
     },
     "blademaster:Stability": {
         "DESCRIPTION": "You can no longer change Stances. Whenever you would've switched Stances, draw a card.",
-        "NAME": "Stability"
+        "NAME": "One Trick Pony"
     },
     "blademaster:Slice": {
         "DESCRIPTION": "Deal !D! damage. NL Draw 1 card.",
@@ -383,5 +383,35 @@
             " NL Gain Lightning Charges."
         ],
         "NAME": "Slice"
+    },
+    "blademaster:Discharge": {
+        "DESCRIPTION": "Gain !B! Block.",
+        "EXTENDED_DESCRIPTION": [
+            " NL Apply !M! Weak and deal !W! damage to ALL enemies.",
+            " NL Apply !M! Vulnerable and deal !LL damage to ALL enemies."
+        ],
+        "NAME": "Discharge"
+    },
+    "blademaster:Havoc": {
+        "DESCRIPTION": "Channel 1 Havoc Blade.",
+        "UPGRADE_DESCRIPTION": "Innate. NL Channel 1 Havoc Blade.",
+        "NAME":"Havoc"
+    },
+    "blademaster:IvoryBracelet": {
+        "DESCRIPTION": "Gain !M! Artifact.",
+        "NAME": "Stabilize"
+    },
+    "blademaster:NotDualcast": {
+        "DESCRIPTION": "Evoke your next Blade twice.",
+        "NAME": "Not Dualcast"
+    },
+    "blademaster:ColdBlood": {
+        "DESCRIPTION": "Finisher. Requires 6 Combo. NL Gain !M! Dexterity. NL Gain !M! Strength.",
+        "NAME": "Cold Blood"
+    },
+    "blademaster:CombatPrep": {
+        "DESCRIPTION": "Next turn, gain [E] and draw !M! more cards. NL If you're in a Stance, gain 2 Charges.",
+        "UPGRADE_DESCRIPTION": "Next turn, gain [E] and draw !M! more cards. NL If you're in a Stance, gain 2 Charges.",
+        "NAME": "Combat Prep"
     }
 }

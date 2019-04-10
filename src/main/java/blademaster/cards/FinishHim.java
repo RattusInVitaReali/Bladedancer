@@ -19,7 +19,7 @@ public class FinishHim extends CustomCard {
 
 
     public static final String ID = Blademaster.makeID("FinishHim");
-    public static final String IMG = Blademaster.makePath(Blademaster.DEFAULT_SKILL);
+    public static final String IMG = Blademaster.makePath("cards/FinishHim.png");
     public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

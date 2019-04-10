@@ -17,7 +17,7 @@ public class Flurry extends CustomCard {
 
 
     public static final String ID = Blademaster.makeID("Flurry");
-    public static final String IMG = Blademaster.makePath(Blademaster.DEFAULT_SKILL);
+    public static final String IMG = Blademaster.makePath("cards/Flurry.png");
     public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

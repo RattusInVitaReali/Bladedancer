@@ -2,7 +2,7 @@
     "blademaster:BonusComboPerkBlight": {
         "NAME": "Perk: Combatant",
         "DESCRIPTION": [
-            "Start each combat with #b2 #yCombo."
+            "Start each combat with #b3 #yCombo."
         ]
     },
     "blademaster:StrongPerkBlight": {
@@ -14,7 +14,7 @@
     "blademaster:BonusFuryPerkBlight": {
         "NAME": "Perk: Furious",
         "DESCRIPTION": [
-            "Start each combat with #b10 #yFury."
+            "Start each combat with #b15 #yFury."
         ]
     },
     "blademaster:DextrousPerkBlight": {
