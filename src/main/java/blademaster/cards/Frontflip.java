@@ -70,34 +70,44 @@ public class Frontflip extends CustomCard {
         }
     }
 
-    public void applyPowers() {
-        super.applyPowers();
-        if (AbstractDungeon.player.hasPower(WindStance.POWER_ID)) {
-            if (! WindArt) {
-                AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, WIMG, false));
-                this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[1];
-                initializeDescription();
-                WindArt = true;
-                LightningArt = false;
-                BaseArt = false;
-            }
-        } else if (AbstractDungeon.player.hasPower(LightningStance.POWER_ID)) {
-            if (! LightningArt) {
-                AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, LIMG, false));
-                this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0];
-                initializeDescription();
-                WindArt = false;
-                LightningArt = true;
-                BaseArt = false;
-            }
-        } else if (AbstractDungeon.player.hasPower(BasicStance.POWER_ID)) {
-            if (! BaseArt) {
-                AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG, false));
-                this.rawDescription = DESCRIPTION;
-                initializeDescription();
-                WindArt = false;
-                LightningArt = false;
-                BaseArt = true;
+    public void update() {
+        super.update();
+        if (CardCrawlGame.isInARun()) {
+            if (AbstractDungeon.player.hasPower(WindStance.POWER_ID)) {
+                if (! WindArt) {
+                    AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, WIMG, false));
+                    if (this.upgraded) {
+                        this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[2];
+                    } else {
+                        this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0];
+                    }
+                    initializeDescription();
+                    WindArt = true;
+                    LightningArt = false;
+                    BaseArt = false;
+                }
+            } else if (AbstractDungeon.player.hasPower(LightningStance.POWER_ID)) {
+                if (! LightningArt) {
+                    AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, LIMG, false));
+                    if (this.upgraded) {
+                        this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[3];
+                    } else {
+                        this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[1];
+                    }
+                    initializeDescription();
+                    WindArt = false;
+                    LightningArt = true;
+                    BaseArt = false;
+                }
+            } else if (AbstractDungeon.player.hasPower(BasicStance.POWER_ID)) {
+                if (! BaseArt) {
+                    AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG, false));
+                    this.rawDescription = DESCRIPTION;
+                    initializeDescription();
+                    WindArt = false;
+                    LightningArt = false;
+                    BaseArt = true;
+                }
             }
         }
     }

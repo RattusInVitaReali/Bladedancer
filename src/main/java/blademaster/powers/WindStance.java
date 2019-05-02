@@ -1,10 +1,12 @@
 package blademaster.powers;
 
 import blademaster.actions.WindStanceAction;
+import blademaster.cards.WrongfulFootwork;
 import blademaster.effects.particles.BetterFireBurstParticleEffect;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.MathUtils;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -27,6 +29,7 @@ public class WindStance extends AbstractPower {
         this.ID = POWER_ID;
         this.owner = owner;
         this.type = PowerType.BUFF;
+        this.amount = -1;
         this.isTurnBased = true;
         this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/WindStance.png"), 0, 0, 84, 84);
         this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/WindStanceSmall.png"), 0, 0, 32, 32);
@@ -39,12 +42,12 @@ public class WindStance extends AbstractPower {
         this.particleTimer2 -= Gdx.graphics.getDeltaTime();
         if (this.particleTimer < 0.0F) {
             int xOff = MathUtils.random(- 70, 70);
-            AbstractDungeon.effectList.add(new BetterFireBurstParticleEffect(this.owner.drawX + xOff, this.owner.drawY, 0.5F, 1.0F, 0.1F));
+            AbstractDungeon.effectList.add(new BetterFireBurstParticleEffect(this.owner.drawX + xOff, this.owner.drawY + 20F, 0.5F, 1.0F, 0.1F));
             this.particleTimer = 0.06F;
         }
         if (this.particleTimer2 < 0.0F) {
             int xOff = MathUtils.random(- 70, 70);
-            AbstractDungeon.effectList.add(new BetterFireBurstParticleEffect(this.owner.drawX + xOff, this.owner.drawY, 0.1F, 1.0F, 0.5F));
+            AbstractDungeon.effectList.add(new BetterFireBurstParticleEffect(this.owner.drawX + xOff, this.owner.drawY + 20F, 0.1F, 1.0F, 0.5F));
             this.particleTimer2 = 0.06F;
         }
     }
@@ -58,6 +61,9 @@ public class WindStance extends AbstractPower {
             if (! this.owner.hasPower(StabilityPower.POWER_ID)) {
                 AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this));
             }
+        }
+        if (power.ID.equals(this.ID)) {
+            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new WrongfulFootwork(), 1, true, true));
         }
     }
 

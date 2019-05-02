@@ -38,9 +38,7 @@ import static blademaster.Blademaster.THE_DEFAULT_SKELETON_JSON;
 
 public class BlademasterCharacter extends CustomPlayer {
     public static final Logger logger = LogManager.getLogger(blademaster.Blademaster.class.getName());
-
     // =============== BASE STATS =================
-
     public static final int ENERGY_PER_TURN = 3;
     public static final int STARTING_HP = 75;
     public static final int MAX_HP = 75;
@@ -66,6 +64,9 @@ public class BlademasterCharacter extends CustomPlayer {
     // =============== TEXTURES OF BIG ENERGY ORB ===============
     private Color hbTextColor = new Color(1.0F, 1.0F, 1.0F, 0.0F);
 
+    public float[] orbPositionsX = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+
+    public float[] orbPositionsY = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     // =============== /TEXTURES OF BIG ENERGY ORB/ ===============
 
 
@@ -91,7 +92,7 @@ public class BlademasterCharacter extends CustomPlayer {
         loadAnimation(
                 THE_DEFAULT_SKELETON_ATLAS,
                 THE_DEFAULT_SKELETON_JSON,
-                1.0f);
+                0.95f);
         AnimationState.TrackEntry e = state.setAnimation(0, "Idle", true);
         e.setTime(e.getEndTime() * MathUtils.random());
 
@@ -102,6 +103,7 @@ public class BlademasterCharacter extends CustomPlayer {
 
         this.dialogX = (this.drawX + 0.0F * Settings.scale); // set location for text bubbles
         this.dialogY = (this.drawY + 220.0F * Settings.scale); // you can just copy these values
+        initializeSlotPositions();
 
         // =============== /TEXT BUBBLE LOCATION/ =================
 
@@ -152,6 +154,38 @@ public class BlademasterCharacter extends CustomPlayer {
         UnlockTracker.markRelicAsSeen(DancersAmulet.ID);
 
         return retVal;
+    }
+
+    public float setSlotX(float range, int slotNum, int maxOrbs) {
+        float dist = range * Settings.scale + (float) maxOrbs * 10.0F * Settings.scale;
+        float angle = 100.0F + (float) maxOrbs * 12.0F;
+        float offsetAngle = angle / 2.0F;
+        angle *= (float) slotNum / ((float) maxOrbs - 1.0F);
+        angle += 90.0F - offsetAngle;
+        return dist * MathUtils.cosDeg(angle) + (float) Settings.WIDTH * 0.25F;
+    }
+
+    public float setSlotY(float range, int slotNum, int maxOrbs) {
+        float dist = range * Settings.scale + (float) maxOrbs * 10.0F * Settings.scale;
+        float angle = 100.0F + (float) maxOrbs * 12.0F;
+        float offsetAngle = angle / 2.0F;
+        angle *= (float) slotNum / ((float) maxOrbs - 1.0F);
+        angle += 90.0F - offsetAngle;
+        return dist * MathUtils.sinDeg(angle) + 340.0F * Settings.scale + hb_h / 2.0F;
+    }
+
+    public void initializeSlotPositions() {
+        for (int i = 2; i <= 9; i++) {
+            orbPositionsX[i] = setSlotX(200.0F, i - 2, 8);
+            orbPositionsY[i] = setSlotY(200.0F, i - 2, 8);
+        }
+
+        orbPositionsX[0] = setSlotX(120.0F, 1, 6);
+        orbPositionsX[1] = setSlotX(120.0F, 4, 6);
+
+        orbPositionsY[0] = setSlotY(120.0F, 1, 6);
+        orbPositionsY[1] = setSlotY(120.0F, 4, 6);
+
     }
 
     // Character select screen effect
@@ -237,22 +271,26 @@ public class BlademasterCharacter extends CustomPlayer {
         float offset = 10.0F;
         float doffset = 10.0F;
         for (AbstractPower p : this.powers) {
-            if ((p.ID.equals(LightningStance.POWER_ID)) || (p.ID.equals(WindStance.POWER_ID)) || (p.ID.equals(FuryPower.POWER_ID)) || (p.ID.equals(ComboPower.POWER_ID)) || (p.ID.equals(CalmnessPower.POWER_ID))
-                    || (p.ID.equals(TiredPower.POWER_ID)) || (p.ID.equals(WindCharge.POWER_ID)) || (p.ID.equals(LightningCharge.POWER_ID)) || (p.ID.equals(BasicStance.POWER_ID))) {
+            if (p.ID.equals(LightningStance.POWER_ID) || p.ID.equals(WindStance.POWER_ID) || p.ID.equals(BasicStance.POWER_ID)) {
+                p.renderIcons(sb, x + (250F * Settings.scale), y * Settings.scale - 20F, Color.WHITE.cpy());
+            } else if ((p.ID.equals(FuryPower.POWER_ID)) || (p.ID.equals(ComboPower.POWER_ID)) || (p.ID.equals(CalmnessPower.POWER_ID))
+                    || (p.ID.equals(TiredPower.POWER_ID)) || (p.ID.equals(WindCharge.POWER_ID)) || (p.ID.equals(LightningCharge.POWER_ID))) {
                 yoffset = - 40.0F;
-                p.renderIcons(sb, x + (doffset * Settings.scale), y + ((- 48.0F + yoffset) * Settings.scale), Color.WHITE);
+                p.renderIcons(sb, x + (doffset * Settings.scale), y + ((- 48.0F + yoffset) * Settings.scale), Color.WHITE.cpy());
                 doffset += 48.0F;
             } else {
                 yoffset = 0F;
-                p.renderIcons(sb, x + (offset * Settings.scale), y + ((- 48.0F + yoffset) * Settings.scale), Color.WHITE);
+                p.renderIcons(sb, x + (offset * Settings.scale), y + ((- 48.0F + yoffset) * Settings.scale), Color.WHITE.cpy());
                 offset += 48.0F;
             }
         }
         offset = 0.0F;
         doffset = 0.0F;
         for (AbstractPower p : this.powers) {
-            if ((p.ID.equals(LightningStance.POWER_ID)) || (p.ID.equals(WindStance.POWER_ID)) || (p.ID.equals(FuryPower.POWER_ID)) || (p.ID.equals(ComboPower.POWER_ID)) || (p.ID.equals(CalmnessPower.POWER_ID))
-                    || (p.ID.equals(TiredPower.POWER_ID)) || (p.ID.equals(WindCharge.POWER_ID)) || (p.ID.equals(LightningCharge.POWER_ID)) || (p.ID.equals(BasicStance.POWER_ID))) {
+            if (p.ID.equals(LightningStance.POWER_ID) || p.ID.equals(WindStance.POWER_ID) || p.ID.equals(BasicStance.POWER_ID)) {
+                p.renderAmount(sb, x + ((300F + 32.0F) * Settings.scale), y + ((- 18.0F) * Settings.scale), Color.WHITE);
+            } else if ((p.ID.equals(FuryPower.POWER_ID)) || (p.ID.equals(ComboPower.POWER_ID)) || (p.ID.equals(CalmnessPower.POWER_ID))
+                    || (p.ID.equals(TiredPower.POWER_ID)) || (p.ID.equals(WindCharge.POWER_ID)) || (p.ID.equals(LightningCharge.POWER_ID))) {
                 yoffset = - 40.0F;
                 p.renderAmount(sb, x + ((doffset + 32.0F) * Settings.scale), y + ((- 66.0F + yoffset) * Settings.scale), Color.WHITE);
                 doffset += 48.0F;

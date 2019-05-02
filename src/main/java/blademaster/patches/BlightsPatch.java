@@ -47,6 +47,18 @@ public class BlightsPatch
         if (StrongPerkBlight.ID.equals(id)) {
             return SpireReturn.Return(new StrongPerkBlight());
         }
+        if (BleedingLaceratePerkBlight.ID.equals(id)) {
+            return SpireReturn.Return(new BleedingLaceratePerkBlight());
+        }
+        if (OnAttackedChargePerkBlight.ID.equals(id)) {
+            return SpireReturn.Return(new OnAttackedChargePerkBlight());
+        }
+        if (WindChargePerkBlight.ID.equals(id)) {
+            return SpireReturn.Return(new WindChargePerkBlight());
+        }
+        if (LightningChargePerkBlight.ID.equals(id)) {
+        return SpireReturn.Return(new LightningChargePerkBlight());
+    }
         return SpireReturn.Continue();
     }
 }

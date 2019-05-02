@@ -2,23 +2,26 @@ package blademaster.cards;
 
 import basemod.abstracts.CustomCard;
 import blademaster.Blademaster;
+import blademaster.actions.RemoveSpecificOrbWithoutEvokingAction;
+import blademaster.orbs.AwakenedBladeOrb;
+import blademaster.orbs.AwakenedParryOrb;
+import blademaster.orbs.BladeOrb;
+import blademaster.orbs.ParryOrb;
 import blademaster.patches.AbstractCardEnum;
-import com.megacrit.cardcrawl.actions.defect.AnimateOrbAction;
-import com.megacrit.cardcrawl.actions.defect.EvokeOrbAction;
-import com.megacrit.cardcrawl.actions.defect.EvokeWithoutRemovingOrbAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.orbs.AbstractOrb;
 
 public class NotDualcast extends CustomCard {
 
 
     public static final String ID = Blademaster.makeID("NotDualcast");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String IMG = Blademaster.makePath(Blademaster.DEFAULT_SKILL);
+    public static final String IMG = Blademaster.makePath("cards/NotDualcast.png");
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 
@@ -37,10 +40,16 @@ public class NotDualcast extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new AnimateOrbAction(1));
-        AbstractDungeon.actionManager.addToBottom(new EvokeWithoutRemovingOrbAction(1));
-        AbstractDungeon.actionManager.addToBottom(new AnimateOrbAction(1));
-        AbstractDungeon.actionManager.addToBottom(new EvokeOrbAction(1));
+        for (AbstractOrb orb : AbstractDungeon.player.orbs) {
+            if (orb.ID.equals(BladeOrb.ORB_ID) || orb.ID.equals(AwakenedBladeOrb.ORB_ID) || orb.ID.equals(ParryOrb.ORB_ID) || orb.ID.equals(AwakenedParryOrb.ORB_ID)) {
+                orb.triggerEvokeAnimation();
+                orb.onEvoke();
+                orb.triggerEvokeAnimation();
+                orb.onEvoke();
+                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificOrbWithoutEvokingAction(orb));
+                break;
+            }
+        }
     }
 
     @Override

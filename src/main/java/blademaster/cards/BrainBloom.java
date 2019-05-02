@@ -25,13 +25,14 @@ public class BrainBloom extends CustomCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
-    private static final int COST = 1;
+    private static final int COST = 0;
     private static final int AMT = 1;
 
 
     public BrainBloom() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseMagicNumber = this.magicNumber = AMT;
+        this.exhaust = true;
     }
 
     @Override
@@ -49,7 +50,7 @@ public class BrainBloom extends CustomCard {
     public void upgrade() {
         if (! this.upgraded) {
             this.upgradeName();
-            this.upgradeBaseCost(0);
+            this.upgradeMagicNumber(1);
             this.initializeDescription();
         }
     }

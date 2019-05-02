@@ -71,7 +71,7 @@ public class BladeOrb
         if ((card.type == AbstractCard.CardType.ATTACK) && (card.target == AbstractCard.CardTarget.ENEMY)) {
             AbstractDungeon.actionManager.addToBottom(new VFXAction(new OrbFlareEffect(this, OrbFlareEffect.OrbFlareColor.DARK), 0.07F));
             AbstractCreature m = action.target;
-            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(AbstractDungeon.player, this.passiveAmount), AbstractGameAction.AttackEffect.NONE));
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(AbstractDungeon.player, this.passiveAmount, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.NONE, true));
             if (AbstractDungeon.player.hasPower(SharpBladesPower.POWER_ID)) {
                 Samt = AbstractDungeon.player.getPower(SharpBladesPower.POWER_ID).amount;
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, AbstractDungeon.player, new BleedingPower(m, AbstractDungeon.player, Samt), Samt));

@@ -47,7 +47,7 @@ public class IcyWind extends CustomCard {
                 if (p.hasPower(WindCharge.POWER_ID)) {
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(monster, new DamageInfo(p, p.getPower(WindCharge.POWER_ID).amount, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
                 }
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(monster, p, new FrozenPower(monster, 4), 4));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(monster, p, new FrozenPower(monster, this.magicNumber), 4));
             }
         }
     }
@@ -61,6 +61,7 @@ public class IcyWind extends CustomCard {
     public void upgrade() {
         if (! this.upgraded) {
             this.upgradeName();
+            this.upgradeMagicNumber(3);
             this.initializeDescription();
         }
     }

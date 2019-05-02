@@ -15,11 +15,12 @@ public class NotFission extends CustomCard {
 
 
     public static final String ID = Blademaster.makeID("NotFission");
-    public static final String IMG = Blademaster.makePath(Blademaster.DEFAULT_SKILL);
+    public static final String IMG = Blademaster.makePath("cards/NotFission.png");
     public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
@@ -45,6 +46,7 @@ public class NotFission extends CustomCard {
     public void upgrade() {
         if (! this.upgraded) {
             this.upgradeName();
+            this.rawDescription = UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }

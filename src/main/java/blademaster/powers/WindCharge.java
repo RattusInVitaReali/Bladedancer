@@ -20,7 +20,7 @@ public class WindCharge extends AbstractPower {
         this.priority = 11;
         this.amount = amount;
         this.type = PowerType.BUFF;
-        this.isTurnBased = false;
+        this.isTurnBased = true;
         this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/WindCharge.png"), 0, 0, 84, 84);
         this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/WindChargeSmall.png"), 0, 0, 32, 32);
         updateDescription();

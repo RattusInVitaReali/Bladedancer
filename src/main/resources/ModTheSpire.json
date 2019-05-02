@@ -6,8 +6,8 @@
     ],
     "description": "A character mod.",
     "version": "1.0",
-    "sts_version": "10-25-2018",
-    "mts_version": "3.5.0",
+    "sts_version": "01-23-2019",
+    "mts_version": "3.10.0",
     "dependencies": [
         "basemod",
         "stslib"

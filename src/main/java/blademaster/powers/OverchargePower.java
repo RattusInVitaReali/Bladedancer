@@ -1,15 +1,16 @@
 package blademaster.powers;
 
-import blademaster.Blademaster;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.evacipated.cardcrawl.mod.stslib.powers.abstracts.TwoAmountPower;
 import com.megacrit.cardcrawl.actions.defect.LightningOrbEvokeAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class OverchargePower extends AbstractPower {
+public class OverchargePower extends TwoAmountPower {
     public static final String POWER_ID = "OverchargePower";
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
@@ -22,19 +23,33 @@ public class OverchargePower extends AbstractPower {
         this.ID = POWER_ID;
         this.owner = owner;
         this.amount = amount;
+        this.amount2 = amount;
         this.type = PowerType.BUFF;
         this.isTurnBased = false;
-        this.img = Blademaster.getDefaultPowerTexture();
+        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/Overcharge.png"), 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/OverchargeSmall.png"), 0, 0, 32, 32);
         updateDescription();
     }
 
-    public void atEndOfTurn(boolean isPlayer) {
+    public void update(int slot) {
+        super.update(1);
         if (this.owner.hasPower(WindCharge.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new LightningOrbEvokeAction(new DamageInfo(AbstractDungeon.player, this.owner.getPower(WindCharge.POWER_ID).amount, DamageInfo.DamageType.THORNS), false));
+            this.amount = this.owner.getPower(WindCharge.POWER_ID).amount;
+        } else {
+            this.amount = 0;
         }
         if (this.owner.hasPower(LightningCharge.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new LightningOrbEvokeAction(new DamageInfo(AbstractDungeon.player, this.owner.getPower(LightningCharge.POWER_ID).amount, DamageInfo.DamageType.THORNS), false));
+            this.amount2 = this.owner.getPower(LightningCharge.POWER_ID).amount;
+        } else {
+            this.amount2 = 0;
         }
+    }
+
+    public void atEndOfTurn(boolean isPlayer) {
+            AbstractDungeon.actionManager.addToBottom(new LightningOrbEvokeAction(new DamageInfo(AbstractDungeon.player, this.amount, DamageInfo.DamageType.THORNS), false));
+
+            AbstractDungeon.actionManager.addToBottom(new LightningOrbEvokeAction(new DamageInfo(AbstractDungeon.player, this.amount2, DamageInfo.DamageType.THORNS), false));
+
     }
 
     public void updateDescription() {
@@ -50,6 +65,4 @@ public class OverchargePower extends AbstractPower {
         }
         this.description = DESCRIPTIONS[0] + WINDAMT + DESCRIPTIONS[1] + LIGHTNINGAMT + DESCRIPTIONS[2];
     }
-
-
 }

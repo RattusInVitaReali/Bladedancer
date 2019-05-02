@@ -1,10 +1,12 @@
 package blademaster.powers;
 
 import blademaster.actions.LightningStanceAction;
+import blademaster.cards.WrongfulFootwork;
 import blademaster.effects.particles.BetterFireBurstParticleEffect;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.MathUtils;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -27,7 +29,8 @@ public class LightningStance extends AbstractPower {
         this.owner = owner;
         this.priority = 6;
         this.type = PowerType.BUFF;
-        this.isTurnBased = true;
+        this.amount = -1;
+        this.isTurnBased = false;
         this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/LightningStance.png"), 0, 0, 84, 84);
         this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/LightningStanceSmall.png"), 0, 0, 32, 32);
         updateDescription();
@@ -55,6 +58,9 @@ public class LightningStance extends AbstractPower {
                 AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this));
             }
         }
+        if (power.ID.equals(this.ID)) {
+            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new WrongfulFootwork(), 1, true, true));
+        }
     }
 
     public void onVictory() {
@@ -63,6 +69,9 @@ public class LightningStance extends AbstractPower {
 
     public void onInitialApplication() {
         AbstractDungeon.actionManager.addToBottom(new LightningStanceAction());
+        if (this.owner.hasPower(this.ID)) {
+            //Do thing
+        }
     }
 
 

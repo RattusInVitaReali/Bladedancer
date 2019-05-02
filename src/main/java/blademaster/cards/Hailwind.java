@@ -20,7 +20,7 @@ public class Hailwind extends CustomCard {
 
 
     public static final String ID = Blademaster.makeID("Hailwind");
-    public static final String IMG = Blademaster.makePath(Blademaster.DEFAULT_ATTACK);
+    public static final String IMG = Blademaster.makePath("cards/Hailwind.png");
     public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
@@ -29,7 +29,7 @@ public class Hailwind extends CustomCard {
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
     private static final int COST = 1;
-    private static final int DAMAGE = 4;
+    private static final int DAMAGE = 3;
 
     public Hailwind() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);

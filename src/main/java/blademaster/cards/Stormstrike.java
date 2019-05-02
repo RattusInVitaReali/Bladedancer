@@ -3,7 +3,6 @@ package blademaster.cards;
 import basemod.abstracts.CustomCard;
 import blademaster.Blademaster;
 import blademaster.patches.AbstractCardEnum;
-import blademaster.patches.BlademasterTags;
 import blademaster.powers.LightningCharge;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
@@ -27,19 +26,19 @@ public class Stormstrike extends CustomCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
     private static final int COST = 1;
     private static final int DAMAGE = 4;
-    private static final int MULT = 3;
+    private static final int MULT = 2;
 
 
     public Stormstrike() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = this.damage = DAMAGE;
         this.baseMagicNumber = this.magicNumber = MULT;
-        this.tags.add(BlademasterTags.LIGHTNING_STANCE);
         this.tags.add(CardTags.STRIKE);
     }
 
@@ -67,6 +66,7 @@ public class Stormstrike extends CustomCard {
             this.upgradeDamage(2);
             this.upgradeMagicNumber(1);
             this.upgradeName();
+            this.rawDescription = UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }

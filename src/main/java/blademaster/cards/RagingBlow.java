@@ -24,9 +24,9 @@ import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
 public class RagingBlow extends CustomCard {
 
     public static final String ID = Blademaster.makeID("RagingBlow");
-    public static final String IMG = Blademaster.makePath(Blademaster.DEFAULT_ATTACK);
-    public static final String LIMG = Blademaster.makePath(Blademaster.LIGHTNING_ATTACK);
-    public static final String WIMG = Blademaster.makePath(Blademaster.WIND_ATTACK);
+    public static final String IMG = Blademaster.makePath("cards/RagingBlow.png");
+    public static final String LIMG = Blademaster.makePath("cards/LightningRagingBlow.png");
+    public static final String WIMG = Blademaster.makePath("cards/WindRagingBlow.png");
     public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
@@ -84,41 +84,48 @@ public class RagingBlow extends CustomCard {
         if (p.hasPower(LightningStance.POWER_ID) && p.hasPower(LightningCharge.POWER_ID)) {
             AbstractDungeon.actionManager.addToTop(new SFXAction("ORB_LIGHTNING_EVOKE"));
             AbstractDungeon.actionManager.addToTop(new VFXAction(new LightningEffect(m.drawX, m.drawY), 0.2F));
-            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, 3 * p.getPower(LightningCharge.POWER_ID).amount, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HEAVY));
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, 2 * p.getPower(LightningCharge.POWER_ID).amount, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HEAVY));
         }
     }
 
-    public void applyPowers() {
-        super.applyPowers();
-        if (AbstractDungeon.player.hasPower(WindStance.POWER_ID)) {
-            if (! WindArt) {
-                AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, WIMG, false));
-                this.rawDescription = (DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0]);
-                this.initializeDescription();
-                WindArt = true;
-                LightningArt = false;
-                BaseArt = false;
-                System.out.println("Wind art set to true.");
-            }
-        } else if (AbstractDungeon.player.hasPower(LightningStance.POWER_ID)) {
-            if (! LightningArt) {
-                AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, LIMG, false));
-                this.rawDescription = (DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[1]);
-                this.initializeDescription();
-                WindArt = false;
-                LightningArt = true;
-                BaseArt = false;
-                System.out.println("Lighting art set to true.");
-            }
-        } else if (AbstractDungeon.player.hasPower(BasicStance.POWER_ID)) {
-            if (! BaseArt) {
-                AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG, false));
-                this.rawDescription = DESCRIPTION;
-                this.initializeDescription();
-                WindArt = false;
-                LightningArt = false;
-                BaseArt = true;
-                System.out.println("Base art set to true.");
+    public void update() {
+        super.update();
+        if (CardCrawlGame.isInARun()) {
+            if (AbstractDungeon.player.hasPower(WindStance.POWER_ID)) {
+                if (! WindArt) {
+                    AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, WIMG, false));
+                    if (this.upgraded) {
+                        this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[2];
+                    } else {
+                        this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0];
+                    }
+                    initializeDescription();
+                    WindArt = true;
+                    LightningArt = false;
+                    BaseArt = false;
+                }
+            } else if (AbstractDungeon.player.hasPower(LightningStance.POWER_ID)) {
+                if (! LightningArt) {
+                    AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, LIMG, false));
+                    if (this.upgraded) {
+                        this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[3];
+                    } else {
+                        this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[1];
+                    }
+                    initializeDescription();
+                    WindArt = false;
+                    LightningArt = true;
+                    BaseArt = false;
+                }
+            } else if (AbstractDungeon.player.hasPower(BasicStance.POWER_ID)) {
+                if (! BaseArt) {
+                    AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG, false));
+                    this.rawDescription = DESCRIPTION;
+                    initializeDescription();
+                    WindArt = false;
+                    LightningArt = false;
+                    BaseArt = true;
+                }
             }
         }
     }

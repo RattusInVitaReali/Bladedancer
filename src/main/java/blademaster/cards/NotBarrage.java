@@ -16,7 +16,7 @@ public class NotBarrage extends CustomCard {
 
 
     public static final String ID = Blademaster.makeID("NotBarrage");
-    public static final String IMG = Blademaster.makePath(Blademaster.DEFAULT_ATTACK);
+    public static final String IMG = Blademaster.makePath("cards/NotBarrage.png");
     public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;

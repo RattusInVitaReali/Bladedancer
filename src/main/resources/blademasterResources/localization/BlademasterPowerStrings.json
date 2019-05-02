@@ -23,7 +23,15 @@
         "DESCRIPTIONS": [
             "Whenever you're attacked, reduce the damage by ",
             " and gain ",
-            " #rπLightning #yCharge."
+            " #bπLightning #yCharge."
+        ]
+    },
+    "EyeOfTheTornadoPower": {
+        "NAME": "Eye of the Tornado",
+        "DESCRIPTIONS": [
+            "Whenever you're attacked, reduce the damage by ",
+            " and gain ",
+            " #gWind #yCharge."
         ]
     },
     "FrozenPower": {
@@ -213,6 +221,13 @@
             "Whenever you would switch #yStances, draw #b",
             " card instead.",
             " cards instead."
+        ]
+    },
+    "BloodbathPower": {
+        "NAME":"Bloodbath",
+        "DESCRIPTIONS": [
+            "Whenever you play a Skill, apply #b",
+            " #yBleeding to ALL enemies."
         ]
     }
 }

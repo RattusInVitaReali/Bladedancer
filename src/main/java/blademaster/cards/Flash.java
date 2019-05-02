@@ -78,34 +78,36 @@ public class Flash extends CustomCard {
         AbstractDungeon.actionManager.addToBottom(new AddFlashToHandAction(this.upgraded, this.counter + 6));
     }
 
-    public void applyPowers() {
-        super.applyPowers();
-        if (AbstractDungeon.player.hasPower(WindStance.POWER_ID)) {
-            if (! WindArt) {
-                AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, WIMG, false));
-                this.rawDescription = (cardStrings.EXTENDED_DESCRIPTION[3] + (this.counter + 12) + cardStrings.EXTENDED_DESCRIPTION[2] + cardStrings.EXTENDED_DESCRIPTION[0]);
-                this.initializeDescription();
-                WindArt = true;
-                LightningArt = false;
-                BaseArt = false;
-            }
-        } else if (AbstractDungeon.player.hasPower(LightningStance.POWER_ID)) {
-            if (! LightningArt) {
-                AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, LIMG, false));
-                this.rawDescription = (cardStrings.EXTENDED_DESCRIPTION[3] + (this.counter + 12) + cardStrings.EXTENDED_DESCRIPTION[2] + cardStrings.EXTENDED_DESCRIPTION[1]);
-                this.initializeDescription();
-                WindArt = false;
-                LightningArt = true;
-                BaseArt = false;
-            }
-        } else if (AbstractDungeon.player.hasPower(BasicStance.POWER_ID)) {
-            if (! BaseArt) {
-                AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG, false));
-                this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[3] + (this.counter + 12) + cardStrings.EXTENDED_DESCRIPTION[2];
-                this.initializeDescription();
-                WindArt = false;
-                LightningArt = false;
-                BaseArt = true;
+    public void update() {
+        super.update();
+        if (CardCrawlGame.isInARun()) {
+            if (AbstractDungeon.player.hasPower(WindStance.POWER_ID)) {
+                if (! WindArt) {
+                    AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, WIMG, false));
+                    this.rawDescription = (cardStrings.EXTENDED_DESCRIPTION[3] + (this.counter + 12) + cardStrings.EXTENDED_DESCRIPTION[0] + cardStrings.EXTENDED_DESCRIPTION[1]);
+                    this.initializeDescription();
+                    WindArt = true;
+                    LightningArt = false;
+                    BaseArt = false;
+                }
+            } else if (AbstractDungeon.player.hasPower(LightningStance.POWER_ID)) {
+                if (! LightningArt) {
+                    AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, LIMG, false));
+                    this.rawDescription = (cardStrings.EXTENDED_DESCRIPTION[3] + (this.counter + 12) + cardStrings.EXTENDED_DESCRIPTION[0] + cardStrings.EXTENDED_DESCRIPTION[2]);
+                    this.initializeDescription();
+                    WindArt = false;
+                    LightningArt = true;
+                    BaseArt = false;
+                }
+            } else if (AbstractDungeon.player.hasPower(BasicStance.POWER_ID)) {
+                if (! BaseArt) {
+                    AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG, false));
+                    this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[3] + (this.counter + 12) + cardStrings.EXTENDED_DESCRIPTION[0];
+                    this.initializeDescription();
+                    WindArt = false;
+                    LightningArt = false;
+                    BaseArt = true;
+                }
             }
         }
     }

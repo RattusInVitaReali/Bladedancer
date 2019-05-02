@@ -25,7 +25,7 @@ public class LightningCrash extends CustomCard {
 
 
     public static final String ID = Blademaster.makeID("LightningCrash");
-    public static final String IMG = Blademaster.makePath(Blademaster.DEFAULT_ATTACK);
+    public static final String IMG = Blademaster.makePath("cards/LightningCrash.png");
     public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
@@ -34,7 +34,7 @@ public class LightningCrash extends CustomCard {
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
     private static final int COST = 2;
-    private static final int DAMAGE = 9;
+    private static final int DAMAGE = 12;
 
 
     public LightningCrash() {
@@ -64,7 +64,7 @@ public class LightningCrash extends CustomCard {
     public void upgrade() {
         if (! this.upgraded) {
             this.upgradeName();
-            this.upgradeDamage(3);
+            this.upgradeDamage(4);
             this.initializeDescription();
         }
     }

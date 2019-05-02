@@ -3,6 +3,8 @@ package blademaster.relics;
 import basemod.abstracts.CustomRelic;
 import blademaster.Blademaster;
 import blademaster.blights.*;
+import blademaster.orbs.LightningChargeOrb;
+import blademaster.orbs.WindChargeOrb;
 import blademaster.perks.*;
 import blademaster.powers.BasicStance;
 import blademaster.powers.ComboPower;
@@ -11,6 +13,7 @@ import blademaster.rewards.LinkedRewardItem;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
+import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.blights.AbstractBlight;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
@@ -40,6 +43,8 @@ public class DancersAmulet extends CustomRelic {
     @Override
     public void atBattleStart() {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new BasicStance(AbstractDungeon.player)));
+        AbstractDungeon.actionManager.addToBottom(new ChannelAction(new WindChargeOrb()));
+        AbstractDungeon.actionManager.addToBottom(new ChannelAction(new LightningChargeOrb()));
     }
 
     public void atTurnStart() {
@@ -72,6 +77,10 @@ public class DancersAmulet extends CustomRelic {
         perksList.add(new FinisherDrawCardPerk());
         perksList.add(new ComboEveryTurnPerk());
         perksList.add(new FuryEveryTurnPerk());
+        perksList.add(new OnAttackedChargePerk());
+        perksList.add(new BleedingLaceratePerk());
+        perksList.add(new WindChargePerk());
+        perksList.add(new LightningChargePerk());
 
         blightMap.put(BonusComboPerkBlight.ID, BonusComboPerk.ID);
         blightMap.put(BonusFuryPerkBlight.ID, BonusFuryPerk.ID);
@@ -84,6 +93,10 @@ public class DancersAmulet extends CustomRelic {
         blightMap.put(StanceHealPerkBlight.ID, StanceHealPerk.ID);
         blightMap.put(ComboEveryTurnPerkBlight.ID, ComboEveryTurnPerk.ID);
         blightMap.put(FuryEveryTurnPerkBlight.ID, FuryEveryTurnPerk.ID);
+        blightMap.put(OnAttackedChargePerkBlight.ID, OnAttackedChargePerk.ID);
+        blightMap.put(BleedingLaceratePerkBlight.ID, BleedingLaceratePerk.ID);
+        blightMap.put(WindChargePerkBlight.ID, WindChargePerk.ID);
+        blightMap.put(LightningChargePerkBlight.ID, LightningChargePerk.ID);
 
         System.out.println("Published onTrigger.");
 
