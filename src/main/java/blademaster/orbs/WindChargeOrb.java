@@ -18,7 +18,7 @@ public class WindChargeOrb
     public static final String[] DESC = {"You currently have #b",
             " #gWind #yCharge.",
             " #gWind #yCharges."};
-    private Texture IMG = new Texture("blademasterResources/images/orbs/WindCharge.png");
+    private static Texture IMG = new Texture("blademasterResources/images/orbs/WindCharge.png");
     private float vfxTimer;
 
     public WindChargeOrb() {

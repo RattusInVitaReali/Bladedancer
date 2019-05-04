@@ -26,6 +26,8 @@ public class BleedingPower extends AbstractPower implements HealthBarRenderPower
     }
 
     public AbstractCreature source;
+    public static TextureAtlas.AtlasRegion BigImage = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/Bleeding.png"), 0, 0, 84, 84);
+    public static TextureAtlas.AtlasRegion SmallImage = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/BleedingSmall.png"), 0, 0, 32, 32);
 
     public BleedingPower(AbstractCreature owner, AbstractCreature source, int amount) {
         this.name = NAME;
@@ -35,8 +37,8 @@ public class BleedingPower extends AbstractPower implements HealthBarRenderPower
         this.updateDescription();
         this.type = PowerType.DEBUFF;
         this.isTurnBased = true;
-        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/Bleeding.png"), 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/BleedingSmall.png"), 0, 0, 32, 32);
+        this.region128 = BigImage;
+        this.region48 = SmallImage;
         this.source = source;
     }
 

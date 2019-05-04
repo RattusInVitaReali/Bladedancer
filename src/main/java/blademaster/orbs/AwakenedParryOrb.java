@@ -32,7 +32,7 @@ public class AwakenedParryOrb
     private static final float ORB_WAVY_DIST = 0.04F;
     private static final float PI_4 = 12.566371F;
     private static int COUNTER = 0;
-    private Texture ORB_BLADE = new Texture("blademasterResources/images/orbs/ParryBlade.png");
+    private static Texture ORB_BLADE = new Texture("blademasterResources/images/orbs/ParryBlade.png");
     private float vfxTimer;
 
     public AwakenedParryOrb() {

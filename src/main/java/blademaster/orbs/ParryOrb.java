@@ -25,7 +25,7 @@ public class ParryOrb
     public static final String[] DESC = {"#yPassive: Whenever you're attacked, reduce the damage by #b",
             ". NL #yEvoke: Gain #b",
             " #yThorns."};
-    private Texture ORB_BLADE = new Texture("blademasterResources/images/orbs/ParryBlade.png");
+    private static Texture ORB_BLADE = new Texture("blademasterResources/images/orbs/ParryBlade.png");
     private float vfxTimer;
 
     public ParryOrb() {

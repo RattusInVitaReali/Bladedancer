@@ -51,20 +51,15 @@ public class FlockOfBlades extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new FuryPower(p, - 30), - 30));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ComboPower(p, - 6), - 6));
-        if (this.upgraded) {
-            AbstractDungeon.actionManager.addToBottom(new ChannelAction(new BladeOrb(), false));
-            AbstractDungeon.actionManager.addToBottom(new ChannelAction(new BladeOrb(), false));
-            AbstractDungeon.actionManager.addToBottom(new ChannelAction(new BladeOrb(), false));
-            AbstractDungeon.actionManager.addToBottom(new ChannelAction(new BladeOrb(), false));
-            AbstractDungeon.actionManager.addToBottom(new ChannelAction(new BladeOrb(), false));
-            AbstractDungeon.actionManager.addToBottom(new ChannelAction(new BladeOrb(), false));
-            AbstractDungeon.actionManager.addToBottom(new ChannelAction(new BladeOrb(), false));
+        int Channel = 0;
+        if (AbstractDungeon.player.filledOrbCount() > 10 - this.magicNumber) {
+            for (int i = 0; i < 10 - AbstractDungeon.player.filledOrbCount(); i++) {
+                AbstractDungeon.actionManager.addToBottom(new ChannelAction(new BladeOrb()));
+            }
         } else {
-            AbstractDungeon.actionManager.addToBottom(new ChannelAction(new BladeOrb(), false));
-            AbstractDungeon.actionManager.addToBottom(new ChannelAction(new BladeOrb(), false));
-            AbstractDungeon.actionManager.addToBottom(new ChannelAction(new BladeOrb(), false));
-            AbstractDungeon.actionManager.addToBottom(new ChannelAction(new BladeOrb(), false));
-            AbstractDungeon.actionManager.addToBottom(new ChannelAction(new BladeOrb(), false));
+            for (int i = 0; i < this.magicNumber; i++) {
+                AbstractDungeon.actionManager.addToBottom(new ChannelAction(new BladeOrb()));
+            }
         }
     }
 

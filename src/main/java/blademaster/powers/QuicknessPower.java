@@ -16,6 +16,9 @@ public class QuicknessPower extends AbstractPower implements BetterOnApplyPowerP
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
+    public static TextureAtlas.AtlasRegion BigImage = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/Quickness.png"), 0, 0, 84, 84);
+    public static TextureAtlas.AtlasRegion SmallImage = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/QuicknessSmall.png"), 0, 0, 32, 32);
+
     public QuicknessPower(AbstractCreature owner, int amount) {
         this.name = NAME;
         this.ID = POWER_ID;
@@ -23,8 +26,8 @@ public class QuicknessPower extends AbstractPower implements BetterOnApplyPowerP
         this.amount = amount;
         this.type = PowerType.BUFF;
         this.isTurnBased = false;
-        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/Quickness.png"), 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/QuicknessSmall.png"), 0, 0, 32, 32);
+        this.region128 = BigImage;
+        this.region48 = SmallImage;
         updateDescription();
     }
 

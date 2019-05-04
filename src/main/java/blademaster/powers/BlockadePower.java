@@ -12,6 +12,7 @@ public class BlockadePower extends AbstractPower {
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
+
     public BlockadePower(AbstractCreature owner, int amount) {
         this.name = NAME;
         this.ID = POWER_ID;

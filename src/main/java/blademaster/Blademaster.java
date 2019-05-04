@@ -7,9 +7,7 @@ import basemod.abstracts.CustomCard;
 import basemod.interfaces.*;
 import blademaster.cards.*;
 import blademaster.characters.BlademasterCharacter;
-import blademaster.patches.AbstractCardEnum;
-import blademaster.patches.BlademasterTags;
-import blademaster.patches.TheDefaultEnum;
+import blademaster.patches.*;
 import blademaster.perks.*;
 import blademaster.powers.LightningStance;
 import blademaster.powers.WindStance;
@@ -17,7 +15,6 @@ import blademaster.relics.DancersAmulet;
 import blademaster.variables.*;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
-import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -31,11 +28,6 @@ import org.apache.logging.log4j.Logger;
 @SpireInitializer
 public class Blademaster
         implements EditCardsSubscriber, EditRelicsSubscriber, EditStringsSubscriber, EditKeywordsSubscriber, EditCharactersSubscriber, PostInitializeSubscriber {
-    public static boolean hasHubris;
-
-    static {
-        hasHubris = Loader.isModLoaded("Hubris");
-    }
 
     public static final Logger logger = LogManager.getLogger(Blademaster.class.getName());
     // Colors (RGB)
@@ -96,13 +88,23 @@ public class Blademaster
     private static final String POWER_DEAFULT_GRAY_PORTRAIT = "1024/bg_power_default_gray.png";
     private static final String SKILL_DEAFULT_GRAY_PORTRAIT = "1024/bg_skill_default_gray.png";
     private static final String ENERGY_ORB_DEAFULT_GRAY_PORTRAIT = "1024/card_default_gray_orb.png";
+
+    private static final String ATTACK_DEAFULT_WIND = "512/Wind/AttackSmallBg.png";
+    private static final String POWER_DEAFULT_WIND = "512/Wind/PowerSmallBg.png";
+    private static final String SKILL_DEAFULT_WIND = "512/Wind/SkillSmallBg.png";
+    private static final String ATTACK_DEAFULT_WIND_PORTRAIT = "1024/Wind/AttackBg.png";
+    private static final String POWER_DEAFULT_WIND_PORTRAIT = "1024/Wind/PowerBg.png";
+    private static final String SKILL_DEAFULT_WIND_PORTRAIT = "1024/Wind/SkillBg.png";
+
+    private static final String ATTACK_DEAFULT_LIGHTNING = "512/Lightning/AttackSmallBg.png";
+    private static final String POWER_DEAFULT_LIGHTNING = "512/Lightning/PowerSmallBg.png";
+    private static final String SKILL_DEAFULT_LIGHTNING = "512/Lightning/SkillSmallBg.png";
+    private static final String ATTACK_DEAFULT_LIGHTNING_PORTRAIT = "1024/Lightning/AttackBg.png";
+    private static final String POWER_DEAFULT_LIGHTNING_PORTRAIT = "1024/Lightning/PowerBg.png";
+    private static final String SKILL_DEAFULT_LIGHTNING_PORTRAIT = "1024/Lightning/SkillBg.png";
     // Character assets
     private static final String THE_BLADEMASTER_BUTTON = "characterSelect/DefaultCharacterButton.png";
     private static final String THE_BLADEMASTER_PORTRAIT = "characterSelect/DeafultCharacterPortraitBG.png";
-
-    private static final String WindChargeString = "blademasterResources/images/512/WindCharge.png";
-    private static final String LightningChargeString = "blademasterResources/images/512/LightningCharge.png";
-
 
 
 
@@ -394,7 +396,6 @@ public class Blademaster
         BaseMod.addCard(new Zephyr());
 
 
-
         UnlockTracker.unlockCard(AncestralHealing.ID);
         UnlockTracker.unlockCard(AwakeningDefend.ID);
         UnlockTracker.unlockCard(AwakeningStrike.ID);
@@ -469,6 +470,7 @@ public class Blademaster
         UnlockTracker.unlockCard(WindSlash.ID);
         UnlockTracker.unlockCard(WrongfulFootwork.ID);
         UnlockTracker.unlockCard(Zephyr.ID);
+
     }
 
     // ================ LOAD THE KEYWORDS ===================
@@ -530,5 +532,8 @@ public class Blademaster
 
         final String[] bleeding = {"bleeding", "bleed", "bleeds"};
         BaseMod.addKeyword(bleeding, "Bleeding enemies take damage at the end of the round.");
+
+        final String[] frozen = {"freeze, frozen"};
+        BaseMod.addKeyword(frozen, "Frozen enemies take 5% more damage per stack of Frozen.");
     }
 }

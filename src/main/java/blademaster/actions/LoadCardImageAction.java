@@ -4,7 +4,8 @@ import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.Settings;
 
-public class LoadCardImageAction extends AbstractGameAction {
+public class
+LoadCardImageAction extends AbstractGameAction {
     private CustomCard card;
     private String imgPath;
     private boolean withFlash;

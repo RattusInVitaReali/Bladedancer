@@ -22,6 +22,8 @@ public class LightningStance extends AbstractPower {
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
     private float particleTimer = 0.0F;
     private float particleTimer2 = 0.03F;
+    public static TextureAtlas.AtlasRegion BigImage = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/LightningStance.png"), 0, 0, 84, 84);
+    public static TextureAtlas.AtlasRegion SmallImage = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/LightningStanceSmall.png"), 0, 0, 32, 32);
 
     public LightningStance(AbstractCreature owner) {
         this.name = NAME;
@@ -31,8 +33,8 @@ public class LightningStance extends AbstractPower {
         this.type = PowerType.BUFF;
         this.amount = -1;
         this.isTurnBased = false;
-        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/LightningStance.png"), 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/LightningStanceSmall.png"), 0, 0, 32, 32);
+        this.region128 = BigImage;
+        this.region48 = SmallImage;
         updateDescription();
     }
 

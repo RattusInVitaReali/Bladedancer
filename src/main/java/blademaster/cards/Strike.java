@@ -1,6 +1,5 @@
 package blademaster.cards;
 
-import basemod.abstracts.CustomCard;
 import basemod.helpers.BaseModCardTags;
 import blademaster.Blademaster;
 import blademaster.actions.LoadCardImageAction;
@@ -22,7 +21,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.screens.SingleCardViewPopup;
 
-public class Strike extends CustomCard {
+public class Strike extends AbstractStanceCard {
 
     public static final String ID = Blademaster.makeID("Strike");
     public static final String IMG = Blademaster.makePath("cards/Strike.png");
@@ -72,12 +71,41 @@ public class Strike extends CustomCard {
     }
 
     @Override
-    public void applyPowers() {
-        super.applyPowers();
-        if (CardCrawlGame.isInARun()) {
-            if (AbstractDungeon.player.hasPower(WindStance.POWER_ID)) {
+    public void update() {
+        super.update();
+        if (WindArtS) {
+            if (! WindArt) {
+                this.loadCardImage(WIMG);
+                if (this.upgraded) {
+                    System.out.println("I'm out!");
+                    this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[2];
+                } else {
+                    System.out.println("I'm not being registered as upgraded!");
+                    this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0];
+                }
+                initializeDescription();
+                WindArt = true;
+                LightningArt = false;
+                BaseArt = false;
+            }
+        } else if (LightningArtS) {
+            if (! LightningArt) {
+                this.loadCardImage(LIMG);
+                if (this.upgraded) {
+                    this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[3];
+                } else {
+                    this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[1];
+                }
+                initializeDescription();
+                WindArt = false;
+                LightningArt = true;
+                BaseArt = false;
+            }
+        }
+        else if (CardCrawlGame.isInARun()) {
+            if (AbstractDungeon.player.hasPower(WindStance.POWER_ID) && (!AbstractDungeon.getMonsters().areMonstersDead())) {
                 if (! WindArt) {
-                    AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, WIMG, false));
+                    this.loadCardImage(WIMG);
                     if (this.upgraded) {
                         this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[2];
                     } else {
@@ -88,7 +116,7 @@ public class Strike extends CustomCard {
                     LightningArt = false;
                     BaseArt = false;
                 }
-            } else if (AbstractDungeon.player.hasPower(LightningStance.POWER_ID)) {
+            } else if (AbstractDungeon.player.hasPower(LightningStance.POWER_ID) && (!AbstractDungeon.getMonsters().areMonstersDead())) {
                 if (! LightningArt) {
                     AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, LIMG, false));
                     if (this.upgraded) {
@@ -101,7 +129,7 @@ public class Strike extends CustomCard {
                     LightningArt = true;
                     BaseArt = false;
                 }
-            } else if (AbstractDungeon.player.hasPower(BasicStance.POWER_ID)) {
+            } else if (AbstractDungeon.player.hasPower(BasicStance.POWER_ID) && (!AbstractDungeon.getMonsters().areMonstersDead())) {
                 if (! BaseArt) {
                     AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG, false));
                     this.rawDescription = DESCRIPTION;
@@ -115,16 +143,20 @@ public class Strike extends CustomCard {
     }
 
 
-    private AbstractCard cardToPreview = null;
-    private boolean bullshit = false;
 
     @Override
     public void hover() {
-        if (this.cardToPreview == null && !this.bullshit) {
-            this.cardToPreview = new Strike();
-            if (this.upgraded) {
-                this.cardToPreview.upgrade();
+        if (this.cardToPreview1 == null && ! this.bullshit) {
+            this.cardToPreview1 = new Strike();
+            this.cardToPreview2 = new Strike();
+            if (this.upgraded || SingleCardViewPopup.isViewingUpgrade) {
+                this.cardToPreview1.upgrade();
+                this.cardToPreview2.upgrade();
             }
+            ((Strike) this.cardToPreview1).WindArtS = true;
+            this.cardToPreview1.update();
+            ((Strike) this.cardToPreview2).LightningArtS = true;
+            this.cardToPreview2.update();
         }
         super.hover();
         this.bullshit = true;
@@ -134,11 +166,34 @@ public class Strike extends CustomCard {
     public void unhover() {
         super.unhover();
         this.bullshit = false;
-        this.cardToPreview = null;
+        this.cardToPreview1 = null;
+        this.cardToPreview2 = null;
     }
 
-    @Override
     public void renderCardTip(SpriteBatch sb) {
+        if ((this.cardToPreview1 != null) && (! Settings.hideCards) && (this.bullshit)) {
+            float tmpScale = this.drawScale / 1.5F;
+
+            if ((AbstractDungeon.player != null) && (AbstractDungeon.player.isDraggingCard)) {
+                return;
+            }
+
+            this.cardToPreview1.current_x = this.current_x - (((AbstractCard.IMG_WIDTH / 2.0F) + ((AbstractCard.IMG_WIDTH / 2.0F) / 1.5F) + (16.0F)) * this.drawScale);
+
+            this.cardToPreview1.current_y = this.current_y + ((AbstractCard.IMG_HEIGHT / 2.0F)) * this.drawScale;
+
+            this.cardToPreview1.drawScale = tmpScale;
+
+            this.cardToPreview1.render(sb);
+
+            this.cardToPreview2.current_x = this.current_x -  (((AbstractCard.IMG_WIDTH / 2.0F) + ((AbstractCard.IMG_WIDTH / 2.0F) / 1.5F) + (16.0F)) * this.drawScale);
+
+            this.cardToPreview2.current_y = this.current_y - ((AbstractCard.IMG_HEIGHT / 6.0F)) * this.drawScale;
+
+            this.cardToPreview2.drawScale = tmpScale;
+
+            this.cardToPreview2.render(sb);
+        }
         if ((! Settings.hideCards) && (this.bullshit)) {
             if ((SingleCardViewPopup.isViewingUpgrade) && (this.isSeen) && (! this.isLocked)) {
                 AbstractCard copy = makeStatEquivalentCopy();
@@ -152,27 +207,8 @@ public class Strike extends CustomCard {
                 super.renderCardTip(sb);
             }
         }
-
-        if ((this.cardToPreview != null) && (! Settings.hideCards) && (this.bullshit)) {
-            float tmpScale = this.drawScale / 1.5F;
-
-            if ((AbstractDungeon.player != null) && (AbstractDungeon.player.isDraggingCard)) {
-                return;
-            }
-
-            //						x    = card center	  + half the card width 			 + half the preview width 					  + Padding			* Viewport scale * drawscale
-            if (this.current_x > Settings.WIDTH * 0.75F) {
-                this.cardToPreview.current_x = this.current_x + (((AbstractCard.IMG_WIDTH / 2.0F) + ((AbstractCard.IMG_WIDTH / 2.0F) / 1.5F) + (16.0F)) * this.drawScale);
-            } else {
-                this.cardToPreview.current_x = this.current_x - (((AbstractCard.IMG_WIDTH / 2.0F) + ((AbstractCard.IMG_WIDTH / 2.0F) / 1.5F) + (16.0F)) * this.drawScale);
-            }
-
-            this.cardToPreview.current_y = this.current_y + ((AbstractCard.IMG_HEIGHT / 2.0F) - (AbstractCard.IMG_HEIGHT / 2.0F / 1.5F)) * this.drawScale;
-
-            this.cardToPreview.drawScale = tmpScale;
-            this.cardToPreview.render(sb);
-        }
     }
+
 
     @Override
     public AbstractCard makeCopy() {

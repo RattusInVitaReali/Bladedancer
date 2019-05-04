@@ -93,9 +93,16 @@ public class BlademasterCharacter extends CustomPlayer {
                 THE_DEFAULT_SKELETON_ATLAS,
                 THE_DEFAULT_SKELETON_JSON,
                 0.95f);
-        AnimationState.TrackEntry e = state.setAnimation(0, "Idle", true);
-        e.setTime(e.getEndTime() * MathUtils.random());
 
+        int Hope = MathUtils.random(100);
+        System.out.println(Hope);
+        if (Hope == 69) {
+            AnimationState.TrackEntry e = state.setAnimation(0, "Thonk", true);
+            e.setTime(e.getEndTime() * MathUtils.random());
+        } else {
+            AnimationState.TrackEntry e = state.setAnimation(0, "Idle", true);
+            e.setTime(e.getEndTime() * MathUtils.random());
+        }
         // =============== /ANIMATIONS/ =================
 
 
@@ -272,7 +279,7 @@ public class BlademasterCharacter extends CustomPlayer {
         float doffset = 10.0F;
         for (AbstractPower p : this.powers) {
             if (p.ID.equals(LightningStance.POWER_ID) || p.ID.equals(WindStance.POWER_ID) || p.ID.equals(BasicStance.POWER_ID)) {
-                p.renderIcons(sb, x + (250F * Settings.scale), y * Settings.scale - 20F, Color.WHITE.cpy());
+                p.renderIcons(sb, x + (250F * Settings.scale), y - 20F * Settings.scale, Color.WHITE.cpy());
             } else if ((p.ID.equals(FuryPower.POWER_ID)) || (p.ID.equals(ComboPower.POWER_ID)) || (p.ID.equals(CalmnessPower.POWER_ID))
                     || (p.ID.equals(TiredPower.POWER_ID)) || (p.ID.equals(WindCharge.POWER_ID)) || (p.ID.equals(LightningCharge.POWER_ID))) {
                 yoffset = - 40.0F;

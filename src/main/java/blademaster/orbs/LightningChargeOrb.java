@@ -18,7 +18,7 @@ public class LightningChargeOrb
     public static final String[] DESC = {"You currently have #b",
             " #gLightning #yCharge.",
             " #gLightning #yCharges."};
-    private Texture IMG = new Texture("blademasterResources/images/orbs/LightningCharge.png");
+    private static Texture IMG = new Texture("blademasterResources/images/orbs/LightningCharge.png");
     private float vfxTimer;
 
     public LightningChargeOrb() {
