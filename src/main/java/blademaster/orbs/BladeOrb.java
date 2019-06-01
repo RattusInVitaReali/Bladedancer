@@ -35,10 +35,6 @@ public class BladeOrb
     public static final String[] DESC = {"#yPassive: whenever you play a single-target attack, deal #b ",
             " additional damage. NL #yEvoke: Deal #b ",
             " damage to all enemies."};
-    private static final float ORB_BORDER_SCALE = 1.2F;
-    private static final float VFX_INTERVAL_TIME = 0.25F;
-    private static final float ORB_WAVY_DIST = 0.04F;
-    private static final float PI_4 = 12.566371F;
     private static int Samt;
     private static Texture ORB_BLADE = new Texture("blademasterResources/images/orbs/HavocBlade.png");
     private float vfxTimer;

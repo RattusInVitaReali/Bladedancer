@@ -26,7 +26,7 @@ public class AncestralHealing extends CustomCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
-    private static final int COST = 1;
+    private static final int COST = 2;
     private static final int AMT = 2;
 
 
@@ -47,11 +47,7 @@ public class AncestralHealing extends CustomCard {
             this.magicNumber += p.getPower(LightningCharge.POWER_ID).amount;
             AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, LightningCharge.POWER_ID));
         }
-        if (this.upgraded) {
-            AbstractDungeon.actionManager.addToBottom(new HealAction(p, p, 3 * this.magicNumber));
-        } else {
-            AbstractDungeon.actionManager.addToBottom(new HealAction(p, p, 2 * this.magicNumber));
-        }
+        AbstractDungeon.actionManager.addToBottom(new HealAction(p, p, 2 * this.magicNumber));
     }
 
     @Override
@@ -61,9 +57,9 @@ public class AncestralHealing extends CustomCard {
 
     @Override
     public void upgrade() {
-        if (!this.upgraded) {
+        if (! this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(1);
+            this.upgradeBaseCost(1);
             this.initializeDescription();
         }
     }

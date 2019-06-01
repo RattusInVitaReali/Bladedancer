@@ -56,7 +56,7 @@
     "blademaster:StanceHealPerkBlight": {
         "NAME": "Perk: Healthy Stances",
         "DESCRIPTION": [
-            "At the end of combat,heal #6 HP if you're in a Stance."
+            "At the end of combat,heal #b6 HP if you're in a Stance."
         ]
     },
     "blademaster:ComboEveryTurnPerkBlight": {
@@ -68,7 +68,7 @@
     "blademaster:FuryEveryTurnPerkBlight": {
         "NAME": "Perk: Endless Rage",
         "DESCRIPTION": [
-            "At the start of your turn, gain #b5 #yCombo."
+            "At the start of your turn, gain #b5 #yFury."
         ]
     },
     "blademaster:OnAttackedChargePerkBlight": {
@@ -86,13 +86,19 @@
     "blademaster:WindChargePerkBlight": {
         "NAME": "Perk: Wind Stance Mastery",
         "DESCRIPTION": [
-            "At the start of your turn, gain #b2 #gWind #yCharges."
+            "At the start of your turn, if you're in #gWind #gStance gain 3 #gWind #gCharges if you have none. Otherwise, gain 1 #gWind #gCharge."
         ]
     },
     "blademaster:LightningChargePerkBlight": {
         "NAME": "Perk: Lightning Stance Mastery",
         "DESCRIPTION": [
-            "At the start of your turn, gain #b2 #bLightning #yCharges."
+            "At the start of your turn, if you're in #bLighting #bStance gain 3 #bLighting #bCharges if you have none. Otherwise, gain 1 #bLighting #bCharge."
+        ]
+    },
+    "blademaster:BleedingMoreDamagePerkBlight": {
+        "NAME": "Perk: Deep Cuts",
+        "DESCRIPTION": [
+            "#yBleeding enemies take #b30% more damage rather than #b20%."
         ]
     }
 }

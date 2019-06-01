@@ -22,6 +22,7 @@ public class SlyStabs extends CustomCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
@@ -35,10 +36,13 @@ public class SlyStabs extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (p.hasPower(LightningCharge.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Lacerate(), 2));
+            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Lacerate(), 1));
         }
         if (p.hasPower(WindCharge.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Lacerate(), 2));
+            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Lacerate(), 1));
+        }
+        if (this.upgraded) {
+            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Lacerate(), 1));
         }
     }
 
@@ -51,7 +55,7 @@ public class SlyStabs extends CustomCard {
     public void upgrade() {
         if (! this.upgraded) {
             this.upgradeName();
-            this.upgradeBaseCost(0);
+            this.rawDescription = UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }

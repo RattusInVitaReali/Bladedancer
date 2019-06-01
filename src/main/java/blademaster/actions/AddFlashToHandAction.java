@@ -21,6 +21,9 @@ public class AddFlashToHandAction extends AbstractGameAction {
         this.actionType = ActionType.CARD_MANIPULATION;
         this.duration = 0.35F;
         this.c = new Flash();
+        if (isUpgraded) {
+            c.upgrade();
+        }
         this.amount = 1;
         this.Thonk = CounterBonus;
     }

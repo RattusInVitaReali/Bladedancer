@@ -27,7 +27,7 @@ public class UnrelentingWind extends CustomCard {
 
 
     private static final CardRarity RARITY = CardRarity.RARE;
-    private static final CardTarget TARGET = CardTarget.ENEMY;
+    private static final CardTarget TARGET = CardTarget.NONE;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
 
@@ -52,11 +52,14 @@ public class UnrelentingWind extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ComboPower(p, - 5), - 5));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WindStance(p)));
         for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
-            AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(monster, p, new BleedingPower(monster, p, this.magicNumber), this.magicNumber));
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WindCharge(p, 2, false), 2));
+            if (! monster.isDeadOrEscaped()) {
+                AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(monster, p, new BleedingPower(monster, p, this.magicNumber), this.magicNumber));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WindCharge(p, 2, false), 2));
+            }
         }
     }
 

@@ -6,14 +6,12 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
 import com.megacrit.cardcrawl.blights.AbstractBlight;
 import com.megacrit.cardcrawl.helpers.BlightHelper;
 
-@SpirePatch(
-        clz=BlightHelper.class,
-        method="getBlight"
+@SpirePatch (
+        clz = BlightHelper.class,
+        method = "getBlight"
 )
-public class BlightsPatch
-{
-    public static SpireReturn<AbstractBlight> Prefix(String id)
-    {
+public class BlightsPatch {
+    public static SpireReturn <AbstractBlight> Prefix(String id) {
         if (BonusComboPerkBlight.ID.equals(id)) {
             return SpireReturn.Return(new BonusComboPerkBlight());
         }
@@ -28,9 +26,6 @@ public class BlightsPatch
         }
         if (FinisherDrawCardPerkBlight.ID.equals(id)) {
             return SpireReturn.Return(new FinisherDrawCardPerkBlight());
-        }
-        if (FocusedPerkBlight.ID.equals(id)) {
-            return SpireReturn.Return(new FocusedPerkBlight());
         }
         if (FuryEveryTurnPerkBlight.ID.equals(id)) {
             return SpireReturn.Return(new FuryEveryTurnPerkBlight());
@@ -57,8 +52,11 @@ public class BlightsPatch
             return SpireReturn.Return(new WindChargePerkBlight());
         }
         if (LightningChargePerkBlight.ID.equals(id)) {
-        return SpireReturn.Return(new LightningChargePerkBlight());
-    }
+            return SpireReturn.Return(new LightningChargePerkBlight());
+        }
+        if (BleedingMoreDamagePerkBlight.ID.equals(id)) {
+            return SpireReturn.Return(new BleedingMoreDamagePerkBlight());
+        }
         return SpireReturn.Continue();
     }
 }

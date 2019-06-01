@@ -2,11 +2,9 @@ package blademaster.cards;
 
 import basemod.abstracts.CustomCard;
 import blademaster.Blademaster;
-import blademaster.actions.LightningStanceAction;
 import blademaster.patches.AbstractCardEnum;
 import blademaster.patches.BlademasterTags;
 import blademaster.powers.ComboPower;
-import blademaster.powers.LightningStance;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -30,7 +28,7 @@ public class HighVoltage extends CustomCard {
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
     private static final int COST = 0;
-    private static final int BLOCK = 11;
+    private static final int BLOCK = 8;
     private static final int AMT = 1;
 
 
@@ -57,8 +55,6 @@ public class HighVoltage extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ComboPower(p, - 3), - 3));
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LightningStance(p)));
-        AbstractDungeon.actionManager.addToBottom(new LightningStanceAction());
     }
 
     @Override
@@ -70,7 +66,7 @@ public class HighVoltage extends CustomCard {
     public void upgrade() {
         if (! this.upgraded) {
             this.upgradeName();
-            this.upgradeBlock(4);
+            this.upgradeBlock(3);
             this.initializeDescription();
         }
     }

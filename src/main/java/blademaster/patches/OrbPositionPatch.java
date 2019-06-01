@@ -18,15 +18,12 @@ public class OrbPositionPatch {
         if (AbstractDungeon.player instanceof BlademasterCharacter) {
             abstractOrb_instance.tX = ((BlademasterCharacter) AbstractDungeon.player).orbPositionsX[slotNum];
             abstractOrb_instance.tY = ((BlademasterCharacter) AbstractDungeon.player).orbPositionsY[slotNum];
-
             abstractOrb_instance.hb.move(abstractOrb_instance.tX, abstractOrb_instance.tY);
             return SpireReturn.Return(null);
+
         } else {
-
             return SpireReturn.Continue();
-
         }
-
     }
 
 }

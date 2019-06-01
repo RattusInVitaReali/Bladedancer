@@ -12,10 +12,12 @@ public class BleedingLaceratePerk extends CustomRelic implements PerkRelic {
 
     public static final String ID = Blademaster.makeID("BleedingLaceratePerk");
     public static final String IMG = "blademasterResources/images/relics/perks/BleedingLaceratePerk.png";
+    public static Texture IMAGE = new Texture(IMG);
     public static final String OUTLINE = "blademasterResources/images/relics/outline/Perk.png";
+    public static Texture OI = new Texture(OUTLINE);
 
     public BleedingLaceratePerk() {
-        super(ID, new Texture(IMG), new Texture(OUTLINE), RelicTier.SPECIAL, LandingSound.MAGICAL);
+        super(ID, IMAGE, OI, RelicTier.SPECIAL, LandingSound.MAGICAL);
     }
 
     public String getUpdatedDescription() {

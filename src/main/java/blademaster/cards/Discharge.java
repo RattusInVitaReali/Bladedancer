@@ -63,7 +63,7 @@ public class Discharge extends AbstractStanceCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
         if (p.hasPower(WindStance.POWER_ID)) {
-            AbstractMonster monster = AbstractDungeon.getMonsters().getRandomMonster();
+            AbstractMonster monster = AbstractDungeon.getMonsters().getRandomMonster(true);
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(monster, p, new WeakPower(monster, this.magicNumber, false), this.magicNumber));
 
             if (p.hasPower(WindCharge.POWER_ID)) {
@@ -72,7 +72,7 @@ public class Discharge extends AbstractStanceCard {
             }
         }
         if (p.hasPower(LightningStance.POWER_ID)) {
-            AbstractMonster monster = AbstractDungeon.getMonsters().getRandomMonster();
+            AbstractMonster monster = AbstractDungeon.getMonsters().getRandomMonster(true);
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(monster, p, new VulnerablePower(monster, this.magicNumber, false), this.magicNumber));
 
             if (p.hasPower(LightningCharge.POWER_ID)) {

@@ -24,7 +24,7 @@ public class BladeMastery extends CustomCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
-    private static final int COST = 2;
+    private static final int COST = 3;
     private static final int ORBS = 2;
 
 

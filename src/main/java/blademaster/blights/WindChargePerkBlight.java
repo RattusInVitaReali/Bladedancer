@@ -1,10 +1,9 @@
 package blademaster.blights;
 
 import blademaster.interfaces.PerkBlight;
-import blademaster.perks.FuryEveryTurnPerk;
 import blademaster.powers.WindCharge;
+import blademaster.powers.WindStance;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.blights.AbstractBlight;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -26,7 +25,14 @@ public class WindChargePerkBlight extends AbstractBlight implements PerkBlight {
 
     public void atTurnStart() {
         this.flash();
-        AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, new FuryEveryTurnPerk()));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new WindCharge(AbstractDungeon.player, 2, false), 3));
+        if (AbstractDungeon.player.hasPower(WindStance.POWER_ID)) {
+            if (AbstractDungeon.player.hasPower(WindCharge.POWER_ID)) {
+                if (AbstractDungeon.player.getPower(WindCharge.POWER_ID).amount > 0) {
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new WindCharge(AbstractDungeon.player, 1, false), 1));
+                }
+            } else {
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new WindCharge(AbstractDungeon.player, 3, false), 3));
+            }
+        }
     }
 }

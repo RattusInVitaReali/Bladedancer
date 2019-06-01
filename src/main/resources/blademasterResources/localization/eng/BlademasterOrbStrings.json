@@ -1,0 +1,66 @@
+{
+    "HavocBlade": {
+        "NAME": "Havoc Blade",
+        "DESCRIPTION": [
+            "#yPassive: whenever you play a single-target attack, deal #b ",
+            " additional damage. NL #yEvoke: Deal #b ",
+            " damage to all enemies."
+        ]
+    },
+    "WindHavocBlade": {
+        "NAME": "Wind Havoc Blade",
+        "DESCRIPTION": [
+            "#yPassive: whenever you play a single-target attack, deal #b ",
+            " additional damage, #gand #gdeal #b1 #gdamage #gto #gALL #genemies. NL #yEvoke: Deal #b ",
+            " damage #gand #gapply #b1 #yWeak to ALL enemies."
+        ]
+    },
+    "LightingHavocBlade": {
+        "NAME": "Lighting Havoc Blade",
+        "DESCRIPTION": [
+            "#yPassive: whenever you play a single-target attack, deal #b ",
+            " additional damage #btwice. NL #yEvoke: Deal #b ",
+            " damage #band #bapply #b1 #yVulnerable to ALL enemies."
+        ]
+    },
+    "ParryBlade": {
+        "NAME": "Parry Blade",
+        "DESCRIPTION": [
+            "#yPassive: Whenever you're attacked, reduce the damage by #b",
+            ". NL #yEvoke: Gain #b",
+            " #yThorns."
+        ]
+    },
+    "WindParryBlade": {
+        "NAME": "Wind Parry Blade",
+        "DESCRIPTION": [
+            "#yPassive: Whenever you're attacked, reduce the damage by #b",
+            ", #gand #ggain #b1 #gWind #gCharge. NL #yEvoke: Gain #b",
+            " #yThorns."
+        ]
+    },
+    "LightingParryBlade": {
+        "NAME": "Lighting Parry Blade",
+        "DESCRIPTION": [
+            "#yPassive: Whenever you're attacked, reduce the damage by #b",
+            ", #band #bgain #b1 #bLightning #bCharge. NL #yEvoke: Gain #b",
+            " #yThorns."
+        ]
+    },
+    "WindChargeOrb": {
+        "NAME": "Wind Charge",
+        "DESCRIPTION": [
+            "You currently have #b",
+            " #gWind #yCharge.",
+            " #gWind #yCharges."
+        ]
+    },
+    "LightningChargeOrb": {
+        "NAME": "Lighting Charge",
+        "DESCRIPTION": [
+            "You currently have #b",
+            " #gLightning #yCharge.",
+            " #gLightning #yCharges."
+        ]
+    }
+}

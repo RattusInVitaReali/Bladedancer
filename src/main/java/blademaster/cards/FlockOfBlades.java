@@ -29,7 +29,7 @@ public class FlockOfBlades extends CustomCard {
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.POWER;
     private static final int COST = 0;
-    private static final int AMT = 5;
+    private static final int AMT = 3;
 
     public FlockOfBlades() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
@@ -51,7 +51,6 @@ public class FlockOfBlades extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new FuryPower(p, - 30), - 30));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ComboPower(p, - 6), - 6));
-        int Channel = 0;
         if (AbstractDungeon.player.filledOrbCount() > 10 - this.magicNumber) {
             for (int i = 0; i < 10 - AbstractDungeon.player.filledOrbCount(); i++) {
                 AbstractDungeon.actionManager.addToBottom(new ChannelAction(new BladeOrb()));

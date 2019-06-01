@@ -1,0 +1,80 @@
+[
+    {
+        "NAMES": [
+            "finisher",
+            "finishers"
+        ],
+        "PROPER_NAME": "Finisher",
+        "DESCRIPTION": "A powerful card that uses #rFury or #rCombo as a resource."
+    },
+    {
+        "NAMES": [
+            "havoc"
+        ],
+        "PROPER_NAME": "Havoc Blade",
+        "DESCRIPTION": "A spectral blade that deals damage to enemies you attack."
+    },
+    {
+        "NAMES": [
+            "parry"
+        ],
+        "PROPER_NAME": "Parry Blade",
+        "DESCRIPTION": "A spectral blade that reduces the damage taken whenever you're struck."
+    },
+    {
+        "NAMES": [
+            "lacerate",
+            "lacerates"
+        ],
+        "PROPER_NAME": "Lacerate",
+        "DESCRIPTION": "A 0-cost attack that deals 2 damage and exhausts."
+    },
+    {
+        "NAMES": [
+            "awaken",
+            "awakened",
+            "awakens"
+        ],
+        "PROPER_NAME": "Awakening",
+        "DESCRIPTION": "#yAwaken one of your spectral blades, making them more potent based on your current Stance."
+    },
+    {
+        "NAMES": [
+            "stance",
+            "stances"
+        ],
+        "PROPER_NAME": "Stance",
+        "DESCRIPTION": "A battle #yStance which determines the type of #yCharges you get. There are 2 #yStances: #gWind and #bLightning. Upon switching to a #yStance, #yAwaken a #yBlade."
+    },
+    {
+        "NAMES": [
+            "charge",
+            "charges"
+        ],
+        "PROPER_NAME": "[G] [B]  Charge",
+        "DESCRIPTION": "A resource for stance-oriented cards."
+    },
+    {
+        "NAMES": [
+            "conduit"
+        ],
+        "PROPER_NAME": "Conduit [X]",
+        "DESCRIPTION": "Whenever you play this card while in a #yStance, gain #bX #yCharges."
+    },
+    {
+        "NAMES": [
+            "bloodied"
+        ],
+        "PROPER_NAME": "Bloodied",
+        "DESCRIPTION": "An effect that's applied if the target has less than #b50% #yHP remaining."
+    },
+    {
+        "NAMES": [
+            "bleeding",
+            "bleeds",
+            "bleed"
+        ],
+        "PROPER_NAME": "Bleeding",
+        "DESCRIPTION": "yBleeding enemies take #b20% more damage from attacks, and take damage at the end of the round. #yBleeding decays by #b3 at the end."
+    }
+]

@@ -202,9 +202,10 @@
     "Bleeding": {
         "NAME": "Bleeding",
         "DESCRIPTIONS": [
-            "At the start of your turn, lose #b",
-            " HP.",
-            "At the start of its turn, loses #b"
+            "Take 20% more damage from attacks. At the start of your turn, lose #b",
+            " HP. Bleeding decays by 3 at the end of each round.",
+            "Takes 20% more damage from attacks. At the start of its turn, loses #b",
+            "Takes 30% more damage from attacks. At the start of its turn, loses #b"
         ]
     },
     "OverchargePower": {
@@ -228,6 +229,12 @@
         "DESCRIPTIONS": [
             "Whenever you play a Skill, apply #b",
             " #yBleeding to ALL enemies."
+        ]
+    },
+    "FlowPower": {
+        "NAME":"Flow",
+        "DESCRIPTIONS": [
+            "Flow"
         ]
     }
 }

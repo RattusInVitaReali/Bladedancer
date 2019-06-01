@@ -51,8 +51,7 @@ public class Stability extends CustomCard {
     public void upgrade() {
         if (! this.upgraded) {
             this.upgradeName();
-            this.retain = true;
-            this.rawDescription = UPGRADE_DESCRIPTION;
+            this.upgradeMagicNumber(1);
             this.initializeDescription();
         }
     }

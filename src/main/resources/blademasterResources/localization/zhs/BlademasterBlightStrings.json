@@ -1,0 +1,104 @@
+{
+    "blademaster:BonusComboPerkBlight": {
+        "NAME": "Perk: Combatant",
+        "DESCRIPTION": [
+            "Start each combat with #b3 #yCombo."
+        ]
+    },
+    "blademaster:StrongPerkBlight": {
+        "NAME": "Perk: Strong",
+        "DESCRIPTION": [
+            "Start each combat with #b1 #yStrength."
+        ]
+    },
+    "blademaster:BonusFuryPerkBlight": {
+        "NAME": "Perk: Furious",
+        "DESCRIPTION": [
+            "Start each combat with #b15 #yFury."
+        ]
+    },
+    "blademaster:DextrousPerkBlight": {
+        "NAME": "Perk: Dexterous",
+        "DESCRIPTION": [
+            "Start each combat with #b1 #yDexterity."
+        ]
+    },
+    "blademaster:FocusedPerkBlight": {
+        "NAME": "Perk: Focused",
+        "DESCRIPTION": [
+            "Start each combat with #b1 #yFocus."
+        ]
+    },
+    "blademaster:RandomBladePerkBlight": {
+        "NAME": "Perk: Blades",
+        "DESCRIPTION": [
+            "At the start of each combat, channel #b1 random #yBlade."
+        ]
+    },
+    "blademaster:RandomDefensiveStancePerkBlight": {
+        "NAME": "Perk: Defensive Stance Mastery",
+        "DESCRIPTION": [
+            "At the start of combat, switch your #yDefensive #yStance to a random #yStance."
+        ]
+    },
+    "blademaster:RandomStancePerkBlight": {
+        "NAME": "Perk: Offensive Stance Mastery",
+        "DESCRIPTION": [
+            "At the start of combat, switch your #yStance to a random #yStance."
+        ]
+    },
+    "blademaster:FinisherDrawCardPerkBlight": {
+        "NAME": "Perk: Finisher Mastery",
+        "DESCRIPTION": [
+            "Whenever you play a #rFinisher, draw 1 card."
+        ]
+    },
+    "blademaster:StanceHealPerkBlight": {
+        "NAME": "Perk: Healthy Stances",
+        "DESCRIPTION": [
+            "At the end of combat,heal #b6 HP if you're in a Stance."
+        ]
+    },
+    "blademaster:ComboEveryTurnPerkBlight": {
+        "NAME": "Perk: Alacrity",
+        "DESCRIPTION": [
+            "At the start of your turn, gain #b1 #yCombo."
+        ]
+    },
+    "blademaster:FuryEveryTurnPerkBlight": {
+        "NAME": "Perk: Endless Rage",
+        "DESCRIPTION": [
+            "At the start of your turn, gain #b5 #yFury."
+        ]
+    },
+    "blademaster:OnAttackedChargePerkBlight": {
+        "NAME": "Perk: Hypercharge",
+        "DESCRIPTION": [
+            "Whenever you're attacked, if you're in a #yStance, gain #b1 #yCharge."
+        ]
+    },
+    "blademaster:BleedingLaceratePerkBlight": {
+        "NAME": "Perk: Critical Hits",
+        "DESCRIPTION": [
+            "Your #rLacerates apply #b2 #yBleeding."
+        ]
+    },
+    "blademaster:WindChargePerkBlight": {
+        "NAME": "Perk: Wind Stance Mastery",
+        "DESCRIPTION": [
+            "At the start of your turn, if you're in #gWind #gStance gain 3 #gWind #gCharges if you have none. Otherwise, gain 1 #gWind #gCharge."
+        ]
+    },
+    "blademaster:LightningChargePerkBlight": {
+        "NAME": "Perk: Lightning Stance Mastery",
+        "DESCRIPTION": [
+            "At the start of your turn, if you're in #bLighting #bStance gain 3 #bLighting #bCharges if you have none. Otherwise, gain 1 #bLighting #bCharge."
+        ]
+    },
+    "blademaster:BleedingMoreDamagePerkBlight": {
+        "NAME": "Perk: Deep Cuts",
+        "DESCRIPTION": [
+            "#yBleeding enemies take #b30% more damage rather than #b20%."
+        ]
+    }
+}

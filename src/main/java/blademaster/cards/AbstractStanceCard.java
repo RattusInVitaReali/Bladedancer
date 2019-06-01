@@ -15,4 +15,14 @@ public abstract class AbstractStanceCard extends CustomCard {
     public AbstractCard cardToPreview1 = null;
     public AbstractCard cardToPreview2 = null;
     public boolean bullshit = false;
+    public int baseChargeNumber = -1;
+    public int chargeNumber = -1;
+    public boolean upgradedChargeNumber = false;
+
+    public void upgradeChargeNumber(int amount) {
+        chargeNumber = baseChargeNumber + amount;
+        this.upgradedChargeNumber = true;
+    }
+
+
 }

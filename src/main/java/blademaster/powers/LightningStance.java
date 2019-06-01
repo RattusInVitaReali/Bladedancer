@@ -1,13 +1,17 @@
 package blademaster.powers;
 
+import blademaster.actions.AwakenOrbAction;
 import blademaster.actions.LightningStanceAction;
 import blademaster.cards.WrongfulFootwork;
 import blademaster.effects.particles.BetterFireBurstParticleEffect;
+import blademaster.orbs.LightningBladeOrb;
+import blademaster.orbs.LightningParryOrb;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.actions.defect.IncreaseMaxOrbAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -31,7 +35,7 @@ public class LightningStance extends AbstractPower {
         this.owner = owner;
         this.priority = 6;
         this.type = PowerType.BUFF;
-        this.amount = -1;
+        this.amount = - 1;
         this.isTurnBased = false;
         this.region128 = BigImage;
         this.region48 = SmallImage;
@@ -60,7 +64,7 @@ public class LightningStance extends AbstractPower {
                 AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this));
             }
         }
-        if (power.ID.equals(this.ID)) {
+        if (power.ID.equals(this.ID) && ! AbstractDungeon.player.hasPower(StabilityPower.POWER_ID)) {
             AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new WrongfulFootwork(), 1, true, true));
         }
     }
@@ -71,9 +75,10 @@ public class LightningStance extends AbstractPower {
 
     public void onInitialApplication() {
         AbstractDungeon.actionManager.addToBottom(new LightningStanceAction());
-        if (this.owner.hasPower(this.ID)) {
-            //Do thing
+        if (AbstractDungeon.player.orbs.size() == 5) {
+            AbstractDungeon.actionManager.addToBottom(new IncreaseMaxOrbAction(2));
         }
+        AbstractDungeon.actionManager.addToBottom(new AwakenOrbAction(new LightningBladeOrb(), new LightningParryOrb()));
     }
 
 

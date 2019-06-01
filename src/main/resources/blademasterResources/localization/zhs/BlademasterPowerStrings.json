@@ -1,0 +1,240 @@
+{
+    "BasicStance": {
+        "NAME": "Basic Stance",
+        "DESCRIPTIONS": [
+            "A #yStance that doesn't really do much."
+        ]
+    },
+    "BladeDancePower": {
+        "NAME": "Blade Dance",
+        "DESCRIPTIONS": [
+            "Your #yHavoc #yBlades deal double damage."
+        ]
+    },
+    "BlockadePower": {
+        "NAME": "Blockade",
+        "DESCRIPTIONS": [
+            "Whenever your #yHavoc #yBlades attack, gain #b",
+            " #yBlock."
+        ]
+    },
+    "EyeOfTheStormPower": {
+        "NAME": "Eye of the Storm",
+        "DESCRIPTIONS": [
+            "Whenever you're attacked, reduce the damage by ",
+            " and gain ",
+            " #bπLightning #yCharge."
+        ]
+    },
+    "EyeOfTheTornadoPower": {
+        "NAME": "Eye of the Tornado",
+        "DESCRIPTIONS": [
+            "Whenever you're attacked, reduce the damage by ",
+            " and gain ",
+            " #gWind #yCharge."
+        ]
+    },
+    "FrozenPower": {
+        "NAME": "Frozen",
+        "DESCRIPTIONS": [
+            "This creature takes #b",
+            "% more damage."
+        ]
+    },
+    "IceCharge": {
+        "NAME": "Ice Charge",
+        "DESCRIPTIONS": [
+            "A #yCharge used for #yIce #yStance cards. You currently have ",
+            " #yIce #yCharges."
+        ]
+    },
+    "IceStance": {
+        "NAME": "Ice Stance",
+        "DESCRIPTIONS": [
+            "A #yStance that allows the generation of #yIce #yCharges."
+        ]
+    },
+    "InfernoPower": {
+        "NAME": "Inferno",
+        "DESCRIPTIONS": [
+            "Whenever you draw a #rBurn, take #b",
+            " damage, and deal #b",
+            " damage to ALL enemies."
+        ]
+    },
+    "LifestealPower": {
+        "NAME": "Lifesteal",
+        "DESCRIPTIONS": [
+            "Whenever your #yHavoc #yBlades attack, heal for #b",
+            " HP."
+        ]
+    },
+    "LightningCharge": {
+        "NAME": "Lightning Charge",
+        "DESCRIPTIONS": [
+            "A #yCharge used for #yLighting #yStance cards. You currently have ",
+            " #yπLightning #yCharges."
+        ]
+    },
+    "LightningStance": {
+        "NAME": "Lightning Stance",
+        "DESCRIPTIONS": [
+            "A #yStance that allows the generation of #yπLightning #yCharges."
+        ]
+    },
+    "LoseFocusPower": {
+        "NAME": "Lose Focus",
+        "DESCRIPTIONS": [
+            "At the end of your turn, lose #b",
+            " #yFocus."
+        ]
+    },
+    "Meditate": {
+        "NAME": "Meditate",
+        "DESCRIPTIONS": [
+            "Whenever you channel a #yBlade, heal #b",
+            " #yHP."
+        ]
+    },
+    "MeltdownPower": {
+        "NAME": "Meltdown",
+        "DESCRIPTIONS": [
+            "At the start of your turn, exhaust a #rBurn from your draw pile and deal #b",
+            " damage to ALL enemies."
+        ]
+    },
+    "QuicknessPower": {
+        "NAME": "Quickness",
+        "DESCRIPTIONS": [
+            "Whenever you switch Stances, draw #b",
+            " card.",
+            " cards."
+        ]
+    },
+    "Recklessness": {
+        "NAME": "Recklessness",
+        "DESCRIPTIONS": [
+            "At the start of your turn, gain #b",
+            " #yVulnerable and channel #b",
+            " #yBlade",
+            " #yBlades"
+        ]
+    },
+    "SharpBlades": {
+        "NAME": "Sharp Blades",
+        "DESCRIPTIONS": [
+            "Your #yBlades apply #yBleeding on hit."
+        ]
+    },
+    "StanceMastery": {
+        "NAME": "Stance Mastery",
+        "DESCRIPTIONS": [
+            "Whenever you gain a #yCharge, gain ",
+            " more."
+        ]
+    },
+    "StoneCharge": {
+        "NAME": "Stone Charge",
+        "DESCRIPTIONS": [
+            "A #yCharge used for #yStone #yStance cards. You currently have ",
+            " #yStone #yCharges."
+        ]
+    },
+    "StoneStance": {
+        "NAME": "Stone Stance",
+        "DESCRIPTIONS": [
+            "A #yStance that allows the generation of #yStone #yCharges."
+        ]
+    },
+    "WindCharge": {
+        "NAME": "Wind Charge",
+        "DESCRIPTIONS": [
+            "A #yCharge used for #yWind #yStance cards. You currently have ",
+            " #yWind #yCharges."
+        ]
+    },
+    "WindStance": {
+        "NAME": "Wind Stance",
+        "DESCRIPTIONS": [
+            "A #yStance that allows the generation of #yWind #yCharges."
+        ]
+    },
+    "Windstorm": {
+        "NAME": "Windstorm",
+        "DESCRIPTIONS": [
+            "At the start of your turn, add ",
+            " #rWind #yLacerates to your hand."
+        ]
+    },
+    "blademaster:Calmness": {
+        "NAME": "Calmness",
+        "DESCRIPTIONS": [
+            "You've played a #bFury #bFinisher this turn. You can't gain any more #bFury!"
+        ]
+    },
+    "blademaster:Combo": {
+        "NAME": "Combo",
+        "DESCRIPTIONS": [
+            "Resource used for playing #bFinishers. Combo is reset to 0 at the end of your turn. NL You currently have #b",
+            " Combo. Gain more by playing cards!"
+        ]
+    },
+    "blademaster:Fury": {
+        "NAME": "Fury",
+        "DESCRIPTIONS": [
+            "Resource used for playing #bFinishers. Fury is reset to 0 at the end of your turn. NL You currently have #b",
+            " Fury. Gain more by dealing damage!"
+        ]
+    },
+    "blademaster:Tired": {
+        "NAME": "Tired",
+        "DESCRIPTIONS": [
+            "You've played a #bCombo #bFinisher this turn. You can't gain any more #bCombo!"
+        ]
+    },
+    "MomentumPower": {
+        "NAME": "Momentum",
+        "DESCRIPTIONS": [
+            "Whenever you switch #yStances, deal #b",
+            " damage to ALL enemies."
+        ]
+    },
+    "Bleeding": {
+        "NAME": "Bleeding",
+        "DESCRIPTIONS": [
+            "Take 20% more damage from attacks. At the start of your turn, lose #b",
+            " HP. Bleeding decays by 3 at the end of each round.",
+            "Takes 20% more damage from attacks. At the start of its turn, loses #b",
+            "Takes 30% more damage from attacks. At the start of its turn, loses #b"
+        ]
+    },
+    "OverchargePower": {
+        "NAME": "Overcharge",
+        "DESCRIPTIONS": [
+            "At the end of your turn, deal #b",
+            " damage to a random enemy, and then deal #b",
+            " damage to a random enemy."
+        ]
+    },
+    "StabilityPower": {
+        "NAME":"Stability",
+        "DESCRIPTIONS": [
+            "Whenever you would switch #yStances, draw #b",
+            " card instead.",
+            " cards instead."
+        ]
+    },
+    "BloodbathPower": {
+        "NAME":"Bloodbath",
+        "DESCRIPTIONS": [
+            "Whenever you play a Skill, apply #b",
+            " #yBleeding to ALL enemies."
+        ]
+    },
+    "FlowPower": {
+        "NAME":"Flow",
+        "DESCRIPTIONS": [
+            "Flow"
+        ]
+    }
+}

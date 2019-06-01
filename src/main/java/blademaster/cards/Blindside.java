@@ -7,6 +7,7 @@ import blademaster.patches.BlademasterTags;
 import blademaster.powers.*;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -21,6 +22,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.screens.SingleCardViewPopup;
+import com.megacrit.cardcrawl.vfx.combat.CleaveEffect;
 
 public class Blindside extends AbstractStanceCard {
 
@@ -56,19 +58,23 @@ public class Blindside extends AbstractStanceCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        AbstractDungeon.actionManager.addToBottom(new VFXAction(new CleaveEffect()));
         for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
             AbstractDungeon.actionManager.addToBottom(new DamageAction(monster, new DamageInfo(p, this.damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         }
+
+        AbstractMonster yeet = AbstractDungeon.getMonsters().getRandomMonster(true);
+
         if (p.hasPower(WindStance.POWER_ID)) {
             if (p.hasPower(WindCharge.POWER_ID)) {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new BleedingPower(m, p, p.getPower(WindCharge.POWER_ID).amount), p.getPower(WindCharge.POWER_ID).amount));
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new WeakPower(m, this.magicNumber, false), this.magicNumber));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(yeet, p, new BleedingPower(yeet, p, p.getPower(WindCharge.POWER_ID).amount), p.getPower(WindCharge.POWER_ID).amount));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(yeet, p, new WeakPower(yeet, this.magicNumber, false), this.magicNumber));
             }
         }
         if (p.hasPower(LightningStance.POWER_ID)) {
             if (p.hasPower(LightningCharge.POWER_ID)) {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new BleedingPower(m, p, p.getPower(LightningCharge.POWER_ID).amount), p.getPower(LightningCharge.POWER_ID).amount));
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new VulnerablePower(m, this.magicNumber, false), this.magicNumber));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(yeet, p, new BleedingPower(yeet, p, p.getPower(LightningCharge.POWER_ID).amount), p.getPower(LightningCharge.POWER_ID).amount));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(yeet, p, new VulnerablePower(yeet, this.magicNumber, false), this.magicNumber));
             }
         }
     }

@@ -13,9 +13,11 @@ public class OnAttackedChargePerk extends CustomRelic implements PerkRelic {
     public static final String ID = Blademaster.makeID("OnAttackedChargePerk");
     public static final String IMG = "blademasterResources/images/relics/perks/OnAttackedChargePerk.png";
     public static final String OUTLINE = "blademasterResources/images/relics/outline/Perk.png";
+    public static Texture IMAGE = new Texture(IMG);
+    public static Texture OI = new Texture(OUTLINE);
 
     public OnAttackedChargePerk() {
-        super(ID, new Texture(IMG), new Texture(OUTLINE), RelicTier.SPECIAL, LandingSound.MAGICAL);
+        super(ID, IMAGE, OI, RelicTier.SPECIAL, LandingSound.MAGICAL);
     }
 
     public String getUpdatedDescription() {

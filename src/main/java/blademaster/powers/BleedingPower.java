@@ -1,10 +1,12 @@
 package blademaster.powers;
 
 import blademaster.actions.BleedingLoseHpAction;
+import blademaster.blights.BleedingMoreDamagePerkBlight;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.HealthBarRenderPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -40,6 +42,7 @@ public class BleedingPower extends AbstractPower implements HealthBarRenderPower
         this.region128 = BigImage;
         this.region48 = SmallImage;
         this.source = source;
+        updateDescription();
     }
 
     public void playApplyPowerSfx() {
@@ -48,11 +51,25 @@ public class BleedingPower extends AbstractPower implements HealthBarRenderPower
 
     public void updateDescription() {
         if (this.owner != null && ! this.owner.isPlayer) {
-            this.description = DESCRIPTIONS[2] + this.amount + DESCRIPTIONS[1];
+            if (AbstractDungeon.player.hasBlight(BleedingMoreDamagePerkBlight.ID)) {
+                this.description = DESCRIPTIONS[3] + this.amount + DESCRIPTIONS[1];
+            } else {
+                this.description = DESCRIPTIONS[2] + this.amount + DESCRIPTIONS[1];
+            }
         } else {
             this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
         }
 
+    }
+
+    public float atDamageReceive(float damage, DamageInfo.DamageType type) {
+        if (type == DamageInfo.DamageType.NORMAL) {
+            if (AbstractDungeon.player.hasBlight(BleedingMoreDamagePerkBlight.ID)) {
+                return damage * (1.3F);
+            }
+            return damage * (1.2F);
+        }
+        return damage;
     }
 
     public void atStartOfTurn() {

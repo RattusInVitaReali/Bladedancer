@@ -43,7 +43,8 @@ public class BleedingLoseHpAction
             }
             AbstractPower p = this.target.getPower("Bleeding");
             if (p != null) {
-                if (p.amount == 0) {
+                p.amount -= 3;
+                if (p.amount <= 0) {
                     this.target.powers.remove(p);
                 } else {
                     p.updateDescription();

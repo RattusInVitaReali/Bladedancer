@@ -21,6 +21,7 @@ public class BlockadePower extends AbstractPower {
         this.type = PowerType.BUFF;
         this.isTurnBased = false;
         this.img = Blademaster.getDefaultPowerTexture();
+        updateDescription();
     }
 
 

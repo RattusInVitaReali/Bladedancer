@@ -3,7 +3,6 @@ package blademaster.blights;
 import blademaster.interfaces.PerkBlight;
 import blademaster.powers.LightningStance;
 import blademaster.powers.WindStance;
-import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.blights.AbstractBlight;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -25,6 +24,7 @@ public class StanceHealPerkBlight extends AbstractBlight implements PerkBlight {
     }
 
     public void onVictory() {
+        this.counter = 0;
         this.flash();
         if (AbstractDungeon.player.hasPower(WindStance.POWER_ID)) {
             counter += 1;
@@ -33,7 +33,7 @@ public class StanceHealPerkBlight extends AbstractBlight implements PerkBlight {
             counter += 1;
         }
         if (AbstractDungeon.player.currentHealth > 0) {
-            AbstractDungeon.actionManager.addToBottom(new HealAction(AbstractDungeon.player, AbstractDungeon.player, 6 * counter));
+           AbstractDungeon.player.heal(this.counter * 6, true);
         }
     }
 }

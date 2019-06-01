@@ -1,13 +1,17 @@
 package blademaster.powers;
 
+import blademaster.actions.AwakenOrbAction;
 import blademaster.actions.WindStanceAction;
 import blademaster.cards.WrongfulFootwork;
 import blademaster.effects.particles.BetterFireBurstParticleEffect;
+import blademaster.orbs.WindBladeOrb;
+import blademaster.orbs.WindParryOrb;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.actions.defect.IncreaseMaxOrbAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -56,6 +60,10 @@ public class WindStance extends AbstractPower {
 
     public void onInitialApplication() {
         AbstractDungeon.actionManager.addToBottom(new WindStanceAction());
+        if (AbstractDungeon.player.orbs.size() == 5) {
+            AbstractDungeon.actionManager.addToBottom(new IncreaseMaxOrbAction(2));
+        }
+        AbstractDungeon.actionManager.addToBottom(new AwakenOrbAction(new WindBladeOrb(), new WindParryOrb()));
     }
 
     public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
@@ -64,7 +72,7 @@ public class WindStance extends AbstractPower {
                 AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this));
             }
         }
-        if (power.ID.equals(this.ID)) {
+        if (power.ID.equals(this.ID) && !AbstractDungeon.player.hasPower(StabilityPower.POWER_ID)) {
             AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new WrongfulFootwork(), 1, true, true));
         }
     }

@@ -2,6 +2,9 @@ package blademaster.cards;
 
 import basemod.abstracts.CustomCard;
 import blademaster.Blademaster;
+import blademaster.orbs.BladeOrb;
+import blademaster.orbs.LightningBladeOrb;
+import blademaster.orbs.WindBladeOrb;
 import blademaster.patches.AbstractCardEnum;
 import blademaster.patches.BlademasterTags;
 import blademaster.powers.BladeDancePower;
@@ -25,6 +28,7 @@ public class BladeDance extends CustomCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.POWER;
@@ -39,22 +43,30 @@ public class BladeDance extends CustomCard {
 
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
         cantUseMessage = "I don't meet the requirements!";
-        if ((AbstractDungeon.player.hasPower(FuryPower.POWER_ID)) && (AbstractDungeon.player.hasPower(ComboPower.POWER_ID))) {
-            return (AbstractDungeon.player.getPower(FuryPower.POWER_ID).amount >= 30 && AbstractDungeon.player.getPower(ComboPower.POWER_ID).amount >= 6);
+        if (this.upgraded) {
+            if ((AbstractDungeon.player.hasPower(FuryPower.POWER_ID)) && (AbstractDungeon.player.hasPower(ComboPower.POWER_ID))) {
+                return (AbstractDungeon.player.getPower(FuryPower.POWER_ID).amount >= 40 && AbstractDungeon.player.getPower(ComboPower.POWER_ID).amount >= 8);
+            }
+        } else if ((AbstractDungeon.player.hasPower(FuryPower.POWER_ID)) && (AbstractDungeon.player.hasPower(ComboPower.POWER_ID))) {
+            return (AbstractDungeon.player.getPower(FuryPower.POWER_ID).amount >= 40 && AbstractDungeon.player.getPower(ComboPower.POWER_ID).amount >= 8);
         } else {
             return false;
         }
+        return false;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new FuryPower(p, - 30), - 30));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ComboPower(p, - 6), - 6));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new FuryPower(p, - 40), - 40));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ComboPower(p, - 8), - 8));
         if (! p.hasPower(BladeDancePower.POWER_ID)) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new BladeDancePower(p)));
         }
         for (AbstractOrb orb : AbstractDungeon.player.orbs) {
-            orb.applyFocus();
+            if (orb.ID != null) {
+                if (orb.ID.equals(WindBladeOrb.ORB_ID) || orb.ID.equals(LightningBladeOrb.ORB_ID) || orb.ID.equals(BladeOrb.ORB_ID))
+                    orb.applyFocus();
+            }
         }
     }
 
@@ -67,6 +79,8 @@ public class BladeDance extends CustomCard {
     public void upgrade() {
         if (! this.upgraded) {
             this.upgradeName();
+            this.retain = true;
+            this.rawDescription = UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }

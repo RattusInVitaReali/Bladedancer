@@ -21,6 +21,7 @@ import java.util.regex.Pattern;
 
 public class LightningChargeDescriptionPatch {
     private static Pattern r = Pattern.compile("\\[([RGBL])\\](\\.?) ");
+    public static TextureAtlas.AtlasRegion LightningChargeRegion = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/512/LightningCharge.png"), 0, 0, 24, 24);
 
     @SpirePatch (
             clz = AbstractCard.class,
@@ -80,7 +81,6 @@ public class LightningChargeDescriptionPatch {
                 if (__instance.color.equals(AbstractCardEnum.DEFAULT_GRAY)) {
                     gl.width = CARD_ENERGY_IMG_WIDTH * __instance.drawScale;
                     float tmp2 = (__instance.description.size() - 4) * spacing;
-                    TextureAtlas.AtlasRegion LightningChargeRegion = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/512/LightningCharge.png"), 0, 0, 24, 24);
                     __instance.renderSmallEnergy(sb, LightningChargeRegion,
                             (start_x[0] - __instance.current_x) / Settings.scale / __instance.drawScale,
                             - 100.0f - ((__instance.description.size() - 4.0f) / 2.0f - i + 1.0f) * spacing);

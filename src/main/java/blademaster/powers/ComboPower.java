@@ -42,11 +42,6 @@ public class ComboPower extends AbstractPower {
         }
     }
 
-    public void atEndOfTurn(boolean isPlayer) {
-        if (AbstractDungeon.player != null) {
-            this.amount = 0;
-        }
-    }
 
     public void onUseCard(AbstractCard card, UseCardAction action) {
         if ((this.owner != null) && (! this.owner.hasPower(TiredPower.POWER_ID))) {

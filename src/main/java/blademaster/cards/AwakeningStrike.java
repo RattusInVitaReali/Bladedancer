@@ -3,6 +3,7 @@ package blademaster.cards;
 import blademaster.Blademaster;
 import blademaster.actions.AwakenOrbAction;
 import blademaster.actions.LoadCardImageAction;
+import blademaster.orbs.*;
 import blademaster.patches.AbstractCardEnum;
 import blademaster.patches.BlademasterTags;
 import blademaster.powers.*;
@@ -53,14 +54,15 @@ public class AwakeningStrike extends AbstractStanceCard {
         this.tags.add(BlademasterTags.WIND_STANCE);
         this.tags.add(BlademasterTags.LIGHTNING_STANCE);
         this.tags.add(CardTags.STRIKE);
+        this.baseMagicNumber = this.magicNumber = 1;
 
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-        AbstractDungeon.actionManager.addToBottom(new AwakenOrbAction());
         if (p.hasPower(WindStance.POWER_ID)) {
+            AbstractDungeon.actionManager.addToBottom(new AwakenOrbAction(new WindBladeOrb(), new WindParryOrb()));
             if (this.upgraded) {
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WindCharge(p, 2, false), 2));
             } else {
@@ -68,6 +70,7 @@ public class AwakeningStrike extends AbstractStanceCard {
             }
         }
         if (p.hasPower(LightningStance.POWER_ID)) {
+            AbstractDungeon.actionManager.addToBottom(new AwakenOrbAction(new LightningBladeOrb(), new LightningParryOrb()));
             if (this.upgraded) {
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LightningCharge(p, 2, false), 2));
             } else {
@@ -107,7 +110,8 @@ public class AwakeningStrike extends AbstractStanceCard {
                 LightningArt = true;
                 BaseArt = false;
             }
-        } else if (CardCrawlGame.isInARun()) {
+        }
+        else if (CardCrawlGame.isInARun()) {
             if (AbstractDungeon.player.hasPower(WindStance.POWER_ID) && (!AbstractDungeon.getMonsters().areMonstersDead())) {
                 if (! WindArt) {
                     this.loadCardImage(WIMG);
@@ -183,11 +187,7 @@ public class AwakeningStrike extends AbstractStanceCard {
                 return;
             }
 
-            if (this.current_x > Settings.WIDTH * 0.75F) {
-                this.cardToPreview1.current_x = this.current_x + (((AbstractCard.IMG_WIDTH / 2.0F) + ((AbstractCard.IMG_WIDTH / 2.0F) / 1.5F) + (16.0F)) * this.drawScale);
-            } else {
-                this.cardToPreview1.current_x = this.current_x - (((AbstractCard.IMG_WIDTH / 2.0F) + ((AbstractCard.IMG_WIDTH / 2.0F) / 1.5F) + (16.0F)) * this.drawScale);
-            }
+            this.cardToPreview1.current_x = this.current_x - (((AbstractCard.IMG_WIDTH / 2.0F) + ((AbstractCard.IMG_WIDTH / 2.0F) / 1.5F) + (16.0F)) * this.drawScale);
 
             this.cardToPreview1.current_y = this.current_y + ((AbstractCard.IMG_HEIGHT / 2.0F)) * this.drawScale;
 
@@ -195,11 +195,7 @@ public class AwakeningStrike extends AbstractStanceCard {
 
             this.cardToPreview1.render(sb);
 
-            if (this.current_x > Settings.WIDTH * 0.75F) {
-                this.cardToPreview2.current_x = this.current_x + (((AbstractCard.IMG_WIDTH / 2.0F) + ((AbstractCard.IMG_WIDTH / 2.0F) / 1.5F) + (16.0F)) * this.drawScale);
-            } else {
-                this.cardToPreview2.current_x = this.current_x - (((AbstractCard.IMG_WIDTH / 2.0F) + ((AbstractCard.IMG_WIDTH / 2.0F) / 1.5F) + (16.0F)) * this.drawScale);
-            }
+            this.cardToPreview2.current_x = this.current_x -  (((AbstractCard.IMG_WIDTH / 2.0F) + ((AbstractCard.IMG_WIDTH / 2.0F) / 1.5F) + (16.0F)) * this.drawScale);
 
             this.cardToPreview2.current_y = this.current_y - ((AbstractCard.IMG_HEIGHT / 6.0F)) * this.drawScale;
 
@@ -232,6 +228,7 @@ public class AwakeningStrike extends AbstractStanceCard {
     public void upgrade() {
         if (! this.upgraded) {
             this.upgradeName();
+            this.upgradeMagicNumber(1);
             this.upgradeDamage(3);
             this.initializeDescription();
         }

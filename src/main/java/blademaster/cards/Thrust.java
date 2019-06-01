@@ -38,7 +38,7 @@ public class Thrust extends AbstractStanceCard {
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
     private static final int COST = 1;
-    private static final int DAMAGE = 8;
+    private static final int DAMAGE = 5;
     private boolean WindArt = false;
     private boolean LightningArt = false;
     private boolean BaseArt = false;

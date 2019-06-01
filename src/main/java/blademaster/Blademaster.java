@@ -7,16 +7,21 @@ import basemod.abstracts.CustomCard;
 import basemod.interfaces.*;
 import blademaster.cards.*;
 import blademaster.characters.BlademasterCharacter;
-import blademaster.patches.*;
+import blademaster.patches.AbstractCardEnum;
+import blademaster.patches.BlademasterTags;
+import blademaster.patches.TheDefaultEnum;
 import blademaster.perks.*;
 import blademaster.powers.LightningStance;
 import blademaster.powers.WindStance;
 import blademaster.relics.DancersAmulet;
 import blademaster.variables.*;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
+import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
@@ -24,6 +29,9 @@ import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import com.evacipated.cardcrawl.mod.stslib.Keyword;
+
+import java.nio.charset.StandardCharsets;
 
 @SpireInitializer
 public class Blademaster
@@ -105,7 +113,6 @@ public class Blademaster
     // Character assets
     private static final String THE_BLADEMASTER_BUTTON = "characterSelect/DefaultCharacterButton.png";
     private static final String THE_BLADEMASTER_PORTRAIT = "characterSelect/DeafultCharacterPortraitBG.png";
-
 
 
     public Blademaster() {
@@ -212,7 +219,6 @@ public class Blademaster
     }
 
 
-
     public static boolean FuryCard(AbstractCard card) {
         boolean retVal = false;
         if (card.hasTag(BlademasterTags.FURY_FINISHER)) {
@@ -288,7 +294,6 @@ public class Blademaster
         BaseMod.addRelicToCustomPool(new BonusComboPerk(), AbstractCardEnum.DEFAULT_GRAY);
         BaseMod.addRelicToCustomPool(new BonusFuryPerk(), AbstractCardEnum.DEFAULT_GRAY);
         BaseMod.addRelicToCustomPool(new DextrousPerk(), AbstractCardEnum.DEFAULT_GRAY);
-        BaseMod.addRelicToCustomPool(new FocusedPerk(), AbstractCardEnum.DEFAULT_GRAY);
         BaseMod.addRelicToCustomPool(new RandomBladePerk(), AbstractCardEnum.DEFAULT_GRAY);
         BaseMod.addRelicToCustomPool(new RandomStancePerk(), AbstractCardEnum.DEFAULT_GRAY);
         BaseMod.addRelicToCustomPool(new StrongPerk(), AbstractCardEnum.DEFAULT_GRAY);
@@ -299,6 +304,7 @@ public class Blademaster
         BaseMod.addRelicToCustomPool(new OnAttackedChargePerk(), AbstractCardEnum.DEFAULT_GRAY);
         BaseMod.addRelicToCustomPool(new WindChargePerk(), AbstractCardEnum.DEFAULT_GRAY);
         BaseMod.addRelicToCustomPool(new LightningChargePerk(), AbstractCardEnum.DEFAULT_GRAY);
+        BaseMod.addRelicToCustomPool(new BleedingMoreDamagePerk(), AbstractCardEnum.DEFAULT_GRAY);
 
         // This adds a relic to the Shared pool. Every character can find this relic.
 
@@ -318,6 +324,7 @@ public class Blademaster
         BaseMod.addDynamicVariable(new LightningSpiritDiv2());
         BaseMod.addDynamicVariable(new LightningSpiritDiv3());
         BaseMod.addDynamicVariable(new LightningSpiritPlusWindSpirit());
+        BaseMod.addDynamicVariable(new ChargeNumber());
 
         logger.info("Add Cards");
         // Add the cards
@@ -346,7 +353,6 @@ public class Blademaster
         BaseMod.addCard(new Flash());
         BaseMod.addCard(new FlockOfBlades());
         BaseMod.addCard(new Flurry());
-        BaseMod.addCard(new Focus());
         BaseMod.addCard(new Frontflip());
         BaseMod.addCard(new FuriousStrike());
         BaseMod.addCard(new FuryOfTheElements());
@@ -395,6 +401,11 @@ public class Blademaster
         BaseMod.addCard(new WrongfulFootwork());
         BaseMod.addCard(new Zephyr());
 
+        BaseMod.addCard(new ThunderSlash());
+        BaseMod.addCard(new AirSlash());
+        BaseMod.addCard(new BladeCross());
+        BaseMod.addCard(new Flow());
+
 
         UnlockTracker.unlockCard(AncestralHealing.ID);
         UnlockTracker.unlockCard(AwakeningDefend.ID);
@@ -422,7 +433,6 @@ public class Blademaster
         UnlockTracker.unlockCard(Flash.ID);
         UnlockTracker.unlockCard(FlockOfBlades.ID);
         UnlockTracker.unlockCard(Flurry.ID);
-        UnlockTracker.unlockCard(Focus.ID);
         UnlockTracker.unlockCard(Frontflip.ID);
         UnlockTracker.unlockCard(FuriousStrike.ID);
         UnlockTracker.unlockCard(FuryOfTheElements.ID);
@@ -471,69 +481,65 @@ public class Blademaster
         UnlockTracker.unlockCard(WrongfulFootwork.ID);
         UnlockTracker.unlockCard(Zephyr.ID);
 
+        UnlockTracker.unlockCard(AirSlash.ID);
+        UnlockTracker.unlockCard(ThunderSlash.ID);
+        UnlockTracker.unlockCard(BladeCross.ID);
+        UnlockTracker.unlockCard(Flow.ID);
     }
 
     // ================ LOAD THE KEYWORDS ===================
 
     @Override
     public void receiveEditStrings() {
-        logger.info("Begin editting strings");
+        String language = "eng";
+        switch (Settings.language) {
+            case ZHS:
+                language = "zhs";
+                break;
+        }
 
-        // CardStrings
-        BaseMod.loadCustomStringsFile(CardStrings.class,
-                "blademasterResources/localization/BlademasterCardStrings.json");
-
-        // PowerStrings
-        BaseMod.loadCustomStringsFile(PowerStrings.class,
-                "blademasterResources/localization/BlademasterPowerStrings.json");
-
-        // RelicStrings
-        BaseMod.loadCustomStringsFile(RelicStrings.class,
-                "blademasterResources/localization/BlademasterRelicStrings.json");
-
-        // PotionStrings
-        BaseMod.loadCustomStringsFile(PotionStrings.class,
-                "blademasterResources/localization/BlademasterPotionStrings.json");
-
-        // BlightStrings
-        BaseMod.loadCustomStringsFile(BlightStrings.class,
-                "blademasterResources/localization/BlademasterBlightStrings.json");
-
-        logger.info("Done edittting strings");
+        loadLangStrings("eng");
+        loadLangStrings(language);
     }
 
     // ================ /LOAD THE KEYWORDS/ ===================    
 
+    private void loadLangStrings(String language) {
+        String path = "blademasterResources/localization/" + language + "/Blademaster";
+
+        BaseMod.loadCustomStringsFile(PowerStrings.class, path + "PowerStrings.json");
+        BaseMod.loadCustomStringsFile(RelicStrings.class, path + "RelicStrings.json");
+        BaseMod.loadCustomStringsFile(CardStrings.class, path + "CardStrings.json");
+        BaseMod.loadCustomStringsFile(OrbStrings.class, path + "OrbStrings.json");
+        BaseMod.loadCustomStringsFile(BlightStrings.class, path + "BlightStrings.json");
+        BaseMod.loadCustomStringsFile(CharacterStrings.class, path + "BladedancerStrings.json");
+    }
+
+    private void loadLangKeywords(String language)
+    {
+        String path = "blademasterResources/localization/" + language + "/";
+
+        Gson gson = new Gson();
+        String json = Gdx.files.internal(path + "BlademasterKeywordStrings.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        Keyword[] keywords = gson.fromJson(json, Keyword[].class);
+
+        if (keywords != null) {
+            for (Keyword keyword : keywords) {
+                BaseMod.addKeyword(keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
+            }
+        }
+    }
+
+
     @Override
     public void receiveEditKeywords() {
-        final String[] finisher = {"finisher", "finishers"};
-        BaseMod.addKeyword(finisher, "A powerful card that uses #rFury or #rCombo as a resource.");
-
-        final String[] havoc = {"havoc blade"};
-        BaseMod.addKeyword(havoc, "A spectral blade that deals damage to enemies you attack.");
-
-        final String[] parry = {"parry blade"};
-        BaseMod.addKeyword(parry, "A spectral blade that reduces the damage taken whenever you're struck.");
-
-        final String[] lacerate = {"lacerate", "laceration", "lacerates"};
-        BaseMod.addKeyword(lacerate, "A 0-cost attack that deals 2 damage and exhausts.");
-
-        final String[] awaken = {"awaken", "awakened"};
-        BaseMod.addKeyword(awaken, "#yAwaken one of your spectral blades, making them more potent.");
-
-        final String[] stance = {"stance", "stances"};
-        BaseMod.addKeyword(stance, "A battle #yStance which determines the type of #yCharges you get. There are 2 #yStances: #gWind and #bLightning.");
-
-        final String[] charge = {"charge", "charges"};
-        BaseMod.addKeyword("[G] [B] Charge", charge, "A resource for stance-oriented cards.");
-
-        final String[] bloodied = {"bloodied"};
-        BaseMod.addKeyword(bloodied, "An effect that's applied if the target has less than #b50% #yHP remaining.");
-
-        final String[] bleeding = {"bleeding", "bleed", "bleeds"};
-        BaseMod.addKeyword(bleeding, "Bleeding enemies take damage at the end of the round.");
-
-        final String[] frozen = {"freeze, frozen"};
-        BaseMod.addKeyword(frozen, "Frozen enemies take 5% more damage per stack of Frozen.");
+        String language = "eng";
+        switch (Settings.language) {
+            case ZHS:
+                language = "zhs";
+                break;
+        }
+        loadLangKeywords("eng");
+        loadLangKeywords(language);
     }
 }

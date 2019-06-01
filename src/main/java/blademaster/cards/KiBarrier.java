@@ -5,6 +5,7 @@ import blademaster.Blademaster;
 import blademaster.patches.AbstractCardEnum;
 import blademaster.powers.LightningCharge;
 import blademaster.powers.WindCharge;
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -29,7 +30,6 @@ public class KiBarrier extends CustomCard {
     public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
 
     private static final int COST = 1;
-
 
     public KiBarrier() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
@@ -56,8 +56,8 @@ public class KiBarrier extends CustomCard {
     public void upgrade() {
         if (! this.upgraded) {
             this.upgradeName();
-            this.retain = true;
             this.rawDescription = UPGRADE_DESCRIPTION;
+            AlwaysRetainField.alwaysRetain.set(this, true);
             this.initializeDescription();
         }
     }

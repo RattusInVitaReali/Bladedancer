@@ -3,10 +3,8 @@ package blademaster.cards;
 import basemod.abstracts.CustomCard;
 import blademaster.Blademaster;
 import blademaster.actions.RemoveSpecificOrbWithoutEvokingAction;
-import blademaster.orbs.AwakenedBladeOrb;
-import blademaster.orbs.AwakenedParryOrb;
-import blademaster.orbs.BladeOrb;
-import blademaster.orbs.ParryOrb;
+import blademaster.orbs.LightningChargeOrb;
+import blademaster.orbs.WindChargeOrb;
 import blademaster.patches.AbstractCardEnum;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -42,7 +40,7 @@ public class NotDualcast extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (AbstractDungeon.player.filledOrbCount() > 2) {
             for (AbstractOrb orb : AbstractDungeon.player.orbs) {
-                if (orb.ID.equals(BladeOrb.ORB_ID) || orb.ID.equals(AwakenedBladeOrb.ORB_ID) || orb.ID.equals(ParryOrb.ORB_ID) || orb.ID.equals(AwakenedParryOrb.ORB_ID)) {
+                if (!orb.ID.equals(LightningChargeOrb.ORB_ID) && !orb.ID.equals(WindChargeOrb.ORB_ID)) {
                     orb.triggerEvokeAnimation();
                     orb.onEvoke();
                     orb.triggerEvokeAnimation();

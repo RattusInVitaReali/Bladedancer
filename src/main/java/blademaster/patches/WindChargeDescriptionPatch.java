@@ -21,6 +21,8 @@ import java.util.regex.Pattern;
 
 public class WindChargeDescriptionPatch {
     private static Pattern r = Pattern.compile("\\[([RGBW])\\](\\.?) ");
+    public static TextureAtlas.AtlasRegion WindChargeRegion = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/512/WindCharge.png"), 0, 0, 24, 24);
+
 
     @SpirePatch (
             clz = AbstractCard.class,
@@ -66,6 +68,8 @@ public class WindChargeDescriptionPatch {
             clz = AbstractCard.class,
             method = "renderDescriptionCN"
     )
+
+
     public static class RenderSmallEnergyOrb {
         private static final float CARD_ENERGY_IMG_WIDTH = 24.0f * Settings.scale;
 
@@ -80,7 +84,6 @@ public class WindChargeDescriptionPatch {
                 if (__instance.color.equals(AbstractCardEnum.DEFAULT_GRAY)) {
                     gl.width = CARD_ENERGY_IMG_WIDTH * __instance.drawScale;
                     float tmp2 = (__instance.description.size() - 4) * spacing;
-                    TextureAtlas.AtlasRegion WindChargeRegion = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/512/WindCharge.png"), 0, 0, 24, 24);
                     __instance.renderSmallEnergy(sb, WindChargeRegion,
                             (start_x[0] - __instance.current_x) / Settings.scale / __instance.drawScale,
                             - 100.0f - ((__instance.description.size() - 4.0f) / 2.0f - i + 1.0f) * spacing);

@@ -1,7 +1,6 @@
 package blademaster.orbs;
 
 import blademaster.interfaces.onAttackedOrb;
-import blademaster.powers.BladeDancePower;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
@@ -11,7 +10,6 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.ThornsPower;
 import com.megacrit.cardcrawl.vfx.BobEffect;
 import com.megacrit.cardcrawl.vfx.combat.FrostOrbPassiveEffect;
@@ -35,7 +33,7 @@ public class ParryOrb
         this.name = "Parry Blade";
         this.baseEvokeAmount = 3;
         this.evokeAmount = this.baseEvokeAmount;
-        this.basePassiveAmount = 2;
+        this.basePassiveAmount = 1;
         this.passiveAmount = this.basePassiveAmount;
         updateDescription();
         this.angle = 0.0F;
@@ -49,26 +47,6 @@ public class ParryOrb
 
     }
 
-    public void applyFocus() {
-        AbstractPower power = AbstractDungeon.player.getPower("Focus");
-        if ((power != null) && (! this.ID.equals("Plasma"))) {
-            if (AbstractDungeon.player.hasPower(BladeDancePower.POWER_ID)) {
-                this.passiveAmount = 2 * Math.max(0, this.basePassiveAmount + power.amount);
-                this.evokeAmount = 2 * Math.max(0, this.baseEvokeAmount + power.amount);
-            } else {
-                this.passiveAmount = Math.max(0, this.basePassiveAmount + power.amount);
-                this.evokeAmount = Math.max(0, this.baseEvokeAmount + power.amount);
-            }
-        } else {
-            if (AbstractDungeon.player.hasPower(BladeDancePower.POWER_ID)) {
-                this.passiveAmount = 2 * this.basePassiveAmount;
-                this.evokeAmount = 2 * this.baseEvokeAmount;
-            } else {
-                this.passiveAmount = this.basePassiveAmount;
-                this.evokeAmount = this.baseEvokeAmount;
-            }
-        }
-    }
 
     public void onEvoke() {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ThornsPower(AbstractDungeon.player, this.evokeAmount), this.evokeAmount));
@@ -76,17 +54,23 @@ public class ParryOrb
 
     @Override
     public int onAttackedForOrbs(DamageInfo info, int damageAmount) {
+        if (info.owner == AbstractDungeon.player) {
+            return damageAmount;
+        }
+
         if (damageAmount < this.passiveAmount) {
+
             return 0;
         } else {
             return damageAmount - this.passiveAmount;
         }
+
     }
 
     public void updateAnimation() {
         super.updateAnimation();
         if (this.vfxTimer < 0.0F) {
-            AbstractDungeon.effectList.add(new FrostOrbPassiveEffect(this.cX, this.cY +this.bobEffect.y));
+            AbstractDungeon.effectList.add(new FrostOrbPassiveEffect(this.cX, this.cY + this.bobEffect.y));
             this.vfxTimer = 0.25F;
         }
     }

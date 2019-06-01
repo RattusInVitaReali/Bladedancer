@@ -4,22 +4,22 @@
         "NAME": "Ancestral Healing"
     },
     "blademaster:AwakeningDefend": {
-        "DESCRIPTION": "Gain !B! Block. NL Awaken !M! of your Blades.",
+        "DESCRIPTION": "Gain !B! Block. NL Conduit !M!.",
         "EXTENDED_DESCRIPTION": [
-            " NL [#00FF2A]Gain[] [W] [#00FF2A].[]",
-            " NL [#4A8CFF]Gain[] [L] [#4A8CFF].[]",
-            " NL [#00FF2A]Gain[] [W]  [W] [#00FF2A].[]",
-            " NL [#4A8CFF]Gain[] [L]  [L] [#4A8CFF].[]"
+            " NL [#00FF2A]Awaken[] [#00FF2A]your[] [#00FF2A]next[] Blade.",
+            " NL [#4A8CFF]Awaken[] [#4A8CFF]your[] [#4A8CFF]next[] Blade.",
+            " NL [#00FF2A]Awaken[] [#00FF2A]your[] [#00FF2A]next[] Blade.",
+            " NL [#4A8CFF]Awaken[] [#4A8CFF]your[] [#4A8CFF]next[] Blade."
         ],
         "NAME": "Awakening Defend"
     },
     "blademaster:AwakeningStrike": {
-        "DESCRIPTION": "Deal !D! damage. Awaken !M! of your Blades.",
+        "DESCRIPTION": "Deal !D! damage. NL Conduit !M!.",
         "EXTENDED_DESCRIPTION": [
-            " NL [#00FF2A]Gain[] [W] [#00FF2A].[]",
-            " NL [#4A8CFF]Gain[] [L] [#4A8CFF].[]",
-            " NL [#00FF2A]Gain[] [W]  [W] [#00FF2A].[]",
-            " NL [#4A8CFF]Gain[] [L]  [L] [#4A8CFF].[]"
+            " NL [#00FF2A]Awaken[] [#00FF2A]your[] [#00FF2A]next[] Blade.",
+            " NL [#4A8CFF]Awaken[] [#4A8CFF]your[] [#4A8CFF]next[] Blade.",
+            " NL [#00FF2A]Awaken[] [#00FF2A]your[] [#00FF2A]next[] Blade.",
+            " NL [#4A8CFF]Awaken[] [#4A8CFF]your[] [#4A8CFF]next[] Blade."
         ],
         "NAME": "Awakening Strike"
     },
@@ -28,7 +28,8 @@
         "NAME": "Basic Attack"
     },
     "blademaster:BladeDance": {
-        "DESCRIPTION": "Finisher. Requires 30 [#FF4500]Fury[] and 6 [#860037]Combo[]. NL Your Havoc Blades deal double damage.",
+        "DESCRIPTION": "Finisher. Requires 40 [#FF4500]Fury[] and 8 [#860037]Combo[]. NL Your Havoc Blades deal double damage.",
+        "UPGRADE_DESCRIPTION": "Finisher. Retain. Requires 40 [#FF4500]Fury[] and 8 [#860037]Combo[]. NL Your Havoc Blades deal double damage.",
         "NAME": "Blade Dance"
     },
     "blademaster:BladeMastery": {
@@ -40,13 +41,14 @@
         "NAME": "Blockade"
     },
     "blademaster:BloodyBlow": {
-        "DESCRIPTION": "Deal !D! damage. NL Bloodied: Apply !M! Bleeding.",
+        "DESCRIPTION": "Deal !D! damage. NL Bloodied: Apply !M! Bleeding. NL Conduit 1.",
         "EXTENDED_DESCRIPTION": [
             " NL [#00FF2A]Gain[] [W] [#00FF2A].[]",
             " NL [#4A8CFF]Gain[] [L] [#4A8CFF].[]",
             " NL [#00FF2A]Gain[] [W]  [W] [#00FF2A].[]",
             " NL [#4A8CFF]Gain[] [L]  [L] [#4A8CFF].[]"
         ],
+        "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Bloodied: Apply !M! Bleeding. NL Conduit 2.",
         "NAME": "Bloody Blow"
     },
     "blademaster:BrainBloom": {
@@ -54,7 +56,7 @@
         "NAME": "Brain Bloom"
     },
     "blademaster:Breeze": {
-        "DESCRIPTION": "Deal !M! damage. NL Deal !D! damage to all enemies.",
+        "DESCRIPTION": "Deal !M! damage. NL Deal !D! damage to all enemies. Add a Gale to your hand. NL Conduit 1.",
         "EXTENDED_DESCRIPTION": [
             " NL [#00FF2A]Gain[] [W] [#00FF2A].[]",
             " NL [#4A8CFF]Gain[] [L] [#4A8CFF].[]"
@@ -72,15 +74,15 @@
         "NAME": "Burnout"
     },
     "blademaster:ChargingUp": {
-        "DESCRIPTION": "Gain !B! Block. NL Gain 2 Charges of the Stance you're currently in.",
+        "DESCRIPTION": "Gain !B! Block. NL Conduit !M!.",
         "NAME": "Charging Up"
     },
     "blademaster:CloudOfSteel": {
-        "DESCRIPTION": "Add 1 Lacerate to your hand for each Blade channeled.",
+        "DESCRIPTION": "Add 1 Lacerate to your hand for each Blade channeled. NL Exhaust.",
         "NAME": "Cloud of Steel"
     },
     "blademaster:Defend": {
-        "DESCRIPTION": "Gain !B! Block.",
+        "DESCRIPTION": "Gain !B! Block. NL Conduit !M!.",
         "EXTENDED_DESCRIPTION": [
             " NL [#00FF2A]Gain[] [W] [#00FF2A].[]",
             " NL [#4A8CFF]Gain[] [L] [#4A8CFF].[]",
@@ -102,8 +104,8 @@
     "blademaster:Blindside": {
         "DESCRIPTION": "Deal !D! damage to ALL enemies.",
         "EXTENDED_DESCRIPTION": [
-            " NL [#00FF2A]Apply[] !M! [#00FF2A]Weak[] [#00FF2A]and[] [L]  !L! [#00FF2A]Bleeding[] [#00FF2A]to[] [#00FF2A]ALL[] [#00FF2A]enemies.[]",
-            " NL [#4A8CFF]Apply[] !M! [#4A8CFF]Vulnerable[] and [W]  !W! [#4A8CFF]Bleeding[] [#4A8CFF]to[] [#4A8CFF]ALL[] [#4A8CFF]enemies.[]",
+            " NL [#00FF2A]Apply[] !M! [#00FF2A]Weak[] [#00FF2A]and[] [W]  !W! [#00FF2A]Bleeding[] [#00FF2A]to[] [#00FF2A]ALL[] [#00FF2A]enemies.[]",
+            " NL [#4A8CFF]Apply[] !M! [#4A8CFF]Vulnerable[] and [L]  !L! [#4A8CFF]Bleeding[] [#4A8CFF]to[] [#4A8CFF]ALL[] [#4A8CFF]enemies.[]",
             " NL Exhaust."
         ],
         "NAME": "Blindside"
@@ -113,9 +115,9 @@
         "NAME": "Fury Of The Elements"
     },
     "blademaster:Empower": {
-        "DESCRIPTION": "Gain [E] . Draw 1 card. NL If you're in a stance, gain !M! Charges. NL Exhaust.",
+        "DESCRIPTION": "Gain [E] . Draw 1 card. NL Conduit !M!. NL Exhaust.",
         "NAME": "Empower",
-        "UPGRADE_DESCRIPTION": "Gain [E] [E] . Draw 2 cards. NL If you're in a stance, gain !M! Charges. NL Exhaust."
+        "UPGRADE_DESCRIPTION": "Gain [E] [E] . Draw 2 cards. NL Conduit !M!. NL Exhaust."
     },
     "blademaster:EyeOfTheStorm": {
         "DESCRIPTION": "Whenever you're attacked, reduce the damage by 1 and gain [L] .",
@@ -137,9 +139,9 @@
         "UPGRADE_DESCRIPTION": "Add 2 random Finishers to your hand."
     },
     "blademaster:Flash": {
-        "DESCRIPTION": "Finisher. Requires 12 [#FF4500]Fury[]. NL Deal !D! damage. Apply 3 Bleeding. NL Add a copy of this card to your hand. It costs 6 [#FF4500]Fury[] more. NL Exhaust.",
+        "DESCRIPTION": "Finisher. Requires 12 [#FF4500]Fury[]. NL Deal !D! damage. Apply 3 Bleeding. NL Add a copy of this card to your hand. It costs 6 [#FF4500]Fury[] more. Conduit 1. NL Exhaust.",
         "EXTENDED_DESCRIPTION": [
-            " [#FF4500]Fury[]. NL Deal !D! damage. Apply 3 Bleeding. NL Add a copy of this card to your hand. It costs 6 [#FF4500]Fury[] more. NL Exhaust.",
+            " [#FF4500]Fury[]. NL Deal !D! damage. Apply 3 Bleeding. NL Add a copy of this card to your hand. It costs 6 [#FF4500]Fury[] more. Conduit 1. NL Exhaust.",
             " NL [#00FF2A]Gain[] [W] [#00FF2A].[]",
             " NL [#4A8CFF]Gain[] [L] [#4A8CFF].[]",
             "Finisher. Requires "
@@ -151,7 +153,7 @@
         "NAME": "Flock Of Blades"
     },
     "blademaster:Flurry": {
-        "DESCRIPTION": "Gain 1 Havoc Blade. Draw !M! cards.",
+        "DESCRIPTION": "Channel 1 Havoc Blade. Draw !M! cards.",
         "NAME": "Flurry"
     },
     "blademaster:Focus": {
@@ -160,17 +162,18 @@
         "NAME": "Focus"
     },
     "blademaster:Frontflip": {
-        "DESCRIPTION": "Gain !B! Block. NL Draw !M! cards.",
+        "DESCRIPTION": "Gain !B! Block. NL Draw !M! cards. NL Conduit 1.",
         "EXTENDED_DESCRIPTION": [
             " NL [#00FF2A]Gain[] [W] [#00FF2A].[]",
             " NL [#4A8CFF]Gain[] [L] [#4A8CFF].[]",
             " NL [#00FF2A]Gain[] [W]  [W] [#00FF2A].[]",
             " NL [#4A8CFF]Gain[] [L]  [L] [#4A8CFF].[]"
         ],
+        "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Draw !M! cards. NL Conduit 2.",
         "NAME": "Frontflip"
     },
     "blademaster:Gale": {
-        "DESCRIPTION": "Deal !M! damage. NL Deal !D! damage to all enemies. NL Add a Zephyr to your hand. NL Exhaust. Ethereal.",
+        "DESCRIPTION": "Deal !M! damage. NL Deal !D! damage to all enemies. NL Add a Zephyr to your hand. Conduit 1. NL Exhaust. Ethereal.",
         "EXTENDED_DESCRIPTION": [
             " NL [#00FF2A]Gain[] [W] [#00FF2A].[]",
             " NL [#4A8CFF]Gain[] [L] [#4A8CFF].[]"
@@ -182,16 +185,16 @@
         "NAME": "Gust"
     },
     "blademaster:Hailwind": {
-        "DESCRIPTION": "Deal !D! damage per every [W]  you have.",
+        "DESCRIPTION": "Consume ALL your  [W] to deal !D! damage per every [W]  you have.",
         "NAME": "Hailwind"
     },
     "blademaster:HighVoltage": {
-        "DESCRIPTION": "Finisher. Requires 3 [#860037]Combo[]. NL Gain !B! Block. NL Change your Stance to [#4A8CFF]πLightning Stance[].",
+        "DESCRIPTION": "Finisher. Requires 3 [#860037]Combo[]. NL Gain !B! Block.",
         "NAME": "High Voltage"
     },
     "blademaster:IcyWind": {
-        "DESCRIPTION": "Deal [W]  damage and apply !M! Frozen to ALL enemies. (Deals !W! damage.)",
-        "NAME": "Icy Wind"
+        "DESCRIPTION": "Deal [W]  damage and apply !M! Bleeding to ALL enemies. (Deals !W! damage.)",
+        "NAME": "Bloody Wind"
     },
     "blademaster:Inferno": {
         "DESCRIPTION": "Whenever you draw a Burn, take !M! damage, deal thrice as much to ALL enemies, and discard it.",
@@ -207,7 +210,7 @@
         "NAME": "Intellectual Supremacy"
     },
     "blademaster:Lacerate": {
-        "DESCRIPTION": "Deal !D! damage. NL Exhaust.",
+        "DESCRIPTION": "Deal !D! damage. NL Conduit 1. NL Exhaust.",
         "EXTENDED_DESCRIPTION": [
             " NL [#00FF2A]Gain[] [W] [#00FF2A].[]",
             " NL [#4A8CFF]Gain[] [L] [#4A8CFF].[]"
@@ -217,8 +220,8 @@
     "blademaster:LeechingStrike": {
         "DESCRIPTION": "Deal !D! damage. NL Bloodied: Deal an additional !M! damage and heal !M! HP.",
         "EXTENDED_DESCRIPTION": [
-            " NL [#00FF2A]Apply[] 1 Vulnerable[#00FF2A].[]",
-            " NL [#4A8CFF]Apply[] 1 Weak[#4A8CFF].[]"
+            " NL [#00FF2A]Apply[] 1 Weak[#00FF2A].[]",
+            " NL [#4A8CFF]Apply[] 1 Vulnerable[#4A8CFF].[]"
         ],
         "NAME": "Leeching Strike"
     },
@@ -265,7 +268,7 @@
         "NAME": "Parry"
     },
     "blademaster:ParryingStrike": {
-        "DESCRIPTION": "Deal !D! damage. Channel 1 Parry Blade. NL Exhaust.",
+        "DESCRIPTION": "Deal !D! damage. Channel 1 Parry Blade. NL Conduit 1. NL Exhaust.",
         "EXTENDED_DESCRIPTION": [
             " NL [#00FF2A]Gain[] [W] [#00FF2A].[]",
             " NL [#4A8CFF]Gain[] [L] [#4A8CFF].[]",
@@ -280,7 +283,7 @@
         "UPGRADE_DESCRIPTION": "Innate. NL Whenever you change Stances, draw 1 card."
     },
     "blademaster:RagingBlow": {
-        "DESCRIPTION": "Finisher. Requires 10 [#FF4500]Fury[]. NL Deal !D! damage. Change your Stance to [#00FF2A]Wind Stance[]. Bloodied: Deals double damage.",
+        "DESCRIPTION": "Finisher. Requires 10 [#FF4500]Fury[]. NL Deal !D! damage. NL Bloodied: Deals double damage.",
         "EXTENDED_DESCRIPTION": [
             " NL [#00FF2A]Deal[] [W]  [#00FF2A]damage[] [#00FF2A]to[] [#00FF2A]ALL[] [#00FF2A]enemies.[] [#00FF2A](Deals[] !W! [#00FF2A]damage.)[]",
             " NL [#4A8CFF]Deal[] 2 [L]  [#4A8CFF]additional[] [#4A8CFF]damage.[] [#4A8CFF](Deals[] !L2! [#4A8CFF]additional damage.)[]"
@@ -304,7 +307,7 @@
         "NAME": "Rolling Typhoon"
     },
     "blademaster:Safeguard": {
-        "DESCRIPTION": "Gain !B! Block. NL Channel 1 Havoc Blade.",
+        "DESCRIPTION": "Gain !B! Block. NL Channel 1 Havoc Blade. NL Conduit !M!.",
         "EXTENDED_DESCRIPTION": [
             " NL [#00FF2A]Gain[] [W] [#00FF2A].[]",
             " NL [#4A8CFF]Gain[] [L] [#4A8CFF].[]",
@@ -318,7 +321,8 @@
         "NAME": "Sharp Blades"
     },
     "blademaster:SlyStabs": {
-        "DESCRIPTION": "Add 2 Lacerates to your hand for each type of Charge you currently have.",
+        "DESCRIPTION": "Add a Lacerate to your hand for each type of Charge you currently have.",
+        "UPGRADE_DESCRIPTION": "Add a Lacerate to your hand for each type of Charge you currently have. NL Add a Lacerate to your hand.",
         "NAME": "Sly Stabs"
     },
     "blademaster:StanceMastery": {
@@ -326,12 +330,12 @@
         "NAME": "Stance Mastery"
     },
     "blademaster:Stormstrike": {
-        "DESCRIPTION": "Deal !D! damage. NL Deal 2 [L]  additional damage. NL (Deals !L2! additional damage.)",
-        "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Deal 3 [L]  additional damage. NL (Deals !L3! additional damage.)",
+        "DESCRIPTION": "Deal !D! damage. NL Consume ALL your  [L] to deal 2 [L]  additional damage. NL (Deals !L2! additional damage.)",
+        "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Consume ALL your  [L] to deal 3 [L]  additional damage. NL (Deals !L3! additional damage.)",
         "NAME": "Stormstrike"
     },
     "blademaster:Strike": {
-        "DESCRIPTION": "Deal !D! damage.",
+        "DESCRIPTION": "Deal !D! damage. NL Conduit !M!.",
         "EXTENDED_DESCRIPTION": [
             " NL [#00FF2A]Gain[] [W] [#00FF2A].[]",
             " NL [#4A8CFF]Gain[] [L] [#4A8CFF].[]",
@@ -341,7 +345,7 @@
         "NAME": "Strike"
     },
     "blademaster:Sunder": {
-        "DESCRIPTION": "Deal !D! damage. NL Gain 1 focus.",
+        "DESCRIPTION": "Deal !D! damage. NL Gain 1 Focus until the end of your turn. NL Conduit !M!.",
         "EXTENDED_DESCRIPTION": [
             " NL [#00FF2A]Gain[] [W] [#00FF2A].[]",
             " NL [#4A8CFF]Gain[] [L] [#4A8CFF].[]",
@@ -377,8 +381,8 @@
     "blademaster:EnchantedCuirass": {
         "DESCRIPTION": "Finisher. Requires 5 [#860037]Combo[]. NL Gain !M! Metallicize.",
         "EXTENDED_DESCRIPTION": [
-            " NL [#00FF2A]Gain[] [L]  / 3 Artifact. NL [#00FF2A](Gains[] !LD3! Artifact[#00FF2A].)[]",
-            " NL [#4A8CFF]Heal[] [W]  [#4A8CFF]HP.[] NL [#4A8CFF](Heals[] !W! [#4A8CFF]HP.)[]"
+            " NL [#00FF2A]Heal[] [W]  [#00FF2A]HP.[] NL [#00FF2A](Heals[] !W! [#00FF2A]HP.)[]",
+            " NL [#4A8CFF]Gain[] [L] / 3 Artifact. NL [#4A8CFF](Gains[] !LD3! Artifact[#4A8CFF].)[]"
         ],
         "NAME": "Enchanted Cuirass"
     },
@@ -391,7 +395,7 @@
         "NAME": "Windstorm"
     },
     "blademaster:Zephyr": {
-        "DESCRIPTION": "Deal !M! damage. NL Deal !D! damage to all enemies. NL Exhaust. Ethereal.",
+        "DESCRIPTION": "Deal !M! damage. NL Deal !D! damage to all enemies. Conduit 1. NL Exhaust. Ethereal.",
         "EXTENDED_DESCRIPTION": [
             " NL [#00FF2A]Gain[] [W] [#00FF2A].[]",
             " NL [#4A8CFF]Gain[] [L] [#4A8CFF].[]"
@@ -404,7 +408,7 @@
         "NAME": "One Trick Pony"
     },
     "blademaster:Slice": {
-        "DESCRIPTION": "Deal !D! damage. NL Draw 1 card.",
+        "DESCRIPTION": "Deal !D! damage. NL Draw 1 card. NL Conduit 1.",
         "EXTENDED_DESCRIPTION": [
             " NL [#00FF2A]Gain[] [W] [#00FF2A].[]",
             " NL [#4A8CFF]Gain[] [L] [#4A8CFF].[]",
@@ -500,7 +504,7 @@
         "NAME": "Unrelenting Wind"
     },
     "blademaster:DaggerAndCloak": {
-        "DESCRIPTION": "Gain !B! Block. NL Add a Lacerate to your hand.",
+        "DESCRIPTION": "Gain !B! Block. NL Add a Lacerate to your hand. NL Conduit 1.",
         "EXTENDED_DESCRIPTION": [
             " NL [#00FF2A]Gain[] [W] [#00FF2A].[]",
             " NL [#4A8CFF]Gain[] [L] [#4A8CFF].[]",
@@ -508,10 +512,11 @@
             " NL [#4A8CFF]Gain[] [L]  [L] [#4A8CFF].[]"
         ],
         "NAME": "Dagger and Cloak",
-        "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Add !M! Lacerates to your hand."
+        "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Add !M! Lacerates to your hand. NL Conduit 1."
     },
     "blademaster:FuriousStrike": {
-        "DESCRIPTION": "Deal !D! damage. NL Gain !M! [#FF4500]Fury[].",
+        "DESCRIPTION": "Deal !D! damage. NL Gain !M! [#FF4500]Fury[]. NL Conduit 1.",
+        "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Gain !M! [#FF4500]Fury[]. NL Conduit 2.",
         "EXTENDED_DESCRIPTION": [
             " NL [#00FF2A]Gain[] [W] [#00FF2A].[]",
             " NL [#4A8CFF]Gain[] [L] [#4A8CFF].[]",
@@ -519,5 +524,21 @@
             " NL [#4A8CFF]Gain[] [L]  [L] [#4A8CFF].[]"
         ],
         "NAME": "Furious Strike"
+    },
+    "blademaster:ThunderSlash": {
+        "DESCRIPTION": "Deal !D! damage. NL If you're in [#4A8CFF]Lightning[] [#4A8CFF]Stance[], deal !D! damage again.",
+        "NAME": "Thunder Slash"
+    },
+    "blademaster:AirSlash": {
+        "DESCRIPTION": "Deal !D! damage. NL If you're in [#00FF2A]Wind[] [#00FF2A]Stance[], deal !D! damage again.",
+        "NAME": "Air Slash"
+    },
+    "blademaster:BladeCross": {
+        "DESCRIPTION": "Deal !D! damage. Evoke your first Blade to do !D! damage again.",
+        "NAME": "Blade Cross"
+    },
+    "blademaster:Flow": {
+        "DESCRIPTION": "Gain 1 Flow.",
+        "NAME": "Flow"
     }
 }

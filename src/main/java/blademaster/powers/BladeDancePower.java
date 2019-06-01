@@ -3,8 +3,10 @@ package blademaster.powers;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public class BladeDancePower extends AbstractPower {
@@ -23,8 +25,14 @@ public class BladeDancePower extends AbstractPower {
         this.isTurnBased = false;
         this.region128 = BigImage;
         this.region48 = SmallImage;
+        updateDescription();
     }
 
+    public void onInitialApplication() {
+        for (AbstractOrb orb : AbstractDungeon.player.orbs) {
+            orb.applyFocus();
+        }
+    }
 
     public void updateDescription() {
         this.description = DESCRIPTIONS[0];

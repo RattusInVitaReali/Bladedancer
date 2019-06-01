@@ -3,7 +3,7 @@
         "NAME": "Dancer's Amulet",
         "FLAVOR": "A mildly special amulet, I suppose.",
         "DESCRIPTIONS": [
-            "At the start of each combat, gain #bCombo and #bFury. Whenever you defeat an #rElite, choose to obtain one of 2 #gPerks."
+            "Whenever you play 3 cards in a single turn, draw 1 card."
         ]
     },
     "blademaster:BonusComboPerk": {
@@ -73,7 +73,7 @@
         "NAME": "Perk: Healthy Stances",
         "FLAVOR": "",
         "DESCRIPTIONS": [
-            "At the end of combat,heal #6 HP if you're in a Stance."
+            "At the end of combat,heal #b6 HP if you're in a Stance."
         ]
     },
     "blademaster:ComboEveryTurnPerk": {
@@ -108,14 +108,21 @@
         "NAME": "Perk: Wind Stance Mastery",
         "FLAVOR": "",
         "DESCRIPTIONS": [
-            "At the start of your turn, gain #b2 #gWind #yCharges."
+            "At the start of your turn, if you're in #gWind #gStance gain #b3 #gWind #gCharges if you have none. Otherwise, gain #b1 #gWind #gCharge."
         ]
     },
     "blademaster:LightningChargePerk": {
         "NAME": "Perk: Lightning Stance Mastery",
         "FLAVOR": "",
         "DESCRIPTIONS": [
-            "At the start of your turn, gain #b2 #bLightning #yCharges."
+            "At the start of your turn, if you're in #bLightning #bStance gain #b3 #bLightning #bCharges if you have none. Otherwise, gain #b1 #bLightning #bCharge."
+        ]
+    },
+    "blademaster:BleedingMoreDamagePerk": {
+        "NAME": "Perk: Deep Cuts",
+        "FLAVOR": "",
+        "DESCRIPTIONS": [
+            "#yBleeding enemies take #b30% more damage rather than #b20%."
         ]
     }
 }

@@ -3,7 +3,7 @@ package blademaster.cards;
 import basemod.abstracts.CustomCard;
 import blademaster.Blademaster;
 import blademaster.patches.AbstractCardEnum;
-import blademaster.powers.FrozenPower;
+import blademaster.powers.BleedingPower;
 import blademaster.powers.WindCharge;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
@@ -41,14 +41,12 @@ public class IcyWind extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (p.hasPower(WindCharge.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new VFXAction(new BlizzardEffect(p.getPower(WindCharge.POWER_ID).amount, AbstractDungeon.getMonsters().shouldFlipVfx()), 0.5F));
-            for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
-                if (p.hasPower(WindCharge.POWER_ID)) {
-                    AbstractDungeon.actionManager.addToBottom(new DamageAction(monster, new DamageInfo(p, p.getPower(WindCharge.POWER_ID).amount, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-                }
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(monster, p, new FrozenPower(monster, this.magicNumber), 4));
+        AbstractDungeon.actionManager.addToBottom(new VFXAction(new BlizzardEffect(10, AbstractDungeon.getMonsters().shouldFlipVfx()), 0.5F));
+        for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
+            if (p.hasPower(WindCharge.POWER_ID)) {
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(monster, new DamageInfo(p, p.getPower(WindCharge.POWER_ID).amount, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
             }
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(monster, p, new BleedingPower(monster, p, this.magicNumber), this.magicNumber));
         }
     }
 

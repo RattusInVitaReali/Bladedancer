@@ -2,10 +2,7 @@ package blademaster.orbs;
 
 import blademaster.effects.particles.BetterFireBurstParticleEffect;
 import blademaster.interfaces.onUseCardOrb;
-import blademaster.powers.BladeDancePower;
-import blademaster.powers.BleedingPower;
-import blademaster.powers.LifestealPower;
-import blademaster.powers.SharpBladesPower;
+import blademaster.powers.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -14,6 +11,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.defect.LightningOrbEvokeAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
@@ -22,33 +20,31 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.vfx.BobEffect;
 import com.megacrit.cardcrawl.vfx.combat.DarkOrbActivateEffect;
 import com.megacrit.cardcrawl.vfx.combat.OrbFlareEffect;
 
 import static com.badlogic.gdx.graphics.Color.WHITE;
 
-public class AwakenedBladeOrb
+public class WindBladeOrb
         extends AbstractOrb implements onUseCardOrb {
-    public static final String ORB_ID = "AwakenedHavocBlade";
+    public static final String ORB_ID = "WindHavoc";
     public static final String[] DESC = {"#yPassive: whenever you play a single-target attack, deal #b ",
-            " additional damage twice. NL #yEvoke: Deal #b ",
-            " damage to all enemies."};
-    private static final float ORB_BORDER_SCALE = 1.2F;
-    private static final float VFX_INTERVAL_TIME = 0.25F;
-    private static final float ORB_WAVY_DIST = 0.04F;
-    private static final float PI_4 = 12.566371F;
+            " additional damage, #gand #gdeal #b1 #gdamage #gto #gALL #genemies. NL #yEvoke: Deal #b ",
+            " damage #gand #gapply #b1 #yWeak to ALL enemies."};
     private static int Samt;
-    private static Texture ORB_BLADE = new Texture("blademasterResources/images/orbs/HavocBlade.png");
+    private static Texture ORB_BLADE = new Texture("blademasterResources/images/orbs/WindHavoc.png");
     private float vfxTimer;
 
-    public AwakenedBladeOrb() {
+    public WindBladeOrb() {
         this.vfxTimer = 0.5F;
         this.ID = ORB_ID;
         this.img = ORB_BLADE;
-        this.name = "Awakened Havoc Blade";
+        this.name = "Wind Havoc Blade";
         this.baseEvokeAmount = 7;
         this.evokeAmount = this.baseEvokeAmount;
         this.basePassiveAmount = 2;
@@ -87,7 +83,12 @@ public class AwakenedBladeOrb
 
 
     public void onEvoke() {
-        AbstractDungeon.actionManager.addToTop(new LightningOrbEvokeAction(new DamageInfo(AbstractDungeon.player, this.evokeAmount, DamageInfo.DamageType.THORNS), true));
+        AbstractDungeon.actionManager.addToBottom(new LightningOrbEvokeAction(new DamageInfo(AbstractDungeon.player, this.evokeAmount, DamageInfo.DamageType.THORNS), true));
+        for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
+            if (!monster.isDead) {
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(monster, AbstractDungeon.player, new WeakPower(monster, 1, false), 1));
+            }
+        }
     }
 
     public void onUseCard(AbstractCard card, UseCardAction action) {
@@ -102,14 +103,10 @@ public class AwakenedBladeOrb
             if (AbstractDungeon.player.hasPower(LifestealPower.POWER_ID)) {
                 AbstractDungeon.actionManager.addToBottom(new HealAction(AbstractDungeon.player, AbstractDungeon.player, AbstractDungeon.player.getPower(LifestealPower.POWER_ID).amount));
             }
-            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(AbstractDungeon.player, this.passiveAmount, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.SLASH_VERTICAL, true));
-            if (AbstractDungeon.player.hasPower(SharpBladesPower.POWER_ID)) {
-                Samt = AbstractDungeon.player.getPower(SharpBladesPower.POWER_ID).amount;
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, AbstractDungeon.player, new BleedingPower(m, AbstractDungeon.player, Samt), Samt));
+            if (AbstractDungeon.player.hasPower(BlockadePower.POWER_ID)) {
+                AbstractDungeon.actionManager.addToBottom(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, AbstractDungeon.player.getPower(BlockadePower.POWER_ID).amount));
             }
-            if (AbstractDungeon.player.hasPower(LifestealPower.POWER_ID)) {
-                AbstractDungeon.actionManager.addToBottom(new HealAction(AbstractDungeon.player, AbstractDungeon.player, AbstractDungeon.player.getPower(LifestealPower.POWER_ID).amount));
-            }
+            AbstractDungeon.actionManager.addToBottom(new LightningOrbEvokeAction(new DamageInfo(AbstractDungeon.player, 1, DamageInfo.DamageType.THORNS), true));
         }
     }
 
@@ -118,7 +115,7 @@ public class AwakenedBladeOrb
         this.angle += Gdx.graphics.getDeltaTime() * 120.0F;
         this.vfxTimer -= Gdx.graphics.getDeltaTime();
         if (this.vfxTimer < 0.0F) {
-            AbstractDungeon.effectList.add(new BetterFireBurstParticleEffect(this.cX + 80F, this.cY + this.bobEffect.y + 40F, 1.0F, 0.0F, 0.0F));
+            AbstractDungeon.effectList.add(new BetterFireBurstParticleEffect(this.cX + 80F, this.cY + this.bobEffect.y + 40F, 0.0F, 1.0F, 0.1F));
             this.vfxTimer = 0.07F;
         }
     }
@@ -137,7 +134,7 @@ public class AwakenedBladeOrb
     }
 
     public AbstractOrb makeCopy() {
-        return new AwakenedBladeOrb();
+        return new WindBladeOrb();
     }
 
     public void triggerEvokeAnimation() {

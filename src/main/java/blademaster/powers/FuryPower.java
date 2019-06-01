@@ -44,7 +44,7 @@ public class FuryPower
 
     public void onAttack(DamageInfo info, int damageAmount, AbstractCreature target) {
         if ((info.type == DamageInfo.DamageType.NORMAL) && (this.owner != null) && (! this.owner.hasPower(CalmnessPower.POWER_ID))) {
-            this.amount += damageAmount;
+            this.amount += info.base;
         }
     }
 }

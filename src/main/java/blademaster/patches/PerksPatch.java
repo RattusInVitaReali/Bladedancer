@@ -1,9 +1,8 @@
 package blademaster.patches;
 
-import blademaster.relics.DancersAmulet;
+import blademaster.characters.BlademasterCharacter;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import javassist.CtBehavior;
 
@@ -16,9 +15,8 @@ public class PerksPatch {
             locator = Locator.class
     )
     public static void Insert(AbstractRoom __instance) {
-        AbstractRelic amulet = AbstractDungeon.player.getRelic(DancersAmulet.ID);
-        if (amulet != null) {
-            amulet.onTrigger();
+        if (AbstractDungeon.player instanceof BlademasterCharacter) {
+            ((BlademasterCharacter) AbstractDungeon.player).RewardsTrigger();
             // Re-setup the rewards screen to our changed rewards
             AbstractDungeon.combatRewardScreen.setupItemReward();
         }

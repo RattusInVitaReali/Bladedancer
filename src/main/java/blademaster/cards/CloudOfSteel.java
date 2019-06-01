@@ -2,7 +2,7 @@ package blademaster.cards;
 
 import basemod.abstracts.CustomCard;
 import blademaster.Blademaster;
-import blademaster.orbs.BladeOrb;
+import blademaster.orbs.*;
 import blademaster.patches.AbstractCardEnum;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -30,13 +30,14 @@ public class CloudOfSteel extends CustomCard {
 
     public CloudOfSteel() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        this.exhaust = true;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
 
         for (AbstractOrb orb : AbstractDungeon.player.orbs) {
-            if (orb instanceof BladeOrb) {
+            if (orb instanceof BladeOrb || orb instanceof WindBladeOrb || orb instanceof ParryOrb || orb instanceof WindParryOrb || orb instanceof LightningBladeOrb || orb instanceof LightningParryOrb) {
                 AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Lacerate(), 1));
 
             }

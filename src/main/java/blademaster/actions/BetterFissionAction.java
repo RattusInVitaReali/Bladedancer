@@ -29,11 +29,13 @@ public class BetterFissionAction extends AbstractGameAction {
             AbstractDungeon.actionManager.addToTop(new DrawCardAction(AbstractDungeon.player, orbCount));
             AbstractDungeon.actionManager.addToTop(new GainEnergyAction(orbCount));
             for (AbstractOrb orb : AbstractDungeon.player.orbs) {
-                if (this.upgraded) {
-                    orb.triggerEvokeAnimation();
-                    orb.onEvoke();
+                if (! orb.ID.equals(WindChargeOrb.ORB_ID) && ! orb.ID.equals(LightningChargeOrb.ORB_ID)) {
+                    if (this.upgraded) {
+                        orb.triggerEvokeAnimation();
+                        orb.onEvoke();
+                    }
+                    AbstractDungeon.actionManager.addToBottom(new RemoveSpecificOrbWithoutEvokingAction(orb));
                 }
-                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificOrbWithoutEvokingAction(orb));
             }
         }
 
