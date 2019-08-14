@@ -12,11 +12,11 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
 public class BetterThrowDaggerEffect extends AbstractGameEffect {
+    private static final float DUR = 0.4F;
     private float x;
     private float y;
     private float destY;
     private float destX;
-    private static final float DUR = 0.4F;
     private AtlasRegion img;
     private boolean playedSound = false;
 

@@ -1,104 +1,104 @@
 {
     "blademaster:BonusComboPerkBlight": {
-        "NAME": "Perk: Combatant",
+        "NAME": "技能：参战",
         "DESCRIPTION": [
-            "Start each combat with #b3 #yCombo."
+            "每场战斗开始时，获得 #b3 点 #y连击 。"
         ]
     },
     "blademaster:StrongPerkBlight": {
-        "NAME": "Perk: Strong",
+        "NAME": "技能：强壮",
         "DESCRIPTION": [
-            "Start each combat with #b1 #yStrength."
+            "每场战斗开始时，获得 #b1 点 #y力量 。"
         ]
     },
     "blademaster:BonusFuryPerkBlight": {
-        "NAME": "Perk: Furious",
+        "NAME": "技能：狂怒",
         "DESCRIPTION": [
-            "Start each combat with #b15 #yFury."
+            "每场战斗开始时，获得 #b15 点 #y愤怒 。"
         ]
     },
     "blademaster:DextrousPerkBlight": {
-        "NAME": "Perk: Dexterous",
+        "NAME": "技能：灵巧",
         "DESCRIPTION": [
-            "Start each combat with #b1 #yDexterity."
+            "每场战斗开始时，获得 #b1 点 #y敏捷 。"
         ]
     },
     "blademaster:FocusedPerkBlight": {
-        "NAME": "Perk: Focused",
+        "NAME": "技能：专注",
         "DESCRIPTION": [
-            "Start each combat with #b1 #yFocus."
+            "每场战斗开始时，获得 #b1 点 #y集中 。"
         ]
     },
     "blademaster:RandomBladePerkBlight": {
-        "NAME": "Perk: Blades",
+        "NAME": "技能：刀刃",
         "DESCRIPTION": [
-            "At the start of each combat, channel #b1 random #yBlade."
+            "每场战斗开始时，生成 #b1 把随机 #y飞刀 。"
         ]
     },
     "blademaster:RandomDefensiveStancePerkBlight": {
-        "NAME": "Perk: Defensive Stance Mastery",
+        "NAME": "技能：防御态势精通",
         "DESCRIPTION": [
-            "At the start of combat, switch your #yDefensive #yStance to a random #yStance."
+            "每场战斗开始时，将你的 #y防御态势 切换为随机 #y态势 。"
         ]
     },
     "blademaster:RandomStancePerkBlight": {
-        "NAME": "Perk: Offensive Stance Mastery",
+        "NAME": "技能：进攻态势精通",
         "DESCRIPTION": [
-            "At the start of combat, switch your #yStance to a random #yStance."
+            "每场战斗开始时，将你的 #y态势 切换为随机 #y态势 。"
         ]
     },
     "blademaster:FinisherDrawCardPerkBlight": {
-        "NAME": "Perk: Finisher Mastery",
+        "NAME": "技能：终结精通",
         "DESCRIPTION": [
-            "Whenever you play a #rFinisher, draw 1 card."
+            "每当你打出 #r终结牌 时， 抽 1 张牌。"
         ]
     },
     "blademaster:StanceHealPerkBlight": {
-        "NAME": "Perk: Healthy Stances",
+        "NAME": "技能：健壮态势",
         "DESCRIPTION": [
-            "At the end of combat,heal #b6 HP if you're in a Stance."
+            "在战斗结束时，如果你处于任意 #y态势 中，则恢复 #b6 生命。"
         ]
     },
     "blademaster:ComboEveryTurnPerkBlight": {
-        "NAME": "Perk: Alacrity",
+        "NAME": "技能：活跃",
         "DESCRIPTION": [
-            "At the start of your turn, gain #b1 #yCombo."
+            "你的回合开始时，获得 #b1 点 #y连击 。"
         ]
     },
     "blademaster:FuryEveryTurnPerkBlight": {
-        "NAME": "Perk: Endless Rage",
+        "NAME": "技能：无尽怒气",
         "DESCRIPTION": [
-            "At the start of your turn, gain #b5 #yFury."
+            "你的回合开始时，获得 #b5 点 #y愤怒 。"
         ]
     },
     "blademaster:OnAttackedChargePerkBlight": {
-        "NAME": "Perk: Hypercharge",
+        "NAME": "技能：高阶充能",
         "DESCRIPTION": [
-            "Whenever you're attacked, if you're in a #yStance, gain #b1 #yCharge."
+            "当你受到攻击时，如果你处于某个 #y态势 中，则获得 #b1 点 #y充能 。"
         ]
     },
     "blademaster:BleedingLaceratePerkBlight": {
-        "NAME": "Perk: Critical Hits",
+        "NAME": "技能：暴击",
         "DESCRIPTION": [
-            "Your #rLacerates apply #b2 #yBleeding."
+            "你的 #r割裂 给予 #b2 层 #y流血 。"
         ]
     },
     "blademaster:WindChargePerkBlight": {
-        "NAME": "Perk: Wind Stance Mastery",
+        "NAME": "技能：疾风态势精通",
         "DESCRIPTION": [
-            "At the start of your turn, if you're in #gWind #gStance gain 3 #gWind #gCharges if you have none. Otherwise, gain 1 #gWind #gCharge."
+            "你的回合开始时，如果你处于 #g疾风态势 中，如果你没有 #g疾风充能 ，则获得 3 点 #g疾风充能 ；否则，获得 1 点 #g疾风充能 。"
         ]
     },
     "blademaster:LightningChargePerkBlight": {
-        "NAME": "Perk: Lightning Stance Mastery",
+        "NAME": "技能：雷霆态势精通",
         "DESCRIPTION": [
-            "At the start of your turn, if you're in #bLighting #bStance gain 3 #bLighting #bCharges if you have none. Otherwise, gain 1 #bLighting #bCharge."
+            "你的回合开始时，如果你处于 #b雷霆态势 中，如果你没有 #b雷霆充能 ，则获得 3 点 #b雷霆充能 ；否则，获得 1 点 #b雷霆充能 。"
         ]
     },
     "blademaster:BleedingMoreDamagePerkBlight": {
-        "NAME": "Perk: Deep Cuts",
+        "NAME": "技能：纵深切口",
         "DESCRIPTION": [
-            "#yBleeding enemies take #b30% more damage rather than #b20%."
+            "#y流血 的敌人受到额外的 #b30% 伤害而不是 #b20% 。"
         ]
     }
 }

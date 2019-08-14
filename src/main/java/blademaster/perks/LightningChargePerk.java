@@ -17,7 +17,7 @@ public class LightningChargePerk extends CustomRelic implements PerkRelic {
     public static Texture OI = new Texture(OUTLINE);
 
     public LightningChargePerk() {
-        super(ID, IMAGE,OI, RelicTier.SPECIAL, LandingSound.MAGICAL);
+        super(ID, IMAGE, OI, RelicTier.SPECIAL, LandingSound.MAGICAL);
     }
 
     public String getUpdatedDescription() {

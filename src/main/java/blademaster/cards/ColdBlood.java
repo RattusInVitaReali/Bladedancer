@@ -19,19 +19,22 @@ public class ColdBlood extends CustomCard {
 
 
     public static final String ID = Blademaster.makeID("ColdBlood");
-    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String IMG = Blademaster.makePath("cards/ColdBlood.png");
+    public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
+    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-
-
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.POWER;
-    public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
-
     private static final int COST = 0;
     private static final int AMT = 4;
+
+    public ColdBlood() {
+        super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        this.magicNumber = this.baseMagicNumber = AMT;
+        this.tags.add(BlademasterTags.COMBO_FINISHER);
+    }
 
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
         cantUseMessage = "I haven't played enough cards this turn!";
@@ -42,15 +45,9 @@ public class ColdBlood extends CustomCard {
         }
     }
 
-    public ColdBlood() {
-        super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = AMT;
-        this.tags.add(BlademasterTags.COMBO_FINISHER);
-    }
-
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ComboPower(p, -6), -6));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ComboPower(p, - 6), - 6));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DexterityPower(p, this.magicNumber), this.magicNumber));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, this.magicNumber), this.magicNumber));
     }

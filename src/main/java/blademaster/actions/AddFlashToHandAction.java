@@ -13,6 +13,11 @@ import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
 public class AddFlashToHandAction extends AbstractGameAction {
     private static final float DURATION_PER_CARD = 0.35F;
     private static final float PADDING;
+
+    static {
+        PADDING = 25.0F * Settings.scale;
+    }
+
     private AbstractCard c;
     private boolean isOtherCardInCenter = false;
     private int Thonk;
@@ -93,10 +98,6 @@ public class AddFlashToHandAction extends AbstractGameAction {
         }
 
 
-    }
-
-    static {
-        PADDING = 25.0F * Settings.scale;
     }
 
 }

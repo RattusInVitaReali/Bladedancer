@@ -1,23 +1,28 @@
 package blademaster.characters;
 
 import basemod.abstracts.CustomPlayer;
+import blademaster.Blademaster;
 import blademaster.blights.*;
 import blademaster.cards.Defend;
 import blademaster.cards.HighVoltage;
 import blademaster.cards.RagingBlow;
 import blademaster.cards.Strike;
+import blademaster.effects.particles.BetterFireBurstParticleEffect;
 import blademaster.orbs.LightningChargeOrb;
 import blademaster.orbs.WindChargeOrb;
 import blademaster.patches.AbstractCardEnum;
+import blademaster.patches.BlademasterTags;
 import blademaster.perks.*;
 import blademaster.powers.*;
 import blademaster.relics.DancersAmulet;
 import blademaster.rewards.LinkedRewardItem;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.esotericsoftware.spine.AnimationState;
+import com.esotericsoftware.spine.Bone;
 import com.evacipated.cardcrawl.modthespire.lib.SpireOverride;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -32,6 +37,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rewards.RewardItem;
@@ -51,13 +57,8 @@ import static blademaster.Blademaster.THE_DEFAULT_SKELETON_JSON;
 //and https://github.com/daviscook477/BaseMod/wiki/Migrating-to-5.0
 
 public class BlademasterCharacter extends CustomPlayer {
-    private int maxFlow = 5;
-    private int currentFlow;
-
-    private static final CharacterStrings charStrings;
     public static final String NAME;
     public static final String DESCRIPTION;
-
     public static final Logger logger = LogManager.getLogger(blademaster.Blademaster.class.getName());
     // =============== BASE STATS =================
     public static final int ENERGY_PER_TURN = 3;
@@ -78,12 +79,25 @@ public class BlademasterCharacter extends CustomPlayer {
             "blademasterResources/images/characters/blademasterCharacter/orb/layer3d.png",
             "blademasterResources/images/characters/blademasterCharacter/orb/layer4d.png",
             "blademasterResources/images/characters/blademasterCharacter/orb/layer5d.png",};
+    private static final CharacterStrings charStrings;
+    private static final float HEALTH_BAR_HEIGHT;
+    private static final float HEALTH_BAR_OFFSET_Y;
+    private static final float HEALTH_TEXT_OFFSET_Y;
+    private static final float POWER_ICON_PADDING_X;
+    private static final float HEALTH_BG_OFFSET_X;
 
     // =============== /BASE STATS/ =================
 
-
-    // =============== TEXTURES OF BIG ENERGY ORB ===============
-    private Color hbTextColor = new Color(1.0F, 1.0F, 1.0F, 0.0F);
+    static {
+        charStrings = CardCrawlGame.languagePack.getCharacterString("Bladedancer");
+        NAME = charStrings.NAMES[0];
+        DESCRIPTION = charStrings.TEXT[0];
+        HEALTH_BAR_HEIGHT = 20.0F * Settings.scale;
+        HEALTH_BAR_OFFSET_Y = - 28.0F * Settings.scale;
+        HEALTH_TEXT_OFFSET_Y = 6.0F * Settings.scale;
+        POWER_ICON_PADDING_X = 48.0F * Settings.scale;
+        HEALTH_BG_OFFSET_X = 31.0F * Settings.scale;
+    }
 
     public float[] orbPositionsX = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
@@ -92,6 +106,17 @@ public class BlademasterCharacter extends CustomPlayer {
 
 
     // =============== CHARACTER CLASS START =================
+    public HashMap <String, String> blightMap = new HashMap <>();
+    private Bone Sword_Left;
+
+    // =============== /CHARACTER CLASS END/ =================
+    private Bone Sword_Right;
+    private float AngleLeft;
+    private float AngleRight;
+    private float particleTimer = 0.06F;
+    // =============== TEXTURES OF BIG ENERGY ORB ===============
+    private Color hbTextColor = new Color(1.0F, 1.0F, 1.0F, 0.0F);
+
 
     public BlademasterCharacter(String name, PlayerClass setClass) {
         super(name, setClass, orbTextures,
@@ -132,13 +157,29 @@ public class BlademasterCharacter extends CustomPlayer {
         this.dialogX = (this.drawX + 0.0F * Settings.scale); // set location for text bubbles
         this.dialogY = (this.drawY + 220.0F * Settings.scale); // you can just copy these values
         initializeSlotPositions();
-
+        this.Sword_Left = this.skeleton.findBone("Sword_Left");
+        this.Sword_Right = this.skeleton.findBone("Sword_Right");
+        this.AngleLeft = this.Sword_Left.getRotation();
+        this.AngleRight = this.Sword_Right.getRotation();
         // =============== /TEXT BUBBLE LOCATION/ =================
 
     }
 
-    // =============== /CHARACTER CLASS END/ =================
-
+    public void useCard(AbstractCard c, AbstractMonster monster, int energyOnUse) {
+        super.useCard(c, monster, energyOnUse);
+        if (c.hasTag(BlademasterTags.FURY_FINISHER) || c.hasTag(BlademasterTags.COMBO_FINISHER)) {
+            if (c.type == AbstractCard.CardType.ATTACK) {
+                int rand = MathUtils.random(0, 2);
+                if (rand == 0) {
+                    Blademaster.runAnim("Strike1");
+                } else if (rand == 1) {
+                    Blademaster.runAnim("Strike2");
+                } else {
+                    Blademaster.runAnim("Strike3");
+                }
+            }
+        }
+    }
 
     // Starting description and loadout
     @Override
@@ -194,9 +235,6 @@ public class BlademasterCharacter extends CustomPlayer {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ComboPower(AbstractDungeon.player, 0), 0));
         }
     }
-
-    public HashMap <String, String> blightMap = new HashMap <>();
-
 
     public void RewardsTrigger() {
         List <RewardItem> relicRewards = new ArrayList <>();
@@ -290,6 +328,25 @@ public class BlademasterCharacter extends CustomPlayer {
         }
     }
 
+    public void update() {
+        super.update();
+        if (AbstractDungeon.player.hasPower(WindStance.POWER_ID)) {
+            this.particleTimer -= Gdx.graphics.getDeltaTime();
+            if (this.particleTimer < 0.0F) {
+                AbstractDungeon.effectList.add(new BetterFireBurstParticleEffect(this.skeleton.getX() + this.Sword_Left.getWorldX(), this.skeleton.getY() + this.Sword_Left.getWorldY(), 0.1F, 1.0F, 0.5F));
+                AbstractDungeon.effectList.add(new BetterFireBurstParticleEffect(this.skeleton.getX() + this.Sword_Right.getWorldX(), this.skeleton.getY() + this.Sword_Right.getWorldY(), 0.1F, 1.0F, 0.5F));
+                this.particleTimer = 0.06F;
+            }
+        }
+        if (AbstractDungeon.player.hasPower(LightningStance.POWER_ID)) {
+            this.particleTimer -= Gdx.graphics.getDeltaTime();
+            if (this.particleTimer < 0.0F) {
+                AbstractDungeon.effectList.add(new BetterFireBurstParticleEffect(this.skeleton.getX() + this.Sword_Left.getWorldX(), this.skeleton.getY() + this.Sword_Left.getWorldY(), 0.3F, 1.0F, 1.0F));
+                AbstractDungeon.effectList.add(new BetterFireBurstParticleEffect(this.skeleton.getX() + this.Sword_Right.getWorldX(), this.skeleton.getY() + this.Sword_Right.getWorldY(), 0.3F, 1.0F, 1.0F));
+                this.particleTimer = 0.06F;
+            }
+        }
+    }
 
     public float setSlotX(float range, int slotNum, int maxOrbs) {
         float dist = range * Settings.scale + (float) maxOrbs * 10.0F * Settings.scale;
@@ -374,6 +431,67 @@ public class BlademasterCharacter extends CustomPlayer {
         return "The Bladedancer";
     }
 
+
+    /*
+    <<TO BE WORKED ON>>
+
+    public void renderHealth(SpriteBatch sb) {
+        float x1 = this.hb.cX - this.hb.width / 2.0F;
+        float y1 = this.hb.cY - this.hb.height / 2.0F + 20F;
+        this.renderFlowBar(sb, x1, y1);
+        this.renderFlowBarText(sb, y1);
+        super.renderHealth(sb);
+    }
+
+
+    private void renderFlowBar(SpriteBatch sb, float x, float y) {
+        if (AbstractDungeon.player.hasPower(FlowPower.POWER_ID)) {
+            this.currentFlow = AbstractDungeon.player.getPower(FlowPower.POWER_ID).amount;
+        } else {
+            this.currentFlow = 0;
+        }
+        sb.setColor(Color.LIGHT_GRAY);
+        if (this.currentHealth > 0) {
+            sb.draw(ImageMaster.HEALTH_BAR_L, x - HEALTH_BAR_HEIGHT, y + HEALTH_BAR_OFFSET_Y, HEALTH_BAR_HEIGHT, HEALTH_BAR_HEIGHT);
+        }
+
+        sb.draw(ImageMaster.HEALTH_BAR_B, x, y + HEALTH_BAR_OFFSET_Y, this.hb.width * (float) this.currentFlow / (float) this.maxFlow, HEALTH_BAR_HEIGHT);
+        sb.draw(ImageMaster.HEALTH_BAR_R, x + this.hb.width * (float) this.currentFlow / (float) this.maxFlow, y + HEALTH_BAR_OFFSET_Y, HEALTH_BAR_HEIGHT, HEALTH_BAR_HEIGHT);
+
+    }
+
+    private void renderFlowBarText(SpriteBatch sb, float y) {
+        Color FlowColor = this.hbTextColor;
+        FlowColor.a = 1.0F;
+        FontHelper.renderFontCentered(sb, FontHelper.healthInfoFont, this.currentFlow + "/" + this.maxFlow, this.hb.cX, y + HEALTH_BAR_OFFSET_Y + HEALTH_TEXT_OFFSET_Y + 5.0F * Settings.scale, FlowColor);
+    }
+
+    private float flowHideTimer = 0.0F;
+
+    @Override
+    protected void updateHealthBar() {
+        super.updateHealthBar();
+        this.updateFlowBarHoverFade();
+    }
+
+    private void updateFlowBarHoverFade() {
+        if (this.healthHb.hovered) {
+            this.flowHideTimer -= Gdx.graphics.getDeltaTime() * 4.0F;
+            if (this.flowHideTimer < 0.2F) {
+                this.flowHideTimer = 0.2F;
+            }
+        } else {
+            this.flowHideTimer += Gdx.graphics.getDeltaTime() * 4.0F;
+            if (this.flowHideTimer > 1.0F) {
+                this.flowHideTimer = 1.0F;
+            }
+        }
+
+    }
+
+    <</TO BE WORKED ON>>
+    */
+
     //Which starting card should specific events give you?
     @Override
     public AbstractCard getStartCardForEvent() {
@@ -442,67 +560,6 @@ public class BlademasterCharacter extends CustomPlayer {
         }
     }
 
-
-    /*
-    <<TO BE WORKED ON>>
-
-    public void renderHealth(SpriteBatch sb) {
-        float x1 = this.hb.cX - this.hb.width / 2.0F;
-        float y1 = this.hb.cY - this.hb.height / 2.0F + 20F;
-        this.renderFlowBar(sb, x1, y1);
-        this.renderFlowBarText(sb, y1);
-        super.renderHealth(sb);
-    }
-
-
-    private void renderFlowBar(SpriteBatch sb, float x, float y) {
-        if (AbstractDungeon.player.hasPower(FlowPower.POWER_ID)) {
-            this.currentFlow = AbstractDungeon.player.getPower(FlowPower.POWER_ID).amount;
-        } else {
-            this.currentFlow = 0;
-        }
-        sb.setColor(Color.LIGHT_GRAY);
-        if (this.currentHealth > 0) {
-            sb.draw(ImageMaster.HEALTH_BAR_L, x - HEALTH_BAR_HEIGHT, y + HEALTH_BAR_OFFSET_Y, HEALTH_BAR_HEIGHT, HEALTH_BAR_HEIGHT);
-        }
-
-        sb.draw(ImageMaster.HEALTH_BAR_B, x, y + HEALTH_BAR_OFFSET_Y, this.hb.width * (float) this.currentFlow / (float) this.maxFlow, HEALTH_BAR_HEIGHT);
-        sb.draw(ImageMaster.HEALTH_BAR_R, x + this.hb.width * (float) this.currentFlow / (float) this.maxFlow, y + HEALTH_BAR_OFFSET_Y, HEALTH_BAR_HEIGHT, HEALTH_BAR_HEIGHT);
-
-    }
-
-    private void renderFlowBarText(SpriteBatch sb, float y) {
-        Color FlowColor = this.hbTextColor;
-        FlowColor.a = 1.0F;
-        FontHelper.renderFontCentered(sb, FontHelper.healthInfoFont, this.currentFlow + "/" + this.maxFlow, this.hb.cX, y + HEALTH_BAR_OFFSET_Y + HEALTH_TEXT_OFFSET_Y + 5.0F * Settings.scale, FlowColor);
-    }
-
-    private float flowHideTimer = 0.0F;
-
-    @Override
-    protected void updateHealthBar() {
-        super.updateHealthBar();
-        this.updateFlowBarHoverFade();
-    }
-
-    private void updateFlowBarHoverFade() {
-        if (this.healthHb.hovered) {
-            this.flowHideTimer -= Gdx.graphics.getDeltaTime() * 4.0F;
-            if (this.flowHideTimer < 0.2F) {
-                this.flowHideTimer = 0.2F;
-            }
-        } else {
-            this.flowHideTimer += Gdx.graphics.getDeltaTime() * 4.0F;
-            if (this.flowHideTimer > 1.0F) {
-                this.flowHideTimer = 1.0F;
-            }
-        }
-
-    }
-
-    <</TO BE WORKED ON>>
-    */
-
     // Should return an AttackEffect array of any size greater than 0. These effects
     // will be played in sequence as your character's finishing combo on the heart.
     // Attack effects are the same as used in damage action and the like.
@@ -526,23 +583,6 @@ public class BlademasterCharacter extends CustomPlayer {
     @Override
     public String getVampireText() {
         return com.megacrit.cardcrawl.events.city.Vampires.DESCRIPTIONS[5];
-    }
-
-    private static final float HEALTH_BAR_HEIGHT;
-    private static final float HEALTH_BAR_OFFSET_Y;
-    private static final float HEALTH_TEXT_OFFSET_Y;
-    private static final float POWER_ICON_PADDING_X;
-    private static final float HEALTH_BG_OFFSET_X;
-
-    static {
-        charStrings = CardCrawlGame.languagePack.getCharacterString("Bladedancer");
-        NAME = charStrings.NAMES[0];
-        DESCRIPTION = charStrings.TEXT[0];
-        HEALTH_BAR_HEIGHT = 20.0F * Settings.scale;
-        HEALTH_BAR_OFFSET_Y = - 28.0F * Settings.scale;
-        HEALTH_TEXT_OFFSET_Y = 6.0F * Settings.scale;
-        POWER_ICON_PADDING_X = 48.0F * Settings.scale;
-        HEALTH_BG_OFFSET_X = 31.0F * Settings.scale;
     }
 
 }

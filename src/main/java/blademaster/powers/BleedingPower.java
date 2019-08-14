@@ -20,6 +20,8 @@ public class BleedingPower extends AbstractPower implements HealthBarRenderPower
     public static final String NAME;
     public static final String[] DESCRIPTIONS;
     private static final PowerStrings powerStrings;
+    public static TextureAtlas.AtlasRegion BigImage = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/Bleeding.png"), 0, 0, 84, 84);
+    public static TextureAtlas.AtlasRegion SmallImage = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/BleedingSmall.png"), 0, 0, 32, 32);
 
     static {
         powerStrings = CardCrawlGame.languagePack.getPowerStrings("Bleeding");
@@ -28,8 +30,6 @@ public class BleedingPower extends AbstractPower implements HealthBarRenderPower
     }
 
     public AbstractCreature source;
-    public static TextureAtlas.AtlasRegion BigImage = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/Bleeding.png"), 0, 0, 84, 84);
-    public static TextureAtlas.AtlasRegion SmallImage = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/BleedingSmall.png"), 0, 0, 32, 32);
 
     public BleedingPower(AbstractCreature owner, AbstractCreature source, int amount) {
         this.name = NAME;
@@ -51,15 +51,10 @@ public class BleedingPower extends AbstractPower implements HealthBarRenderPower
 
     public void updateDescription() {
         if (this.owner != null && ! this.owner.isPlayer) {
-            if (AbstractDungeon.player.hasBlight(BleedingMoreDamagePerkBlight.ID)) {
-                this.description = DESCRIPTIONS[3] + this.amount + DESCRIPTIONS[1];
-            } else {
-                this.description = DESCRIPTIONS[2] + this.amount + DESCRIPTIONS[1];
-            }
+            this.description = DESCRIPTIONS[2] + this.amount + DESCRIPTIONS[1];
         } else {
             this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
         }
-
     }
 
     public float atDamageReceive(float damage, DamageInfo.DamageType type) {

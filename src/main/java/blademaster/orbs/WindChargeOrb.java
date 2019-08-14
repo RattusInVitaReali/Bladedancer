@@ -44,7 +44,8 @@ public class WindChargeOrb
         }
     }
 
-    public void onEvoke() {}
+    public void onEvoke() {
+    }
 
     @Override
     public void update() {
@@ -56,7 +57,8 @@ public class WindChargeOrb
     }
 
     @Override
-    public void applyFocus() {}
+    public void applyFocus() {
+    }
 
     @Override
     public void updateAnimation() {
@@ -77,7 +79,7 @@ public class WindChargeOrb
         sb.setBlendFunction(770, 1);
         sb.setColor(new Color(1.0F, 1.0F, 1.0F, this.c.a / 2.0F));
         sb.draw(this.img, this.cX - 48.0F, this.cY - 48.0F + this.bobEffect.y, 48.0F, 48.0F, 96.0F, 96.0F, this.scale + MathUtils.sin(this.angle / 12.566371F) * 0.05F + 0.19634955F, this.scale * 1.2F, this.angle, 0, 0, 96, 96, false, false);
-        sb.draw(this.img, this.cX - 48.0F, this.cY - 48.0F + this.bobEffect.y, 48.0F, 48.0F, 96.0F, 96.0F, this.scale * 1.2F, this.scale + MathUtils.sin(this.angle / 12.566371F) * 0.05F + 0.19634955F, -this.angle, 0, 0, 96, 96, false, false);
+        sb.draw(this.img, this.cX - 48.0F, this.cY - 48.0F + this.bobEffect.y, 48.0F, 48.0F, 96.0F, 96.0F, this.scale * 1.2F, this.scale + MathUtils.sin(this.angle / 12.566371F) * 0.05F + 0.19634955F, - this.angle, 0, 0, 96, 96, false, false);
         sb.setBlendFunction(770, 771);
         sb.setColor(this.c);
         sb.draw(this.img, this.cX - 48.0F, this.cY - 48.0F + this.bobEffect.y, 48.0F, 48.0F, 96.0F, 96.0F, this.scale, this.scale, this.angle / 12.0F, 0, 0, 96, 96, false, false);

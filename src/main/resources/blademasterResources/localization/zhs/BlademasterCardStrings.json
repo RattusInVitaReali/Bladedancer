@@ -1,544 +1,545 @@
 {
     "blademaster:AncestralHealing": {
-        "DESCRIPTION": "Remove all of your Charges. Gain !M! HP per Charge removed. NL Exhaust.",
-        "NAME": "Ancestral Healing"
+        "DESCRIPTION": "移除你所有 充能 。 每移除一点，回复 !M! 生命。 NL 消耗 。",
+        "NAME": "先祖治疗"
     },
     "blademaster:AwakeningDefend": {
-        "DESCRIPTION": "Gain !B! Block. NL Conduit !M!.",
+        "DESCRIPTION": "获得 !B! 点 格挡 。 NL 连锁 !M! 。",
         "EXTENDED_DESCRIPTION": [
-            " NL [#00FF2A]Awaken[] [#00FF2A]your[] [#00FF2A]next[] Blade.",
-            " NL [#4A8CFF]Awaken[] [#4A8CFF]your[] [#4A8CFF]next[] Blade.",
-            " NL [#00FF2A]Awaken[] [#00FF2A]your[] [#00FF2A]next[] Blade.",
-            " NL [#4A8CFF]Awaken[] [#4A8CFF]your[] [#4A8CFF]next[] Blade."
+            " NL [#00FF2A]觉醒你的下一把飞刀。[] ",
+            " NL [#4A8CFF]觉醒你的下一把飞刀。[]",
+            " NL [#00FF2A]觉醒你的下一把飞刀。[]",
+            " NL [#4A8CFF]觉醒你的下一把飞刀。[]"
         ],
-        "NAME": "Awakening Defend"
+        "NAME": "觉醒防御"
     },
     "blademaster:AwakeningStrike": {
-        "DESCRIPTION": "Deal !D! damage. NL Conduit !M!.",
+        "DESCRIPTION": "造成 !D! 点伤害。 NL 连锁 !M! 。",
         "EXTENDED_DESCRIPTION": [
-            " NL [#00FF2A]Awaken[] [#00FF2A]your[] [#00FF2A]next[] Blade.",
-            " NL [#4A8CFF]Awaken[] [#4A8CFF]your[] [#4A8CFF]next[] Blade.",
-            " NL [#00FF2A]Awaken[] [#00FF2A]your[] [#00FF2A]next[] Blade.",
-            " NL [#4A8CFF]Awaken[] [#4A8CFF]your[] [#4A8CFF]next[] Blade."
+            " NL [#00FF2A]觉醒你的下一把飞刀。[] ",
+            " NL [#4A8CFF]觉醒你的下一把飞刀。[]",
+            " NL [#00FF2A]觉醒你的下一把飞刀。[]",
+            " NL [#4A8CFF]觉醒你的下一把飞刀。[]"
         ],
-        "NAME": "Awakening Strike"
+        "NAME": "觉醒打击"
     },
     "blademaster:BasicAttack": {
-        "DESCRIPTION": "Deal !D! damage. NL Change your Stance to Basic Stance.",
-        "NAME": "Basic Attack"
+        "DESCRIPTION": "造成 !D! 点伤害。 NL 将你的 态势 切换为 基础态势 。",
+        "NAME": "基础攻击"
     },
     "blademaster:BladeDance": {
-        "DESCRIPTION": "Finisher. Requires 40 [#FF4500]Fury[] and 8 [#860037]Combo[]. NL Your Havoc Blades deal double damage.",
-        "UPGRADE_DESCRIPTION": "Finisher. Retain. Requires 40 [#FF4500]Fury[] and 8 [#860037]Combo[]. NL Your Havoc Blades deal double damage.",
-        "NAME": "Blade Dance"
+        "DESCRIPTION": " 终结 。 需要 40 [#FF4500]愤怒[] 和 8 [#860037]连击[] 。 NL 你的 浩劫之刃 造成双倍伤害。",
+        "UPGRADE_DESCRIPTION": " 终结 。 保留 。需要 40 [#FF4500]愤怒[] 和 8 [#860037]连击[] 。 NL 你的 浩劫之刃 造成双倍伤害。",
+        "NAME": "刀舞"
     },
     "blademaster:BladeMastery": {
-        "DESCRIPTION": "Channel !M! Havoc Blades. NL Exhaust.",
-        "NAME": "Blade Mastery"
+        "DESCRIPTION": "生成 !M! 把 浩劫之刃 。 NL 消耗 。",
+        "NAME": "刀刃精通"
     },
     "blademaster:Blockade": {
-        "DESCRIPTION": "Whenever your Havoc Blades attack, gain !M! Block.",
-        "NAME": "Blockade"
+        "DESCRIPTION": "每当你的 浩劫之刃 攻击时，获得 !B! 点 格挡 。",
+        "NAME": "阻挡"
     },
     "blademaster:BloodyBlow": {
-        "DESCRIPTION": "Deal !D! damage. NL Bloodied: Apply !M! Bleeding. NL Conduit 1.",
+        "DESCRIPTION": "造成 !D! 点伤害。 NL 血染 ：给予 !M! 层 流血 。 NL 连锁 1 。",
         "EXTENDED_DESCRIPTION": [
-            " NL [#00FF2A]Gain[] [W] [#00FF2A].[]",
-            " NL [#4A8CFF]Gain[] [L] [#4A8CFF].[]",
-            " NL [#00FF2A]Gain[] [W]  [W] [#00FF2A].[]",
-            " NL [#4A8CFF]Gain[] [L]  [L] [#4A8CFF].[]"
+            " NL [#00FF2A]获得[] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [#4A8CFF]。[]",
+            " NL [#00FF2A]获得[] [W] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [L] [#4A8CFF]。[]"
         ],
-        "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Bloodied: Apply !M! Bleeding. NL Conduit 2.",
-        "NAME": "Bloody Blow"
+        "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 血染 ： 给予 !M! 层 流血 。 NL 连锁 2 。",
+        "NAME": "血腥破击"
     },
     "blademaster:BrainBloom": {
-        "DESCRIPTION": "Gain !M! Focus until the end of your turn. NL Exhaust.",
-        "NAME": "Brain Bloom"
+        "DESCRIPTION": "直到回合结束前获得 !M! 点 集中 。 NL 消耗 。",
+        "NAME": "思维绽放"
     },
     "blademaster:Breeze": {
-        "DESCRIPTION": "Deal !M! damage. NL Deal !D! damage to all enemies. Add a Gale to your hand. NL Conduit 1.",
+        "DESCRIPTION": "造成 !D! 点伤害。 NL 对所有敌人造成 !D! 点伤害。 增加一张 大风 到你的手牌。 NL 连锁 1 。",
         "EXTENDED_DESCRIPTION": [
-            " NL [#00FF2A]Gain[] [W] [#00FF2A].[]",
-            " NL [#4A8CFF]Gain[] [L] [#4A8CFF].[]"
+            " NL [#00FF2A]获得[] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [#4A8CFF]。[]"
         ],
-        "NAME": "Breeze"
+        "NAME": "微风"
     },
     "blademaster:Burnout": {
-        "DESCRIPTION": "Deal !D! damage. NL Exhaust up to 2 Burns in your hand, draw or discard pile.",
+        "DESCRIPTION": "造成 !D! 点伤害。 NL 最多消耗你抽牌堆，弃牌堆和手牌中的共2张灼伤。",
         "EXTENDED_DESCRIPTION": [
-            " NL [#00FF2A]Gain[] [W] [#00FF2A].[]",
-            " NL [#4A8CFF]Gain[] [L] [#4A8CFF].[]",
-            " NL [#00FF2A]Gain[] [W]  [W] [#00FF2A].[]",
-            " NL [#4A8CFF]Gain[] [L]  [L] [#4A8CFF].[]"
+            " NL [#00FF2A]获得[] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [#4A8CFF]。[]",
+            " NL [#00FF2A]获得[] [W] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [L] [#4A8CFF]。[]"
         ],
-        "NAME": "Burnout"
+        "NAME": "燃尽"
     },
     "blademaster:ChargingUp": {
-        "DESCRIPTION": "Gain !B! Block. NL Conduit !M!.",
-        "NAME": "Charging Up"
+        "DESCRIPTION": "获得 !B! 点 格挡 。 NL 连锁 !M! 。",
+        "NAME": "快速充能"
     },
     "blademaster:CloudOfSteel": {
-        "DESCRIPTION": "Add 1 Lacerate to your hand for each Blade channeled. NL Exhaust.",
-        "NAME": "Cloud of Steel"
+        "DESCRIPTION": "你每有一把 飞刀 ，将 1 张 割裂 加入你的手牌中 。 NL 消耗 。",
+        "NAME": "钢铁之云"
     },
     "blademaster:Defend": {
-        "DESCRIPTION": "Gain !B! Block. NL Conduit !M!.",
+        "DESCRIPTION": "获得 !B! 点 格挡 。 NL 连锁 !M! 。",
         "EXTENDED_DESCRIPTION": [
-            " NL [#00FF2A]Gain[] [W] [#00FF2A].[]",
-            " NL [#4A8CFF]Gain[] [L] [#4A8CFF].[]",
-            " NL [#00FF2A]Gain[] [W]  [W] [#00FF2A].[]",
-            " NL [#4A8CFF]Gain[] [L]  [L] [#4A8CFF].[]"
+            " NL [#00FF2A]获得[] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [#4A8CFF]。[]",
+            " NL [#00FF2A]获得[] [W] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [L] [#4A8CFF]。[]"
         ],
-        "NAME": "Defend"
+        "NAME": "防御"
     },
     "blademaster:DefiantStance": {
-        "DESCRIPTION": "Gain !B! Block per Blade channeled.",
+        "DESCRIPTION": "每有一把 飞刀 获得 !B! 点 格挡 。",
         "EXTENDED_DESCRIPTION": [
-            " NL [#00FF2A]Gain[] [W] [#00FF2A].[]",
-            " NL [#4A8CFF]Gain[] [L] [#4A8CFF].[]",
-            " NL [#00FF2A]Gain[] [W]  [W] [#00FF2A].[]",
-            " NL [#4A8CFF]Gain[] [L]  [L] [#4A8CFF].[]"
+            " NL [#00FF2A]获得[] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [#4A8CFF]。[]",
+            " NL [#00FF2A]获得[] [W] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [L] [#4A8CFF]。[]"
         ],
-        "NAME": "Defiant Stance"
+        "NAME": "反抗态势"
     },
     "blademaster:Blindside": {
-        "DESCRIPTION": "Deal !D! damage to ALL enemies.",
+        "DESCRIPTION": "对所有敌人造成 !D! 点伤害。",
         "EXTENDED_DESCRIPTION": [
-            " NL [#00FF2A]Apply[] !M! [#00FF2A]Weak[] [#00FF2A]and[] [W]  !W! [#00FF2A]Bleeding[] [#00FF2A]to[] [#00FF2A]ALL[] [#00FF2A]enemies.[]",
-            " NL [#4A8CFF]Apply[] !M! [#4A8CFF]Vulnerable[] and [L]  !L! [#4A8CFF]Bleeding[] [#4A8CFF]to[] [#4A8CFF]ALL[] [#4A8CFF]enemies.[]",
-            " NL Exhaust."
+            " NL [#00FF2A]给予所有敌人[] !M! 层 虚弱 [#00FF2A]和[] [W]  !W! [#00FF2A]层流血。[]",
+            " NL [#4A8CFF]给予所有敌人[] !M! 层 易伤 [#4A8CFF]和[] [L]  !L! [#4A8CFF]层流血。[]",
+            " NL 消耗 。"
         ],
-        "NAME": "Blindside"
+        "NAME": "盲区"
     },
     "blademaster:FuryOfTheElements": {
-        "DESCRIPTION": "Finisher. Requires !M! [#FF4500]Fury[]. NL Double the amount your Charges. Deal damage equal the sum of ALL your Charges to ALL enemies.",
-        "NAME": "Fury Of The Elements"
+        "DESCRIPTION": "终结 。 需要 !M! [#FF4500]愤怒[] 。 NL 翻倍你的 充能 。 对所有敌人造成等于你 充能 总和的伤害。",
+        "NAME": "元素的愤怒"
     },
     "blademaster:Empower": {
-        "DESCRIPTION": "Gain [E] . Draw 1 card. NL Conduit !M!. NL Exhaust.",
-        "NAME": "Empower",
-        "UPGRADE_DESCRIPTION": "Gain [E] [E] . Draw 2 cards. NL Conduit !M!. NL Exhaust."
+        "DESCRIPTION": "获得 [E] 。 抽 1 张牌。 NL 连锁 !M! 。 NL 消耗 。",
+        "NAME": "重整旗鼓",
+        "UPGRADE_DESCRIPTION": "获得 [E] [E] 。 抽 2 张牌。 NL 连锁 !M! 。 NL 消耗 。"
     },
     "blademaster:EyeOfTheStorm": {
-        "DESCRIPTION": "Whenever you're attacked, reduce the damage by 1 and gain [L] .",
-        "NAME": "Eye of the Storm"
+        "DESCRIPTION": "每当你受到攻击时, 降低 1 点伤害并获得 [L] 。",
+        "NAME": "风暴之眼"
     },
     "blademaster:FallBack": {
-        "DESCRIPTION": "Evoke ALL of your Blades. Gain !B! Block for each Blade evoked.",
+        "DESCRIPTION": " 激发 你所有的飞刀。 每 激发 一把飞刀获得 !B! 点格挡。",
         "EXTENDED_DESCRIPTION": [
-            " NL [#00FF2A]Gain[] [W] [#00FF2A].[]",
-            " NL [#4A8CFF]Gain[] [L] [#4A8CFF].[]",
-            " NL [#00FF2A]Gain[] [W]  [W] [#00FF2A].[]",
-            " NL [#4A8CFF]Gain[] [L]  [L] [#4A8CFF].[]"
+            " NL [#00FF2A]获得[] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [#4A8CFF]。[]",
+            " NL [#00FF2A]获得[] [W] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [L] [#4A8CFF]。[]"
         ],
-        "NAME": "Fall Back"
+        "NAME": "后撤"
     },
     "blademaster:FinishHim": {
-        "DESCRIPTION": "Add 1 random Finisher to your hand.",
-        "NAME": "Finish Him!",
-        "UPGRADE_DESCRIPTION": "Add 2 random Finishers to your hand."
+        "DESCRIPTION": "将 1 张随机 终结 牌加入你的手牌中。",
+        "NAME": "了结！",
+        "UPGRADE_DESCRIPTION": "将 2 张随机 终结 牌加入你的手牌中。"
     },
     "blademaster:Flash": {
-        "DESCRIPTION": "Finisher. Requires 12 [#FF4500]Fury[]. NL Deal !D! damage. Apply 3 Bleeding. NL Add a copy of this card to your hand. It costs 6 [#FF4500]Fury[] more. Conduit 1. NL Exhaust.",
+        "DESCRIPTION": "终结 。 需要 12 [#FF4500]愤怒[] 。 NL 造成 !D! 点伤害。 给予 3 层 流血 。 NL 将一张本牌的复制品加入你的手牌中。 他增加 6 [#FF4500]愤怒[] 需求。 连锁 1。 NL 消耗 。",
         "EXTENDED_DESCRIPTION": [
-            " [#FF4500]Fury[]. NL Deal !D! damage. Apply 3 Bleeding. NL Add a copy of this card to your hand. It costs 6 [#FF4500]Fury[] more. Conduit 1. NL Exhaust.",
-            " NL [#00FF2A]Gain[] [W] [#00FF2A].[]",
-            " NL [#4A8CFF]Gain[] [L] [#4A8CFF].[]",
-            "Finisher. Requires "
+            " [#FF4500]愤怒[] 。 NL 造成 !D! 点伤害。 给予 3 层 流血 。 NL NL 将一张本牌的复制品加入你的手牌中。 他增加 6 [#FF4500]愤怒[] 需求。 连锁 1。 NL 消耗 。",
+            " NL [#00FF2A]获得[] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [#4A8CFF]。[]",
+            "终结 。 需要 "
         ],
-        "NAME": "Flash"
+        "NAME": "刀光一闪"
     },
     "blademaster:FlockOfBlades": {
-        "DESCRIPTION": "Finisher. Requires 30 [#FF4500]Fury[] and 6 [#860037]Combo[]. NL Channel !M! Havoc Blades.",
-        "NAME": "Flock Of Blades"
+        "DESCRIPTION": " 终结 。 需要 30 [#FF4500]愤怒[] 和 6 [#860037]连击[] 。 NL 生成 !M! 把 浩劫之刃 。",
+        "NAME": "无尽刀刃"
     },
     "blademaster:Flurry": {
-        "DESCRIPTION": "Channel 1 Havoc Blade. Draw !M! cards.",
-        "NAME": "Flurry"
+        "DESCRIPTION": "生成 1 把 浩劫之刃 。 抽 !M! 张牌。",
+        "NAME": "攻势"
     },
     "blademaster:Focus": {
-        "DESCRIPTION": "Gain 1 Focus.",
-        "UPGRADE_DESCRIPTION": "Innate. NL Gain 1 Focus.",
-        "NAME": "Focus"
+        "DESCRIPTION": "获得 1 点 集中 。",
+        "UPGRADE_DESCRIPTION": " 固有 。 NL 获得 1 点 集中 。",
+        "NAME": "专注"
     },
     "blademaster:Frontflip": {
-        "DESCRIPTION": "Gain !B! Block. NL Draw !M! cards. NL Conduit 1.",
+        "DESCRIPTION": "获得 !B! 点格挡。 NL 抽 !M! 张牌。 NL 连锁 1。",
         "EXTENDED_DESCRIPTION": [
-            " NL [#00FF2A]Gain[] [W] [#00FF2A].[]",
-            " NL [#4A8CFF]Gain[] [L] [#4A8CFF].[]",
-            " NL [#00FF2A]Gain[] [W]  [W] [#00FF2A].[]",
-            " NL [#4A8CFF]Gain[] [L]  [L] [#4A8CFF].[]"
+            " NL [#00FF2A]获得[] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [#4A8CFF]。[]",
+            " NL [#00FF2A]获得[] [W] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [L] [#4A8CFF]。[]"
         ],
-        "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Draw !M! cards. NL Conduit 2.",
-        "NAME": "Frontflip"
+        "UPGRADE_DESCRIPTION": "获得 !B! 点格挡。 NL 抽 !M! 张牌。 NL 连锁 2。",
+        "NAME": "前空翻"
     },
     "blademaster:Gale": {
-        "DESCRIPTION": "Deal !M! damage. NL Deal !D! damage to all enemies. NL Add a Zephyr to your hand. Conduit 1. NL Exhaust. Ethereal.",
+        "DESCRIPTION": "造成 !M! 点伤害。 NL 对所有敌人造成 !D! 点伤害。 NL 将一张 和风 加入你的手牌中。 连锁 1。 NL 消耗 。 NL 虚无 。",
         "EXTENDED_DESCRIPTION": [
-            " NL [#00FF2A]Gain[] [W] [#00FF2A].[]",
-            " NL [#4A8CFF]Gain[] [L] [#4A8CFF].[]"
+            " NL [#00FF2A]获得[] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [#4A8CFF]。[]"
         ],
-        "NAME": "Gale"
+        "NAME": "大风"
     },
     "blademaster:Gust": {
-        "DESCRIPTION": "Innate. NL Gain !B! Block. Change your Stance to [#00FF2A]Wind Stance[]. NL Exhaust.",
-        "NAME": "Gust"
+        "DESCRIPTION": "固有 。 NL 获得 !B! 点 格挡 。将你的 态势 切换为 [#00FF2A]疾风态势[] 。 NL 消耗 。",
+        "NAME": "狂风"
     },
     "blademaster:Hailwind": {
-        "DESCRIPTION": "Consume ALL your  [W] to deal !D! damage per every [W]  you have.",
-        "NAME": "Hailwind"
+        "DESCRIPTION": "消耗所有的 [W] ，每消耗一个 [W] 造成 !D! 点伤害。",
+        "NAME": "冰雹风"
     },
     "blademaster:HighVoltage": {
-        "DESCRIPTION": "Finisher. Requires 3 [#860037]Combo[]. NL Gain !B! Block.",
-        "NAME": "High Voltage"
+        "DESCRIPTION": "终结 。 需要 3 [#860037]连击[] 。 NL 获得 !B! 点 格挡 。",
+        "NAME": "电压屏障"
     },
     "blademaster:IcyWind": {
-        "DESCRIPTION": "Deal [W]  damage and apply !M! Bleeding to ALL enemies. (Deals !W! damage.)",
-        "NAME": "Bloody Wind"
+        "DESCRIPTION": "对所有造成 [W] 点伤害并给予 !M! 层 流血 。（造成 !W! 点伤害。）",
+        "NAME": "血色风暴"
     },
     "blademaster:Inferno": {
-        "DESCRIPTION": "Whenever you draw a Burn, take !M! damage, deal thrice as much to ALL enemies, and discard it.",
-        "NAME": "Inferno"
+        "DESCRIPTION": "每当你抽到一张灼伤是，受到 !M! 点伤害，对所有敌人造成三倍等量伤害，将它丢弃。",
+        "NAME": "地狱火"
     },
     "blademaster:Insult": {
-        "DESCRIPTION": "Show your mental stability by insulting something. NL Exhaust. NL Ethereal.",
-        "NAME": "Insult",
-        "UPGRADE_DESCRIPTION": "Still doesn't do jack shit. NL Nice try though. NL Exhaust. NL Ethereal."
+        "DESCRIPTION": "通过嘲讽某些事物使你精神稳定。 NL 消耗 。 NL 虚无 。",
+        "NAME": "嘲讽",
+        "UPGRADE_DESCRIPTION": "并没有什么卯月。 NL 尽管是个不错的尝试。 NL 消耗 。 NL 虚无 。"
     },
     "blademaster:IntellectualSupremacy": {
-        "DESCRIPTION": "Add !M! Insults to your hand. NL Exhaust.",
-        "NAME": "Intellectual Supremacy"
+        "DESCRIPTION": "将 !M! 张嘲讽加入你的手牌。 NL 消耗 。",
+        "NAME": "知识至上"
     },
     "blademaster:Lacerate": {
-        "DESCRIPTION": "Deal !D! damage. NL Conduit 1. NL Exhaust.",
+        "DESCRIPTION": "造成 !D! 点伤害。 NL 连锁 1 。 NL 消耗 。",
         "EXTENDED_DESCRIPTION": [
-            " NL [#00FF2A]Gain[] [W] [#00FF2A].[]",
-            " NL [#4A8CFF]Gain[] [L] [#4A8CFF].[]"
+            " NL [#00FF2A]获得[] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [#4A8CFF]。[]"
         ],
-        "NAME": "Lacerate"
+        "NAME": "割裂"
     },
     "blademaster:LeechingStrike": {
-        "DESCRIPTION": "Deal !D! damage. NL Bloodied: Deal an additional !M! damage and heal !M! HP.",
+        "DESCRIPTION": "造成 !D! 点伤害。 NL 血染 ： 额外造成 !M! 点伤害并回复 !M! 生命。",
         "EXTENDED_DESCRIPTION": [
-            " NL [#00FF2A]Apply[] 1 Weak[#00FF2A].[]",
-            " NL [#4A8CFF]Apply[] 1 Vulnerable[#4A8CFF].[]"
+            " NL [#00FF2A]给予[] 1 [#00FF2A]层虚弱。[]",
+            " NL [#4A8CFF]给予[] 1 [#4A8CFF]层易伤。[]"
         ],
-        "NAME": "Leeching Strike"
+        "NAME": "吸血打击"
     },
     "blademaster:LightningCrash": {
-        "DESCRIPTION": "Deal !D! damage. NL Change your Stance to [#4A8CFF]πLightning Stance[].",
-        "NAME": "Lightning Crash"
+        "DESCRIPTION": "造成 !D! 点伤害。 NL 将你的 态势 切换为 [#4A8CFF]雷霆态势[] 。",
+        "NAME": "雷霆撞击"
     },
     "blademaster:LightningDash": {
-        "DESCRIPTION": "Gain !B! Block. NL Change your Stance to [#4A8CFF]πLightning Stance[].",
-        "NAME": "Lightning Dash"
+        "DESCRIPTION": "获得 !B! 点 格挡 。 NL 将你的 态势 切换为 [#4A8CFF]雷霆态势[] 。",
+        "NAME": "雷霆冲刺"
     },
     "blademaster:LightningDraw": {
-        "DESCRIPTION": "Finisher. Requires 20 [#FF4500]Fury[]. NL Deal !D! damage and apply !M! Bleeding to ALL enemies. NL Change your Stance to [#4A8CFF]πLightning Stance[].",
-        "NAME": "Lightning Draw"
+        "DESCRIPTION": "终结 。 需要 20 [#FF4500]愤怒[] 。 NL 对所有敌人造成 !D! 点伤害并给予 !M! 层 流血 。 NL 将你的 态势 切换为 [#4A8CFF]雷霆态势[] 。",
+        "NAME": "雷霆拔刀"
     },
     "blademaster:Meditate": {
-        "DESCRIPTION": "Whenever you channel a Blade, heal !M! HP.",
-        "NAME": "Meditate"
+        "DESCRIPTION": "每当你生成一把 飞刀 ，回复 !M! 生命。",
+        "NAME": "冥想"
     },
     "blademaster:Meltdown": {
-        "DESCRIPTION": "At the start of your turn, if there's a Burn in your draw pile, exhaust it and deal !M! damage to ALL enemies.",
-        "NAME": "Meltdown"
+        "DESCRIPTION": "在你的回合开始时， 如果你的抽牌堆中有一张 灼伤 ，消耗 并对所有敌人造成 !M! 点伤害。",
+        "NAME": "融解"
     },
     "blademaster:Momentum": {
-        "DESCRIPTION": "Whenever you change Stances, deal !M! damage to ALL enemies.",
-        "NAME": "Momentum"
+        "DESCRIPTION": "每当你切换 态势 时， 对所有敌人造成 !M! 点伤害。",
+        "NAME": "势头"
     },
     "blademaster:NotBarrage": {
-        "DESCRIPTION": "Deal !D! damage for each Blade channeled.",
-        "NAME": "Not Barrage"
+        "DESCRIPTION": "你每有一把 飞刀 ，造成 !D! 点伤害。",
+        "NAME": "不是弹幕"
     },
     "blademaster:NotFission": {
-        "DESCRIPTION": "Remove all your Blades. For each Blade removed, gain [E] and draw 1 card.",
-        "NAME": "Not Fission",
-        "UPGRADE_DESCRIPTION": "Evoke all your Blades. For each blade Evoked, gain [E] and draw 1 card."
+        "DESCRIPTION": "移除所有 飞刀 。 每移除一把 飞刀 ，获得 [E] 并抽 1 张牌。 NL 消耗 。",
+        "NAME": "不是裂变",
+        "UPGRADE_DESCRIPTION": "激发 所有 飞刀 。每 激发 一把 飞刀 ，获得 [E] 并抽 1 张牌。 NL 消耗 。"
     },
     "blademaster:Overcharge": {
-        "DESCRIPTION": "At the end of your turn, deal damage equal to the number of your Charges to random enemies.",
-        "NAME": "Overcharge",
-        "UPGRADE_DESCRIPTION": "Innate. NL At the end of your turn, deal damage equal to the number of your Charges to random enemies."
+        "DESCRIPTION": "在你的回合结束时，对随机敌人造成等于你 充能 点数的伤害。",
+        "NAME": "过度充能",
+        "UPGRADE_DESCRIPTION": "固有 。 NL在你的回合结束时，对随机敌人造成等于你 充能 点数的伤害。"
     },
     "blademaster:Parry": {
-        "DESCRIPTION": "Gain 1 Parry Blade.",
-        "NAME": "Parry"
+        "DESCRIPTION": "生成 1 把 招架之刃 。",
+        "NAME": "招架"
     },
     "blademaster:ParryingStrike": {
-        "DESCRIPTION": "Deal !D! damage. Channel 1 Parry Blade. NL Conduit 1. NL Exhaust.",
+        "DESCRIPTION": "造成 !D! 点伤害。 生成 1 把 招架之刃 。 NL 连锁 1。 NL 消耗 。",
         "EXTENDED_DESCRIPTION": [
-            " NL [#00FF2A]Gain[] [W] [#00FF2A].[]",
-            " NL [#4A8CFF]Gain[] [L] [#4A8CFF].[]",
-            " NL [#00FF2A]Gain[] [W]  [W] [#00FF2A].[]",
-            " NL [#4A8CFF]Gain[] [L]  [L] [#4A8CFF].[]"
+            " NL [#00FF2A]获得[] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [#4A8CFF]。[]",
+            " NL [#00FF2A]获得[] [W] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [L] [#4A8CFF]。[]"
         ],
-        "NAME": "Parrying Strike"
+        "NAME": "招架打击"
     },
     "blademaster:Quickness": {
-        "DESCRIPTION": "Whenever you change Stances, draw 1 card.",
-        "NAME": "Quickness",
-        "UPGRADE_DESCRIPTION": "Innate. NL Whenever you change Stances, draw 1 card."
+        "DESCRIPTION": "每当你切换 态势 时，抽 1 张牌。",
+        "NAME": "机敏",
+        "UPGRADE_DESCRIPTION": "固有 。 NL 每当你切换 态势 时，抽 1 张牌。"
     },
     "blademaster:RagingBlow": {
-        "DESCRIPTION": "Finisher. Requires 10 [#FF4500]Fury[]. NL Deal !D! damage. NL Bloodied: Deals double damage.",
+        "DESCRIPTION": "终结 。 需要 10 [#FF4500]愤怒[] 。 NL 造成 !D! 点伤害。 NL 血染 ： 造成双倍伤害。",
         "EXTENDED_DESCRIPTION": [
-            " NL [#00FF2A]Deal[] [W]  [#00FF2A]damage[] [#00FF2A]to[] [#00FF2A]ALL[] [#00FF2A]enemies.[] [#00FF2A](Deals[] !W! [#00FF2A]damage.)[]",
-            " NL [#4A8CFF]Deal[] 2 [L]  [#4A8CFF]additional[] [#4A8CFF]damage.[] [#4A8CFF](Deals[] !L2! [#4A8CFF]additional damage.)[]"
+            " NL [#00FF2A]对所有敌人 造成[] [W]  点 [#00FF2A]伤害[] 。[] [#00FF2A](造成[] !W! 点 [#00FF2A]伤害。)[]",
+            " NL [#4A8CFF]造成[] 2 [L]  [#4A8CFF]额外伤害。[] [#4A8CFF](造成[] !L2! [#4A8CFF]额外伤害。)[]"
         ],
-        "NAME": "Raging Blow"
+        "NAME": "狂怒一击"
     },
     "blademaster:Recklessness": {
-        "DESCRIPTION": "At the start of your turn, gain 1 Vulnerable and Channel 1 Havoc Blade.",
-        "NAME": "Recklessness"
+        "DESCRIPTION": "在你的回合开始时，获得 1 层 易伤 并生成 1 把 浩劫之刃 。",
+        "NAME": "鲁莽"
     },
     "blademaster:Retreat": {
-        "DESCRIPTION": "Gain !B! Block. NL Change your Stance to Basic Stance.",
-        "NAME": "Retreat"
+        "DESCRIPTION": "获得 !B! 点 格挡 。 NL 将你的 态势 切换为 基础态势 。",
+        "NAME": "撤退"
     },
     "blademaster:RollingTyphoon": {
-        "DESCRIPTION": "Finisher. Requires 30 [#FF4500]Fury[]. NL Deal !M! damage. Deal !D! damage to all enemies.",
+        "DESCRIPTION": "终结 。 需要 30 [#FF4500]愤怒[]。 NL 造成 !M! 点伤害。 对所有敌人造成 !D! 点伤害。",
         "EXTENDED_DESCRIPTION": [
-            " NL [#00FF2A]Apply[] [W]  !W! Bleeding[#00FF2A].[]",
-            " NL [#4A8CFF]Gain[] [L]  / 2 Blur. [#4A8CFF](Gains[] !LD2! Blur[#4A8CFF].)[]"
+            " NL [#00FF2A]给予[] [W]  !W! 层 流血 [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L]  / 2 层 残影 。 [#4A8CFF]（获得[] !LD2! 层 残影 [#4A8CFF]。)[]"
         ],
-        "NAME": "Rolling Typhoon"
+        "NAME": "滚滚台风"
     },
     "blademaster:Safeguard": {
-        "DESCRIPTION": "Gain !B! Block. NL Channel 1 Havoc Blade. NL Conduit !M!.",
+        "DESCRIPTION": "获得 !B! 点 格挡 。 NL 生成 1 把 浩劫之刃 。 NL 连锁 !M! 。",
         "EXTENDED_DESCRIPTION": [
-            " NL [#00FF2A]Gain[] [W] [#00FF2A].[]",
-            " NL [#4A8CFF]Gain[] [L] [#4A8CFF].[]",
-            " NL [#00FF2A]Gain[] [W]  [W] [#00FF2A].[]",
-            " NL [#4A8CFF]Gain[] [L]  [L] [#4A8CFF].[]"
+            " NL [#00FF2A]获得[] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [#4A8CFF]。[]",
+            " NL [#00FF2A]获得[] [W] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [L] [#4A8CFF]。[]"
         ],
-        "NAME": "Safeguard"
+        "NAME": "保障"
     },
     "blademaster:SharpBlades": {
-        "DESCRIPTION": "Your Havoc Blades apply 1 Bleeding on hit.",
-        "NAME": "Sharp Blades"
+        "DESCRIPTION": "你的 浩劫之刃 击中敌人同时给予 1 层 流血 。",
+        "NAME": "利剑"
     },
     "blademaster:SlyStabs": {
-        "DESCRIPTION": "Add a Lacerate to your hand for each type of Charge you currently have.",
-        "UPGRADE_DESCRIPTION": "Add a Lacerate to your hand for each type of Charge you currently have. NL Add a Lacerate to your hand.",
-        "NAME": "Sly Stabs"
+        "DESCRIPTION": "你每有一种充能，将一张 割裂 加入你的手牌。",
+        "UPGRADE_DESCRIPTION": "你每有一种充能，将一张 割裂 加入你的手牌。 NL 将一张 割裂 加入你的手牌。",
+        "NAME": "灵动刺杀"
     },
     "blademaster:StanceMastery": {
-        "DESCRIPTION": "Whenever you gain a Charge, gain an additional Charge.",
-        "NAME": "Stance Mastery"
+        "DESCRIPTION": "每当你获得一点 充能 时, 获得额外一点 充能 。",
+        "NAME": "态势精通"
     },
     "blademaster:Stormstrike": {
-        "DESCRIPTION": "Deal !D! damage. NL Consume ALL your  [L] to deal 2 [L]  additional damage. NL (Deals !L2! additional damage.)",
-        "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Consume ALL your  [L] to deal 3 [L]  additional damage. NL (Deals !L3! additional damage.)",
-        "NAME": "Stormstrike"
+        "DESCRIPTION": "造成 !D! 点伤害。 NL 消耗所有 [L] 并造成 2x [L] 点额外伤害 。 NL （造成 !L2! 点额外伤害 。）",
+        "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 消耗所有 [L]  并造成 3x [L] 点额外伤害 。 NL （造成 !L3! 点额外伤害 。）",
+        "NAME": "风暴打击"
     },
     "blademaster:Strike": {
-        "DESCRIPTION": "Deal !D! damage. NL Conduit !M!.",
+        "DESCRIPTION": "造成 !D! 点伤害。 NL 连锁 !M! 。",
         "EXTENDED_DESCRIPTION": [
-            " NL [#00FF2A]Gain[] [W] [#00FF2A].[]",
-            " NL [#4A8CFF]Gain[] [L] [#4A8CFF].[]",
-            " NL [#00FF2A]Gain[] [W]  [W] [#00FF2A].[]",
-            " NL [#4A8CFF]Gain[] [L]  [L] [#4A8CFF].[]"
+            " NL [#00FF2A]获得[] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [#4A8CFF]。[]",
+            " NL [#00FF2A]获得[] [W] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [L] [#4A8CFF]。[]"
         ],
-        "NAME": "Strike"
+        "NAME": "打击"
     },
     "blademaster:Sunder": {
-        "DESCRIPTION": "Deal !D! damage. NL Gain 1 Focus until the end of your turn. NL Conduit !M!.",
+        "DESCRIPTION": "造成 !D! 点伤害。 NL 直到回合结束前获得 1 点 集中 。 NL 连锁 !M! 。",
         "EXTENDED_DESCRIPTION": [
-            " NL [#00FF2A]Gain[] [W] [#00FF2A].[]",
-            " NL [#4A8CFF]Gain[] [L] [#4A8CFF].[]",
-            " NL [#00FF2A]Gain[] [W]  [W] [#00FF2A].[]",
-            " NL [#4A8CFF]Gain[] [L]  [L] [#4A8CFF].[]"
+            " NL [#00FF2A]获得[] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [#4A8CFF]。[]",
+            " NL [#00FF2A]获得[] [W] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [L] [#4A8CFF]。[]"
         ],
-        "NAME": "Sunder"
+        "NAME": "破甲"
     },
     "blademaster:Surge": {
-        "DESCRIPTION": "Only usable while in a Stance. NL Consume up to 3 Charges and gain Artifact equal to the amount consumed.",
-        "NAME": "Surge"
+        "DESCRIPTION": "只能在拥有 态势 时打出。 NL 最多消耗 3 充能 并获得同等层的 人工制品 。",
+        "NAME": "浪涌"
     },
     "blademaster:Thrust": {
-        "DESCRIPTION": "Deal !D! damage.",
+        "DESCRIPTION": "造成 !D! 点伤害。",
         "EXTENDED_DESCRIPTION": [
-            " NL [#00FF2A]Deal[]  [W]  [#00FF2A]additional[] [#00FF2A]damage.[] NL [#00FF2A](Deals[] !W! [#00FF2A]additional[] [#00FF2A]damage.)[]",
-            " NL [#4A8CFF]Deal[]  [L]  [#4A8CFF]additional[] [#4A8CFF]damage.[] NL [#4A8CFF](Deals[] !L! [#4A8CFF]additional[] [#4A8CFF]damage.)[]"
+            " NL [#00FF2A]造成[] [W] 点 [#00FF2A]额外伤害[] [#00FF2A]。[] NL [#00FF2A](造成[] !W! [#00FF2A]额外伤害[] [#00FF2A]。)[]",
+            " NL [#4A8CFF]造成[] [L] 点 [#4A8CFF]额外伤害[] [#4A8CFF]。[] NL [#4A8CFF](造成[] !L! [#4A8CFF]额外伤害[] [#4A8CFF]。)[]"
         ],
-        "NAME": "Thrust"
+        "NAME": "冲锋"
     },
     "blademaster:ThunderingOpener": {
-        "DESCRIPTION": "Innate. NL Deal !D! damage. Change your Stance to [#4A8CFF]πLightning Stance[]. NL Exhaust.",
-        "NAME": "Thundering Opener"
+        "DESCRIPTION": "固有 。 NL 造成 !D! 点伤害。将你的 态势 切换为 [#4A8CFF]雷霆态势[] 。 NL 消耗 。",
+        "NAME": "雷鸣开启者"
     },
     "blademaster:Vortex": {
-        "DESCRIPTION": "Apply !M! Bleeding to ALL enemies.",
+        "DESCRIPTION": "给予所有敌人 !M! 层 流血 。",
         "EXTENDED_DESCRIPTION": [
-            " NL [#00FF2A]Apply[] 1 Weak[#00FF2A].[]",
-            " NL [#4A8CFF]Apply[] 1 Vulnerable[#4A8CFF].[]"
+            " NL [#00FF2A]给予[] 1 层 虚弱 [#00FF2A]。[]",
+            " NL [#4A8CFF]给予[] 1 层 易伤 [#4A8CFF]。[]"
         ],
-        "NAME": "Vortex"
+        "NAME": "涡流"
     },
     "blademaster:EnchantedCuirass": {
-        "DESCRIPTION": "Finisher. Requires 5 [#860037]Combo[]. NL Gain !M! Metallicize.",
+        "DESCRIPTION": "终结 。 需要 5 [#860037]连击[] 。 NL 获得 !M! 层 金属化 。",
         "EXTENDED_DESCRIPTION": [
-            " NL [#00FF2A]Heal[] [W]  [#00FF2A]HP.[] NL [#00FF2A](Heals[] !W! [#00FF2A]HP.)[]",
-            " NL [#4A8CFF]Gain[] [L] / 3 Artifact. NL [#4A8CFF](Gains[] !LD3! Artifact[#4A8CFF].)[]"
+            " NL [#00FF2A]回复[] [W]  [#00FF2A]生命。[] NL [#00FF2A]（回复[] !W! [#00FF2A]生命。）[]",
+            " NL [#4A8CFF]获得[] [L] / 3 人工制品。 NL [#4A8CFF](Gains[] !LD3! 层 人工制品 [#4A8CFF]。）[]"
         ],
-        "NAME": "Enchanted Cuirass"
+        "NAME": "魔法胸甲"
     },
     "blademaster:WindSlash": {
-        "DESCRIPTION": "Deal !M! damage. NL Deal !D! damage to all enemies. NL Change your Stance to [#00FF2A]Wind Stance[].",
-        "NAME": "Wind Slash"
+        "DESCRIPTION": "造成 !M! 点伤害。 NL 对所有敌人造成 !D! 点伤害。 NL 将你的 态势 切换为 [#00FF2A]疾风态势[] 。",
+        "NAME": "疾风斩"
     },
     "blademaster:Windstorm": {
-        "DESCRIPTION": "Only playable in [#00FF2A]Wind Stance[]. NL At the start of your turn, add 2 Wind Lacerates to your hand.",
-        "NAME": "Windstorm"
+        "DESCRIPTION": "只能在 [#00FF2A]疾风态势[] 下打出。 NL 在你的回合开始时，将 2 张 疾风 割裂 加入到你的手牌。",
+        "NAME": "风暴"
     },
     "blademaster:Zephyr": {
-        "DESCRIPTION": "Deal !M! damage. NL Deal !D! damage to all enemies. Conduit 1. NL Exhaust. Ethereal.",
+        "DESCRIPTION": "造成 !M! 点伤害。 NL 对所有敌人造成 !D! 点伤害。 连锁 1。 NL 消耗 。 虚无 。",
         "EXTENDED_DESCRIPTION": [
-            " NL [#00FF2A]Gain[] [W] [#00FF2A].[]",
-            " NL [#4A8CFF]Gain[] [L] [#4A8CFF].[]"
+            " NL [#00FF2A]获得[] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [#4A8CFF]。[]"
         ],
-        "NAME": "Zephyr"
+        "NAME": "和风"
     },
     "blademaster:OneTrickPony": {
-        "DESCRIPTION": "You can no longer change Stances. Whenever you would've changed Stances, draw a card.",
-        "UPGRADE_DESCRIPTION": "Retain. NL You can no longer change Stances. Whenever you would've changed Stances, draw a card.",
-        "NAME": "One Trick Pony"
+        "DESCRIPTION": "你不能再切换 态势 。每当你尝试切换 态势 时，抽 1 张牌。",
+        "UPGRADE_DESCRIPTION": "保留 。 NL 你不能再切换 态势 。每当你尝试切换 态势 时，抽 1 张牌。",
+        "NAME": "一招鲜"
     },
     "blademaster:Slice": {
-        "DESCRIPTION": "Deal !D! damage. NL Draw 1 card. NL Conduit 1.",
+        "DESCRIPTION": "造成 !D! 点伤害。 NL 抽 1 张牌。 NL 连锁 1。",
         "EXTENDED_DESCRIPTION": [
-            " NL [#00FF2A]Gain[] [W] [#00FF2A].[]",
-            " NL [#4A8CFF]Gain[] [L] [#4A8CFF].[]",
-            " NL [#00FF2A]Gain[] [W]  [W] [#00FF2A].[]",
-            " NL [#4A8CFF]Gain[] [L]  [L] [#4A8CFF].[]"
+            " NL [#00FF2A]获得[] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [#4A8CFF]。[]",
+            " NL [#00FF2A]获得[] [W] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [L] [#4A8CFF]。[]"
         ],
-        "NAME": "Slice"
+        "NAME": "切削"
     },
     "blademaster:Discharge": {
-        "DESCRIPTION": "Gain !B! Block.",
+        "DESCRIPTION": "获得 !B! 点 格挡 。",
         "EXTENDED_DESCRIPTION": [
-            " NL [#00FF2A]Apply[] !M! Weak [#00FF2A]and[] [#00FF2A]deal[] [W]  [#00FF2A]damage[] [#00FF2A]to[] [#00FF2A]a[] [#00FF2A]random[] [#00FF2A]enemy.[] NL [#00FF2A](Deals[] !W! [#00FF2A]damage.)[]",
-            " NL [#4A8CFF]Apply[] !M! Vulnerable [#4A8CFF]and[] [#4A8CFF]deal[] [L]  [#4A8CFF]damage[] [#4A8CFF]to[] [#4A8CFF]a[] [#4A8CFF]random[] [#4A8CFF]enemy.[] NL [#4A8CFF](Deals[] !L! [#4A8CFF]damage.)[]"
+            " NL [#00FF2A]给予[] !M! 层 虚弱 [#00FF2A]并[] [#00FF2A]对随机一名敌人造成[] [W] 点 [#00FF2A]伤害[] 。[] NL [#00FF2A](造成[] !W! 点 [#00FF2A]伤害。)[]",
+            " NL [#4A8CFF]给予[] !M! 层 易伤 [#4A8CFF]并[] [#4A8CFF]对随机一名敌人造成[] [L] 点 [#4A8CFF]伤害[] 。[] NL [#4A8CFF](造成[] !L! 点 [#4A8CFF]伤害。)[]"
         ],
-        "NAME": "Discharge"
+        "NAME": "发射"
     },
     "blademaster:Havoc": {
-        "DESCRIPTION": "Channel 1 Havoc Blade. NL Exhaust.",
-        "UPGRADE_DESCRIPTION": "Innate. NL Channel 1 Havoc Blade. NL Exhaust.",
-        "NAME": "Havoc"
+        "DESCRIPTION": "生成 1 把 浩劫之刃 。 NL 消耗 。",
+        "UPGRADE_DESCRIPTION": " 固有 。 NL 生成 1 把 浩劫之刃 。 NL 消耗 。",
+        "NAME": "浩劫"
     },
     "blademaster:Stability": {
-        "DESCRIPTION": "Gain !M! Artifact.",
-        "NAME": "Stabilize"
+        "DESCRIPTION": "获得 !M! 层 人工制品 。",
+        "NAME": "稳定"
     },
     "blademaster:NotDualcast": {
-        "DESCRIPTION": "Evoke your next Blade twice.",
-        "NAME": "Not Dualcast"
+        "DESCRIPTION": " 激发 你最右侧的 飞刀 2 次。",
+        "NAME": "不是双重"
     },
     "blademaster:ColdBlood": {
-        "DESCRIPTION": "Finisher. Requires 6 [#860037]Combo[]. NL Gain !M! Dexterity. NL Gain !M! Strength.",
-        "NAME": "Cold Blood"
+        "DESCRIPTION": "终结 。 需要 6 [#860037]连击[] 。 NL 获得 !M! 点 敏捷 。 NL 获得 !M! 点 力量 。",
+        "NAME": "冷血"
     },
     "blademaster:CombatPrep": {
-        "DESCRIPTION": "Next turn, gain [E] and draw !M! more cards. NL If you're in a Stance, gain 2 Charges.",
-        "UPGRADE_DESCRIPTION": "Next turn, gain [E] [E] and draw !M! more cards. NL If you're in a Stance, gain 2 Charges.",
-        "NAME": "Battle Plan"
+        "DESCRIPTION": "下个回合, 获得 [E] 并多抽 !M! 张牌。 NL 如果你有 态势 ， 获得 2 充能 。",
+        "UPGRADE_DESCRIPTION": "下个回合, 获得 [E] [E] 并多抽 !M! 张牌。 NL 如果你有 态势 ， 获得 2 充能 。",
+        "NAME": "作战计划"
     },
     "blademaster:ThreePointStrike": {
-        "DESCRIPTION": "Finisher. Requires 4 [#860037]Combo[]. NL Deal !D! damage thrice. Gain !B! Block. Draw !M! card.",
-        "UPGRADE_DESCRIPTION": "Finisher. Requires 4 [#860037]Combo[]. NL Deal !D! damage thrice. Gain !B! Block. Draw !M! cards.",
-        "NAME": "Three Point Strike"
+        "DESCRIPTION": "终结 。 需要 4 [#860037]连击[] 。 NL 造成 !D! 点伤害三次。 获得 !B! 点 格挡 。 抽 !M! 张牌。",
+        "UPGRADE_DESCRIPTION": "终结 。 需要 4 [#860037]连击[] 。 NL 造成 !D! 点伤害三次。 获得 !B! 点 格挡 。 抽 !M! 张牌。",
+        "NAME": "三连打击"
     },
     "blademaster:Sharpen": {
-        "DESCRIPTION": "Gain !B! Block. NL Upgrade a random card in your hand for the rest of the combat.",
-        "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Upgrade !M! random cards in your hand for the rest of the combat.",
-        "NAME": "Sharpen"
+        "DESCRIPTION": "获得 !B! 点 格挡 。 NL 在本场战斗中随机 升级 手牌中的 1 张牌。",
+        "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。 NL 在本场战斗中随机 升级 手牌中的 !M! 张牌。",
+        "NAME": "磨砺"
     },
     "blademaster:WrongfulFootwork": {
-        "DESCRIPTION": "Unplayable. NL Gets added into your deck whenever you switch to the Stance you're already in. NL Ethereal.",
-        "NAME": "Wrongful Footwork"
+        "DESCRIPTION": " 不能被打出 。 NL 当你切换到已经拥有的 态势 时将它增加到抽牌堆。 NL 虚无 。",
+        "NAME": "步法紊乱"
     },
     "blademaster:TraverseCut": {
-        "DESCRIPTION": "Deal !D! damage twice.",
+        "DESCRIPTION": "造成 !D! 点伤害两次。",
         "EXTENDED_DESCRIPTION": [
-            " NL [#00FF2A]Apply[] !M! Weak[#00FF2A].[]",
-            " NL [#4A8CFF]Apply[] !M! Vulnerable[#4A8CFF].[]"
+            " NL [#00FF2A]给予[] !M! 层 虚弱 [#00FF2A]。[]",
+            " NL [#4A8CFF]给予[] !M! 层 易伤 [#4A8CFF]。[]"
         ],
-        "NAME": "Traverse Cut"
+        "NAME": "横切"
     },
     "blademaster:Reversal": {
-        "DESCRIPTION": "Only playable while in a Stance. NL [#00FF2A]Wind[]: Deal !D! damage to a random enemy. Change your Stance to [#4A8CFF]πLightning Stance[]. NL [#4A8CFF]πLightning[]: Gain !B! Block. Change your Stance to [#00FF2A]Wind Stance[].",
+         "DESCRIPTION": "只有拥有 态势 时才能打出。 NL [#00FF2A]疾风[] : 随机对敌人造成 !D! 点伤害。 将你的 态势 切换为 [#4A8CFF]雷霆态势[] 。 NL [#4A8CFF]雷霆[] : 获得 !B! 点 格挡 。 将你的 态势 切换为 [#00FF2A]疾风态势[] 。",
         "EXTENDED_DESCRIPTION": [
-            " [#00FF2A]Deal[] !D! [#00FF2A]damage[] [#00FF2A]to[] [#00FF2A]a[] [#00FF2A]random[] [#00FF2A]enemy.[] NL [#00FF2A]Change[] [#00FF2A]your[] [#00FF2A]Stance[] [#00FF2A]to[] [#4A8CFF]πLightning[] [#4A8CFF]Stance[][#00FF2A].[]",
-            " [#4A8CFF]Gain[] !B! [#4A8CFF]Block.[] NL [#4A8CFF]Change[] [#4A8CFF]your[] [#4A8CFF]Stance[] [#4A8CFF]to[] [#00FF2A]Wind[] [#00FF2A]Stance[][#4A8CFF].[]"
+            " [#00FF2A]对随机一名敌人造成[] !D! 点 [#00FF2A]点伤害[] 。 NL [#00FF2A]将你的[] [#00FF2A]态势[] [#00FF2A]切换为[] [#4A8CFF]雷霆态势[] [#00FF2A]。[]",
+            " [#4A8CFF]获得[] !B! [#4A8CFF]格挡 。[] NL [#4A8CFF]将你的[] [#4A8CFF]态势[] [#4A8CFF]切换为[] [#00FF2A]疾风态势[] [#4A8CFF]。[]"
         ],
-        "NAME": "Reversal"
+        "NAME": "反转"
     },
     "blademaster:Rupture": {
-        "DESCRIPTION": "Double an enemy's Bleeding. NL Exhaust.",
-        "NAME": "Rupture",
-        "UPGRADE_DESCRIPTION": "Retain. NL Double an enemy's Bleeding. NL Exhaust."
+        "DESCRIPTION": "将敌人的 流血 层数翻倍。 NL 消耗 。",
+        "NAME": "破裂",
+        "UPGRADE_DESCRIPTION": " 保留 。 NL 将敌人的 流血 层数翻倍。 NL 消耗 。"
     },
     "blademaster:EyeOfTheTornado": {
-        "DESCRIPTION": "Whenever you're attacked, reduce the damage by 1 and gain [W] .",
-        "NAME": "Eye of the Tornado"
+        "DESCRIPTION": "每当你受到攻击时， 降低 1 点伤害并获得 [W] 。",
+        "NAME": "飓风之眼"
     },
     "blademaster:DeadlyDance": {
-        "DESCRIPTION": "Apply !M! Bleeding to ALL enemies. NL Gain !B! Block.",
-        "NAME": "Deadly Dance"
+        "DESCRIPTION": "给予所有敌人 !M! 层 流血 。 NL 获得 !B! 点 格挡 。",
+        "NAME": "致命舞蹈"
     },
     "blademaster:KiBarrier": {
-        "DESCRIPTION": "Gain [W]  + [L]  Block. (Gives !WPL! Block.)",
-        "NAME": "Ki Barrier",
-        "UPGRADE_DESCRIPTION": "Retain. NL [#00FF2A]Gain[] [W]   + [L]  Block. (Gives !WPL! Block.)"
+        "DESCRIPTION": "获得 [W]  + [L]  点 格挡 。 (获得 !WPL! 格挡 。)",
+        "NAME": "气屏障",
+        "UPGRADE_DESCRIPTION": " 保留 。 NL [#00FF2A]获得[] [W]   + [L]  点 格挡 。 (获得 !WPL! 点 格挡 。)"
     },
     "blademaster:Bloodbath": {
-        "DESCRIPTION": "Whenever you play a Skill, apply !M! Bleeding to ALL enemies.",
-        "NAME": "Bloodbath"
+        "DESCRIPTION": "每当打出技能牌时，给予所有敌人 !M! 层 流血 。",
+        "NAME": "血池"
     },
     "blademaster:UnrelentingWind": {
-        "DESCRIPTION": "Finisher. Requires 5 [#860037]Combo[]. NL Change your Stance to [#00FF2A]Wind Stance[]. Gain !B! Block and [W] [W] [W]  per enemy. Apply !M! Bleeding to ALL enemies.",
-        "NAME": "Unrelenting Wind"
+        "DESCRIPTION": " 终结 。 需要 5 [#860037]连击[] 。 NL 将你的 态势 切换为 [#00FF2A]疾风态势[] 。 每有一个敌人获得 !B! 点 格挡 和 [W] [W] [W]  。给予所有敌人 !M! 层 流血 。",
+        "NAME": "冷酷疾风"
     },
     "blademaster:DaggerAndCloak": {
-        "DESCRIPTION": "Gain !B! Block. NL Add a Lacerate to your hand. NL Conduit 1.",
+        "DESCRIPTION": "获得 !B! 点 格挡 。 NL 将 1 张 割裂 到你的手牌。",
         "EXTENDED_DESCRIPTION": [
-            " NL [#00FF2A]Gain[] [W] [#00FF2A].[]",
-            " NL [#4A8CFF]Gain[] [L] [#4A8CFF].[]",
-            " NL [#00FF2A]Gain[] [W]  [W] [#00FF2A].[]",
-            " NL [#4A8CFF]Gain[] [L]  [L] [#4A8CFF].[]"
+            " NL [#00FF2A]获得[] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [#4A8CFF]。[]",
+            " NL [#00FF2A]获得[] [W] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [L] [#4A8CFF]。[]"
         ],
-        "NAME": "Dagger and Cloak",
-        "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Add !M! Lacerates to your hand. NL Conduit 1."
+        "NAME": "匕首和斗篷",
+        "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。 NL 将 !M! 张 割裂 到你的手牌。 NL 连锁 1。"
     },
     "blademaster:FuriousStrike": {
-        "DESCRIPTION": "Deal !D! damage. NL Gain !M! [#FF4500]Fury[]. NL Conduit 1.",
-        "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Gain !M! [#FF4500]Fury[]. NL Conduit 2.",
+        "DESCRIPTION": "造成 !D! 点伤害。 NL 获得 !M! 点 [#FF4500]愤怒[] 。 NL 连锁 1。",
+        "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 获得 !M! 点 [#FF4500]愤怒[] 。 NL 连锁 2。",
         "EXTENDED_DESCRIPTION": [
-            " NL [#00FF2A]Gain[] [W] [#00FF2A].[]",
-            " NL [#4A8CFF]Gain[] [L] [#4A8CFF].[]",
-            " NL [#00FF2A]Gain[] [W]  [W] [#00FF2A].[]",
-            " NL [#4A8CFF]Gain[] [L]  [L] [#4A8CFF].[]"
+            " NL [#00FF2A]获得[] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [#4A8CFF]。[]",
+            " NL [#00FF2A]获得[] [W] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [L] [#4A8CFF]。[]"
         ],
-        "NAME": "Furious Strike"
+        "NAME": "狂怒打击"
     },
     "blademaster:ThunderSlash": {
-        "DESCRIPTION": "Deal !D! damage. NL If you're in [#4A8CFF]Lightning[] [#4A8CFF]Stance[], deal !D! damage again.",
-        "NAME": "Thunder Slash"
+        "DESCRIPTION": "造成 !D! 点伤害。 NL 如果你处于 [#4A8CFF]雷霆[] [#4A8CFF]态势[] ，再造成 !D! 点伤害。",
+        "NAME": "雷霆斩"
     },
     "blademaster:AirSlash": {
-        "DESCRIPTION": "Deal !D! damage. NL If you're in [#00FF2A]Wind[] [#00FF2A]Stance[], deal !D! damage again.",
-        "NAME": "Air Slash"
+        "DESCRIPTION": "造成 !D! 点伤害。 NL 如果你处于 [#00FF2A]疾风[] [#00FF2A]态势[] ，再造成 !D! 点伤害。",
+        "NAME": "空气斩"
     },
     "blademaster:BladeCross": {
-        "DESCRIPTION": "Deal !D! damage. Evoke your first Blade to do !D! damage again.",
-        "NAME": "Blade Cross"
+        "DESCRIPTION": "造成 !D! 点伤害。 激发 你的第一把 飞刀 以再造成 !D! 点伤害。",
+        "NAME": "十字刀刃"
     },
-    "blademaster:Flow": {
-        "DESCRIPTION": "Gain 1 Flow.",
-        "NAME": "Flow"
+    "blademaster:CullingStrike": {
+        "DESCRIPTION": "Deal !D! damage. NL If the target has less than 20% HP remaining, kill it. NL Conduit 1.",
+        "UPGRADE_DESCRIPTION":  "Deal !D! damage. NL If the target has less than 25% HP remaining, kill it. NL Conduit 1.",
+        "NAME": "Culling Strike"
     }
 }

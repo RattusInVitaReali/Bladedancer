@@ -1,80 +1,74 @@
 [
     {
         "NAMES": [
-            "finisher",
-            "finishers"
+            "终结"
         ],
-        "PROPER_NAME": "Finisher",
-        "DESCRIPTION": "A powerful card that uses #rFury or #rCombo as a resource."
+        "PROPER_NAME": "终结",
+        "DESCRIPTION": "一类使用 #r暴怒 或 #r连击 作为资源的牌。"
     },
     {
         "NAMES": [
-            "havoc"
+            "浩劫",
+			"浩劫之刃"
         ],
-        "PROPER_NAME": "Havoc Blade",
-        "DESCRIPTION": "A spectral blade that deals damage to enemies you attack."
+        "PROPER_NAME": "浩劫之刃",
+        "DESCRIPTION": "能在你对敌人攻击时给敌人造成伤害的鬼刀。"
     },
     {
         "NAMES": [
-            "parry"
+            "招架",
+			"招架之刃"
         ],
-        "PROPER_NAME": "Parry Blade",
-        "DESCRIPTION": "A spectral blade that reduces the damage taken whenever you're struck."
+        "PROPER_NAME": "招架之刃",
+        "DESCRIPTION": "能在你受到伤害时降低伤害的鬼刀。"
     },
     {
         "NAMES": [
-            "lacerate",
-            "lacerates"
+            "割裂"
         ],
-        "PROPER_NAME": "Lacerate",
-        "DESCRIPTION": "A 0-cost attack that deals 2 damage and exhausts."
+        "PROPER_NAME": "割裂",
+        "DESCRIPTION": "割裂是会消耗的 #b0 耗能的2点伤害攻击牌。"
     },
     {
         "NAMES": [
-            "awaken",
-            "awakened",
-            "awakens"
+            "觉醒"
         ],
-        "PROPER_NAME": "Awakening",
-        "DESCRIPTION": "#yAwaken one of your spectral blades, making them more potent based on your current Stance."
+        "PROPER_NAME": "觉醒",
+        "DESCRIPTION": "#y觉醒 一把你的鬼刀，根据你目前的 #y态势 加强效果。"
     },
     {
         "NAMES": [
-            "stance",
-            "stances"
+            "态势"
         ],
-        "PROPER_NAME": "Stance",
-        "DESCRIPTION": "A battle #yStance which determines the type of #yCharges you get. There are 2 #yStances: #gWind and #bLightning. Upon switching to a #yStance, #yAwaken a #yBlade."
+        "PROPER_NAME": "态势",
+        "DESCRIPTION": "一种决定于你能获得何种 #y充能 的 #y战斗态势 。目前有两种 #y态势： #g疾风 和 #b雷霆 。 切换 #y态势 时， #y觉醒 一把 #y飞刀 。"
     },
     {
         "NAMES": [
-            "charge",
-            "charges"
+            "充能"
         ],
-        "PROPER_NAME": "[G] [B]  Charge",
-        "DESCRIPTION": "A resource for stance-oriented cards."
+        "PROPER_NAME": "[G] [B]  充能",
+        "DESCRIPTION": "一种用于态势相关牌的资源。"
     },
     {
         "NAMES": [
-            "conduit"
+            "连锁"
         ],
-        "PROPER_NAME": "Conduit [X]",
-        "DESCRIPTION": "Whenever you play this card while in a #yStance, gain #bX #yCharges."
+        "PROPER_NAME": "连锁 [X]",
+        "DESCRIPTION": "每当你在某一种 #y态势 时打出本牌，获得 #bX 点 #y充能 。"
     },
     {
         "NAMES": [
-            "bloodied"
+            "血染"
         ],
-        "PROPER_NAME": "Bloodied",
-        "DESCRIPTION": "An effect that's applied if the target has less than #b50% #yHP remaining."
+        "PROPER_NAME": "血染",
+        "DESCRIPTION": "敌人 #y半血 时生效。"
     },
     {
         "NAMES": [
-            "bleeding",
-            "bleeds",
-            "bleed"
+            "流血"
         ],
-        "PROPER_NAME": "Bleeding",
-        "DESCRIPTION": "yBleeding enemies take #b20% more damage from attacks, and take damage at the end of the round. #yBleeding decays by #b3 at the end."
+        "PROPER_NAME": "流血",
+        "DESCRIPTION": "y流血 的敌人受到额外的 #b20% 的攻击伤害，并在回合结束时受到等量。 #y流血 在每回合时降低 #b3 层。"
     }
 ]

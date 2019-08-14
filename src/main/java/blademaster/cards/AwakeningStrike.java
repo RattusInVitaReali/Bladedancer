@@ -3,7 +3,10 @@ package blademaster.cards;
 import blademaster.Blademaster;
 import blademaster.actions.AwakenOrbAction;
 import blademaster.actions.LoadCardImageAction;
-import blademaster.orbs.*;
+import blademaster.orbs.LightningBladeOrb;
+import blademaster.orbs.LightningParryOrb;
+import blademaster.orbs.WindBladeOrb;
+import blademaster.orbs.WindParryOrb;
 import blademaster.patches.AbstractCardEnum;
 import blademaster.patches.BlademasterTags;
 import blademaster.powers.*;
@@ -110,9 +113,8 @@ public class AwakeningStrike extends AbstractStanceCard {
                 LightningArt = true;
                 BaseArt = false;
             }
-        }
-        else if (CardCrawlGame.isInARun()) {
-            if (AbstractDungeon.player.hasPower(WindStance.POWER_ID) && (!AbstractDungeon.getMonsters().areMonstersDead())) {
+        } else if (CardCrawlGame.isInARun()) {
+            if (AbstractDungeon.player.hasPower(WindStance.POWER_ID) && (! AbstractDungeon.getMonsters().areMonstersDead())) {
                 if (! WindArt) {
                     this.loadCardImage(WIMG);
                     if (this.upgraded) {
@@ -125,7 +127,7 @@ public class AwakeningStrike extends AbstractStanceCard {
                     LightningArt = false;
                     BaseArt = false;
                 }
-            } else if (AbstractDungeon.player.hasPower(LightningStance.POWER_ID) && (!AbstractDungeon.getMonsters().areMonstersDead())) {
+            } else if (AbstractDungeon.player.hasPower(LightningStance.POWER_ID) && (! AbstractDungeon.getMonsters().areMonstersDead())) {
                 if (! LightningArt) {
                     AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, LIMG, false));
                     if (this.upgraded) {
@@ -138,7 +140,7 @@ public class AwakeningStrike extends AbstractStanceCard {
                     LightningArt = true;
                     BaseArt = false;
                 }
-            } else if (AbstractDungeon.player.hasPower(BasicStance.POWER_ID) && (!AbstractDungeon.getMonsters().areMonstersDead())) {
+            } else if (AbstractDungeon.player.hasPower(BasicStance.POWER_ID) && (! AbstractDungeon.getMonsters().areMonstersDead())) {
                 if (! BaseArt) {
                     AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG, false));
                     this.rawDescription = DESCRIPTION;
@@ -150,7 +152,6 @@ public class AwakeningStrike extends AbstractStanceCard {
             }
         }
     }
-
 
 
     @Override
@@ -195,7 +196,7 @@ public class AwakeningStrike extends AbstractStanceCard {
 
             this.cardToPreview1.render(sb);
 
-            this.cardToPreview2.current_x = this.current_x -  (((AbstractCard.IMG_WIDTH / 2.0F) + ((AbstractCard.IMG_WIDTH / 2.0F) / 1.5F) + (16.0F)) * this.drawScale);
+            this.cardToPreview2.current_x = this.current_x - (((AbstractCard.IMG_WIDTH / 2.0F) + ((AbstractCard.IMG_WIDTH / 2.0F) / 1.5F) + (16.0F)) * this.drawScale);
 
             this.cardToPreview2.current_y = this.current_y - ((AbstractCard.IMG_HEIGHT / 6.0F)) * this.drawScale;
 

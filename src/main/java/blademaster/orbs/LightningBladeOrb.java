@@ -89,7 +89,7 @@ public class LightningBladeOrb
     public void onEvoke() {
         AbstractDungeon.actionManager.addToTop(new LightningOrbEvokeAction(new DamageInfo(AbstractDungeon.player, this.evokeAmount, DamageInfo.DamageType.THORNS), true));
         for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
-            if (!monster.isDead) {
+            if (! monster.isDead) {
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(monster, AbstractDungeon.player, new VulnerablePower(monster, 1, false), 1));
             }
         }
@@ -138,7 +138,7 @@ public class LightningBladeOrb
         sb.setColor(1.0f, 1.0f, 1.0f, 0.5f);
         sb.draw(this.img, this.cX - 96.0F, this.cY - 96.0F + this.bobEffect.y, 96.0F, 96.0F, 192.0F, 192.0F, this.scale, this.scale, this.angle, 0, 0, 192, 192, false, false);
         sb.setColor(1.0f, 1.0f, 1.0f, 0.5f);
-        sb.draw(this.img, this.cX - 96.0F, this.cY - 96.0F + this.bobEffect.y, 96.0F, 96.0F, 192.0F, 192.0F, this.scale, this.scale, -this.angle, 0, 0, 192, 192, false, false);
+        sb.draw(this.img, this.cX - 96.0F, this.cY - 96.0F + this.bobEffect.y, 96.0F, 96.0F, 192.0F, 192.0F, this.scale, this.scale, - this.angle, 0, 0, 192, 192, false, false);
         sb.setColor(WHITE);
         sb.draw(this.img, this.cX - 96.0F, this.cY - 96.0F + this.bobEffect.y, 96.0F, 96.0F, 192.0F, 192.0F, this.scale, this.scale, 0F, 0, 0, 192, 192, false, false);
         sb.setColor(WHITE.cpy());

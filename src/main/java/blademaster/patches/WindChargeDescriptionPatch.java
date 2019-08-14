@@ -20,9 +20,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class WindChargeDescriptionPatch {
-    private static Pattern r = Pattern.compile("\\[([RGBW])\\](\\.?) ");
     public static TextureAtlas.AtlasRegion WindChargeRegion = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/512/WindCharge.png"), 0, 0, 24, 24);
-
+    private static Pattern r = Pattern.compile("\\[([RGBW])\\](\\.?) ");
 
     @SpirePatch (
             clz = AbstractCard.class,
@@ -117,7 +116,7 @@ public class WindChargeDescriptionPatch {
     public static class FixEForChinese {
         @SpireInsertPatch (
                 locator = Locator.class,
-                localvars = {"word", "currentWidth", "currentLine", "numLines", "CARD_ENERGY_IMG_WIDTH", "CN_DESC_BOX_WIDTH"}
+                localvars = {"word", "currentWidth", "sbuilder", "numLines", "CARD_ENERGY_IMG_WIDTH", "CN_DESC_BOX_WIDTH"}
         )
         public static void Insert(AbstractCard __instance, @ByRef String[] word, @ByRef float[] currentWidth,
                                   @ByRef StringBuilder[] currentLine, @ByRef int[] numLines,
@@ -166,15 +165,6 @@ public class WindChargeDescriptionPatch {
             }
         }
 
-        private static class Locator extends SpireInsertLocator {
-            public int[] Locate(CtBehavior ctMethodToPatch) throws CannotCompileException, PatchingException {
-                com.evacipated.cardcrawl.modthespire.lib.Matcher finalMatcher = new com.evacipated.cardcrawl.modthespire.lib.Matcher.MethodCallMatcher(
-                        String.class, "toLowerCase");
-
-                return LineFinder.findInOrder(ctMethodToPatch, finalMatcher);
-            }
-        }
-
         public static void Postfix(AbstractCard __instance) {
             if (__instance.color.equals(AbstractCardEnum.DEFAULT_GRAY)) {
                 int[] idxs = new int[3];
@@ -197,6 +187,15 @@ public class WindChargeDescriptionPatch {
                     __instance.keywords.remove("[G]");
                     __instance.keywords.remove("[B]");
                 }
+            }
+        }
+
+        private static class Locator extends SpireInsertLocator {
+            public int[] Locate(CtBehavior ctMethodToPatch) throws CannotCompileException, PatchingException {
+                com.evacipated.cardcrawl.modthespire.lib.Matcher finalMatcher = new com.evacipated.cardcrawl.modthespire.lib.Matcher.MethodCallMatcher(
+                        String.class, "toLowerCase");
+
+                return LineFinder.findInOrder(ctMethodToPatch, finalMatcher);
             }
         }
     }

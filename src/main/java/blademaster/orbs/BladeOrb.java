@@ -106,7 +106,7 @@ public class BladeOrb
         super.updateAnimation();
         this.vfxTimer -= Gdx.graphics.getDeltaTime();
         if (this.vfxTimer < 0.0F) {
-            AbstractDungeon.effectList.add(new DarkOrbPassiveEffect(this.cX, this.cY +this.bobEffect.y));
+            AbstractDungeon.effectList.add(new DarkOrbPassiveEffect(this.cX, this.cY + this.bobEffect.y));
             this.vfxTimer = 0.25F;
         }
     }

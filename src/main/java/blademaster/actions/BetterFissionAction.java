@@ -22,19 +22,23 @@ public class BetterFissionAction extends AbstractGameAction {
         if (this.duration == Settings.ACTION_DUR_XFAST) {
             int orbCount = AbstractDungeon.player.filledOrbCount();
             for (AbstractOrb orb : AbstractDungeon.player.orbs) {
-                if (orb.ID.equals(WindChargeOrb.ORB_ID) || orb.ID.equals(LightningChargeOrb.ORB_ID)) {
-                    orbCount--;
+                if (orb.ID != null) {
+                    if (orb.ID.equals(WindChargeOrb.ORB_ID) || orb.ID.equals(LightningChargeOrb.ORB_ID)) {
+                        orbCount--;
+                    }
                 }
             }
             AbstractDungeon.actionManager.addToTop(new DrawCardAction(AbstractDungeon.player, orbCount));
             AbstractDungeon.actionManager.addToTop(new GainEnergyAction(orbCount));
             for (AbstractOrb orb : AbstractDungeon.player.orbs) {
-                if (! orb.ID.equals(WindChargeOrb.ORB_ID) && ! orb.ID.equals(LightningChargeOrb.ORB_ID)) {
-                    if (this.upgraded) {
-                        orb.triggerEvokeAnimation();
-                        orb.onEvoke();
+                if (orb.ID != null) {
+                    if (! orb.ID.equals(WindChargeOrb.ORB_ID) && ! orb.ID.equals(LightningChargeOrb.ORB_ID)) {
+                        if (this.upgraded) {
+                            orb.triggerEvokeAnimation();
+                            orb.onEvoke();
+                        }
+                        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificOrbWithoutEvokingAction(orb));
                     }
-                    AbstractDungeon.actionManager.addToBottom(new RemoveSpecificOrbWithoutEvokingAction(orb));
                 }
             }
         }

@@ -35,7 +35,7 @@ public class MomentumPower extends AbstractPower implements BetterOnApplyPowerPo
     }
 
     public boolean betterOnApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-        if ((power.ID.equals(WindStance.POWER_ID) && !target.hasPower(WindStance.POWER_ID)) || (power.ID.equals(LightningStance.POWER_ID) && !target.hasPower(LightningStance.POWER_ID)) || (power.ID.equals(BasicStance.POWER_ID) && !target.hasPower(BasicStance.POWER_ID))) {
+        if ((power.ID.equals(WindStance.POWER_ID) && ! target.hasPower(WindStance.POWER_ID)) || (power.ID.equals(LightningStance.POWER_ID) && ! target.hasPower(LightningStance.POWER_ID)) || (power.ID.equals(BasicStance.POWER_ID) && ! target.hasPower(BasicStance.POWER_ID))) {
             this.flash();
             AbstractDungeon.actionManager.addToBottom(new VFXAction(new CleaveEffect(), 0.15F));
             AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(this.owner, DamageInfo.createDamageMatrix(this.amount, false), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.NONE, true));

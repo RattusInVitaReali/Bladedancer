@@ -15,10 +15,10 @@ public class OverchargePower extends TwoAmountPower {
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-    private int WINDAMT;
-    private int LIGHTNINGAMT;
     public static TextureAtlas.AtlasRegion BigImage = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/Overcharge.png"), 0, 0, 84, 84);
     public static TextureAtlas.AtlasRegion SmallImage = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/OverchargeSmall.png"), 0, 0, 32, 32);
+    private int WINDAMT;
+    private int LIGHTNINGAMT;
 
     public OverchargePower(AbstractCreature owner, int amount) {
         this.name = NAME;
@@ -48,9 +48,9 @@ public class OverchargePower extends TwoAmountPower {
     }
 
     public void atEndOfTurn(boolean isPlayer) {
-            AbstractDungeon.actionManager.addToBottom(new LightningOrbEvokeAction(new DamageInfo(AbstractDungeon.player, this.amount, DamageInfo.DamageType.THORNS), false));
+        AbstractDungeon.actionManager.addToBottom(new LightningOrbEvokeAction(new DamageInfo(AbstractDungeon.player, this.amount, DamageInfo.DamageType.THORNS), false));
 
-            AbstractDungeon.actionManager.addToBottom(new LightningOrbEvokeAction(new DamageInfo(AbstractDungeon.player, this.amount2, DamageInfo.DamageType.THORNS), false));
+        AbstractDungeon.actionManager.addToBottom(new LightningOrbEvokeAction(new DamageInfo(AbstractDungeon.player, this.amount2, DamageInfo.DamageType.THORNS), false));
 
     }
 

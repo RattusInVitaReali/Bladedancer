@@ -18,17 +18,14 @@ public class NotDualcast extends CustomCard {
 
 
     public static final String ID = Blademaster.makeID("NotDualcast");
-    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String IMG = Blademaster.makePath("cards/NotDualcast.png");
+    public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
+    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-
-
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
-
     private static final int COST = 1;
 
 
@@ -40,7 +37,7 @@ public class NotDualcast extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (AbstractDungeon.player.filledOrbCount() > 2) {
             for (AbstractOrb orb : AbstractDungeon.player.orbs) {
-                if (!orb.ID.equals(LightningChargeOrb.ORB_ID) && !orb.ID.equals(WindChargeOrb.ORB_ID)) {
+                if (! orb.ID.equals(LightningChargeOrb.ORB_ID) && ! orb.ID.equals(WindChargeOrb.ORB_ID)) {
                     orb.triggerEvokeAnimation();
                     orb.onEvoke();
                     orb.triggerEvokeAnimation();

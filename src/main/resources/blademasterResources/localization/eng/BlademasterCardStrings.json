@@ -537,8 +537,18 @@
         "DESCRIPTION": "Deal !D! damage. Evoke your first Blade to do !D! damage again.",
         "NAME": "Blade Cross"
     },
-    "blademaster:Flow": {
-        "DESCRIPTION": "Gain 1 Flow.",
-        "NAME": "Flow"
+    "blademaster:CullingStrike": {
+        "DESCRIPTION": "Deal !D! damage. NL If the target has less than 20% HP remaining, kill it. NL Conduit 1.",
+        "UPGRADE_DESCRIPTION":  "Deal !D! damage. NL If the target has less than 25% HP remaining, kill it. NL Conduit 1.",
+        "NAME": "Culling Strike"
+    },
+    "blademaster:Frenzy": {
+        "DESCRIPTION": "Deal !D! damage. Apply !M! Bleeding to yourself. NL Bloodied: Don't apply the Bleeding.",
+        "NAME": "Frenzy"
+    },
+    "blademaster:Quickstep": {
+        "DESCRIPTION": "If you're not in a Stance, switch to a random Stance.",
+        "UPGRADE_DESCRIPTION": "Innate. NL If you're not in a Stance, switch to a random Stance.",
+        "NAME": "Quickstep"
     }
 }

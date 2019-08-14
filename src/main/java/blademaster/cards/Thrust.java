@@ -73,7 +73,7 @@ public class Thrust extends AbstractStanceCard {
             if (! WindArt) {
                 this.loadCardImage(WIMG);
 
-                    this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0];
+                this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0];
 
                 initializeDescription();
                 WindArt = true;
@@ -84,7 +84,7 @@ public class Thrust extends AbstractStanceCard {
             if (! LightningArt) {
                 this.loadCardImage(LIMG);
 
-                    this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[1];
+                this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[1];
 
                 initializeDescription();
                 WindArt = false;
@@ -92,29 +92,29 @@ public class Thrust extends AbstractStanceCard {
                 BaseArt = false;
             }
         } else if (CardCrawlGame.isInARun()) {
-            if (AbstractDungeon.player.hasPower(WindStance.POWER_ID) && (!AbstractDungeon.getMonsters().areMonstersDead())) {
+            if (AbstractDungeon.player.hasPower(WindStance.POWER_ID) && (! AbstractDungeon.getMonsters().areMonstersDead())) {
                 if (! WindArt) {
                     this.loadCardImage(WIMG);
 
-                        this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0];
+                    this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0];
 
                     initializeDescription();
                     WindArt = true;
                     LightningArt = false;
                     BaseArt = false;
                 }
-            } else if (AbstractDungeon.player.hasPower(LightningStance.POWER_ID) && (!AbstractDungeon.getMonsters().areMonstersDead())) {
+            } else if (AbstractDungeon.player.hasPower(LightningStance.POWER_ID) && (! AbstractDungeon.getMonsters().areMonstersDead())) {
                 if (! LightningArt) {
                     AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, LIMG, false));
 
-                        this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[1];
+                    this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[1];
 
                     initializeDescription();
                     WindArt = false;
                     LightningArt = true;
                     BaseArt = false;
                 }
-            } else if (AbstractDungeon.player.hasPower(BasicStance.POWER_ID) && (!AbstractDungeon.getMonsters().areMonstersDead())) {
+            } else if (AbstractDungeon.player.hasPower(BasicStance.POWER_ID) && (! AbstractDungeon.getMonsters().areMonstersDead())) {
                 if (! BaseArt) {
                     AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG, false));
                     this.rawDescription = DESCRIPTION;
@@ -126,7 +126,6 @@ public class Thrust extends AbstractStanceCard {
             }
         }
     }
-
 
 
     @Override

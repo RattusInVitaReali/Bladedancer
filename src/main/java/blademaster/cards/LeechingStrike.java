@@ -35,9 +35,9 @@ public class LeechingStrike extends AbstractStanceCard {
     public static final String LIMG = Blademaster.makePath("cards/LeechingStrike.png");
     public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
-    private static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    private static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
@@ -78,7 +78,7 @@ public class LeechingStrike extends AbstractStanceCard {
             if (! WindArt) {
                 this.loadCardImage(WIMG);
 
-                    this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0];
+                this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0];
 
                 initializeDescription();
                 WindArt = true;
@@ -89,7 +89,7 @@ public class LeechingStrike extends AbstractStanceCard {
             if (! LightningArt) {
                 this.loadCardImage(LIMG);
 
-                    this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[1];
+                this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[1];
 
                 initializeDescription();
                 WindArt = false;
@@ -97,27 +97,27 @@ public class LeechingStrike extends AbstractStanceCard {
                 BaseArt = false;
             }
         } else if (CardCrawlGame.isInARun()) {
-            if (AbstractDungeon.player.hasPower(WindStance.POWER_ID) && (!AbstractDungeon.getMonsters().areMonstersDead())) {
+            if (AbstractDungeon.player.hasPower(WindStance.POWER_ID) && (! AbstractDungeon.getMonsters().areMonstersDead())) {
                 if (! WindArt) {
                     this.loadCardImage(WIMG);
 
-                        this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0];
+                    this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0];
 
                     initializeDescription();
                     WindArt = true;
                     LightningArt = false;
                     BaseArt = false;
                 }
-            } else if (AbstractDungeon.player.hasPower(LightningStance.POWER_ID) && (!AbstractDungeon.getMonsters().areMonstersDead())) {
+            } else if (AbstractDungeon.player.hasPower(LightningStance.POWER_ID) && (! AbstractDungeon.getMonsters().areMonstersDead())) {
                 if (! LightningArt) {
                     AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, LIMG, false));
-                        this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[1];
+                    this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[1];
                     initializeDescription();
                     WindArt = false;
                     LightningArt = true;
                     BaseArt = false;
                 }
-            } else if (AbstractDungeon.player.hasPower(BasicStance.POWER_ID) && (!AbstractDungeon.getMonsters().areMonstersDead())) {
+            } else if (AbstractDungeon.player.hasPower(BasicStance.POWER_ID) && (! AbstractDungeon.getMonsters().areMonstersDead())) {
                 if (! BaseArt) {
                     AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG, false));
                     this.rawDescription = DESCRIPTION;
@@ -129,7 +129,6 @@ public class LeechingStrike extends AbstractStanceCard {
             }
         }
     }
-
 
 
     @Override

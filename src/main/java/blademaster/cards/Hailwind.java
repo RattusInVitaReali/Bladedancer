@@ -40,7 +40,7 @@ public class Hailwind extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (p.hasPower(WindCharge.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WindCharge(p, -p.getPower(WindCharge.POWER_ID).amount, false), -p.getPower(WindCharge.POWER_ID).amount));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WindCharge(p, - p.getPower(WindCharge.POWER_ID).amount, false), - p.getPower(WindCharge.POWER_ID).amount));
             int i = 0;
             do {
                 AbstractDungeon.actionManager.addToTop(new VFXAction(new ThrowDaggerEffect(m.hb.cX, m.hb.cY)));

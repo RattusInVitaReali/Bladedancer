@@ -36,10 +36,10 @@ public class Flash extends AbstractStanceCard {
     private static final int COST = 0;
     private static final int DAMAGE = 5;
     private static final int AMT = 1;
+    public int counter = 0;
     private boolean WindArt = false;
     private boolean LightningArt = false;
     private boolean BaseArt = false;
-    public int counter = 0;
 
 
     public Flash() {
@@ -98,7 +98,7 @@ public class Flash extends AbstractStanceCard {
                 BaseArt = false;
             }
         } else if (CardCrawlGame.isInARun()) {
-            if (AbstractDungeon.player.hasPower(WindStance.POWER_ID) && (!AbstractDungeon.getMonsters().areMonstersDead())) {
+            if (AbstractDungeon.player.hasPower(WindStance.POWER_ID) && (! AbstractDungeon.getMonsters().areMonstersDead())) {
                 if (! WindArt) {
                     AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, WIMG, false));
                     this.rawDescription = (cardStrings.EXTENDED_DESCRIPTION[3] + (this.counter + 12) + cardStrings.EXTENDED_DESCRIPTION[0]);
@@ -107,7 +107,7 @@ public class Flash extends AbstractStanceCard {
                     LightningArt = false;
                     BaseArt = false;
                 }
-            } else if (AbstractDungeon.player.hasPower(LightningStance.POWER_ID) && (!AbstractDungeon.getMonsters().areMonstersDead())) {
+            } else if (AbstractDungeon.player.hasPower(LightningStance.POWER_ID) && (! AbstractDungeon.getMonsters().areMonstersDead())) {
                 if (! LightningArt) {
                     AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, LIMG, false));
                     this.rawDescription = (cardStrings.EXTENDED_DESCRIPTION[3] + (this.counter + 12) + cardStrings.EXTENDED_DESCRIPTION[0]);
@@ -116,7 +116,7 @@ public class Flash extends AbstractStanceCard {
                     LightningArt = true;
                     BaseArt = false;
                 }
-            } else if (AbstractDungeon.player.hasPower(BasicStance.POWER_ID) && (!AbstractDungeon.getMonsters().areMonstersDead())) {
+            } else if (AbstractDungeon.player.hasPower(BasicStance.POWER_ID) && (! AbstractDungeon.getMonsters().areMonstersDead())) {
                 if (! BaseArt) {
                     AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG, false));
                     this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[3] + (this.counter + 12) + cardStrings.EXTENDED_DESCRIPTION[0];

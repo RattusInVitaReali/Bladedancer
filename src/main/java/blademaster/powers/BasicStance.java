@@ -24,7 +24,7 @@ public class BasicStance extends AbstractPower {
         this.ID = POWER_ID;
         this.owner = owner;
         this.type = PowerType.BUFF;
-        this.amount = -1;
+        this.amount = - 1;
         this.isTurnBased = false;
         this.region128 = BigImage;
         this.region48 = SmallImage;

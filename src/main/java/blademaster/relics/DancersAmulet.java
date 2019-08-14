@@ -43,7 +43,7 @@ public class DancersAmulet extends CustomRelic {
     }
 
     public void onVictory() {
-        this.counter = -1;
+        this.counter = - 1;
     }
 
     @Override

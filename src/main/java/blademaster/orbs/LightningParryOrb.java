@@ -68,7 +68,7 @@ public class LightningParryOrb
     public void updateAnimation() {
         super.updateAnimation();
         if (this.vfxTimer < 0.0F) {
-            AbstractDungeon.effectList.add(new FrostOrbActivateEffect(this.cX, this.cY +this.bobEffect.y));
+            AbstractDungeon.effectList.add(new FrostOrbActivateEffect(this.cX, this.cY + this.bobEffect.y));
             this.vfxTimer -= Gdx.graphics.getDeltaTime();
             if (this.vfxTimer < 0.0F) {
                 AbstractDungeon.effectList.add(new BetterFireBurstParticleEffect(this.cX, this.cY + this.bobEffect.y, 0.0F, 0.2F, 1.0F));

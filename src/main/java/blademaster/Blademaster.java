@@ -18,6 +18,7 @@ import blademaster.variables.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -29,7 +30,6 @@ import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import com.evacipated.cardcrawl.mod.stslib.Keyword;
 
 import java.nio.charset.StandardCharsets;
 
@@ -248,6 +248,11 @@ public class Blademaster
         return "blademaster:" + idText;
     }
 
+    public static void runAnim(final String anim) {
+        AbstractDungeon.player.state.setAnimation(0, anim, false);
+        AbstractDungeon.player.state.addAnimation(0, "Idle", true, 0.0f);
+    }
+
     @Override
     public void receiveEditCharacters() {
         logger.info("begin editing characters. " + "Add " + TheDefaultEnum.THE_BLADEMASTER.toString());
@@ -285,6 +290,9 @@ public class Blademaster
         logger.info("end editing potions");
     }
 
+
+    // ================ LOAD THE TEXT ===================
+
     @Override
     public void receiveEditRelics() {
         logger.info("Add relics");
@@ -311,8 +319,7 @@ public class Blademaster
         logger.info("Done adding relics!");
     }
 
-
-    // ================ LOAD THE TEXT ===================
+    // ================ LOAD THE KEYWORDS ===================
 
     @Override
     public void receiveEditCards() {
@@ -404,8 +411,9 @@ public class Blademaster
         BaseMod.addCard(new ThunderSlash());
         BaseMod.addCard(new AirSlash());
         BaseMod.addCard(new BladeCross());
-        BaseMod.addCard(new Flow());
-
+        BaseMod.addCard(new CullingStrike());
+        BaseMod.addCard(new Frenzy());
+        BaseMod.addCard(new Quickstep());
 
         UnlockTracker.unlockCard(AncestralHealing.ID);
         UnlockTracker.unlockCard(AwakeningDefend.ID);
@@ -484,10 +492,12 @@ public class Blademaster
         UnlockTracker.unlockCard(AirSlash.ID);
         UnlockTracker.unlockCard(ThunderSlash.ID);
         UnlockTracker.unlockCard(BladeCross.ID);
-        UnlockTracker.unlockCard(Flow.ID);
+        UnlockTracker.unlockCard(CullingStrike.ID);
+        UnlockTracker.unlockCard(Frenzy.ID);
+        UnlockTracker.unlockCard(Quickstep.ID);
     }
 
-    // ================ LOAD THE KEYWORDS ===================
+    // ================ /LOAD THE KEYWORDS/ ===================    
 
     @Override
     public void receiveEditStrings() {
@@ -502,8 +512,6 @@ public class Blademaster
         loadLangStrings(language);
     }
 
-    // ================ /LOAD THE KEYWORDS/ ===================    
-
     private void loadLangStrings(String language) {
         String path = "blademasterResources/localization/" + language + "/Blademaster";
 
@@ -515,8 +523,7 @@ public class Blademaster
         BaseMod.loadCustomStringsFile(CharacterStrings.class, path + "BladedancerStrings.json");
     }
 
-    private void loadLangKeywords(String language)
-    {
+    private void loadLangKeywords(String language) {
         String path = "blademasterResources/localization/" + language + "/";
 
         Gson gson = new Gson();
@@ -529,7 +536,6 @@ public class Blademaster
             }
         }
     }
-
 
     @Override
     public void receiveEditKeywords() {

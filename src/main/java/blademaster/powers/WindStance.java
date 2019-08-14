@@ -24,10 +24,10 @@ public class WindStance extends AbstractPower {
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-    private float particleTimer = 0.0F;
-    private float particleTimer2 = 0.03F;
     public static TextureAtlas.AtlasRegion BigImage = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/WindStance.png"), 0, 0, 84, 84);
     public static TextureAtlas.AtlasRegion SmallImage = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/WindStanceSmall.png"), 0, 0, 32, 32);
+    private float particleTimer = 0.0F;
+    private float particleTimer2 = 0.03F;
 
     public WindStance(AbstractCreature owner) {
         this.name = NAME;
@@ -35,7 +35,7 @@ public class WindStance extends AbstractPower {
         this.ID = POWER_ID;
         this.owner = owner;
         this.type = PowerType.BUFF;
-        this.amount = -1;
+        this.amount = - 1;
         this.isTurnBased = true;
         this.region128 = BigImage;
         this.region48 = SmallImage;
@@ -72,7 +72,7 @@ public class WindStance extends AbstractPower {
                 AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this));
             }
         }
-        if (power.ID.equals(this.ID) && !AbstractDungeon.player.hasPower(StabilityPower.POWER_ID)) {
+        if (power.ID.equals(this.ID) && ! AbstractDungeon.player.hasPower(StabilityPower.POWER_ID)) {
             AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new WrongfulFootwork(), 1, true, true));
         }
     }

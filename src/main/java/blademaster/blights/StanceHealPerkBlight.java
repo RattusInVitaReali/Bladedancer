@@ -33,7 +33,7 @@ public class StanceHealPerkBlight extends AbstractBlight implements PerkBlight {
             counter += 1;
         }
         if (AbstractDungeon.player.currentHealth > 0) {
-           AbstractDungeon.player.heal(this.counter * 6, true);
+            AbstractDungeon.player.heal(this.counter * 6, true);
         }
     }
 }

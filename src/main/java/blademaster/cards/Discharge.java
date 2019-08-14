@@ -30,26 +30,23 @@ public class Discharge extends AbstractStanceCard {
 
 
     public static final String ID = Blademaster.makeID("Discharge");
-    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String IMG = Blademaster.makePath("cards/Discharge.png");
     public static final String WIMG = Blademaster.makePath("cards/WindDischarge.png");
     public static final String LIMG = Blademaster.makePath("cards/LightningDischarge.png");
+    public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
+    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
-
-    private boolean WindArt = false;
-    private boolean LightningArt = false;
-    private boolean BaseArt = false;
-
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
     private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
-
     private static final int COST = 1;
     private static final int BLOCK = 5;
     private static final int AMT = 1;
+    private boolean WindArt = false;
+    private boolean LightningArt = false;
+    private boolean BaseArt = false;
 
     public Discharge() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
@@ -105,7 +102,7 @@ public class Discharge extends AbstractStanceCard {
                 BaseArt = false;
             }
         } else if (CardCrawlGame.isInARun()) {
-            if (AbstractDungeon.player.hasPower(WindStance.POWER_ID) && (!AbstractDungeon.getMonsters().areMonstersDead())) {
+            if (AbstractDungeon.player.hasPower(WindStance.POWER_ID) && (! AbstractDungeon.getMonsters().areMonstersDead())) {
                 if (! WindArt) {
                     this.loadCardImage(WIMG);
                     this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0];
@@ -115,7 +112,7 @@ public class Discharge extends AbstractStanceCard {
                     LightningArt = false;
                     BaseArt = false;
                 }
-            } else if (AbstractDungeon.player.hasPower(LightningStance.POWER_ID) && (!AbstractDungeon.getMonsters().areMonstersDead())) {
+            } else if (AbstractDungeon.player.hasPower(LightningStance.POWER_ID) && (! AbstractDungeon.getMonsters().areMonstersDead())) {
                 if (! LightningArt) {
                     AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, LIMG, false));
                     this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[1];
@@ -125,7 +122,7 @@ public class Discharge extends AbstractStanceCard {
                     LightningArt = true;
                     BaseArt = false;
                 }
-            } else if (AbstractDungeon.player.hasPower(BasicStance.POWER_ID) && (!AbstractDungeon.getMonsters().areMonstersDead())) {
+            } else if (AbstractDungeon.player.hasPower(BasicStance.POWER_ID) && (! AbstractDungeon.getMonsters().areMonstersDead())) {
                 if (! BaseArt) {
                     AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG, false));
                     this.rawDescription = DESCRIPTION;

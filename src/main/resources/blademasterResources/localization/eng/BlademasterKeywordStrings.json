@@ -75,6 +75,6 @@
             "bleed"
         ],
         "PROPER_NAME": "Bleeding",
-        "DESCRIPTION": "yBleeding enemies take #b20% more damage from attacks, and take damage at the end of the round. #yBleeding decays by #b3 at the end."
+        "DESCRIPTION": "#yBleeding enemies take #b20% more damage from attacks, and take damage at the end of the round. #yBleeding decays by #b3 at the end."
     }
 ]

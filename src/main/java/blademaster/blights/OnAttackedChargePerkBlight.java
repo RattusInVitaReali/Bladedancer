@@ -30,11 +30,11 @@ public class OnAttackedChargePerkBlight extends AbstractBlight implements PerkBl
     public int onAttackedBlights(DamageInfo info, int damageAmount) {
         if (AbstractDungeon.player.hasPower(WindStance.POWER_ID)) {
             this.flash();
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new WindCharge(AbstractDungeon.player, 1 ,false), 1));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new WindCharge(AbstractDungeon.player, 1, false), 1));
         }
         if (AbstractDungeon.player.hasPower(LightningStance.POWER_ID)) {
             this.flash();
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new LightningCharge(AbstractDungeon.player, 1 ,false), 1));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new LightningCharge(AbstractDungeon.player, 1, false), 1));
         }
         return damageAmount;
     }

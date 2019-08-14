@@ -101,7 +101,7 @@ public class Blindside extends AbstractStanceCard {
                 BaseArt = false;
             }
         } else if (CardCrawlGame.isInARun()) {
-            if (AbstractDungeon.player.hasPower(WindStance.POWER_ID) && (!AbstractDungeon.getMonsters().areMonstersDead())) {
+            if (AbstractDungeon.player.hasPower(WindStance.POWER_ID) && (! AbstractDungeon.getMonsters().areMonstersDead())) {
                 if (! WindArt) {
                     this.loadCardImage(WIMG);
                     this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0] + EXTENDED_DESCRIPTION[2];
@@ -110,7 +110,7 @@ public class Blindside extends AbstractStanceCard {
                     LightningArt = false;
                     BaseArt = false;
                 }
-            } else if (AbstractDungeon.player.hasPower(LightningStance.POWER_ID) && (!AbstractDungeon.getMonsters().areMonstersDead())) {
+            } else if (AbstractDungeon.player.hasPower(LightningStance.POWER_ID) && (! AbstractDungeon.getMonsters().areMonstersDead())) {
                 if (! LightningArt) {
                     AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, LIMG, false));
                     this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[1] + EXTENDED_DESCRIPTION[2];
@@ -119,7 +119,7 @@ public class Blindside extends AbstractStanceCard {
                 WindArt = false;
                 LightningArt = true;
                 BaseArt = false;
-            } else if (AbstractDungeon.player.hasPower(BasicStance.POWER_ID) && (!AbstractDungeon.getMonsters().areMonstersDead())) {
+            } else if (AbstractDungeon.player.hasPower(BasicStance.POWER_ID) && (! AbstractDungeon.getMonsters().areMonstersDead())) {
                 if (! BaseArt) {
                     AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG, false));
                     this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[2];
