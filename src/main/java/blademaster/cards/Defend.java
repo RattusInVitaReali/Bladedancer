@@ -23,7 +23,7 @@ public class Defend extends AbstractStanceCard {
     public static final String IMG = Blademaster.makePath("cards/Defend.png");
     public static final String WIMG = Blademaster.makePath("cards/WindDefend.png");
     public static final String LIMG = Blademaster.makePath("cards/LightningDefend.png");
-    public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
+    public static final CardColor COLOR = AbstractCardEnum.BLADEMASTER_GRAY;
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
@@ -72,7 +72,7 @@ public class Defend extends AbstractStanceCard {
     public void update() {
         super.update();
         if (CardCrawlGame.isInARun()) {
-            if (AbstractDungeon.player.hasPower(WindStance.POWER_ID) && (! AbstractDungeon.getMonsters().areMonstersDead())) {
+            if (AbstractDungeon.player.hasPower(WindStance.POWER_ID)) {
                 if (! WindArt) {
                     this.loadCardImage(WIMG);
                     initializeDescription();
@@ -80,7 +80,7 @@ public class Defend extends AbstractStanceCard {
                     LightningArt = false;
                     BaseArt = false;
                 }
-            } else if (AbstractDungeon.player.hasPower(LightningStance.POWER_ID) && (! AbstractDungeon.getMonsters().areMonstersDead())) {
+            } else if (AbstractDungeon.player.hasPower(LightningStance.POWER_ID)) {
                 if (! LightningArt) {
                     AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, LIMG, false));
                     initializeDescription();
@@ -88,7 +88,7 @@ public class Defend extends AbstractStanceCard {
                     LightningArt = true;
                     BaseArt = false;
                 }
-            } else if (AbstractDungeon.player.hasPower(BasicStance.POWER_ID) && (! AbstractDungeon.getMonsters().areMonstersDead())) {
+            } else if (AbstractDungeon.player.hasPower(BasicStance.POWER_ID)) {
                 if (! BaseArt) {
                     AbstractDungeon.actionManager.addToBottom(new LoadCardImageAction(this, IMG, false));
                     initializeDescription();

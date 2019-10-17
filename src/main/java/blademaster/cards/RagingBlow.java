@@ -30,7 +30,7 @@ public class RagingBlow extends AbstractStanceCard {
     public static final String IMG = Blademaster.makePath("cards/RagingBlow.png");
     public static final String LIMG = Blademaster.makePath("cards/LightningRagingBlow.png");
     public static final String WIMG = Blademaster.makePath("cards/WindRagingBlow.png");
-    public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
+    public static final CardColor COLOR = AbstractCardEnum.BLADEMASTER_GRAY;
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
@@ -82,11 +82,13 @@ public class RagingBlow extends AbstractStanceCard {
                 AbstractDungeon.actionManager.addToTop(new VFXAction(new LightningEffect(monster.drawX, monster.drawY), 0.2F));
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(monster, new DamageInfo(p, p.getPower(WindCharge.POWER_ID).amount, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
             }
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WindCharge(p, -p.getPower(WindCharge.POWER_ID).amount, false), -p.getPower(WindCharge.POWER_ID).amount));
         }
         if (p.hasPower(LightningStance.POWER_ID) && p.hasPower(LightningCharge.POWER_ID)) {
             AbstractDungeon.actionManager.addToTop(new SFXAction("ORB_LIGHTNING_EVOKE"));
             AbstractDungeon.actionManager.addToTop(new VFXAction(new LightningEffect(m.drawX, m.drawY), 0.2F));
             AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, 2 * p.getPower(LightningCharge.POWER_ID).amount, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HEAVY));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LightningCharge(p, -p.getPower(LightningCharge.POWER_ID).amount, false), -p.getPower(LightningCharge.POWER_ID).amount));
         }
     }
 

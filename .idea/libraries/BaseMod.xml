@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="BaseMod">
+    <CLASSES>
+      <root url="jar://D:/Steam/steamapps/workshop/content/646570/1605833019/beta/BaseMod.jar!/" />
+      <root url="jar://D:/Steam/steamapps/workshop/content/646570/1609158507/StSLib.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,8 +1,10 @@
 package blademaster.powers;
 
 import blademaster.Blademaster;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
@@ -11,6 +13,7 @@ public class BlockadePower extends AbstractPower {
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+    public static TextureAtlas.AtlasRegion SmallImage = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/Power.png"), 0, 0, 32, 32);
 
 
     public BlockadePower(AbstractCreature owner, int amount) {
@@ -20,7 +23,8 @@ public class BlockadePower extends AbstractPower {
         this.amount = amount;
         this.type = PowerType.BUFF;
         this.isTurnBased = false;
-        this.img = Blademaster.getDefaultPowerTexture();
+        this.region48 = SmallImage;
+        this.region128 = SmallImage;
         updateDescription();
     }
 

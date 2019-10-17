@@ -35,7 +35,7 @@ public class WindChargeDescriptionPatch {
         public static void Insert(AbstractCard __instance, SpriteBatch sb, @ByRef String[] tmp) {
             Matcher m = r.matcher(tmp[0]);
             if (m.find()) {
-                if (__instance.color.equals(AbstractCardEnum.DEFAULT_GRAY)) {
+                if (__instance.color.equals(AbstractCardEnum.BLADEMASTER_GRAY)) {
                     tmp[0] = "[W]" + (m.group(2).equals(".") ? "." : "") + " ";
                 }
             }
@@ -80,7 +80,7 @@ public class WindChargeDescriptionPatch {
                                   BitmapFont font, Color textColor, @ByRef String[] tmp, GlyphLayout gl) {
             Matcher m = r.matcher(tmp[0]);
             if (tmp[0].equals("[W]") || m.find()) {
-                if (__instance.color.equals(AbstractCardEnum.DEFAULT_GRAY)) {
+                if (__instance.color.equals(AbstractCardEnum.BLADEMASTER_GRAY)) {
                     gl.width = CARD_ENERGY_IMG_WIDTH * __instance.drawScale;
                     float tmp2 = (__instance.description.size() - 4) * spacing;
                     __instance.renderSmallEnergy(sb, WindChargeRegion,
@@ -166,7 +166,7 @@ public class WindChargeDescriptionPatch {
         }
 
         public static void Postfix(AbstractCard __instance) {
-            if (__instance.color.equals(AbstractCardEnum.DEFAULT_GRAY)) {
+            if (__instance.color.equals(AbstractCardEnum.BLADEMASTER_GRAY)) {
                 int[] idxs = new int[3];
                 idxs[0] = __instance.keywords.indexOf("[R]");
                 idxs[1] = __instance.keywords.indexOf("[G]");

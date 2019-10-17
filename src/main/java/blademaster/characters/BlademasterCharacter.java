@@ -328,6 +328,10 @@ public class BlademasterCharacter extends CustomPlayer {
         }
     }
 
+    public String getPortraitImageName() {
+        return "The Bladedancer";
+    }
+
     public void update() {
         super.update();
         if (AbstractDungeon.player.hasPower(WindStance.POWER_ID)) {
@@ -409,7 +413,7 @@ public class BlademasterCharacter extends CustomPlayer {
     // Should return the card color enum to be associated with your character.
     @Override
     public AbstractCard.CardColor getCardColor() {
-        return AbstractCardEnum.DEFAULT_GRAY;
+        return AbstractCardEnum.BLADEMASTER_GRAY;
     }
 
     // Should return a color object to be used to color the trail of moving cards

@@ -1,10 +1,12 @@
 package blademaster.powers;
 
 import blademaster.Blademaster;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
@@ -13,6 +15,7 @@ public class CalmnessPower extends AbstractPower {
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+    public static TextureAtlas.AtlasRegion SmallImage = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/Calmness.png"), 0, 0, 32, 32);
 
     public CalmnessPower(AbstractCreature owner, int amount) {
         this.name = NAME;
@@ -22,7 +25,8 @@ public class CalmnessPower extends AbstractPower {
         this.amount = amount;
         this.type = AbstractPower.PowerType.DEBUFF;
         this.isTurnBased = true;
-        this.img = Blademaster.CalmnessPNG();
+        this.region48 = SmallImage;
+        this.region128 = SmallImage;
         updateDescription();
     }
 

@@ -19,7 +19,6 @@ public class AddFlashToHandAction extends AbstractGameAction {
     }
 
     private AbstractCard c;
-    private boolean isOtherCardInCenter = false;
     private int Thonk;
 
     public AddFlashToHandAction(boolean isUpgraded, int CounterBonus) {

@@ -17,7 +17,7 @@ public class Momentum extends CustomCard {
 
     public static final String ID = Blademaster.makeID("Momentum");
     public static final String IMG = Blademaster.makePath("cards/Momentum.png");
-    public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
+    public static final CardColor COLOR = AbstractCardEnum.BLADEMASTER_GRAY;
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
@@ -25,7 +25,7 @@ public class Momentum extends CustomCard {
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.POWER;
     private static final int COST = 1;
-    private static final int AMOUNT = 5;
+    private static final int AMOUNT = 8;
 
 
     public Momentum() {
@@ -47,7 +47,7 @@ public class Momentum extends CustomCard {
     public void upgrade() {
         if (! this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(2);
+            this.upgradeMagicNumber(3);
             this.initializeDescription();
         }
     }

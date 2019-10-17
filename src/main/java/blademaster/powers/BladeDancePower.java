@@ -30,9 +30,7 @@ public class BladeDancePower extends AbstractPower {
 
     public void onInitialApplication() {
         for (AbstractOrb orb : AbstractDungeon.player.orbs) {
-            if (orb.ID != null) {
-                orb.applyFocus();
-            }
+            orb.applyFocus();
         }
     }
 

@@ -2,7 +2,11 @@ package blademaster.powers;
 
 import blademaster.actions.AwakenOrbAction;
 import blademaster.actions.LightningStanceAction;
+import blademaster.cards.AbstractStanceCard;
+import blademaster.cards.Cut;
 import blademaster.cards.WrongfulFootwork;
+import blademaster.effects.StanceAuraEffect;
+import blademaster.effects.StanceEffect;
 import blademaster.effects.particles.BetterFireBurstParticleEffect;
 import blademaster.orbs.LightningBladeOrb;
 import blademaster.orbs.LightningParryOrb;
@@ -12,6 +16,7 @@ import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.defect.IncreaseMaxOrbAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -28,6 +33,7 @@ public class LightningStance extends AbstractPower {
     public static TextureAtlas.AtlasRegion SmallImage = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/LightningStanceSmall.png"), 0, 0, 32, 32);
     private float particleTimer = 0.0F;
     private float particleTimer2 = 0.03F;
+    private float particleTimer3 = 0.0F;
 
     public LightningStance(AbstractCreature owner) {
         this.name = NAME;
@@ -46,15 +52,21 @@ public class LightningStance extends AbstractPower {
     public void updateParticles() {
         this.particleTimer -= Gdx.graphics.getDeltaTime();
         this.particleTimer2 -= Gdx.graphics.getDeltaTime();
+        this.particleTimer3 -= Gdx.graphics.getDeltaTime();
         if (this.particleTimer < 0.0F) {
             int xOff = MathUtils.random(- 70, 70);
             AbstractDungeon.effectList.add(new BetterFireBurstParticleEffect(this.owner.drawX + xOff, this.owner.drawY, 0.3F, 1.0F, 1.0F));
+            AbstractDungeon.effectsQueue.add(new StanceEffect(MathUtils.random(0.25f, 0.30f), MathUtils.random(0.8f, 0.82f), MathUtils.random(0.95f, 1f), 0.0f));
             this.particleTimer = 0.06F;
         }
         if (this.particleTimer2 < 0.0F) {
             int xOff = MathUtils.random(- 70, 70);
             AbstractDungeon.effectList.add(new BetterFireBurstParticleEffect(this.owner.drawX + xOff, this.owner.drawY, 0.3F, 0.7F, 1.0F));
             this.particleTimer2 = 0.06F;
+        }
+        if (this.particleTimer3 < 0.0F) {
+            AbstractDungeon.effectsQueue.add(new StanceAuraEffect(MathUtils.random(0.25f, 0.30f), MathUtils.random(0.8f, 0.82f), MathUtils.random(0.95f, 1f), 0.0f));
+            this.particleTimer3 = MathUtils.random(0.3F, 0.45F);
         }
     }
 
@@ -74,6 +86,11 @@ public class LightningStance extends AbstractPower {
     }
 
     public void onInitialApplication() {
+        for (AbstractCard card : AbstractDungeon.player.discardPile.group) {
+            if (card instanceof AbstractStanceCard) {
+                ((AbstractStanceCard) card).onSwitchStance("Lightning");
+            }
+        }
         AbstractDungeon.actionManager.addToBottom(new LightningStanceAction());
         if (AbstractDungeon.player.orbs.size() == 5) {
             AbstractDungeon.actionManager.addToBottom(new IncreaseMaxOrbAction(2));

@@ -25,11 +25,10 @@ public class FuriousStrike extends AbstractStanceCard {
     public static final String IMG = Blademaster.makePath("cards/FuriousStrike.png");
     public static final String LIMG = Blademaster.makePath("cards/LightningFuriousStrike.png");
     public static final String WIMG = Blademaster.makePath("cards/WindFuriousStrike.png");
-    public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
+    public static final CardColor COLOR = AbstractCardEnum.BLADEMASTER_GRAY;
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;

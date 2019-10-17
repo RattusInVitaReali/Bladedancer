@@ -18,6 +18,8 @@ public abstract class AbstractStanceCard extends CustomCard {
                 color, rarity, target);
     }
 
+    public void onSwitchStance(String newStance) {}
+
     public void upgradeChargeNumber(int amount) {
         chargeNumber = baseChargeNumber + amount;
         this.upgradedChargeNumber = true;

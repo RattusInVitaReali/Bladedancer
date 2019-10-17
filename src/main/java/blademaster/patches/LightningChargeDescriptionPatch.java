@@ -33,7 +33,7 @@ public class LightningChargeDescriptionPatch {
                 localvars = {"tmp"}
         )
         public static void Insert(AbstractCard __instance, SpriteBatch sb, @ByRef String[] tmp) {
-            if (__instance.color.equals(AbstractCardEnum.DEFAULT_GRAY)) {
+            if (__instance.color.equals(AbstractCardEnum.BLADEMASTER_GRAY)) {
                 Matcher m = r.matcher(tmp[0]);
                 if (m.find()) {
                     tmp[0] = "[L]" + (m.group(2).equals(".") ? "." : "") + " ";
@@ -78,7 +78,7 @@ public class LightningChargeDescriptionPatch {
                                   BitmapFont font, Color textColor, @ByRef String[] tmp, GlyphLayout gl) {
             Matcher m = r.matcher(tmp[0]);
             if (tmp[0].equals("[L]") || m.find()) {
-                if (__instance.color.equals(AbstractCardEnum.DEFAULT_GRAY)) {
+                if (__instance.color.equals(AbstractCardEnum.BLADEMASTER_GRAY)) {
                     gl.width = CARD_ENERGY_IMG_WIDTH * __instance.drawScale;
                     float tmp2 = (__instance.description.size() - 4) * spacing;
                     __instance.renderSmallEnergy(sb, LightningChargeRegion,
@@ -164,7 +164,7 @@ public class LightningChargeDescriptionPatch {
         }
 
         public static void Postfix(AbstractCard __instance) {
-            if (__instance.color.equals(AbstractCardEnum.DEFAULT_GRAY)) {
+            if (__instance.color.equals(AbstractCardEnum.BLADEMASTER_GRAY)) {
                 int[] idxs = new int[3];
                 idxs[0] = __instance.keywords.indexOf("[R]");
                 idxs[1] = __instance.keywords.indexOf("[G]");

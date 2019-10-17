@@ -13,8 +13,8 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 public class DancersAmulet extends CustomRelic {
 
     public static final String ID = Blademaster.makeID("DancersAmulet");
-    public static final String IMG = Blademaster.makePath(Blademaster.DancersAmulet);
-    public static final String OUTLINE = Blademaster.makePath(Blademaster.DancersAmuletOutline);
+    public static final String IMG = Blademaster.makePath("relics/DancersAmulet.png");
+    public static final String OUTLINE = Blademaster.makePath("relics/outline/DancersAmulet.png");
 
 
     public DancersAmulet() {

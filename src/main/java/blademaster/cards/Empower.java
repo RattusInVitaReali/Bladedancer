@@ -22,7 +22,7 @@ public class Empower extends CustomCard {
 
     public static final String ID = Blademaster.makeID("Empower");
     public static final String IMG = Blademaster.makePath("cards/Empower.png");
-    public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
+    public static final CardColor COLOR = AbstractCardEnum.BLADEMASTER_GRAY;
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;

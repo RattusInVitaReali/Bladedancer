@@ -24,7 +24,7 @@ public class Slice extends AbstractStanceCard {
     public static final String IMG = Blademaster.makePath("cards/Slice.png");
     public static final String LIMG = Blademaster.makePath("cards/LightningSlice.png");
     public static final String WIMG = Blademaster.makePath("cards/WindSlice.png");
-    public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
+    public static final CardColor COLOR = AbstractCardEnum.BLADEMASTER_GRAY;
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
@@ -32,7 +32,7 @@ public class Slice extends AbstractStanceCard {
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
-    private static final int COST = 0;
+    private static final int COST = 1;
     private static final int DAMAGE = 3;
     private static final int AMT = 1;
 

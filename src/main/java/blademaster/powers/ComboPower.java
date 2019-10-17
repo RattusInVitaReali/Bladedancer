@@ -1,6 +1,7 @@
 package blademaster.powers;
 
 import blademaster.Blademaster;
+import blademaster.patches.BlademasterTags;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -18,6 +19,7 @@ public class ComboPower extends AbstractPower {
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
     public static TextureAtlas.AtlasRegion BigImage = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/ComboPower.png"), 0, 0, 84, 84);
     public static TextureAtlas.AtlasRegion SmallImage = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("blademasterResources/images/powers/ComboPowerSmall.png"), 0, 0, 32, 32);
+    public boolean canGain = true;
 
     public ComboPower(AbstractCreature owner, int amount) {
         this.name = NAME;
@@ -31,6 +33,10 @@ public class ComboPower extends AbstractPower {
         updateDescription();
     }
 
+    @Override
+    public void onAfterUseCard(AbstractCard card, UseCardAction action) {
+        this.canGain = true;
+    }
 
     public void updateDescription() {
         this.description = (DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1]);
@@ -44,7 +50,10 @@ public class ComboPower extends AbstractPower {
 
 
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        if ((this.owner != null) && (! this.owner.hasPower(TiredPower.POWER_ID))) {
+        if (card.hasTag(BlademasterTags.FURY_FINISHER)) {
+            this.canGain = false;
+        }
+        if ((this.owner != null) && (!this.owner.hasPower(TiredPower.POWER_ID))) {
             this.amount += 1;
             updateDescription();
         }

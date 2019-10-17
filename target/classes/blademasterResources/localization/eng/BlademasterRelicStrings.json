@@ -1,0 +1,128 @@
+{
+    "blademaster:DancersAmulet": {
+        "NAME": "Dancer's Amulet",
+        "FLAVOR": "A mildly special amulet, I suppose.",
+        "DESCRIPTIONS": [
+            "Whenever you play 3 cards in a single turn, draw 1 card."
+        ]
+    },
+    "blademaster:BonusComboPerk": {
+        "NAME": "Perk: Combatant",
+        "FLAVOR": "",
+        "DESCRIPTIONS": [
+            "Start each combat with #b3 #yCombo."
+        ]
+    },
+    "blademaster:BonusFuryPerk": {
+        "NAME": "Perk: Furious",
+        "FLAVOR": "",
+        "DESCRIPTIONS": [
+            "Start each combat with #b15 #yFury."
+        ]
+    },
+    "blademaster:DextrousPerk": {
+        "NAME": "Perk: Dexterous",
+        "FLAVOR": "",
+        "DESCRIPTIONS": [
+            "Start each combat with #b1 #yDexterity."
+        ]
+    },
+    "blademaster:FocusedPerk": {
+        "NAME": "Perk: Focused",
+        "FLAVOR": "",
+        "DESCRIPTIONS": [
+            "Start each combat with #b1 #yFocus."
+        ]
+    },
+    "blademaster:RandomBladePerk": {
+        "NAME": "Perk: Blades",
+        "FLAVOR": "",
+        "DESCRIPTIONS": [
+            "At the start of each combat, channel #b1 random #yBlade."
+        ]
+    },
+    "blademaster:RandomDefensiveStancePerk": {
+        "NAME": "Perk: Defensive Stance Mastery",
+        "FLAVOR": "",
+        "DESCRIPTIONS": [
+            "At the start of combat, switch your #yDefensive #yStance to a random #yStance."
+        ]
+    },
+    "blademaster:RandomStancePerk": {
+        "NAME": "Perk: Offensive Stance Mastery",
+        "FLAVOR": "",
+        "DESCRIPTIONS": [
+            "At the start of combat, switch your #yStance to a random #yStance."
+        ]
+    },
+    "blademaster:StrongPerk": {
+        "NAME": "Perk: Strong",
+        "FLAVOR": "",
+        "DESCRIPTIONS": [
+            "Start each combat with #b1 #yStrength."
+        ]
+    },
+    "blademaster:FinisherDrawCardPerk": {
+        "NAME": "Perk: Finisher Mastery",
+        "FLAVOR": "",
+        "DESCRIPTIONS": [
+            "Whenever you play a #rFinisher, draw 1 card."
+        ]
+    },
+    "blademaster:StanceHealPerk": {
+        "NAME": "Perk: Healthy Stances",
+        "FLAVOR": "",
+        "DESCRIPTIONS": [
+            "At the end of combat,heal #b6 HP if you're in a Stance."
+        ]
+    },
+    "blademaster:ComboEveryTurnPerk": {
+        "NAME": "Perk: Alacrity",
+        "FLAVOR": "",
+        "DESCRIPTIONS": [
+            "At the start of each turn, gain #b1 #yCombo."
+        ]
+    },
+    "blademaster:FuryEveryTurnPerk": {
+        "NAME": "Perk: Endless Rage",
+        "FLAVOR": "",
+        "DESCRIPTIONS": [
+            "At the start of each turn, gain #b5 #yFury."
+        ]
+    },
+    "blademaster:OnAttackedChargePerk": {
+        "NAME": "Perk: Hypercharge",
+        "FLAVOR": "",
+        "DESCRIPTIONS": [
+            "Whenever you're attacked, if you're in a #yStance, gain #b1 #yCharge."
+        ]
+    },
+    "blademaster:BleedingLaceratePerk": {
+        "NAME": "Perk: Critical Hits",
+        "FLAVOR": "",
+        "DESCRIPTIONS": [
+            "Your #rLacerates apply #b2 #yBleeding."
+        ]
+    },
+    "blademaster:WindChargePerk": {
+        "NAME": "Perk: Wind Stance Mastery",
+        "FLAVOR": "",
+        "DESCRIPTIONS": [
+            "At the start of your turn, if you're in #gWind #gStance gain #b3 #gWind #gCharges if you have none. Otherwise, gain #b1 #gWind #gCharge."
+        ]
+    },
+    "blademaster:LightningChargePerk": {
+        "NAME": "Perk: Lightning Stance Mastery",
+        "FLAVOR": "",
+        "DESCRIPTIONS": [
+            "At the start of your turn, if you're in #bLightning #bStance gain #b3 #bLightning #bCharges if you have none. Otherwise, gain #b1 #bLightning #bCharge."
+        ]
+    },
+    "blademaster:BleedingMoreDamagePerk": {
+        "NAME": "Perk: Deep Cuts",
+        "FLAVOR": "",
+        "DESCRIPTIONS": [
+            "#yBleeding enemies take #b30% more damage rather than #b20%."
+        ]
+    }
+}

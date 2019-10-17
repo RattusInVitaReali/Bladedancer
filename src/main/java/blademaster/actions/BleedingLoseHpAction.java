@@ -30,8 +30,6 @@ public class BleedingLoseHpAction
         }
         if ((this.duration == 0.33F) && (this.target.currentHealth > 0)) {
             logger.info(this.target.name + " HAS " + this.target.currentHealth + " HP.");
-            this.target.damageFlash = true;
-            this.target.damageFlashFrames = 4;
         }
         tickDuration();
         if (this.isDone) {
@@ -39,6 +37,7 @@ public class BleedingLoseHpAction
                 this.target.tint.color = Color.SCARLET.cpy();
                 this.target.tint.changeColor(Color.WHITE.cpy());
                 this.target.damage(new DamageInfo(this.source, this.amount, DamageInfo.DamageType.HP_LOSS));
+
 
             }
             AbstractPower p = this.target.getPower("Bleeding");

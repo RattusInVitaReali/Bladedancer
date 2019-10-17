@@ -23,7 +23,7 @@ public class Lacerate extends AbstractStanceCard {
     public static final String IMG = Blademaster.makePath("cards/Lacerate.png");
     public static final String WIMG = Blademaster.makePath("cards/WindLacerate.png");
     public static final String LIMG = Blademaster.makePath("cards/LightningLacerate.png");
-    public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
+    public static final CardColor COLOR = AbstractCardEnum.BLADEMASTER_GRAY;
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;

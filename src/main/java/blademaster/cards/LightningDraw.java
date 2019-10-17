@@ -26,7 +26,7 @@ public class LightningDraw extends CustomCard {
 
     public static final String ID = Blademaster.makeID("LightningDraw");
     public static final String IMG = Blademaster.makePath("cards/LightningDraw.png");
-    public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
+    public static final CardColor COLOR = AbstractCardEnum.BLADEMASTER_GRAY;
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
@@ -41,7 +41,7 @@ public class LightningDraw extends CustomCard {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = this.damage = DAMAGE;
         this.baseMagicNumber = this.magicNumber = BLEED;
-        this.tags.add(BlademasterTags.COMBO_FINISHER);
+        this.tags.add(BlademasterTags.FURY_FINISHER);
         this.tags.add(BlademasterTags.LIGHTNING_STANCE);
     }
 

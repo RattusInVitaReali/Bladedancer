@@ -1,0 +1,545 @@
+{
+    "blademaster:AncestralHealing": {
+        "DESCRIPTION": "移除你所有 充能 。 每移除一点，回复 !M! 生命。 NL 消耗 。",
+        "NAME": "先祖治疗"
+    },
+    "blademaster:AwakeningDefend": {
+        "DESCRIPTION": "获得 !B! 点 格挡 。 NL 连锁 !M! 。",
+        "EXTENDED_DESCRIPTION": [
+            " NL [#00FF2A]觉醒你的下一把飞刀。[] ",
+            " NL [#4A8CFF]觉醒你的下一把飞刀。[]",
+            " NL [#00FF2A]觉醒你的下一把飞刀。[]",
+            " NL [#4A8CFF]觉醒你的下一把飞刀。[]"
+        ],
+        "NAME": "觉醒防御"
+    },
+    "blademaster:AwakeningStrike": {
+        "DESCRIPTION": "造成 !D! 点伤害。 NL 连锁 !M! 。",
+        "EXTENDED_DESCRIPTION": [
+            " NL [#00FF2A]觉醒你的下一把飞刀。[] ",
+            " NL [#4A8CFF]觉醒你的下一把飞刀。[]",
+            " NL [#00FF2A]觉醒你的下一把飞刀。[]",
+            " NL [#4A8CFF]觉醒你的下一把飞刀。[]"
+        ],
+        "NAME": "觉醒打击"
+    },
+    "blademaster:BasicAttack": {
+        "DESCRIPTION": "造成 !D! 点伤害。 NL 将你的 态势 切换为 基础态势 。",
+        "NAME": "基础攻击"
+    },
+    "blademaster:BladeDance": {
+        "DESCRIPTION": " 终结 。 需要 40 [#FF4500]愤怒[] 和 8 [#860037]连击[] 。 NL 你的 浩劫之刃 造成双倍伤害。",
+        "UPGRADE_DESCRIPTION": " 终结 。 保留 。需要 40 [#FF4500]愤怒[] 和 8 [#860037]连击[] 。 NL 你的 浩劫之刃 造成双倍伤害。",
+        "NAME": "刀舞"
+    },
+    "blademaster:BladeMastery": {
+        "DESCRIPTION": "生成 !M! 把 浩劫之刃 。 NL 消耗 。",
+        "NAME": "刀刃精通"
+    },
+    "blademaster:Blockade": {
+        "DESCRIPTION": "每当你的 浩劫之刃 攻击时，获得 !B! 点 格挡 。",
+        "NAME": "阻挡"
+    },
+    "blademaster:BloodyBlow": {
+        "DESCRIPTION": "造成 !D! 点伤害。 NL 血染 ：给予 !M! 层 流血 。 NL 连锁 1 。",
+        "EXTENDED_DESCRIPTION": [
+            " NL [#00FF2A]获得[] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [#4A8CFF]。[]",
+            " NL [#00FF2A]获得[] [W] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [L] [#4A8CFF]。[]"
+        ],
+        "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 血染 ： 给予 !M! 层 流血 。 NL 连锁 2 。",
+        "NAME": "血腥破击"
+    },
+    "blademaster:BrainBloom": {
+        "DESCRIPTION": "直到回合结束前获得 !M! 点 集中 。 NL 消耗 。",
+        "NAME": "思维绽放"
+    },
+    "blademaster:Breeze": {
+        "DESCRIPTION": "造成 !D! 点伤害。 NL 对所有敌人造成 !D! 点伤害。 增加一张 大风 到你的手牌。 NL 连锁 1 。",
+        "EXTENDED_DESCRIPTION": [
+            " NL [#00FF2A]获得[] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [#4A8CFF]。[]"
+        ],
+        "NAME": "微风"
+    },
+    "blademaster:Burnout": {
+        "DESCRIPTION": "造成 !D! 点伤害。 NL 最多消耗你抽牌堆，弃牌堆和手牌中的共2张灼伤。",
+        "EXTENDED_DESCRIPTION": [
+            " NL [#00FF2A]获得[] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [#4A8CFF]。[]",
+            " NL [#00FF2A]获得[] [W] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [L] [#4A8CFF]。[]"
+        ],
+        "NAME": "燃尽"
+    },
+    "blademaster:ChargingUp": {
+        "DESCRIPTION": "获得 !B! 点 格挡 。 NL 连锁 !M! 。",
+        "NAME": "快速充能"
+    },
+    "blademaster:CloudOfSteel": {
+        "DESCRIPTION": "你每有一把 飞刀 ，将 1 张 割裂 加入你的手牌中 。 NL 消耗 。",
+        "NAME": "钢铁之云"
+    },
+    "blademaster:Defend": {
+        "DESCRIPTION": "获得 !B! 点 格挡 。 NL 连锁 !M! 。",
+        "EXTENDED_DESCRIPTION": [
+            " NL [#00FF2A]获得[] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [#4A8CFF]。[]",
+            " NL [#00FF2A]获得[] [W] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [L] [#4A8CFF]。[]"
+        ],
+        "NAME": "防御"
+    },
+    "blademaster:DefiantStance": {
+        "DESCRIPTION": "每有一把 飞刀 获得 !B! 点 格挡 。",
+        "EXTENDED_DESCRIPTION": [
+            " NL [#00FF2A]获得[] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [#4A8CFF]。[]",
+            " NL [#00FF2A]获得[] [W] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [L] [#4A8CFF]。[]"
+        ],
+        "NAME": "反抗态势"
+    },
+    "blademaster:Blindside": {
+        "DESCRIPTION": "对所有敌人造成 !D! 点伤害。",
+        "EXTENDED_DESCRIPTION": [
+            " NL [#00FF2A]给予所有敌人[] !M! 层 虚弱 [#00FF2A]和[] [W]  !W! [#00FF2A]层流血。[]",
+            " NL [#4A8CFF]给予所有敌人[] !M! 层 易伤 [#4A8CFF]和[] [L]  !L! [#4A8CFF]层流血。[]",
+            " NL 消耗 。"
+        ],
+        "NAME": "盲区"
+    },
+    "blademaster:FuryOfTheElements": {
+        "DESCRIPTION": "终结 。 需要 !M! [#FF4500]愤怒[] 。 NL 翻倍你的 充能 。 对所有敌人造成等于你 充能 总和的伤害。",
+        "NAME": "元素的愤怒"
+    },
+    "blademaster:Empower": {
+        "DESCRIPTION": "获得 [E] 。 抽 1 张牌。 NL 连锁 !M! 。 NL 消耗 。",
+        "NAME": "重整旗鼓",
+        "UPGRADE_DESCRIPTION": "获得 [E] [E] 。 抽 2 张牌。 NL 连锁 !M! 。 NL 消耗 。"
+    },
+    "blademaster:EyeOfTheStorm": {
+        "DESCRIPTION": "每当你受到攻击时, 降低 1 点伤害并获得 [L] 。",
+        "NAME": "风暴之眼"
+    },
+    "blademaster:FallBack": {
+        "DESCRIPTION": " 激发 你所有的飞刀。 每 激发 一把飞刀获得 !B! 点格挡。",
+        "EXTENDED_DESCRIPTION": [
+            " NL [#00FF2A]获得[] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [#4A8CFF]。[]",
+            " NL [#00FF2A]获得[] [W] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [L] [#4A8CFF]。[]"
+        ],
+        "NAME": "后撤"
+    },
+    "blademaster:FinishHim": {
+        "DESCRIPTION": "将 1 张随机 终结 牌加入你的手牌中。",
+        "NAME": "了结！",
+        "UPGRADE_DESCRIPTION": "将 2 张随机 终结 牌加入你的手牌中。"
+    },
+    "blademaster:Flash": {
+        "DESCRIPTION": "终结 。 需要 12 [#FF4500]愤怒[] 。 NL 造成 !D! 点伤害。 给予 3 层 流血 。 NL 将一张本牌的复制品加入你的手牌中。 他增加 6 [#FF4500]愤怒[] 需求。 连锁 1。 NL 消耗 。",
+        "EXTENDED_DESCRIPTION": [
+            " [#FF4500]愤怒[] 。 NL 造成 !D! 点伤害。 给予 3 层 流血 。 NL NL 将一张本牌的复制品加入你的手牌中。 他增加 6 [#FF4500]愤怒[] 需求。 连锁 1。 NL 消耗 。",
+            " NL [#00FF2A]获得[] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [#4A8CFF]。[]",
+            "终结 。 需要 "
+        ],
+        "NAME": "刀光一闪"
+    },
+    "blademaster:FlockOfBlades": {
+        "DESCRIPTION": " 终结 。 需要 30 [#FF4500]愤怒[] 和 6 [#860037]连击[] 。 NL 生成 !M! 把 浩劫之刃 。",
+        "NAME": "无尽刀刃"
+    },
+    "blademaster:Flurry": {
+        "DESCRIPTION": "生成 1 把 浩劫之刃 。 抽 !M! 张牌。",
+        "NAME": "攻势"
+    },
+    "blademaster:Focus": {
+        "DESCRIPTION": "获得 1 点 集中 。",
+        "UPGRADE_DESCRIPTION": " 固有 。 NL 获得 1 点 集中 。",
+        "NAME": "专注"
+    },
+    "blademaster:Frontflip": {
+        "DESCRIPTION": "获得 !B! 点格挡。 NL 抽 !M! 张牌。 NL 连锁 1。",
+        "EXTENDED_DESCRIPTION": [
+            " NL [#00FF2A]获得[] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [#4A8CFF]。[]",
+            " NL [#00FF2A]获得[] [W] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [L] [#4A8CFF]。[]"
+        ],
+        "UPGRADE_DESCRIPTION": "获得 !B! 点格挡。 NL 抽 !M! 张牌。 NL 连锁 2。",
+        "NAME": "前空翻"
+    },
+    "blademaster:Gale": {
+        "DESCRIPTION": "造成 !M! 点伤害。 NL 对所有敌人造成 !D! 点伤害。 NL 将一张 和风 加入你的手牌中。 连锁 1。 NL 消耗 。 NL 虚无 。",
+        "EXTENDED_DESCRIPTION": [
+            " NL [#00FF2A]获得[] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [#4A8CFF]。[]"
+        ],
+        "NAME": "大风"
+    },
+    "blademaster:Gust": {
+        "DESCRIPTION": "固有 。 NL 获得 !B! 点 格挡 。将你的 态势 切换为 [#00FF2A]疾风态势[] 。 NL 消耗 。",
+        "NAME": "狂风"
+    },
+    "blademaster:Hailwind": {
+        "DESCRIPTION": "消耗所有的 [W] ，每消耗一个 [W] 造成 !D! 点伤害。",
+        "NAME": "冰雹风"
+    },
+    "blademaster:HighVoltage": {
+        "DESCRIPTION": "终结 。 需要 3 [#860037]连击[] 。 NL 获得 !B! 点 格挡 。",
+        "NAME": "电压屏障"
+    },
+    "blademaster:IcyWind": {
+        "DESCRIPTION": "对所有造成 [W] 点伤害并给予 !M! 层 流血 。（造成 !W! 点伤害。）",
+        "NAME": "血色风暴"
+    },
+    "blademaster:Inferno": {
+        "DESCRIPTION": "每当你抽到一张灼伤是，受到 !M! 点伤害，对所有敌人造成三倍等量伤害，将它丢弃。",
+        "NAME": "地狱火"
+    },
+    "blademaster:Insult": {
+        "DESCRIPTION": "通过嘲讽某些事物使你精神稳定。 NL 消耗 。 NL 虚无 。",
+        "NAME": "嘲讽",
+        "UPGRADE_DESCRIPTION": "并没有什么卯月。 NL 尽管是个不错的尝试。 NL 消耗 。 NL 虚无 。"
+    },
+    "blademaster:IntellectualSupremacy": {
+        "DESCRIPTION": "将 !M! 张嘲讽加入你的手牌。 NL 消耗 。",
+        "NAME": "知识至上"
+    },
+    "blademaster:Lacerate": {
+        "DESCRIPTION": "造成 !D! 点伤害。 NL 连锁 1 。 NL 消耗 。",
+        "EXTENDED_DESCRIPTION": [
+            " NL [#00FF2A]获得[] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [#4A8CFF]。[]"
+        ],
+        "NAME": "割裂"
+    },
+    "blademaster:LeechingStrike": {
+        "DESCRIPTION": "造成 !D! 点伤害。 NL 血染 ： 额外造成 !M! 点伤害并回复 !M! 生命。",
+        "EXTENDED_DESCRIPTION": [
+            " NL [#00FF2A]给予[] 1 [#00FF2A]层虚弱。[]",
+            " NL [#4A8CFF]给予[] 1 [#4A8CFF]层易伤。[]"
+        ],
+        "NAME": "吸血打击"
+    },
+    "blademaster:LightningCrash": {
+        "DESCRIPTION": "造成 !D! 点伤害。 NL 将你的 态势 切换为 [#4A8CFF]雷霆态势[] 。",
+        "NAME": "雷霆撞击"
+    },
+    "blademaster:LightningDash": {
+        "DESCRIPTION": "获得 !B! 点 格挡 。 NL 将你的 态势 切换为 [#4A8CFF]雷霆态势[] 。",
+        "NAME": "雷霆冲刺"
+    },
+    "blademaster:LightningDraw": {
+        "DESCRIPTION": "终结 。 需要 20 [#FF4500]愤怒[] 。 NL 对所有敌人造成 !D! 点伤害并给予 !M! 层 流血 。 NL 将你的 态势 切换为 [#4A8CFF]雷霆态势[] 。",
+        "NAME": "雷霆拔刀"
+    },
+    "blademaster:Meditate": {
+        "DESCRIPTION": "每当你生成一把 飞刀 ，回复 !M! 生命。",
+        "NAME": "冥想"
+    },
+    "blademaster:Meltdown": {
+        "DESCRIPTION": "在你的回合开始时， 如果你的抽牌堆中有一张 灼伤 ，消耗 并对所有敌人造成 !M! 点伤害。",
+        "NAME": "融解"
+    },
+    "blademaster:Momentum": {
+        "DESCRIPTION": "每当你切换 态势 时， 对所有敌人造成 !M! 点伤害。",
+        "NAME": "势头"
+    },
+    "blademaster:NotBarrage": {
+        "DESCRIPTION": "你每有一把 飞刀 ，造成 !D! 点伤害。",
+        "NAME": "不是弹幕"
+    },
+    "blademaster:NotFission": {
+        "DESCRIPTION": "移除所有 飞刀 。 每移除一把 飞刀 ，获得 [E] 并抽 1 张牌。 NL 消耗 。",
+        "NAME": "不是裂变",
+        "UPGRADE_DESCRIPTION": "激发 所有 飞刀 。每 激发 一把 飞刀 ，获得 [E] 并抽 1 张牌。 NL 消耗 。"
+    },
+    "blademaster:Overcharge": {
+        "DESCRIPTION": "在你的回合结束时，对随机敌人造成等于你 充能 点数的伤害。",
+        "NAME": "过度充能",
+        "UPGRADE_DESCRIPTION": "固有 。 NL在你的回合结束时，对随机敌人造成等于你 充能 点数的伤害。"
+    },
+    "blademaster:Parry": {
+        "DESCRIPTION": "生成 1 把 招架之刃 。",
+        "NAME": "招架"
+    },
+    "blademaster:ParryingStrike": {
+        "DESCRIPTION": "造成 !D! 点伤害。 生成 1 把 招架之刃 。 NL 连锁 1。 NL 消耗 。",
+        "EXTENDED_DESCRIPTION": [
+            " NL [#00FF2A]获得[] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [#4A8CFF]。[]",
+            " NL [#00FF2A]获得[] [W] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [L] [#4A8CFF]。[]"
+        ],
+        "NAME": "招架打击"
+    },
+    "blademaster:Quickness": {
+        "DESCRIPTION": "每当你切换 态势 时，抽 1 张牌。",
+        "NAME": "机敏",
+        "UPGRADE_DESCRIPTION": "固有 。 NL 每当你切换 态势 时，抽 1 张牌。"
+    },
+    "blademaster:RagingBlow": {
+        "DESCRIPTION": "终结 。 需要 10 [#FF4500]愤怒[] 。 NL 造成 !D! 点伤害。 NL 血染 ： 造成双倍伤害。",
+        "EXTENDED_DESCRIPTION": [
+            " NL [#00FF2A]对所有敌人 造成[] [W]  点 [#00FF2A]伤害[] 。[] [#00FF2A](造成[] !W! 点 [#00FF2A]伤害。)[]",
+            " NL [#4A8CFF]造成[] 2 [L]  [#4A8CFF]额外伤害。[] [#4A8CFF](造成[] !L2! [#4A8CFF]额外伤害。)[]"
+        ],
+        "NAME": "狂怒一击"
+    },
+    "blademaster:Recklessness": {
+        "DESCRIPTION": "在你的回合开始时，获得 1 层 易伤 并生成 1 把 浩劫之刃 。",
+        "NAME": "鲁莽"
+    },
+    "blademaster:Retreat": {
+        "DESCRIPTION": "获得 !B! 点 格挡 。 NL 将你的 态势 切换为 基础态势 。",
+        "NAME": "撤退"
+    },
+    "blademaster:RollingTyphoon": {
+        "DESCRIPTION": "终结 。 需要 30 [#FF4500]愤怒[]。 NL 造成 !M! 点伤害。 对所有敌人造成 !D! 点伤害。",
+        "EXTENDED_DESCRIPTION": [
+            " NL [#00FF2A]给予[] [W]  !W! 层 流血 [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L]  / 2 层 残影 。 [#4A8CFF]（获得[] !LD2! 层 残影 [#4A8CFF]。)[]"
+        ],
+        "NAME": "滚滚台风"
+    },
+    "blademaster:Safeguard": {
+        "DESCRIPTION": "获得 !B! 点 格挡 。 NL 生成 1 把 浩劫之刃 。 NL 连锁 !M! 。",
+        "EXTENDED_DESCRIPTION": [
+            " NL [#00FF2A]获得[] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [#4A8CFF]。[]",
+            " NL [#00FF2A]获得[] [W] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [L] [#4A8CFF]。[]"
+        ],
+        "NAME": "保障"
+    },
+    "blademaster:SharpBlades": {
+        "DESCRIPTION": "你的 浩劫之刃 击中敌人同时给予 1 层 流血 。",
+        "NAME": "利剑"
+    },
+    "blademaster:SlyStabs": {
+        "DESCRIPTION": "你每有一种充能，将一张 割裂 加入你的手牌。",
+        "UPGRADE_DESCRIPTION": "你每有一种充能，将一张 割裂 加入你的手牌。 NL 将一张 割裂 加入你的手牌。",
+        "NAME": "灵动刺杀"
+    },
+    "blademaster:StanceMastery": {
+        "DESCRIPTION": "每当你获得一点 充能 时, 获得额外一点 充能 。",
+        "NAME": "态势精通"
+    },
+    "blademaster:Stormstrike": {
+        "DESCRIPTION": "造成 !D! 点伤害。 NL 消耗所有 [L] 并造成 2x [L] 点额外伤害 。 NL （造成 !L2! 点额外伤害 。）",
+        "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 消耗所有 [L]  并造成 3x [L] 点额外伤害 。 NL （造成 !L3! 点额外伤害 。）",
+        "NAME": "风暴打击"
+    },
+    "blademaster:Strike": {
+        "DESCRIPTION": "造成 !D! 点伤害。 NL 连锁 !M! 。",
+        "EXTENDED_DESCRIPTION": [
+            " NL [#00FF2A]获得[] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [#4A8CFF]。[]",
+            " NL [#00FF2A]获得[] [W] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [L] [#4A8CFF]。[]"
+        ],
+        "NAME": "打击"
+    },
+    "blademaster:Sunder": {
+        "DESCRIPTION": "造成 !D! 点伤害。 NL 直到回合结束前获得 1 点 集中 。 NL 连锁 !M! 。",
+        "EXTENDED_DESCRIPTION": [
+            " NL [#00FF2A]获得[] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [#4A8CFF]。[]",
+            " NL [#00FF2A]获得[] [W] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [L] [#4A8CFF]。[]"
+        ],
+        "NAME": "破甲"
+    },
+    "blademaster:Surge": {
+        "DESCRIPTION": "只能在拥有 态势 时打出。 NL 最多消耗 3 充能 并获得同等层的 人工制品 。",
+        "NAME": "浪涌"
+    },
+    "blademaster:Thrust": {
+        "DESCRIPTION": "造成 !D! 点伤害。",
+        "EXTENDED_DESCRIPTION": [
+            " NL [#00FF2A]造成[] [W] 点 [#00FF2A]额外伤害[] [#00FF2A]。[] NL [#00FF2A](造成[] !W! [#00FF2A]额外伤害[] [#00FF2A]。)[]",
+            " NL [#4A8CFF]造成[] [L] 点 [#4A8CFF]额外伤害[] [#4A8CFF]。[] NL [#4A8CFF](造成[] !L! [#4A8CFF]额外伤害[] [#4A8CFF]。)[]"
+        ],
+        "NAME": "冲锋"
+    },
+    "blademaster:ThunderingOpener": {
+        "DESCRIPTION": "固有 。 NL 造成 !D! 点伤害。将你的 态势 切换为 [#4A8CFF]雷霆态势[] 。 NL 消耗 。",
+        "NAME": "雷鸣开启者"
+    },
+    "blademaster:Vortex": {
+        "DESCRIPTION": "给予所有敌人 !M! 层 流血 。",
+        "EXTENDED_DESCRIPTION": [
+            " NL [#00FF2A]给予[] 1 层 虚弱 [#00FF2A]。[]",
+            " NL [#4A8CFF]给予[] 1 层 易伤 [#4A8CFF]。[]"
+        ],
+        "NAME": "涡流"
+    },
+    "blademaster:EnchantedCuirass": {
+        "DESCRIPTION": "终结 。 需要 5 [#860037]连击[] 。 NL 获得 !M! 层 金属化 。",
+        "EXTENDED_DESCRIPTION": [
+            " NL [#00FF2A]回复[] [W]  [#00FF2A]生命。[] NL [#00FF2A]（回复[] !W! [#00FF2A]生命。）[]",
+            " NL [#4A8CFF]获得[] [L] / 3 人工制品。 NL [#4A8CFF](Gains[] !LD3! 层 人工制品 [#4A8CFF]。）[]"
+        ],
+        "NAME": "魔法胸甲"
+    },
+    "blademaster:WindSlash": {
+        "DESCRIPTION": "造成 !M! 点伤害。 NL 对所有敌人造成 !D! 点伤害。 NL 将你的 态势 切换为 [#00FF2A]疾风态势[] 。",
+        "NAME": "疾风斩"
+    },
+    "blademaster:Windstorm": {
+        "DESCRIPTION": "只能在 [#00FF2A]疾风态势[] 下打出。 NL 在你的回合开始时，将 2 张 疾风 割裂 加入到你的手牌。",
+        "NAME": "风暴"
+    },
+    "blademaster:Zephyr": {
+        "DESCRIPTION": "造成 !M! 点伤害。 NL 对所有敌人造成 !D! 点伤害。 连锁 1。 NL 消耗 。 虚无 。",
+        "EXTENDED_DESCRIPTION": [
+            " NL [#00FF2A]获得[] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [#4A8CFF]。[]"
+        ],
+        "NAME": "和风"
+    },
+    "blademaster:OneTrickPony": {
+        "DESCRIPTION": "你不能再切换 态势 。每当你尝试切换 态势 时，抽 1 张牌。",
+        "UPGRADE_DESCRIPTION": "保留 。 NL 你不能再切换 态势 。每当你尝试切换 态势 时，抽 1 张牌。",
+        "NAME": "一招鲜"
+    },
+    "blademaster:Slice": {
+        "DESCRIPTION": "造成 !D! 点伤害。 NL 抽 1 张牌。 NL 连锁 1。",
+        "EXTENDED_DESCRIPTION": [
+            " NL [#00FF2A]获得[] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [#4A8CFF]。[]",
+            " NL [#00FF2A]获得[] [W] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [L] [#4A8CFF]。[]"
+        ],
+        "NAME": "切削"
+    },
+    "blademaster:Discharge": {
+        "DESCRIPTION": "获得 !B! 点 格挡 。",
+        "EXTENDED_DESCRIPTION": [
+            " NL [#00FF2A]给予[] !M! 层 虚弱 [#00FF2A]并[] [#00FF2A]对随机一名敌人造成[] [W] 点 [#00FF2A]伤害[] 。[] NL [#00FF2A](造成[] !W! 点 [#00FF2A]伤害。)[]",
+            " NL [#4A8CFF]给予[] !M! 层 易伤 [#4A8CFF]并[] [#4A8CFF]对随机一名敌人造成[] [L] 点 [#4A8CFF]伤害[] 。[] NL [#4A8CFF](造成[] !L! 点 [#4A8CFF]伤害。)[]"
+        ],
+        "NAME": "发射"
+    },
+    "blademaster:Havoc": {
+        "DESCRIPTION": "生成 1 把 浩劫之刃 。 NL 消耗 。",
+        "UPGRADE_DESCRIPTION": " 固有 。 NL 生成 1 把 浩劫之刃 。 NL 消耗 。",
+        "NAME": "浩劫"
+    },
+    "blademaster:Stability": {
+        "DESCRIPTION": "获得 !M! 层 人工制品 。",
+        "NAME": "稳定"
+    },
+    "blademaster:NotDualcast": {
+        "DESCRIPTION": " 激发 你最右侧的 飞刀 2 次。",
+        "NAME": "不是双重"
+    },
+    "blademaster:ColdBlood": {
+        "DESCRIPTION": "终结 。 需要 6 [#860037]连击[] 。 NL 获得 !M! 点 敏捷 。 NL 获得 !M! 点 力量 。",
+        "NAME": "冷血"
+    },
+    "blademaster:CombatPrep": {
+        "DESCRIPTION": "下个回合, 获得 [E] 并多抽 !M! 张牌。 NL 如果你有 态势 ， 获得 2 充能 。",
+        "UPGRADE_DESCRIPTION": "下个回合, 获得 [E] [E] 并多抽 !M! 张牌。 NL 如果你有 态势 ， 获得 2 充能 。",
+        "NAME": "作战计划"
+    },
+    "blademaster:ThreePointStrike": {
+        "DESCRIPTION": "终结 。 需要 4 [#860037]连击[] 。 NL 造成 !D! 点伤害三次。 获得 !B! 点 格挡 。 抽 !M! 张牌。",
+        "UPGRADE_DESCRIPTION": "终结 。 需要 4 [#860037]连击[] 。 NL 造成 !D! 点伤害三次。 获得 !B! 点 格挡 。 抽 !M! 张牌。",
+        "NAME": "三连打击"
+    },
+    "blademaster:Sharpen": {
+        "DESCRIPTION": "获得 !B! 点 格挡 。 NL 在本场战斗中随机 升级 手牌中的 1 张牌。",
+        "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。 NL 在本场战斗中随机 升级 手牌中的 !M! 张牌。",
+        "NAME": "磨砺"
+    },
+    "blademaster:WrongfulFootwork": {
+        "DESCRIPTION": " 不能被打出 。 NL 当你切换到已经拥有的 态势 时将它增加到抽牌堆。 NL 虚无 。",
+        "NAME": "步法紊乱"
+    },
+    "blademaster:TraverseCut": {
+        "DESCRIPTION": "造成 !D! 点伤害两次。",
+        "EXTENDED_DESCRIPTION": [
+            " NL [#00FF2A]给予[] !M! 层 虚弱 [#00FF2A]。[]",
+            " NL [#4A8CFF]给予[] !M! 层 易伤 [#4A8CFF]。[]"
+        ],
+        "NAME": "横切"
+    },
+    "blademaster:Reversal": {
+         "DESCRIPTION": "只有拥有 态势 时才能打出。 NL [#00FF2A]疾风[] : 随机对敌人造成 !D! 点伤害。 将你的 态势 切换为 [#4A8CFF]雷霆态势[] 。 NL [#4A8CFF]雷霆[] : 获得 !B! 点 格挡 。 将你的 态势 切换为 [#00FF2A]疾风态势[] 。",
+        "EXTENDED_DESCRIPTION": [
+            " [#00FF2A]对随机一名敌人造成[] !D! 点 [#00FF2A]点伤害[] 。 NL [#00FF2A]将你的[] [#00FF2A]态势[] [#00FF2A]切换为[] [#4A8CFF]雷霆态势[] [#00FF2A]。[]",
+            " [#4A8CFF]获得[] !B! [#4A8CFF]格挡 。[] NL [#4A8CFF]将你的[] [#4A8CFF]态势[] [#4A8CFF]切换为[] [#00FF2A]疾风态势[] [#4A8CFF]。[]"
+        ],
+        "NAME": "反转"
+    },
+    "blademaster:Rupture": {
+        "DESCRIPTION": "将敌人的 流血 层数翻倍。 NL 消耗 。",
+        "NAME": "破裂",
+        "UPGRADE_DESCRIPTION": " 保留 。 NL 将敌人的 流血 层数翻倍。 NL 消耗 。"
+    },
+    "blademaster:EyeOfTheTornado": {
+        "DESCRIPTION": "每当你受到攻击时， 降低 1 点伤害并获得 [W] 。",
+        "NAME": "飓风之眼"
+    },
+    "blademaster:DeadlyDance": {
+        "DESCRIPTION": "给予所有敌人 !M! 层 流血 。 NL 获得 !B! 点 格挡 。",
+        "NAME": "致命舞蹈"
+    },
+    "blademaster:KiBarrier": {
+        "DESCRIPTION": "获得 [W]  + [L]  点 格挡 。 (获得 !WPL! 格挡 。)",
+        "NAME": "气屏障",
+        "UPGRADE_DESCRIPTION": " 保留 。 NL [#00FF2A]获得[] [W]   + [L]  点 格挡 。 (获得 !WPL! 点 格挡 。)"
+    },
+    "blademaster:Bloodbath": {
+        "DESCRIPTION": "每当打出技能牌时，给予所有敌人 !M! 层 流血 。",
+        "NAME": "血池"
+    },
+    "blademaster:UnrelentingWind": {
+        "DESCRIPTION": " 终结 。 需要 5 [#860037]连击[] 。 NL 将你的 态势 切换为 [#00FF2A]疾风态势[] 。 每有一个敌人获得 !B! 点 格挡 和 [W] [W] [W]  。给予所有敌人 !M! 层 流血 。",
+        "NAME": "冷酷疾风"
+    },
+    "blademaster:DaggerAndCloak": {
+        "DESCRIPTION": "获得 !B! 点 格挡 。 NL 将 1 张 割裂 到你的手牌。",
+        "EXTENDED_DESCRIPTION": [
+            " NL [#00FF2A]获得[] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [#4A8CFF]。[]",
+            " NL [#00FF2A]获得[] [W] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [L] [#4A8CFF]。[]"
+        ],
+        "NAME": "匕首和斗篷",
+        "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。 NL 将 !M! 张 割裂 到你的手牌。 NL 连锁 1。"
+    },
+    "blademaster:FuriousStrike": {
+        "DESCRIPTION": "造成 !D! 点伤害。 NL 获得 !M! 点 [#FF4500]愤怒[] 。 NL 连锁 1。",
+        "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 获得 !M! 点 [#FF4500]愤怒[] 。 NL 连锁 2。",
+        "EXTENDED_DESCRIPTION": [
+            " NL [#00FF2A]获得[] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [#4A8CFF]。[]",
+            " NL [#00FF2A]获得[] [W] [W] [#00FF2A]。[]",
+            " NL [#4A8CFF]获得[] [L] [L] [#4A8CFF]。[]"
+        ],
+        "NAME": "狂怒打击"
+    },
+    "blademaster:ThunderSlash": {
+        "DESCRIPTION": "造成 !D! 点伤害。 NL 如果你处于 [#4A8CFF]雷霆[] [#4A8CFF]态势[] ，再造成 !D! 点伤害。",
+        "NAME": "雷霆斩"
+    },
+    "blademaster:AirSlash": {
+        "DESCRIPTION": "造成 !D! 点伤害。 NL 如果你处于 [#00FF2A]疾风[] [#00FF2A]态势[] ，再造成 !D! 点伤害。",
+        "NAME": "空气斩"
+    },
+    "blademaster:BladeCross": {
+        "DESCRIPTION": "造成 !D! 点伤害。 激发 你的第一把 飞刀 以再造成 !D! 点伤害。",
+        "NAME": "十字刀刃"
+    },
+    "blademaster:CullingStrike": {
+        "DESCRIPTION": "Deal !D! damage. NL If the target has less than 20% HP remaining, kill it. NL Conduit 1.",
+        "UPGRADE_DESCRIPTION":  "Deal !D! damage. NL If the target has less than 25% HP remaining, kill it. NL Conduit 1.",
+        "NAME": "Culling Strike"
+    }
+}

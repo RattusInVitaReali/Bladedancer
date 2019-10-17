@@ -20,10 +20,10 @@ public class Safeguard extends AbstractStanceCard {
 
 
     public static final String ID = Blademaster.makeID("Safeguard");
-    public static final String IMG = Blademaster.makePath(Blademaster.DEFAULT_SKILL);
-    public static final String WIMG = Blademaster.makePath(Blademaster.WIND_SKILL);
-    public static final String LIMG = Blademaster.makePath(Blademaster.LIGHTNING_SKILL);
-    public static final CardColor COLOR = AbstractCardEnum.DEFAULT_GRAY;
+    public static final String IMG = Blademaster.makePath("cards/Safeguard.png");
+    public static final String WIMG = Blademaster.makePath("cards/WindSafeguard.png");
+    public static final String LIMG = Blademaster.makePath("cards/LightningSafeguard.png");
+    public static final CardColor COLOR = AbstractCardEnum.BLADEMASTER_GRAY;
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
@@ -32,7 +32,6 @@ public class Safeguard extends AbstractStanceCard {
     private static final CardType TYPE = CardType.SKILL;
     private static final int COST = 1;
     private static final int BLOCK = 5;
-    private static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
     private boolean WindArt = false;
     private boolean LightningArt = false;
     private boolean BaseArt = false;

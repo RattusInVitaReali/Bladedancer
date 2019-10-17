@@ -1,0 +1,128 @@
+{
+    "blademaster:DancersAmulet": {
+        "NAME": "舞者护符",
+        "FLAVOR": "我猜这是个很和谐的特殊护身符。",
+        "DESCRIPTIONS": [
+            "每当你在一回合内打出 #y3 张牌时，抽 #y1 张牌。"
+        ]
+    },
+    "blademaster:BonusComboPerk": {
+        "NAME": "技能：参战",
+        "FLAVOR": "",
+        "DESCRIPTIONS": [
+            "每场战斗开始时，获得 #b3 点 #y连击 。"
+        ]
+    },
+    "blademaster:BonusFuryPerk": {
+        "NAME": "技能：狂怒",
+        "FLAVOR": "",
+        "DESCRIPTIONS": [
+            "每场战斗开始时，获得 #b15 点 #y愤怒 。"
+        ]
+    },
+    "blademaster:DextrousPerk": {
+        "NAME": "技能：灵巧",
+        "FLAVOR": "",
+        "DESCRIPTIONS": [
+            "每场战斗开始时，获得 #b1 点 #y敏捷 。"
+        ]
+    },
+    "blademaster:FocusedPerk": {
+        "NAME": "技能：专注",
+        "FLAVOR": "",
+        "DESCRIPTIONS": [
+            "每场战斗开始时，获得 #b1 点 #y集中 。"
+        ]
+    },
+    "blademaster:RandomBladePerk": {
+        "NAME": "技能：刀刃",
+        "FLAVOR": "",
+        "DESCRIPTIONS": [
+            "每场战斗开始时，生成 #b1 把随机 #y飞刀 。"
+        ]
+    },
+    "blademaster:RandomDefensiveStancePerk": {
+        "NAME": "技能：防御态势精通",
+        "FLAVOR": "",
+        "DESCRIPTIONS": [
+            "每场战斗开始时，将你的 #y防御态势 切换为随机 #y态势 。"
+        ]
+    },
+    "blademaster:RandomStancePerk": {
+        "NAME": "技能：进攻态势精通",
+        "FLAVOR": "",
+        "DESCRIPTIONS": [
+            "每场战斗开始时，将你的 #y态势 切换为随机 #y态势 。"
+        ]
+    },
+    "blademaster:StrongPerk": {
+        "NAME": "技能：强壮",
+        "FLAVOR": "",
+        "DESCRIPTIONS": [
+            "每场战斗开始时，获得 #b1 点 #y力量 。"
+        ]
+    },
+    "blademaster:FinisherDrawCardPerk": {
+        "NAME": "技能：终结精通",
+        "FLAVOR": "",
+        "DESCRIPTIONS": [
+            "每当你打出 #r终结牌 时， 抽 1 张牌。"
+        ]
+    },
+    "blademaster:StanceHealPerk": {
+        "NAME": "技能：健壮态势",
+        "FLAVOR": "",
+        "DESCRIPTIONS": [
+            "在战斗结束时，如果你处于任意 #y态势 中，则恢复 #b6 生命。"
+        ]
+    },
+    "blademaster:ComboEveryTurnPerk": {
+        "NAME": "技能：活跃",
+        "FLAVOR": "",
+        "DESCRIPTIONS": [
+            "你的回合开始时，获得 #b1 点 #y连击 。"
+        ]
+    },
+    "blademaster:FuryEveryTurnPerk": {
+        "NAME": "技能：无尽怒气",
+        "FLAVOR": "",
+        "DESCRIPTIONS": [
+            "你的回合开始时，获得 #b5 点 #y愤怒 。"
+        ]
+    },
+    "blademaster:OnAttackedChargePerk": {
+        "NAME": "技能：高阶充能",
+        "FLAVOR": "",
+        "DESCRIPTIONS": [
+            "当你受到攻击时，如果你处于某个 #y态势 中，则获得 #b1 点 #y充能 。"
+        ]
+    },
+    "blademaster:BleedingLaceratePerk": {
+        "NAME": "技能：暴击",
+        "FLAVOR": "",
+        "DESCRIPTIONS": [
+            "你的 #r割裂 给予 #b2 层 #y流血 。"
+        ]
+    },
+    "blademaster:WindChargePerk": {
+        "NAME": "技能：疾风态势精通",
+        "FLAVOR": "",
+        "DESCRIPTIONS": [
+            "你的回合开始时，如果你处于 #g疾风态势 中，如果你没有 #g疾风充能 ，则获得 3 点 #g疾风充能 ；否则，获得 1 点 #g疾风充能 。"
+        ]
+    },
+    "blademaster:LightningChargePerk": {
+        "NAME": "技能：雷霆态势精通",
+        "FLAVOR": "",
+        "DESCRIPTIONS": [
+            "你的回合开始时，如果你处于 #b雷霆态势 中，如果你没有 #b雷霆充能 ，则获得 3 点 #b雷霆充能 ；否则，获得 1 点 #b雷霆充能 。"
+        ]
+    },
+    "blademaster:BleedingMoreDamagePerk": {
+        "NAME": "技能：纵深切口",
+        "FLAVOR": "",
+        "DESCRIPTIONS": [
+            "#y流血 的敌人受到额外的 #b30% 伤害而不是 #b20% 。"
+        ]
+    }
+}
